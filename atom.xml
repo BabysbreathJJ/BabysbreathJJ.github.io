@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lijingjing.top/"/>
-  <updated>2016-02-23T15:06:32.000Z</updated>
+  <updated>2016-02-23T15:09:45.000Z</updated>
   <id>http://lijingjing.top/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://lijingjing.top/2016/02/24/position%E4%B8%8Eoverflow/"/>
     <id>http://lijingjing.top/2016/02/24/position与overflow/</id>
     <published>2016-02-23T22:42:47.000Z</published>
-    <updated>2016-02-23T15:06:32.000Z</updated>
+    <updated>2016-02-23T15:09:45.000Z</updated>
     
     <content type="html">&lt;h1 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h1&gt;&lt;p&gt;在做最美食项目的时候，预定系统的首页利用了&lt;a href=&quot;https://github.com/mattbryson/TouchSwipe-Jquery-Plugin&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;TouchSwipe&lt;/a&gt;，由于这部分主要是一个学弟写的，对其中的代码不是很熟悉，在修改向右移动左边距出现的bug时，对其进行了了解。然后就不知道怎么点击到&lt;a href=&quot;https://jsfiddle.net/4gk27ru1/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;移动端滑动删除&lt;/a&gt;实现的地方去了，运行完demo对其实现比较好奇，抛开使用的JS来说，单纯的CSS部分我已经看不懂了/(ㄒoㄒ)/~~&lt;/p&gt;
 &lt;h1 id=&quot;原因&quot;&gt;&lt;a href=&quot;#原因&quot; class=&quot;headerlink&quot; title=&quot;原因&quot;&gt;&lt;/a&gt;原因&lt;/h1&gt;&lt;p&gt;最后发现自己对CSS中的position属性还是理解不到位，在网上找到了&lt;a href=&quot;http://zh.learnlayout.com/position.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;学习CSS布局&lt;/a&gt;一文，巩固了基础知识后，自己了创建了一个&lt;a href=&quot;&quot;&gt;demo&lt;/a&gt;来验证自己的猜测。&lt;/p&gt;
