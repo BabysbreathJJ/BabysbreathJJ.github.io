@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lijingjing.top/"/>
-  <updated>2016-04-13T05:01:59.000Z</updated>
+  <updated>2016-04-13T05:08:43.000Z</updated>
   <id>http://lijingjing.top/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="http://lijingjing.top/2016/04/13/hexo%E5%8F%91%E5%B8%83%E6%96%87%E7%AB%A0/"/>
     <id>http://lijingjing.top/2016/04/13/hexo发布文章/</id>
     <published>2016-04-12T22:28:49.000Z</published>
-    <updated>2016-04-13T05:01:59.000Z</updated>
+    <updated>2016-04-13T05:08:43.000Z</updated>
     
-    <content type="html">&lt;h1 id=&quot;Hexo发布Blog&quot;&gt;&lt;a href=&quot;#Hexo发布Blog&quot; class=&quot;headerlink&quot; title=&quot;Hexo发布Blog&quot;&gt;&lt;/a&gt;Hexo发布Blog&lt;/h1&gt;&lt;p&gt; 哎呀呀，真是服了自己了。没事学学技术，写写文章多好。三月份过得真是不怎么酷。然后发现四月份也过了一半了，我现在有点儿慌，人生不能这么颓废下去，我还是适合去找一个好工作养活自己。&lt;br&gt; 废话了这么多，其实这篇文章，是为了让自己重拾Hexo写的，因为当时的速成，让我忘记了如何利用Hexo来写文章了。&lt;br&gt; 天啊，我又要去搜Markdown语法了，换行怎么搞什么的。。。醉醉的。果然，学习的步伐永远不能停止。&lt;br&gt; 原来Markdown的换行只需要在最后的句子后面打两个空格就好了，首行缩进需要&lt;code&gt;&amp;amp;emsp;&lt;/code&gt;来显示地进行换行操作，有其他更好的方法嘛 = =&lt;br&gt; 先复习到这里吧，接下来看看如何把这篇文章发布出去。对了，cd到blog的根目录下，执行&lt;code&gt;hexo n 文章标题名&lt;/code&gt;,就可以在source文件夹下的_posts文件夹下，看到生成的.md文章。&lt;/p&gt;
+    <content type="html">&lt;h1 id=&quot;Hexo发布Blog&quot;&gt;&lt;a href=&quot;#Hexo发布Blog&quot; class=&quot;headerlink&quot; title=&quot;Hexo发布Blog&quot;&gt;&lt;/a&gt;Hexo发布Blog&lt;/h1&gt;&lt;p&gt; 哎呀呀，真是服了自己了。没事学学技术，写写文章多好。三月份过得真是不怎么酷。然后发现四月份也过了一半了，我现在有点儿慌，人生不能这么颓废下去，我还是适合去找一个好工作养活自己。&lt;br&gt; 废话了这么多，其实这篇文章，是为了让自己重拾Hexo写的，因为当时的速成，让我忘记了如何利用Hexo来写文章了。&lt;br&gt; 天啊，我又要去搜Markdown语法了，换行怎么搞什么的。。。醉醉的。果然，学习的步伐永远不能停止。&lt;br&gt; 原来Markdown的换行只需要在最后的句子后面打两个空格就好了，首行缩进需要&lt;code&gt;&amp;amp;emsp;&lt;/code&gt;来显示地进行换行操作，有其他更好的方法嘛/(ㄒoㄒ)/~~&lt;br&gt; 先复习到这里吧，接下来看看如何把这篇文章发布出去。对了，cd到blog的根目录下，执行&lt;code&gt;hexo n 文章标题名&lt;/code&gt;,就可以在source文件夹下的_posts文件夹下，看到生成的.md文章。之后&lt;code&gt;hexo g&lt;/code&gt;就可以生成相应的Html文件，最后&lt;code&gt;hexo d&lt;/code&gt;就可以部署到github上了~&lt;br&gt; 我回来再看这篇文章发现，&lt;code&gt;&amp;amp;emsp;&lt;/code&gt;没有了，换行变成了&lt;code&gt;&amp;lt;br&amp;gt;&lt;/code&gt;，什么鬼。但是我自己写&lt;code&gt;&amp;lt;br&amp;gt;&lt;/code&gt;后面跟一个空格，还是没有首行缩进的效果，so sad,我真的不是很懂Markdown。&lt;/p&gt;
 </content>
     
     <summary type="html">
