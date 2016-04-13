@@ -142,7 +142,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/H5/" style="font-size: 10px;">H5</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/overflow/" style="font-size: 10px;">overflow</a> <a href="/tags/position/" style="font-size: 10px;">position</a> <a href="/tags/拍照上传/" style="font-size: 10px;">拍照上传</a>
+                        <a href="/tags/H5/" style="font-size: 10px;">H5</a> <a href="/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/tags/overflow/" style="font-size: 10px;">overflow</a> <a href="/tags/position/" style="font-size: 10px;">position</a> <a href="/tags/拍照上传/" style="font-size: 10px;">拍照上传</a>
                     </div>
                 </section>
                 
@@ -219,6 +219,71 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-hexo发布文章" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/13/hexo发布文章/" class="article-date">
+      <time datetime="2016-04-12T22:28:49.000Z" itemprop="datePublished">2016-04-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/13/hexo发布文章/">hexo发布文章</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              hexo发布文章步骤。
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Hexo/">Hexo</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/04/13/hexo发布文章/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
   
     <article id="post-手机利用H5拍照上传图片" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -316,9 +381,11 @@
 <h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>最后发现自己对CSS中的position属性还是理解不到位，在网上找到了<a href="http://zh.learnlayout.com/position.html" target="_blank" rel="external">学习CSS布局</a>一文，巩固了基础知识后，自己了创建了一个<a href="">demo</a>来验证自己的猜测。</p>
 <p>#demo 代码</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"div1"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"div2"</span>&gt;</span>div2 green<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"div3"</span> <span class="attribute">id</span>=<span class="value">"div3"</span> &gt;</span>div3 yellow<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css"></span><br><span class="line">    <span class="class">.div1</span><span class="rules">&#123;</span><br><span class="line">        <span class="rule"><span class="attribute">position</span>:<span class="value"> relative</span></span>;</span><br><span class="line">        <span class="rule"><span class="attribute">background-color</span>:<span class="value"> red</span></span>;</span><br><span class="line">    &#125;</span></span><br><span class="line">    <span class="class">.div2</span><span class="rules">&#123;</span><br><span class="line">        <span class="rule"><span class="attribute">background-color</span>:<span class="value"> green</span></span>;</span><br><span class="line">        <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100%</span></span></span>;</span><br><span class="line">        <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100px</span></span></span>;</span><br><span class="line">        <span class="rule"><span class="attribute">position</span>:<span class="value"> absolute</span></span>;</span><br><span class="line">        <span class="rule"><span class="attribute">top</span>:<span class="value"><span class="number">0</span></span></span>;</span><br><span class="line">        <span class="rule"><span class="attribute">left</span>:<span class="value"> <span class="number">0</span></span></span>;</span><br><span class="line">    &#125;</span></span><br><span class="line">    <span class="class">.div3</span><span class="rules">&#123;</span><br><span class="line">        <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">30px</span></span></span>;</span><br><span class="line">        <span class="rule"><span class="attribute">background-color</span>:<span class="value"> yellow</span></span>;</span><br><span class="line">        <span class="rule"><span class="attribute">position</span>:<span class="value"> relative</span></span>;</span><br><span class="line">        <span class="rule"><span class="attribute">overflow</span>:<span class="value"> hidden</span></span>;</span><br><span class="line">    &#125;</span></span><br><span class="line"></span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"></span><br><span class="line"></span><br><span class="line">    <span class="built_in">window</span>.onload = test();</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">document</span>.getElementById(<span class="string">"div3"</span>).onclick = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">        <span class="comment">/* Act on the event */</span></span><br><span class="line">            <span class="built_in">document</span>.getElementById(<span class="string">"div3"</span>).setAttribute(<span class="string">'style'</span>, <span class="string">'transform: translateX(100px)'</span>);</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="float-与-overflow"><a href="#float-与-overflow" class="headerlink" title="float 与 overflow"></a>float 与 overflow</h1><p>CSS 中，任何元素都可以浮动。浮动元素会生成一个块级框，而不论它本身是何种元素。<br>两个元素如果有共同的父元素，其中一个元素设置float属性，那么后一个元素会浮上来，如果希望元素仍不在同一行，那么可以为后一个元素添加clear属性，清除对应的浮动； 如果两个元素有不同的父元素，为含有float属性的元素的父元素添加overflow:hidden可以达到同样的效果。</p>
+<h2 id="拥有相同父元素"><a href="#拥有相同父元素" class="headerlink" title="拥有相同父元素"></a>拥有相同父元素</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css"></span><br><span class="line"><span class="class">.div4</span><span class="rules">&#123;</span><br><span class="line">  <span class="rule"><span class="attribute">float</span>:<span class="value"> left</span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">border-width</span>:<span class="value"> <span class="number">3px</span></span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">border-style</span>:<span class="value"> solid</span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">border-color</span>:<span class="value"> green </span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">200px</span></span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100px</span></span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">1em</span></span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"><span class="class">.clear-fix</span><span class="rules">&#123;</span><br><span class="line">  <span class="rule"><span class="attribute">clear</span>:<span class="value"> left</span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"></span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">'div4'</span>&gt;</span>我是浮动到左边的div啊<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">'clear-fix'</span>&gt;</span>我只是想测试一下浮动<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="拥有不同父元素"><a href="#拥有不同父元素" class="headerlink" title="拥有不同父元素"></a>拥有不同父元素</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css"></span><br><span class="line"><span class="class">.div4</span><span class="rules">&#123;</span><br><span class="line">  <span class="rule"><span class="attribute">float</span>:<span class="value"> left</span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">border-width</span>:<span class="value"> <span class="number">3px</span></span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">border-style</span>:<span class="value"> solid</span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">border-color</span>:<span class="value"> green </span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">200px</span></span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100px</span></span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">1em</span></span></span>;</span><br><span class="line"></span><br><span class="line">&#125;</span></span><br><span class="line"><span class="class">.overflow-h</span><span class="rules">&#123;</span><br><span class="line">  <span class="rule"><span class="attribute">overflow</span>:<span class="value"> hidden</span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"></span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">'overflow-h'</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">'div4'</span>&gt;</span>我是浮动到左边的div啊<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span>&gt;</span>我只是想测试一下浮动<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ul>
 <li>如果一个父元素的position设置为relative，其中一个子元素的position属性为absolute,另一个子元素的position属性为relative，那么position为relative的子元素相对的是父元素，会覆盖position为absolute的子元素。</li>
-<li>滑动删除的实现还有很多点要学习，今天先到这里，明天继续。</li>
 </ul>
 
       
