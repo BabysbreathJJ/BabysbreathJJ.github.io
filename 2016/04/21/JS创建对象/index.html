@@ -13,7 +13,7 @@
 <meta property="og:description" content="JavaScrip创建对象的一些方法总结">
 <meta property="og:image" content="http://lijingjing.top/images/prototype.png">
 <meta property="og:image" content="http://lijingjing.top/images/rewrite_prototype.png">
-<meta property="og:updated_time" content="2016-05-17T02:49:02.000Z">
+<meta property="og:updated_time" content="2016-05-17T02:55:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS创建对象">
 <meta name="twitter:description" content="JavaScrip创建对象的一些方法总结">
@@ -321,15 +321,12 @@
 </ol>
 <h2 id="稳妥构造函数模式"><a href="#稳妥构造函数模式" class="headerlink" title="稳妥构造函数模式"></a>稳妥构造函数模式</h2><p> 稳妥对象（durable objects），指没有公共属性，而且其方法也不引用this的对象。稳妥对象最适合在一些安全的环境中（这些环境中会禁止使用this和new），或者在防止数据被其他应用程序（如Mashup程序）中改动时使用。稳妥构造函数遵循与寄生构造函数类似的模式，但是有两点不同：</p>
 <ol>
-<li>新创建对象的实例方法不引用this对象</li>
+<li>新创建对象的实例方法不引用this对象。</li>
+<li>不适用new操作符调用构造函数。</li>
 </ol>
-<ul>
-<li><p>不适用new操作符调用构造函数</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age, job</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">//可以定义私有变量和函数</span></span><br><span class="line"></span><br><span class="line">o.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line"> alert(name);</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> o;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> friend = <span class="keyword">new</span> Person(<span class="string">"Nicholas"</span>, <span class="number">29</span>, <span class="string">"Software Engineering"</span>);   </span><br><span class="line">friend.sayName();<span class="comment">// "NIcholas"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age, job</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">//可以定义私有变量和函数</span></span><br><span class="line"></span><br><span class="line">o.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">alert(name);</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> o;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> friend = <span class="keyword">new</span> Person(<span class="string">"Nicholas"</span>, <span class="number">29</span>, <span class="string">"Software Engineering"</span>);   </span><br><span class="line">friend.sayName();<span class="comment">// "NIcholas"</span></span><br></pre></td></tr></table></figure>
 <p> 变量friend中保存的是一个稳妥对象，除了调用sayName方法外，没有别的方式可以访问其数据成员。即使有其他代码会给这个对象添加方法或数据成员，但也不可能有别的方法访问传入到构造函数中的原始数据</p>
 <p><strong>使用稳妥构造函数模式创建的对象与构造函数之间也没有什么关系，因此instanceof操作符对这种对象也没有意义。</strong></p>
-</li>
-</ul>
 
       
     </div>
@@ -341,7 +338,7 @@
         <p><span>本文标题:</span><a href="/2016/04/21/JS创建对象/">JS创建对象</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 阿菁菁菁菁菁 的个人博客">阿菁菁菁菁菁</a></p>
         <p><span>发布时间:</span>2016年04月21日 - 10时29分</p>
-        <p><span>最后更新:</span>2016年05月17日 - 10时49分</p>
+        <p><span>最后更新:</span>2016年05月17日 - 10时55分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/04/21/JS创建对象/" title="JS创建对象">http://lijingjing.top/2016/04/21/JS创建对象/</a>
             <span class="copy-path" data-clipboard-text="原文: http://lijingjing.top/2016/04/21/JS创建对象/　　作者: 阿菁菁菁菁菁" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
