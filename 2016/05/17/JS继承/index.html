@@ -3,18 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>hexo发布文章 | 阿菁菁菁菁菁</title>
+  <title>JS继承 | 阿菁菁菁菁菁</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="hexo发布文章步骤。">
+  <meta name="description" content="JavaScrip继承">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo发布文章">
-<meta property="og:url" content="http://lijingjing.top/2016/04/13/hexo发布文章/index.html">
+<meta property="og:title" content="JS继承">
+<meta property="og:url" content="http://lijingjing.top/2016/05/17/JS继承/index.html">
 <meta property="og:site_name" content="阿菁菁菁菁菁">
-<meta property="og:description" content="hexo发布文章步骤。">
-<meta property="og:updated_time" content="2016-04-13T05:08:43.000Z">
+<meta property="og:description" content="JavaScrip继承">
+<meta property="og:image" content="http://lijingjing.top/images/inherit.png">
+<meta property="og:image" content="http://lijingjing.top/images/inherit_all.png">
+<meta property="og:updated_time" content="2016-05-29T04:31:41.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo发布文章">
-<meta name="twitter:description" content="hexo发布文章步骤。">
+<meta name="twitter:title" content="JS继承">
+<meta name="twitter:description" content="JavaScrip继承">
   
     <link rel="alternative" href="/atom.xml" title="阿菁菁菁菁菁" type="application/atom+xml">
   
@@ -220,11 +222,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-hexo发布文章" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-JS继承" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/13/hexo发布文章/" class="article-date">
-      <time datetime="2016-04-12T22:28:49.000Z" itemprop="datePublished">2016-04-12</time>
+      <a href="/2016/05/17/JS继承/" class="article-date">
+      <time datetime="2016-05-17T10:57:44.000Z" itemprop="datePublished">2016-05-17</time>
 </a>
     </div>
   
@@ -237,7 +239,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      hexo发布文章
+      JS继承
     </h1>
   
 
@@ -246,13 +248,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/Hexo/">Hexo</a>
+    <a class="article-category-link" href="/categories/学习笔记/">学习笔记</a><a class="article-category-link" href="/categories/学习笔记/javascript/">javascript</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/面向对象/">面向对象</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -262,7 +264,20 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="Hexo发布Blog"><a href="#Hexo发布Blog" class="headerlink" title="Hexo发布Blog"></a>Hexo发布Blog</h1><p> 哎呀呀，真是服了自己了。没事学学技术，写写文章多好。三月份过得真是不怎么酷。然后发现四月份也过了一半了，我现在有点儿慌，人生不能这么颓废下去，我还是适合去找一个好工作养活自己。<br> 废话了这么多，其实这篇文章，是为了让自己重拾Hexo写的，因为当时的速成，让我忘记了如何利用Hexo来写文章了。<br> 天啊，我又要去搜Markdown语法了，换行怎么搞什么的。。。醉醉的。果然，学习的步伐永远不能停止。<br> 原来Markdown的换行只需要在最后的句子后面打两个空格就好了，首行缩进需要<code>&amp;emsp;</code>来显示地进行换行操作，有其他更好的方法嘛/(ㄒoㄒ)/~~<br> 先复习到这里吧，接下来看看如何把这篇文章发布出去。对了，cd到blog的根目录下，执行<code>hexo n 文章标题名</code>,就可以在source文件夹下的_posts文件夹下，看到生成的.md文章。之后<code>hexo g</code>就可以生成相应的Html文件，最后<code>hexo d</code>就可以部署到github上了~<br> 我回来再看这篇文章发现，<code>&amp;emsp;</code>没有了，换行变成了<code>&lt;br&gt;</code>，什么鬼。但是我自己写<code>&lt;br&gt;</code>后面跟一个空格，还是没有首行缩进的效果，so sad,我真的不是很懂Markdown。</p>
+        <p> 许多OO语言都支持两种继承方式：接口继承和实现继承。接口继承只继承方法签名，而实现继承则继承实际的方法。由于函数没有签名，在ECMAScript中无法实现接口继承。ECMAScript只支持实现继承，而且其实现继承主要是依靠原型链来实现的。</p>
+<h1 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h1><p> 基本思想是利用原型让一个引用类型继承另一个引用类型的属性和方法。引用类型是一种数据结构，用于将数据和功能组织在一起。它也经常被称为类，但这种称呼并不妥当。引用类型有时候也被称为对象定义，因为它们描述的是一类对象所具有的属性和方法。<br>  实现原型链有一种基本模式：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SuperType</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.property = <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line">SuperType.prototype.getSuperValue = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.property;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubType</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.subProperty = <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//继承了superType</span></span><br><span class="line">SubType.prototype = <span class="keyword">new</span> SuperType();</span><br><span class="line"></span><br><span class="line"><span class="comment">//函数定义必须在继承之后</span></span><br><span class="line">SubType.prototype.getSubValue = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.subProperty;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> instance = <span class="keyword">new</span> SubType();</span><br><span class="line">alert(instance.getSuperValue());</span><br></pre></td></tr></table></figure>
+<p> 上例是通过创建SuperType的实例来实现继承的，实现的本质是重写原型对象。原来存在于SuperType中的属性和方法，现在也存在于SubType.prototype中了,因为现在SubType.prototype是SuperType的一个实例对象，所以会有实例属性property，以及可以访问SuperType的原型方法getSuperValue。<strong>要注意，现在instance.constructor指向的是superType,这是因为原来SubType.prototype中的constructor被重写了。实际上不是SubType的原型的constructor属性被重写了，而是SubType的原型指向了另一个对象–SuperType的原型，而这个原型对象的constructor属性指向的是SuperType。</strong><br>  <img src="/images/inherit.png" alt="原型链"></p>
+<h2 id="别忘记默认的原型"><a href="#别忘记默认的原型" class="headerlink" title="别忘记默认的原型"></a>别忘记默认的原型</h2><p> 所有的引用类型默认都继承了Object，这个继承也是通过原型链实现的。所有函数的默认原型都是Object的实例，因此默认原型都会包含一个内部指针指向Object.prototype。这也是所有自定义类型都会继承toString()、valueOf()等默认方法的根本原因。<br><img src="/images/inherit_all.png" alt="完整原型链"></p>
+<h2 id="确定原型和实例的关系"><a href="#确定原型和实例的关系" class="headerlink" title="确定原型和实例的关系"></a>确定原型和实例的关系</h2><p> 两种方法来确定原型和实例之间的关系。</p>
+<h3 id="instanceof操作符"><a href="#instanceof操作符" class="headerlink" title="instanceof操作符"></a>instanceof操作符</h3><p>只要用这个操作符来测试实例与原型链中出现过的构造函数，结果就会返回true。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">alert(instance <span class="keyword">instanceof</span> <span class="built_in">Object</span>); <span class="comment">//true</span></span><br><span class="line">alert(instance <span class="keyword">instanceof</span> SuperType); <span class="comment">//true</span></span><br><span class="line">alert(instance <span class="keyword">instanceof</span> SubType); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<h3 id="isPrototypeOf-方法谨慎"><a href="#isPrototypeOf-方法谨慎" class="headerlink" title="isPrototypeOf()方法谨慎"></a>isPrototypeOf()方法谨慎</h3><p>只要是原型链中出现过的原型，都可以是该原型链所派生的实例原型。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">alert(<span class="built_in">Object</span>.prototype.isPrototypeOf(instance)); <span class="comment">//true</span></span><br><span class="line">alert(SuperType.prototype.isPrototypeOf(instance)); <span class="comment">//true</span></span><br><span class="line">alert(SubType.prototype.isPrototypeOf(instance)); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<h2 id="谨慎地定义方法"><a href="#谨慎地定义方法" class="headerlink" title="谨慎地定义方法"></a>谨慎地定义方法</h2><p> 子类型有时候需要重写超类型中的某个方法，或者需要添加超类型中不存在的某个方法。<br><strong>不管怎么样，给原型添加方法的代码一定要方法替换原型的语句之后，即放在继承之后； 通过原型链实现继承时，不能使用对象字面量创建原型方法。因为这样就会重写原型链。</strong>  </p>
+<h2 id="原型链的问题"><a href="#原型链的问题" class="headerlink" title="原型链的问题"></a>原型链的问题</h2><p> 包含引用类型值的原型属性会被所有实例共享，所以应该在构造函数中，而不是在原型对象中定义属性。在通过原型来实现继承时，原型实际上会变成另一个类型的实例，所以，原先的实例属性也就成了现在的原型属性了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SuperType</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.colors = [<span class="string">'red'</span>,<span class="string">'blue'</span>,<span class="string">'green'</span>];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubType</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//继承了SuperValue</span></span><br><span class="line">SubType.prototype = <span class="keyword">new</span> SuperType();</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> instance1 = <span class="keyword">new</span> SubType();</span><br><span class="line">instance1.colors.push(<span class="string">'black'</span>);</span><br><span class="line">alert(instance1.colors); <span class="comment">// 'red,blue,green,black'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> instance2 = <span class="keyword">new</span> SubType();</span><br><span class="line">alert(instance2.colors); <span class="comment">// 'red,blue,green,black'</span></span><br></pre></td></tr></table></figure>
+<p> 另一个问题是，在创建子类型的实例中，不能向超类型的构造函数中传递参数（不懂什么情况下需要给超类型的构造函数传递参数），实际上应该说没办法在不影响所有对象实例的情况下，给超类型的构造函数传递参数。<br>  实际上很少会单独使用原型链。</p>
 
       
     </div>
@@ -271,13 +286,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/04/13/hexo发布文章/">hexo发布文章</a></p>
+        <p><span>本文标题:</span><a href="/2016/05/17/JS继承/">JS继承</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 阿菁菁菁菁菁 的个人博客">阿菁菁菁菁菁</a></p>
-        <p><span>发布时间:</span>2016年04月12日 - 22时28分</p>
-        <p><span>最后更新:</span>2016年04月13日 - 13时08分</p>
+        <p><span>发布时间:</span>2016年05月17日 - 10时57分</p>
+        <p><span>最后更新:</span>2016年05月29日 - 12时31分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/04/13/hexo发布文章/" title="hexo发布文章">http://lijingjing.top/2016/04/13/hexo发布文章/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://lijingjing.top/2016/04/13/hexo发布文章/　　作者: 阿菁菁菁菁菁" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/05/17/JS继承/" title="JS继承">http://lijingjing.top/2016/05/17/JS继承/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://lijingjing.top/2016/05/17/JS继承/　　作者: 阿菁菁菁菁菁" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -290,16 +305,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/04/19/回调函数将结果顺序存放/">
-                    回调函数将结果顺序存放
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/02/26/H5上传图片/">
-                    H5上传图片
+                <a href="/2016/04/21/JS创建对象/">
+                    JS创建对象
                 </a>
             </div>
         
@@ -310,7 +319,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Hexo发布Blog"><span class="toc-number">1.</span> <span class="toc-text">Hexo发布Blog</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#原型链"><span class="toc-number">1.</span> <span class="toc-text">原型链</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#别忘记默认的原型"><span class="toc-number">1.1.</span> <span class="toc-text">别忘记默认的原型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#确定原型和实例的关系"><span class="toc-number">1.2.</span> <span class="toc-text">确定原型和实例的关系</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#instanceof操作符"><span class="toc-number">1.2.1.</span> <span class="toc-text">instanceof操作符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#isPrototypeOf-方法谨慎"><span class="toc-number">1.2.2.</span> <span class="toc-text">isPrototypeOf()方法谨慎</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#谨慎地定义方法"><span class="toc-number">1.3.</span> <span class="toc-text">谨慎地定义方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原型链的问题"><span class="toc-number">1.4.</span> <span class="toc-text">原型链的问题</span></a></li></ol></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -374,7 +383,7 @@
     
       <div class="duoshuo" id="comments">
   <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/04/13/hexo发布文章/" data-title="hexo发布文章" data-url="http://lijingjing.top/2016/04/13/hexo发布文章/"></div>
+    <div class="ds-thread" data-thread-key="2016/05/17/JS继承/" data-title="JS继承" data-url="http://lijingjing.top/2016/05/17/JS继承/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -399,15 +408,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/04/19/回调函数将结果顺序存放/" title="上一篇: 回调函数将结果顺序存放">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/02/26/H5上传图片/" title="下一篇: H5上传图片">
+            <a href="/2016/04/21/JS创建对象/" title="下一篇: JS创建对象">
                 <i class="fa fa-angle-right"></i>
             </a>
         
