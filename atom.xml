@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lijingjing.top/"/>
-  <updated>2016-05-29T04:31:41.000Z</updated>
+  <updated>2016-05-29T04:35:02.000Z</updated>
   <id>http://lijingjing.top/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://lijingjing.top/2016/05/17/JS%E7%BB%A7%E6%89%BF/"/>
     <id>http://lijingjing.top/2016/05/17/JS继承/</id>
     <published>2016-05-17T10:57:44.000Z</published>
-    <updated>2016-05-29T04:31:41.000Z</updated>
+    <updated>2016-05-29T04:35:02.000Z</updated>
     
     <content type="html">&lt;p&gt; 许多OO语言都支持两种继承方式：接口继承和实现继承。接口继承只继承方法签名，而实现继承则继承实际的方法。由于函数没有签名，在ECMAScript中无法实现接口继承。ECMAScript只支持实现继承，而且其实现继承主要是依靠原型链来实现的。&lt;/p&gt;
 &lt;h1 id=&quot;原型链&quot;&gt;&lt;a href=&quot;#原型链&quot; class=&quot;headerlink&quot; title=&quot;原型链&quot;&gt;&lt;/a&gt;原型链&lt;/h1&gt;&lt;p&gt; 基本思想是利用原型让一个引用类型继承另一个引用类型的属性和方法。引用类型是一种数据结构，用于将数据和功能组织在一起。它也经常被称为类，但这种称呼并不妥当。引用类型有时候也被称为对象定义，因为它们描述的是一类对象所具有的属性和方法。&lt;br&gt;  实现原型链有一种基本模式：&lt;/p&gt;
@@ -30,7 +30,7 @@
 &lt;h2 id=&quot;确定原型和实例的关系&quot;&gt;&lt;a href=&quot;#确定原型和实例的关系&quot; class=&quot;headerlink&quot; title=&quot;确定原型和实例的关系&quot;&gt;&lt;/a&gt;确定原型和实例的关系&lt;/h2&gt;&lt;p&gt; 两种方法来确定原型和实例之间的关系。&lt;/p&gt;
 &lt;h3 id=&quot;instanceof操作符&quot;&gt;&lt;a href=&quot;#instanceof操作符&quot; class=&quot;headerlink&quot; title=&quot;instanceof操作符&quot;&gt;&lt;/a&gt;instanceof操作符&lt;/h3&gt;&lt;p&gt;只要用这个操作符来测试实例与原型链中出现过的构造函数，结果就会返回true。&lt;/p&gt;
 &lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;alert(instance &lt;span class=&quot;keyword&quot;&gt;instanceof&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;Object&lt;/span&gt;); &lt;span class=&quot;comment&quot;&gt;//true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;alert(instance &lt;span class=&quot;keyword&quot;&gt;instanceof&lt;/span&gt; SuperType); &lt;span class=&quot;comment&quot;&gt;//true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;alert(instance &lt;span class=&quot;keyword&quot;&gt;instanceof&lt;/span&gt; SubType); &lt;span class=&quot;comment&quot;&gt;//true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&quot;isPrototypeOf-方法谨慎&quot;&gt;&lt;a href=&quot;#isPrototypeOf-方法谨慎&quot; class=&quot;headerlink&quot; title=&quot;isPrototypeOf()方法谨慎&quot;&gt;&lt;/a&gt;isPrototypeOf()方法谨慎&lt;/h3&gt;&lt;p&gt;只要是原型链中出现过的原型，都可以是该原型链所派生的实例原型。&lt;/p&gt;
+&lt;h3 id=&quot;isPrototypeOf-方法&quot;&gt;&lt;a href=&quot;#isPrototypeOf-方法&quot; class=&quot;headerlink&quot; title=&quot;isPrototypeOf()方法&quot;&gt;&lt;/a&gt;isPrototypeOf()方法&lt;/h3&gt;&lt;p&gt;只要是原型链中出现过的原型，都可以是该原型链所派生的实例原型。&lt;/p&gt;
 &lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;alert(&lt;span class=&quot;built_in&quot;&gt;Object&lt;/span&gt;.prototype.isPrototypeOf(instance)); &lt;span class=&quot;comment&quot;&gt;//true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;alert(SuperType.prototype.isPrototypeOf(instance)); &lt;span class=&quot;comment&quot;&gt;//true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;alert(SubType.prototype.isPrototypeOf(instance)); &lt;span class=&quot;comment&quot;&gt;//true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;h2 id=&quot;谨慎地定义方法&quot;&gt;&lt;a href=&quot;#谨慎地定义方法&quot; class=&quot;headerlink&quot; title=&quot;谨慎地定义方法&quot;&gt;&lt;/a&gt;谨慎地定义方法&lt;/h2&gt;&lt;p&gt; 子类型有时候需要重写超类型中的某个方法，或者需要添加超类型中不存在的某个方法。&lt;br&gt;&lt;strong&gt;不管怎么样，给原型添加方法的代码一定要方法替换原型的语句之后，即放在继承之后； 通过原型链实现继承时，不能使用对象字面量创建原型方法。因为这样就会重写原型链。&lt;/strong&gt;  &lt;/p&gt;
 &lt;h2 id=&quot;原型链的问题&quot;&gt;&lt;a href=&quot;#原型链的问题&quot; class=&quot;headerlink&quot; title=&quot;原型链的问题&quot;&gt;&lt;/a&gt;原型链的问题&lt;/h2&gt;&lt;p&gt; 包含引用类型值的原型属性会被所有实例共享，所以应该在构造函数中，而不是在原型对象中定义属性。在通过原型来实现继承时，原型实际上会变成另一个类型的实例，所以，原先的实例属性也就成了现在的原型属性了。&lt;/p&gt;

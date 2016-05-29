@@ -13,7 +13,7 @@
 <meta property="og:description" content="JavaScrip继承">
 <meta property="og:image" content="http://lijingjing.top/images/inherit.png">
 <meta property="og:image" content="http://lijingjing.top/images/inherit_all.png">
-<meta property="og:updated_time" content="2016-05-29T04:31:41.000Z">
+<meta property="og:updated_time" content="2016-05-29T04:35:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS继承">
 <meta name="twitter:description" content="JavaScrip继承">
@@ -272,7 +272,7 @@
 <h2 id="确定原型和实例的关系"><a href="#确定原型和实例的关系" class="headerlink" title="确定原型和实例的关系"></a>确定原型和实例的关系</h2><p> 两种方法来确定原型和实例之间的关系。</p>
 <h3 id="instanceof操作符"><a href="#instanceof操作符" class="headerlink" title="instanceof操作符"></a>instanceof操作符</h3><p>只要用这个操作符来测试实例与原型链中出现过的构造函数，结果就会返回true。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">alert(instance <span class="keyword">instanceof</span> <span class="built_in">Object</span>); <span class="comment">//true</span></span><br><span class="line">alert(instance <span class="keyword">instanceof</span> SuperType); <span class="comment">//true</span></span><br><span class="line">alert(instance <span class="keyword">instanceof</span> SubType); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-<h3 id="isPrototypeOf-方法谨慎"><a href="#isPrototypeOf-方法谨慎" class="headerlink" title="isPrototypeOf()方法谨慎"></a>isPrototypeOf()方法谨慎</h3><p>只要是原型链中出现过的原型，都可以是该原型链所派生的实例原型。</p>
+<h3 id="isPrototypeOf-方法"><a href="#isPrototypeOf-方法" class="headerlink" title="isPrototypeOf()方法"></a>isPrototypeOf()方法</h3><p>只要是原型链中出现过的原型，都可以是该原型链所派生的实例原型。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">alert(<span class="built_in">Object</span>.prototype.isPrototypeOf(instance)); <span class="comment">//true</span></span><br><span class="line">alert(SuperType.prototype.isPrototypeOf(instance)); <span class="comment">//true</span></span><br><span class="line">alert(SubType.prototype.isPrototypeOf(instance)); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
 <h2 id="谨慎地定义方法"><a href="#谨慎地定义方法" class="headerlink" title="谨慎地定义方法"></a>谨慎地定义方法</h2><p> 子类型有时候需要重写超类型中的某个方法，或者需要添加超类型中不存在的某个方法。<br><strong>不管怎么样，给原型添加方法的代码一定要方法替换原型的语句之后，即放在继承之后； 通过原型链实现继承时，不能使用对象字面量创建原型方法。因为这样就会重写原型链。</strong>  </p>
 <h2 id="原型链的问题"><a href="#原型链的问题" class="headerlink" title="原型链的问题"></a>原型链的问题</h2><p> 包含引用类型值的原型属性会被所有实例共享，所以应该在构造函数中，而不是在原型对象中定义属性。在通过原型来实现继承时，原型实际上会变成另一个类型的实例，所以，原先的实例属性也就成了现在的原型属性了。</p>
@@ -289,7 +289,7 @@
         <p><span>本文标题:</span><a href="/2016/05/17/JS继承/">JS继承</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 阿菁菁菁菁菁 的个人博客">阿菁菁菁菁菁</a></p>
         <p><span>发布时间:</span>2016年05月17日 - 10时57分</p>
-        <p><span>最后更新:</span>2016年05月29日 - 12时31分</p>
+        <p><span>最后更新:</span>2016年05月29日 - 12时35分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/05/17/JS继承/" title="JS继承">http://lijingjing.top/2016/05/17/JS继承/</a>
             <span class="copy-path" data-clipboard-text="原文: http://lijingjing.top/2016/05/17/JS继承/　　作者: 阿菁菁菁菁菁" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -319,7 +319,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#原型链"><span class="toc-number">1.</span> <span class="toc-text">原型链</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#别忘记默认的原型"><span class="toc-number">1.1.</span> <span class="toc-text">别忘记默认的原型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#确定原型和实例的关系"><span class="toc-number">1.2.</span> <span class="toc-text">确定原型和实例的关系</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#instanceof操作符"><span class="toc-number">1.2.1.</span> <span class="toc-text">instanceof操作符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#isPrototypeOf-方法谨慎"><span class="toc-number">1.2.2.</span> <span class="toc-text">isPrototypeOf()方法谨慎</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#谨慎地定义方法"><span class="toc-number">1.3.</span> <span class="toc-text">谨慎地定义方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原型链的问题"><span class="toc-number">1.4.</span> <span class="toc-text">原型链的问题</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#原型链"><span class="toc-number">1.</span> <span class="toc-text">原型链</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#别忘记默认的原型"><span class="toc-number">1.1.</span> <span class="toc-text">别忘记默认的原型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#确定原型和实例的关系"><span class="toc-number">1.2.</span> <span class="toc-text">确定原型和实例的关系</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#instanceof操作符"><span class="toc-number">1.2.1.</span> <span class="toc-text">instanceof操作符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#isPrototypeOf-方法"><span class="toc-number">1.2.2.</span> <span class="toc-text">isPrototypeOf()方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#谨慎地定义方法"><span class="toc-number">1.3.</span> <span class="toc-text">谨慎地定义方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原型链的问题"><span class="toc-number">1.4.</span> <span class="toc-text">原型链的问题</span></a></li></ol></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
