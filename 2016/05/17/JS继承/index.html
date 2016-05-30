@@ -13,7 +13,7 @@
 <meta property="og:description" content="JavaScrip继承">
 <meta property="og:image" content="http://lijingjing.top/images/inherit.png">
 <meta property="og:image" content="http://lijingjing.top/images/inherit_all.png">
-<meta property="og:updated_time" content="2016-05-30T03:51:52.000Z">
+<meta property="og:updated_time" content="2016-05-30T03:55:14.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS继承">
 <meta name="twitter:description" content="JavaScrip继承">
@@ -273,10 +273,9 @@
 <li>RegExp类型</li>
 <li>Function类型</li>
 <li>基本包装类型（Boolean类型，Number类型，String类型）</li>
-<li><p>单体内置类型（Global对象，Math对象）   </p>
-<p>实现原型链有一种基本模式：</p>
-</li>
+<li>单体内置类型（Global对象，Math对象）   </li>
 </ol>
+<p></p><p>实现原型链有一种基本模式：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SuperType</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.property = <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line">SuperType.prototype.getSuperValue = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.property;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubType</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.subProperty = <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//继承了superType</span></span><br><span class="line">SubType.prototype = <span class="keyword">new</span> SuperType();</span><br><span class="line"></span><br><span class="line"><span class="comment">//函数定义必须在继承之后</span></span><br><span class="line">SubType.prototype.getSubValue = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.subProperty;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> instance = <span class="keyword">new</span> SubType();</span><br><span class="line">alert(instance.getSuperValue());</span><br></pre></td></tr></table></figure>
 <p> 上例是通过创建SuperType的实例来实现继承的，实现的本质是重写原型对象。原来存在于SuperType中的属性和方法，现在也存在于SubType.prototype中了,因为现在SubType.prototype是SuperType的一个实例对象，所以会有实例属性property，以及可以访问SuperType的原型方法getSuperValue。<strong>要注意，现在instance.constructor指向的是superType,这是因为原来SubType.prototype中的constructor被重写了。实际上不是SubType的原型的constructor属性被重写了，而是SubType的原型指向了另一个对象–SuperType的原型，而这个原型对象的constructor属性指向的是SuperType。</strong><br>  <img src="/images/inherit.png" alt="原型链"></p>
 <h2 id="别忘记默认的原型"><a href="#别忘记默认的原型" class="headerlink" title="别忘记默认的原型"></a>别忘记默认的原型</h2><p> 所有的引用类型默认都继承了Object，这个继承也是通过原型链实现的。所有函数的默认原型都是Object的实例，因此默认原型都会包含一个内部指针指向Object.prototype。这也是所有自定义类型都会继承toString()、valueOf()等默认方法的根本原因。<br><img src="/images/inherit_all.png" alt="完整原型链"></p>
@@ -316,7 +315,7 @@
         <p><span>本文标题:</span><a href="/2016/05/17/JS继承/">JS继承</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 阿菁菁菁菁菁 的个人博客">阿菁菁菁菁菁</a></p>
         <p><span>发布时间:</span>2016年05月17日 - 10时57分</p>
-        <p><span>最后更新:</span>2016年05月30日 - 11时51分</p>
+        <p><span>最后更新:</span>2016年05月30日 - 11时55分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/05/17/JS继承/" title="JS继承">http://lijingjing.top/2016/05/17/JS继承/</a>
             <span class="copy-path" data-clipboard-text="原文: http://lijingjing.top/2016/05/17/JS继承/　　作者: 阿菁菁菁菁菁" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
