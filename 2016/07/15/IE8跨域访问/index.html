@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>回调函数将结果顺序存放 | 阿菁菁菁菁菁</title>
+  <title>IE8跨域访问 | 阿菁菁菁菁菁</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="回调函数中存放数组值">
+  <meta name="description" content="IE8跨域访问">
 <meta property="og:type" content="article">
-<meta property="og:title" content="回调函数将结果顺序存放">
-<meta property="og:url" content="http://lijingjing.top/2016/04/19/回调函数将结果顺序存放/index.html">
+<meta property="og:title" content="IE8跨域访问">
+<meta property="og:url" content="http://lijingjing.top/2016/07/15/IE8跨域访问/index.html">
 <meta property="og:site_name" content="阿菁菁菁菁菁">
-<meta property="og:description" content="回调函数中存放数组值">
-<meta property="og:updated_time" content="2016-04-22T07:37:34.000Z">
+<meta property="og:description" content="IE8跨域访问">
+<meta property="og:updated_time" content="2016-07-14T11:24:41.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="回调函数将结果顺序存放">
-<meta name="twitter:description" content="回调函数中存放数组值">
+<meta name="twitter:title" content="IE8跨域访问">
+<meta name="twitter:description" content="IE8跨域访问">
   
     <link rel="alternative" href="/atom.xml" title="阿菁菁菁菁菁" type="application/atom+xml">
   
@@ -220,11 +220,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-回调函数将结果顺序存放" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-IE8跨域访问" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/19/回调函数将结果顺序存放/" class="article-date">
-      <time datetime="2016-04-19T15:55:08.000Z" itemprop="datePublished">2016-04-19</time>
+      <a href="/2016/07/15/IE8跨域访问/" class="article-date">
+      <time datetime="2016-07-14T18:50:04.000Z" itemprop="datePublished">2016-07-14</time>
 </a>
     </div>
   
@@ -237,7 +237,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      回调函数将结果顺序存放
+      IE8跨域访问
     </h1>
   
 
@@ -246,13 +246,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+    <a class="article-category-link" href="/categories/前端/">前端</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/回调/">回调</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/递归/">递归</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/闭包/">闭包</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IE8/">IE8</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -262,21 +262,9 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="我的碎碎念"><a href="#我的碎碎念" class="headerlink" title="我的碎碎念"></a>我的碎碎念</h1><p>  这是之前做最美食项目时碰到的一个问题，在整理笔记的时候看到了，发现再碰到好像还是不会。。😢 所以，还是再整理一下吧。</p>
-<h1 id="问题阐述"><a href="#问题阐述" class="headerlink" title="问题阐述"></a>问题阐述</h1><p> 已知经纬度，利用百度地图进行定位，拿到城市信息，要求将定位得到的城市信息与后台返回的地址信息连接，形成一个详细的地理信息。已经忘记了这个奇怪的需求提出的原因，后来后台会返回对应的城市信息，不需要利用百度地图进行定位。╮(╯▽╰)╭，需求真的好乱。。。。但是碰到各种奇葩需求的时候，就是锻炼代码能力的时候了吧。</p>
-<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><h2 id="简单的for循环"><a href="#简单的for循环" class="headerlink" title="简单的for循环"></a>简单的for循环</h2><p> 表示一开始天真的以为一个for循环就可以搞定。其实不是天真，是真的能力不行。。。那可是回调啊少年。。。应该不会有人和我一样蠢吧/(ㄒoㄒ)/~~ 具体代码，可以看下面的：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">DinningListService.getRestaurants($stateParam.search)</span><br><span class="line">  .success(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span> ; i &lt; data.length; i++)&#123;</span><br><span class="line">      <span class="keyword">var</span> restaurantPoint = <span class="keyword">new</span> BMap.point(data[i].longitude, data[i].latitude);</span><br><span class="line">      <span class="keyword">var</span> addComp;</span><br><span class="line">      gc.getLocation(restaurantPoint,<span class="function"><span class="keyword">function</span>(<span class="params">rs</span>)</span>&#123;</span><br><span class="line">        addComp = rs.addressComponents;</span><br><span class="line">        data[i].address = addComp.city + data[i].address;</span><br><span class="line">      &#125;);</span><br><span class="line">      data[i].distance = map.getDistance(point,restaurantPoint);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
-<p> 所以，上面的方案肯定不行，因为我们不知道getLocation上面时候返回结果，而这个时候，for循环已经做完了。这样，i的值永远就是data,length-1啊。</p>
-<h2 id="递归思想"><a href="#递归思想" class="headerlink" title="递归思想"></a>递归思想</h2><p> 让每个回调在上一个回调执行结束后，再执行下一个回调，当然了，这个效率不高。代码如下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">DinningListService.getRestaurants($stateParam.search)</span><br><span class="line">  .success(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">    $scope.results = <span class="keyword">new</span> <span class="built_in">Array</span>();<span class="comment">//一个新的数组来储存最后的结果集</span></span><br><span class="line">    <span class="comment">//将整个过程封装成一个回调函数，没有for循环</span></span><br><span class="line">    <span class="keyword">var</span> tempFunc = <span class="function"><span class="keyword">function</span>(<span class="params">i</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> restaurantPoint = <span class="keyword">new</span> BMap.point(data[i].longitude, data[i].latitude);</span><br><span class="line">        <span class="keyword">var</span> addComp;</span><br><span class="line">        gc.getLocation(restaurantPoint,<span class="function"><span class="keyword">function</span>(<span class="params">rs</span>)</span>&#123;</span><br><span class="line">          addComp = rs.addressComponents;</span><br><span class="line">          data[i].address = addComp.city + data[i].address;</span><br><span class="line">          $scope.results[i] = data[i];</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">if</span>(i &lt; data.length-<span class="number">1</span>)&#123;</span><br><span class="line">          tempFunc(i+<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">          $scope.$apply();</span><br><span class="line">        &#125;</span><br><span class="line">        data[i].distance = map.getDistance(point,restaurantPoint);</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    tempFunc(<span class="number">0</span>);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
-<h2 id="函数闭包"><a href="#函数闭包" class="headerlink" title="函数闭包"></a>函数闭包</h2><p> ╮(╯▽╰)╭ 这种方法才是真正的前端开发人员应该想到的方法啊！然而我只觉着可以这么写，具体怎么写还是请教的大神 😢</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">DinningListService.getRestaurants($stateParam.search)</span><br><span class="line">  .success(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span> ; i &lt; data.length; i++)&#123;</span><br><span class="line">      <span class="keyword">var</span> restaurantPoint = <span class="keyword">new</span> BMap.point(data[i].longitude, data[i].latitude);</span><br><span class="line">      <span class="keyword">var</span> addComp;</span><br><span class="line">      gc.getLocation(restaurantPoint,<span class="function"><span class="keyword">function</span>(<span class="params">index</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">rs</span>)</span>&#123;</span><br><span class="line">          addComp = rs.addressComponents;</span><br><span class="line">          data[i].address = addComp.city + data[i].address;</span><br><span class="line">          $scope.$apply();</span><br><span class="line">        &#125;    </span><br><span class="line">      &#125;(i));<span class="comment">//返回的是函数执行后的结果，即传入的i值是当时循环过程中的值</span></span><br><span class="line">      data[i].distance = map.getDistance(point,restaurantPoint);</span><br><span class="line">    &#125;</span><br><span class="line">    $scope.results = data;</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
-<p>#总结</p>
-<ol>
-<li>闭包是个必须要掌握的概念。</li>
-<li>回调的思想一定要牢牢记住。</li>
-<li>应该好好看看红皮书了。基础知识还是不牢固😭</li>
-</ol>
+        <h1 id="我的碎碎念"><a href="#我的碎碎念" class="headerlink" title="我的碎碎念"></a>我的碎碎念</h1><p>&emsp;现在在做外高桥的一个项目。对方一定要在IE8下浏览。其实每次碰到这种需求，我都好想去给他们装系统啊，一定要用IE的话，IE10+好不好！但是，现实就是这么残酷，答案永远是不能！不行！不可以！那好吧，只能来解决IE8下的各种问题了。<br>&emsp;原来IE8是不能用Ajax进行跨域访问的，微软自己实现了XDomainRequest来解决IE8和IE9下的跨域访问问题。==但是请求一定是同步请求。==<br>&emsp;其实还有一种解决跨域的方法，github上有开源实现，叫做<a href="https://github.com/MoonScript/jQuery-ajaxTransport-XDomainRequest" target="_blank" rel="external">JQuery-ajaxTransport-XDomainRequest</a>,只支持GET和POST,只支持HTTP和HTTPS，==请求一定是异步的。==<br>&emsp;由于业务要求，我一定要同步请求，因为有了项目，才能去获取工程号等巴拉巴拉，总之，异步不行，正好XDR的方法只支持同步，所以自己写GET和POST方法，IE下的跨域问题就解决啦~</p>
+<h1 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h1><h2 id="GET方法"><a href="#GET方法" class="headerlink" title="GET方法"></a>GET方法</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">crossDomainGetAjax</span>(<span class="params">url, successCallback</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// IE8 &amp; 9 Cross domain JSON GET request</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="string">'XDomainRequest'</span> <span class="keyword">in</span> <span class="built_in">window</span> &amp;&amp; <span class="built_in">window</span>.XDomainRequest !== <span class="literal">null</span>) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> xdr = <span class="keyword">new</span> XDomainRequest(); <span class="comment">// Use Microsoft XDR</span></span><br><span class="line">        xdr.open(<span class="string">'get'</span>, url);</span><br><span class="line">        xdr.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> dom = <span class="keyword">new</span> ActiveXObject(<span class="string">'Microsoft.XMLDOM'</span>),</span><br><span class="line">                <span class="built_in">JSON</span> = $.parseJSON(xdr.responseText);</span><br><span class="line"></span><br><span class="line">            dom.async = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">JSON</span> == <span class="literal">null</span> || <span class="keyword">typeof</span> (<span class="built_in">JSON</span>) == <span class="string">'undefined'</span>) &#123;</span><br><span class="line">                <span class="built_in">JSON</span> = $.parseJSON(data.firstChild.textContent);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            successCallback(<span class="built_in">JSON</span>); <span class="comment">// internal function</span></span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        xdr.onerror = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            _result = <span class="literal">false</span>;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        xdr.send();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// IE7 and lower can't do cross domain</span></span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (navigator.userAgent.indexOf(<span class="string">'MSIE'</span>) != -<span class="number">1</span> &amp;&amp;</span><br><span class="line">        <span class="built_in">parseInt</span>(navigator.userAgent.match(<span class="regexp">/MSIE ([\d.]+)/</span>)[<span class="number">1</span>], <span class="number">10</span>) &lt; <span class="number">8</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Do normal jQuery AJAX for everything else</span></span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        $.ajax(&#123;</span><br><span class="line">            url: url,</span><br><span class="line">            cache: <span class="literal">false</span>,</span><br><span class="line">            dataType: <span class="string">'json'</span>,</span><br><span class="line">            type: <span class="string">'GET'</span>,</span><br><span class="line">            <span class="keyword">async</span>: <span class="literal">false</span>, <span class="comment">// must be set to false</span></span><br><span class="line">            success: <span class="function"><span class="keyword">function</span> (<span class="params">data, success</span>) </span>&#123;</span><br><span class="line">                successCallback(data);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="POST方法"><a href="#POST方法" class="headerlink" title="POST方法"></a>POST方法</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">crossDomainPostAjax</span>(<span class="params">url, data, successCallback</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// IE8 &amp; 9 Cross domain JSON POST request</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="string">'XDomainRequest'</span> <span class="keyword">in</span> <span class="built_in">window</span> &amp;&amp; <span class="built_in">window</span>.XDomainRequest !== <span class="literal">null</span>) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> xdr = <span class="keyword">new</span> XDomainRequest(); <span class="comment">// Use Microsoft XDR</span></span><br><span class="line">        xdr.open(<span class="string">'POST'</span>, url);</span><br><span class="line">        xdr.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> dom = <span class="keyword">new</span> ActiveXObject(<span class="string">'Microsoft.XMLDOM'</span>),</span><br><span class="line">                <span class="built_in">JSON</span> = $.parseJSON(xdr.responseText);</span><br><span class="line"></span><br><span class="line">            dom.async = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">JSON</span> == <span class="literal">null</span> || <span class="keyword">typeof</span> (<span class="built_in">JSON</span>) == <span class="string">'undefined'</span>) &#123;</span><br><span class="line">                <span class="built_in">JSON</span> = $.parseJSON(data.firstChild.textContent);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            successCallback(<span class="built_in">JSON</span>); <span class="comment">// internal function</span></span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        xdr.onerror = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            _result = <span class="literal">false</span>;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        xdr.send(<span class="built_in">JSON</span>.stringify(data));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// IE7 and lower can't do cross domain</span></span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (navigator.userAgent.indexOf(<span class="string">'MSIE'</span>) != -<span class="number">1</span> &amp;&amp;</span><br><span class="line">        <span class="built_in">parseInt</span>(navigator.userAgent.match(<span class="regexp">/MSIE ([\d.]+)/</span>)[<span class="number">1</span>], <span class="number">10</span>) &lt; <span class="number">8</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Do normal jQuery AJAX for everything else</span></span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        $.ajax(&#123;</span><br><span class="line">            url: url,</span><br><span class="line">            cache: <span class="literal">false</span>,</span><br><span class="line">            dataType: <span class="string">'json'</span>,</span><br><span class="line">            contentType: <span class="string">'application/json'</span>,</span><br><span class="line">            type: <span class="string">'POST'</span>,</span><br><span class="line">            <span class="keyword">async</span>: <span class="literal">false</span>, <span class="comment">// must be set to false</span></span><br><span class="line">            data: <span class="built_in">JSON</span>.stringify(data),</span><br><span class="line">            success: <span class="function"><span class="keyword">function</span> (<span class="params">data, success</span>) </span>&#123;</span><br><span class="line">                successCallback(data);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -285,13 +273,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/04/19/回调函数将结果顺序存放/">回调函数将结果顺序存放</a></p>
+        <p><span>本文标题:</span><a href="/2016/07/15/IE8跨域访问/">IE8跨域访问</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 阿菁菁菁菁菁 的个人博客">阿菁菁菁菁菁</a></p>
-        <p><span>发布时间:</span>2016年04月19日 - 15时55分</p>
-        <p><span>最后更新:</span>2016年04月22日 - 15时37分</p>
+        <p><span>发布时间:</span>2016年07月14日 - 18时50分</p>
+        <p><span>最后更新:</span>2016年07月14日 - 19时24分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/04/19/回调函数将结果顺序存放/" title="回调函数将结果顺序存放">http://lijingjing.top/2016/04/19/回调函数将结果顺序存放/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://lijingjing.top/2016/04/19/回调函数将结果顺序存放/　　作者: 阿菁菁菁菁菁" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/07/15/IE8跨域访问/" title="IE8跨域访问">http://lijingjing.top/2016/07/15/IE8跨域访问/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://lijingjing.top/2016/07/15/IE8跨域访问/　　作者: 阿菁菁菁菁菁" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -304,16 +292,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/04/21/JS创建对象/">
-                    JS创建对象
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/04/13/hexo发布文章/">
-                    hexo发布文章
+                <a href="/2016/05/17/JS继承/">
+                    JS继承
                 </a>
             </div>
         
@@ -324,7 +306,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#我的碎碎念"><span class="toc-number">1.</span> <span class="toc-text">我的碎碎念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#问题阐述"><span class="toc-number">2.</span> <span class="toc-text">问题阐述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解决方案"><span class="toc-number">3.</span> <span class="toc-text">解决方案</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#简单的for循环"><span class="toc-number">3.1.</span> <span class="toc-text">简单的for循环</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#递归思想"><span class="toc-number">3.2.</span> <span class="toc-text">递归思想</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数闭包"><span class="toc-number">3.3.</span> <span class="toc-text">函数闭包</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#我的碎碎念"><span class="toc-number">1.</span> <span class="toc-text">我的碎碎念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实现方法"><span class="toc-number">2.</span> <span class="toc-text">实现方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#GET方法"><span class="toc-number">2.1.</span> <span class="toc-text">GET方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#POST方法"><span class="toc-number">2.2.</span> <span class="toc-text">POST方法</span></a></li></ol></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -388,7 +370,7 @@
     
       <div class="duoshuo" id="comments">
   <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/04/19/回调函数将结果顺序存放/" data-title="回调函数将结果顺序存放" data-url="http://lijingjing.top/2016/04/19/回调函数将结果顺序存放/"></div>
+    <div class="ds-thread" data-thread-key="2016/07/15/IE8跨域访问/" data-title="IE8跨域访问" data-url="http://lijingjing.top/2016/07/15/IE8跨域访问/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -413,15 +395,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/04/21/JS创建对象/" title="上一篇: JS创建对象">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/04/13/hexo发布文章/" title="下一篇: hexo发布文章">
+            <a href="/2016/05/17/JS继承/" title="下一篇: JS继承">
                 <i class="fa fa-angle-right"></i>
             </a>
         
