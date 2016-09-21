@@ -100,66 +100,6 @@
 
     
 
-    <div class="content-wrapper">
-        <div class="content-wrapper__inner entry">
-            
-
-<article class="post-container post-container--single">
-
-  <header class="post-header">
-    
-    <h1 class="post-title">失焦防止alert两次</h1>
-
-    
-
-    <div class="post-meta">
-      <time datetime="2016-09-21" class="post-meta__date date">2016-09-21</time> 
-
-      <span class="post-meta__tags tags">
-
-          
-            <font class="categories">
-            &#8226; 分类:
-            <a class="categories-link" href="/categories/前端/">前端</a>
-            </font>
-          
-
-          
-             &#8226; 标签:
-            <font class="tags">
-              <a class="tags-link" href="/tags/alert/">alert</a>, <a class="tags-link" href="/tags/onblur/">onblur</a>
-            </font>
-          
-
-      </span>
-    </div>
-    
-    
-
-  </header>
-
-  <section id="post-content" class="article-content post">
-    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>&emsp;其实感觉是个很简单的功能，就是input失焦后，给用户一个提醒，比如：一旦填写不能修改此类。<br>&emsp;然后第一直觉就是写个失焦函数，alert就好了嘛。<br>&emsp;但是，它alert没完没了了，一次不够，竟然alert了两次。我也是无语。<br>&emsp;感觉逻辑上根本讲不通。明明我只写了一个alert，也只是失焦了一次，为什么会出现两个alert。</p>
-<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>&emsp;后来我才发现，原来onblur失焦，不仅在当前元素上触发，也在window对象上触发。所以要判断当前是谁失焦，是window还是你指定的元素。</p>
-<h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> isTargetWindow = <span class="literal">false</span>;</div><div class="line">  $(<span class="built_in">window</span>).blur(<span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</div><div class="line">      <span class="built_in">console</span>.log(e.target);</div><div class="line">      isTargetWindow = <span class="literal">true</span>;</div><div class="line">  &#125;);</div><div class="line">  $(<span class="built_in">window</span>).focus(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      isTargetWindow = <span class="literal">false</span>;</div><div class="line">  &#125;);</div><div class="line">  </div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">alertInfo</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  		<span class="keyword">if</span>(!isTargetWindow)</div><div class="line">  		&#123;</div><div class="line">  			alert(<span class="string">"提示信息！"</span>);</div><div class="line">  		&#125;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
-<p>#总结<br>&emsp;其实涉及的应该是JS里的事件冒泡，但我还是不明白，项目里为什么onblur在input元素上，window也会触发input里的onblur函数。</p>
-<p>&emsp;最最最最最奇葩的是，这个bug我现在复现不了了。。。 复现不了bug我也是很生气。。</p>
-
-  </section>
-
-  
-  
-</article>
-
-
-            <footer class="footer">
-
-    <span class="footer__copyright">  &copy; 2016 阿菁菁菁菁菁 | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
-
-</footer>
-
-        </div>
-    </div>
 
     <!-- js files -->
     <script src="/js/jquery.min.js"></script>
