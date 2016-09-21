@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Hexo</title>
+  <title>阿菁菁菁菁菁</title>
   
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lijingjing.top/"/>
-  <updated>2016-09-21T05:16:47.000Z</updated>
+  <updated>2016-09-21T06:41:19.000Z</updated>
   <id>http://lijingjing.top/</id>
   
   <author>
-    <name>Li Jingjing</name>
+    <name>阿菁菁菁菁菁</name>
     
   </author>
   
@@ -20,7 +20,7 @@
     <link href="http://lijingjing.top/2016/09/21/Angular-Directive/"/>
     <id>http://lijingjing.top/2016/09/21/Angular-Directive/</id>
     <published>2016-09-21T05:16:47.000Z</published>
-    <updated>2016-09-21T05:16:47.000Z</updated>
+    <updated>2016-09-21T06:41:19.000Z</updated>
     
     <content type="html"></content>
     
@@ -28,6 +28,8 @@
     
     </summary>
     
+    
+      <category term="Hexo" scheme="http://lijingjing.top/tags/Hexo/"/>
     
   </entry>
   
