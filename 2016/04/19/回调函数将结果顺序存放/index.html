@@ -100,7 +100,76 @@
 
     
 
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
 
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">回调函数将结果顺序存放</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2016-04-19" class="post-meta__date date">2016-04-19</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/javascript/">javascript</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/回调/">回调</a>, <a class="tags-link" href="/tags/递归/">递归</a>, <a class="tags-link" href="/tags/闭包/">闭包</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h1 id="我的碎碎念"><a href="#我的碎碎念" class="headerlink" title="我的碎碎念"></a>我的碎碎念</h1><p>  这是之前做最美食项目时碰到的一个问题，在整理笔记的时候看到了，发现再碰到好像还是不会。。😢 所以，还是再整理一下吧。</p>
+<h1 id="问题阐述"><a href="#问题阐述" class="headerlink" title="问题阐述"></a>问题阐述</h1><p> 已知经纬度，利用百度地图进行定位，拿到城市信息，要求将定位得到的城市信息与后台返回的地址信息连接，形成一个详细的地理信息。已经忘记了这个奇怪的需求提出的原因，后来后台会返回对应的城市信息，不需要利用百度地图进行定位。╮(╯▽╰)╭，需求真的好乱。。。。但是碰到各种奇葩需求的时候，就是锻炼代码能力的时候了吧。</p>
+<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><h2 id="简单的for循环"><a href="#简单的for循环" class="headerlink" title="简单的for循环"></a>简单的for循环</h2><p> 表示一开始天真的以为一个for循环就可以搞定。其实不是天真，是真的能力不行。。。那可是回调啊少年。。。应该不会有人和我一样蠢吧/(ㄒoㄒ)/~~ 具体代码，可以看下面的：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">DinningListService.getRestaurants($stateParam.search)</div><div class="line">  .success(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span> ; i &lt; data.length; i++)&#123;</div><div class="line">      <span class="keyword">var</span> restaurantPoint = <span class="keyword">new</span> BMap.point(data[i].longitude, data[i].latitude);</div><div class="line">      <span class="keyword">var</span> addComp;</div><div class="line">      gc.getLocation(restaurantPoint,<span class="function"><span class="keyword">function</span>(<span class="params">rs</span>)</span>&#123;</div><div class="line">        addComp = rs.addressComponents;</div><div class="line">        data[i].address = addComp.city + data[i].address;</div><div class="line">      &#125;);</div><div class="line">      data[i].distance = map.getDistance(point,restaurantPoint);</div><div class="line">    &#125;</div><div class="line">  &#125;);</div></pre></td></tr></table></figure>
+<p> 所以，上面的方案肯定不行，因为我们不知道getLocation上面时候返回结果，而这个时候，for循环已经做完了。这样，i的值永远就是data,length-1啊。</p>
+<h2 id="递归思想"><a href="#递归思想" class="headerlink" title="递归思想"></a>递归思想</h2><p> 让每个回调在上一个回调执行结束后，再执行下一个回调，当然了，这个效率不高。代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">DinningListService.getRestaurants($stateParam.search)</div><div class="line">  .success(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">    $scope.results = <span class="keyword">new</span> <span class="built_in">Array</span>();<span class="comment">//一个新的数组来储存最后的结果集</span></div><div class="line">    <span class="comment">//将整个过程封装成一个回调函数，没有for循环</span></div><div class="line">    <span class="keyword">var</span> tempFunc = <span class="function"><span class="keyword">function</span>(<span class="params">i</span>)</span>&#123;</div><div class="line">        <span class="keyword">var</span> restaurantPoint = <span class="keyword">new</span> BMap.point(data[i].longitude, data[i].latitude);</div><div class="line">        <span class="keyword">var</span> addComp;</div><div class="line">        gc.getLocation(restaurantPoint,<span class="function"><span class="keyword">function</span>(<span class="params">rs</span>)</span>&#123;</div><div class="line">          addComp = rs.addressComponents;</div><div class="line">          data[i].address = addComp.city + data[i].address;</div><div class="line">          $scope.results[i] = data[i];</div><div class="line">        &#125;);</div><div class="line">        <span class="keyword">if</span>(i &lt; data.length<span class="number">-1</span>)&#123;</div><div class="line">          tempFunc(i+<span class="number">1</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span>&#123;</div><div class="line">          $scope.$apply();</div><div class="line">        &#125;</div><div class="line">        data[i].distance = map.getDistance(point,restaurantPoint);</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    tempFunc(<span class="number">0</span>);</div><div class="line">  &#125;);</div></pre></td></tr></table></figure>
+<h2 id="函数闭包"><a href="#函数闭包" class="headerlink" title="函数闭包"></a>函数闭包</h2><p> ╮(╯▽╰)╭ 这种方法才是真正的前端开发人员应该想到的方法啊！然而我只觉着可以这么写，具体怎么写还是请教的大神 😢</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">DinningListService.getRestaurants($stateParam.search)</div><div class="line">  .success(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span> ; i &lt; data.length; i++)&#123;</div><div class="line">      <span class="keyword">var</span> restaurantPoint = <span class="keyword">new</span> BMap.point(data[i].longitude, data[i].latitude);</div><div class="line">      <span class="keyword">var</span> addComp;</div><div class="line">      gc.getLocation(restaurantPoint,<span class="function"><span class="keyword">function</span>(<span class="params">index</span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">rs</span>)</span>&#123;</div><div class="line">          addComp = rs.addressComponents;</div><div class="line">          data[i].address = addComp.city + data[i].address;</div><div class="line">          $scope.$apply();</div><div class="line">        &#125;    </div><div class="line">      &#125;(i));<span class="comment">//返回的是函数执行后的结果，即传入的i值是当时循环过程中的值</span></div><div class="line">      data[i].distance = map.getDistance(point,restaurantPoint);</div><div class="line">    &#125;</div><div class="line">    $scope.results = data;</div><div class="line">  &#125;);</div></pre></td></tr></table></figure>
+<p>#总结</p>
+<ol>
+<li>闭包是个必须要掌握的概念。</li>
+<li>回调的思想一定要牢牢记住。</li>
+<li>应该好好看看红皮书了。基础知识还是不牢固😭</li>
+</ol>
+
+  </section>
+
+  
+  
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">  &copy; 2016 阿菁菁菁菁菁 | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+
+</footer>
+
+        </div>
+    </div>
 
     <!-- js files -->
     <script src="/js/jquery.min.js"></script>
