@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>文件下载（兼容IE8） | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="如何在IE8实现文件下载">
+<meta property="og:type" content="article">
+<meta property="og:title" content="文件下载（兼容IE8）">
+<meta property="og:url" content="http://lijingjing.top/2016/07/22/文件下载（兼容IE8）/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="如何在IE8实现文件下载">
+<meta property="og:updated_time" content="2016-07-22T14:55:25.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="文件下载（兼容IE8）">
+<meta name="twitter:description" content="如何在IE8实现文件下载">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+  
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/avatar.png" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/">Li Jingjing</a></h1>
+        </hgroup>
+
+        
+                
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="mailto:lijingjing1008@gmail.com" title="Email"></a></li>
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/BabysbreathJJ/" title="GitHub"></a></li>
+                            
+                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/H5/" style="font-size: 10px;">H5</a> <a href="/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/tags/IE8/" style="font-size: 20px;">IE8</a> <a href="/tags/alert/" style="font-size: 10px;">alert</a> <a href="/tags/onblur/" style="font-size: 10px;">onblur</a> <a href="/tags/overflow/" style="font-size: 10px;">overflow</a> <a href="/tags/position/" style="font-size: 10px;">position</a> <a href="/tags/回调/" style="font-size: 10px;">回调</a> <a href="/tags/拍照上传/" style="font-size: 10px;">拍照上传</a> <a href="/tags/递归/" style="font-size: 10px;">递归</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/面向对象/" style="font-size: 20px;">面向对象</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://gaocegege.com/Blog">高策</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://yusiyuan.top/">虞思源</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">赤子之心不曾改变</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Li Jingjing</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/avatar.png" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Li Jingjing</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="mailto:lijingjing1008@gmail.com" title="Email"></a></li>
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/BabysbreathJJ/" title="GitHub"></a></li>
+                            
+                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-文件下载（兼容IE8）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/22/文件下载（兼容IE8）/" class="article-date">
+      <time datetime="2016-07-22T14:23:09.000Z" itemprop="datePublished">2016-07-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      文件下载（兼容IE8）
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/前端/">前端</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IE8/">IE8</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="我的愿望"><a href="#我的愿望" class="headerlink" title="我的愿望"></a>我的愿望</h1><p>&nbsp;我的愿望是，以后不要再遇到让我兼容IE8的项目了好吗！我真的是要分分钟爆炸啊，是的，我现在整个人就是一座活火山，随时随刻可以喷射火焰。从今天下午三点到现在，我一直在搞文件下载，虽然中间和aki一直在聊人生，聊理想，聊未来。聊着聊着感觉未来一片黑暗啊，人生真艰难，活着真不容易= =。。都没心情谈情怀了。<br>&nbsp;现在所有的工作的难点都在兼容性问题上，但是我真的不想去搞啊。意义在哪里。。。为何IE8还活在这个世上，宝宝不开心，宝宝生气了，宝宝真的不想搞IE8啊，我觉着迟早有一天我会被IE8搞死吧！好了，这篇文章的基调，就是吐槽。没办法，因为李菁菁在爆炸。</p>
+<h1 id="如果世上没有IE8"><a href="#如果世上没有IE8" class="headerlink" title="如果世上没有IE8"></a>如果世上没有IE8</h1><p>&nbsp;如果世上没有IE8，那世界将是美好人间吧。原谅我直接把项目中的代码贴上来了，因为已经很晚了，我现在不想去抽离函数了。我很懒，但是我有时候又很强迫症。。。So sad。下面的函数，对于IE&gt;9的版本来说，是OK的，其他浏览器也可以。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//附件下载</span></div><div class="line">   <span class="function"><span class="keyword">function</span> <span class="title">downloadAttachment</span>(<span class="params"></span>) </span>&#123;</div><div class="line"></div><div class="line">       <span class="keyword">var</span> rows = ReceivedFileGrid.getSelecteds();</div><div class="line">       <span class="keyword">if</span> (rows.length &gt; <span class="number">0</span>) &#123;</div><div class="line">           <span class="keyword">if</span> (confirm(<span class="string">"确定选中进行附件文件打包？"</span>)) &#123;</div><div class="line">               <span class="keyword">var</span> ids = [];</div><div class="line">               <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, l = rows.length; i &lt; l; i++) &#123;</div><div class="line">                   <span class="keyword">var</span> r = rows[i];</div><div class="line">                   ids.push(&#123;id: r.id&#125;);</div><div class="line">               &#125;</div><div class="line">           &#125;</div><div class="line"></div><div class="line">           <span class="keyword">var</span> json = <span class="built_in">JSON</span>.stringify(ids);</div><div class="line">           <span class="keyword">var</span> url = ip + <span class="string">'/multipleDownloadReceiveFiles'</span>;</div><div class="line">           <span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</div><div class="line">           xhr.open(<span class="string">'POST'</span>, url, <span class="literal">true</span>);</div><div class="line">           xhr.responseType = <span class="string">'arraybuffer'</span>;</div><div class="line">           xhr.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">               <span class="keyword">if</span> (<span class="keyword">this</span>.status === <span class="number">200</span>) &#123;</div><div class="line">                   <span class="keyword">var</span> filename = <span class="string">"附件下载.zip"</span>;</div><div class="line">                   <span class="keyword">var</span> disposition = xhr.getResponseHeader(<span class="string">'Content-Disposition'</span>);</div><div class="line">                   <span class="keyword">if</span> (disposition &amp;&amp; disposition.indexOf(<span class="string">'attachment'</span>) !== <span class="number">-1</span>) &#123;</div><div class="line">                       <span class="keyword">var</span> filenameRegex = <span class="regexp">/filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/</span>;</div><div class="line">                       <span class="keyword">var</span> matches = filenameRegex.exec(disposition);</div><div class="line">                       <span class="keyword">if</span> (matches != <span class="literal">null</span> &amp;&amp; matches[<span class="number">1</span>]) filename = matches[<span class="number">1</span>].replace(<span class="regexp">/['"]/g</span>, <span class="string">''</span>);</div><div class="line">                   &#125;</div><div class="line">                   <span class="keyword">var</span> type = xhr.getResponseHeader(<span class="string">'Content-Type'</span>);</div><div class="line"></div><div class="line">                   <span class="keyword">var</span> blob = <span class="keyword">new</span> Blob([<span class="keyword">this</span>.response], &#123;type: type&#125;);</div><div class="line">                   <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">window</span>.navigator.msSaveBlob !== <span class="string">'undefined'</span>) &#123;</div><div class="line">                       <span class="comment">// IE workaround for "HTML7007: One or more blob URLs were revoked by closing the blob for which they were created. These URLs will no longer resolve as the data backing the URL has been freed."</span></div><div class="line">                       <span class="built_in">window</span>.navigator.msSaveBlob(blob, filename);</div><div class="line">                   &#125; <span class="keyword">else</span> &#123;</div><div class="line">                       <span class="keyword">var</span> URL = <span class="built_in">window</span>.URL || <span class="built_in">window</span>.webkitURL;</div><div class="line">                       <span class="keyword">var</span> downloadUrl = URL.createObjectURL(blob);</div><div class="line"></div><div class="line">                       <span class="keyword">if</span> (filename) &#123;</div><div class="line">                           <span class="comment">// use HTML5 a[download] attribute to specify filename</span></div><div class="line">                           <span class="keyword">var</span> a = <span class="built_in">document</span>.createElement(<span class="string">"a"</span>);</div><div class="line">                           <span class="comment">// safari doesn't support this yet</span></div><div class="line">                           <span class="keyword">if</span> (<span class="keyword">typeof</span> a.download === <span class="string">'undefined'</span>) &#123;</div><div class="line">                               <span class="built_in">window</span>.location = downloadUrl;</div><div class="line">                           &#125; <span class="keyword">else</span> &#123;</div><div class="line">                               a.href = downloadUrl;</div><div class="line">                               a.download = filename;</div><div class="line">                               <span class="built_in">document</span>.body.appendChild(a);</div><div class="line">                               a.click();</div><div class="line">                           &#125;</div><div class="line">                       &#125; <span class="keyword">else</span> &#123;</div><div class="line">                           <span class="built_in">window</span>.location = downloadUrl;</div><div class="line">                       &#125;</div><div class="line"></div><div class="line">                       setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">                           URL.revokeObjectURL(downloadUrl);</div><div class="line">                       &#125;, <span class="number">100</span>); <span class="comment">// cleanup</span></div><div class="line">                   &#125;</div><div class="line">               &#125; <span class="keyword">else</span> &#123;</div><div class="line">                   alert(<span class="string">"您所选择的收文文件没有上传附件！！！"</span>);</div><div class="line">               &#125;</div><div class="line">           &#125;;</div><div class="line">           xhr.setRequestHeader(<span class="string">'Content-type'</span>, <span class="string">'application/json;charset=utf-8'</span>);</div><div class="line">           xhr.send(json);</div><div class="line"></div><div class="line">       &#125;</div><div class="line">       <span class="keyword">else</span> &#123;</div><div class="line">           alert(<span class="string">"请选中一条记录"</span>);</div><div class="line">           <span class="keyword">return</span>;</div><div class="line">       &#125;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<h1 id="也是走过弯路的"><a href="#也是走过弯路的" class="headerlink" title="也是走过弯路的"></a>也是走过弯路的</h1><p>&nbsp;由于脑子不清楚，我以为SaveAs可以拯救我。但是，妹子啊，这个是另存为啊好不好！脑子瓦特了吗。在纠结了半天为什么文件类型只能保存为txt和html后，终于反应过来了，被自己蠢哭了。 </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">SaveContents</span>(<span class="params">data, filename</span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span> (<span class="built_in">document</span>.execCommand) &#123;</div><div class="line">            <span class="keyword">var</span> oWin = <span class="built_in">window</span>.open(<span class="string">"about:blank"</span>, <span class="string">"_blank"</span>);</div><div class="line">            <span class="comment">//To add a new line, you need to use &lt;br&gt;</span></div><div class="line">            oWin.document.open(<span class="string">"application/octet-stream"</span>, <span class="string">"replace"</span>);</div><div class="line">            oWin.document.charset = <span class="string">"utf-8"</span>;</div><div class="line">            oWin.document.write(data);</div><div class="line">            oWin.document.close();</div><div class="line"></div><div class="line">            <span class="comment">//Need to specify the filename that we are going to set here</span></div><div class="line">            <span class="keyword">var</span> success = oWin.document.execCommand(<span class="string">'SaveAs'</span>, <span class="literal">true</span>, filename);</div><div class="line">            oWin.close();</div><div class="line">            alert(success);</div><div class="line">            <span class="keyword">if</span> (!success) &#123;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h1 id="就算是IE8，也没什么了不起"><a href="#就算是IE8，也没什么了不起" class="headerlink" title="就算是IE8，也没什么了不起"></a>就算是IE8，也没什么了不起</h1><p>&nbsp;首先，我们来看看，IE的版本吧。哎。 </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//    IE8测试</span></div><div class="line">           <span class="keyword">var</span> Sys = &#123;&#125;;</div><div class="line">           <span class="keyword">var</span> ua = navigator.userAgent.toLowerCase();</div><div class="line">           <span class="keyword">if</span> (<span class="built_in">window</span>.ActiveXObject)</div><div class="line">               Sys.ie = ua.match(<span class="regexp">/msie ([\d.]+)/</span>)[<span class="number">1</span>];</div><div class="line"></div><div class="line">          <span class="keyword">if</span> (<span class="built_in">parseFloat</span>(Sys.ie) &lt;= <span class="number">9.0</span>) &#123;</div><div class="line">           ajax_download(url, ids, <span class="string">'ids'</span>);</div><div class="line">          &#125;</div></pre></td></tr></table></figure>
+<p>&nbsp;然后，利用iframe来解决下载保存问题。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// creates iframe and form in it with hidden field,</span></div><div class="line"><span class="comment">// then submit form with provided data</span></div><div class="line"><span class="comment">// url - form url</span></div><div class="line"><span class="comment">// data - data to form field</span></div><div class="line"><span class="comment">// input_name - form hidden input name</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">ajax_download</span>(<span class="params">url, data, input_name</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> $iframe,</div><div class="line">                iframe_doc,</div><div class="line">                iframe_html;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (($iframe = $(<span class="string">'#download_iframe'</span>)).length === <span class="number">0</span>) &#123;</div><div class="line">            $iframe = $(<span class="string">"&lt;iframe id='download_iframe'"</span> +</div><div class="line">                    <span class="string">" style='display: none' src='about:blank'&gt;&lt;/iframe&gt;"</span></div><div class="line">            ).appendTo(<span class="string">"body"</span>);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        iframe_doc = $iframe[<span class="number">0</span>].contentWindow || $iframe[<span class="number">0</span>].contentDocument;</div><div class="line">        <span class="keyword">if</span> (iframe_doc.document) &#123;</div><div class="line">            iframe_doc = iframe_doc.document;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        iframe_html = <span class="string">"&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;form id='myForm' method='POST' action='"</span> +</div><div class="line">                url + <span class="string">"'&gt;"</span> +</div><div class="line">                <span class="string">"&lt;input type=hidden name='"</span> + input_name + <span class="string">"' value='"</span> +</div><div class="line">                <span class="built_in">JSON</span>.stringify(data) + <span class="string">"'/&gt;&lt;/form&gt;"</span> +</div><div class="line">                <span class="string">"&lt;/body&gt;&lt;/html&gt;"</span>;</div><div class="line"></div><div class="line">        iframe_doc.open();</div><div class="line">        iframe_doc.write(iframe_html);</div><div class="line">        $(iframe_doc).find(<span class="string">'form'</span>).submit();</div><div class="line"></div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h1 id="Spring也很坑啊"><a href="#Spring也很坑啊" class="headerlink" title="Spring也很坑啊"></a>Spring也很坑啊</h1><p>&nbsp;写好前台代码后，想测试下载功能，由于现在前台传过去的数据格式和之前不一样，原来<strong>content-type: application/json</strong>,现在由于是表单提交，所以<strong>content-type: application/x-www-form-urlencoded</strong>,没想到Spring对于content-type是application/x-www-form-urlencoded的表单数据处理，只能说不常见吧，我google了一晚上都没有取到前台传过去的表单数据，只能说我后台真的很渣。还好，我去烦佳薇了，在我的push下，我们终于把下载文件搞定了。作为组长真的很辛苦啊，幸好我不是组长，看着小明和佳薇都这么苦逼，我就庆幸自己不是组长。但是，每个项目前端的压力都在我身上，好害怕。前端的坑很多的。哎。人生啊人生。<br>&nbsp;其实佳薇后台的文件下载也可以写个blog的，但是我不是很清楚具体实现，之后可以学习一下，总结到这篇文章里。<br>&nbsp;下面是佳薇后台接口的实现。我也是很懒，只贴一下代码。<br>&nbsp;@ModelAttribute(“ids”)原来这样就可以拿到传过来的form表单中的值啊，好心酸。我还一直在纠结为什么MutiValueMap取不到，stackoverflow上的人都是在骗我吗，为什么我取不到，奇葩问题，可以之后找个Spring大神问一下。。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@RequestMapping</span>(value=<span class="string">"/multipleDownloadReceiveFiles"</span>, method = RequestMethod.POST, consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)</div><div class="line">    <span class="meta">@ResponseBody</span></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">multipleDownloadReceiveFiles</span><span class="params">(@ModelAttribute(<span class="string">"ids"</span>)</span> String receiveFileIdsStr,</span></div><div class="line">                                               HttpServletResponse response)&#123;</div><div class="line">        File result = <span class="keyword">null</span>;</div><div class="line">        ObjectMapper mapper = <span class="keyword">new</span> ObjectMapper();</div><div class="line">        List&lt;Map&lt;String, Integer&gt;&gt; receiveFileIds = <span class="keyword">new</span> ArrayList&lt;Map&lt;String, Integer&gt;&gt;();</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            receiveFileIds = mapper.readValue(receiveFileIdsStr, receiveFileIds.getClass());</div><div class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (receiveFileIds == <span class="keyword">null</span> || receiveFileIds.isEmpty()) &#123;</div><div class="line">            response.setStatus(HttpStatus.NO_CONTENT.value());</div><div class="line">            <span class="keyword">return</span> <span class="string">"没有要下载的内容"</span>;</div><div class="line">        &#125;</div><div class="line">        List&lt;ReceiveFile&gt; receiveFiles = <span class="keyword">new</span> ArrayList&lt;ReceiveFile&gt;();</div><div class="line">        Map&lt;String, List&lt;Attachment&gt;&gt; dcncodes_attachments = <span class="keyword">new</span> HashMap&lt;String, List&lt;Attachment&gt;&gt;();</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (Map&lt;String, Integer&gt; receiveFileId : receiveFileIds) &#123;</div><div class="line">            <span class="keyword">if</span> (receiveFileId != <span class="keyword">null</span> &amp;&amp; receiveFileId.containsKey(<span class="string">"id"</span>)) &#123;</div><div class="line">                ReceiveFile receiveFile = receiveFileDao.findOne(Long.valueOf((<span class="keyword">long</span>)receiveFileId.get(<span class="string">"id"</span>)));</div><div class="line">                <span class="keyword">if</span> (receiveFile != <span class="keyword">null</span>) &#123;</div><div class="line">                    receiveFiles.add(receiveFile);</div><div class="line">                    Project project = receiveFile.project;</div><div class="line">                    EngNoInfo engNoInfo = receiveFile.engNoInfo;</div><div class="line">                    List&lt;Attachment&gt; attachments1 = attachmentDao.findByFileIdAndTypeAndProjectAndEngNoInfoAndAlive(receiveFile.id, <span class="string">"R"</span>, project, engNoInfo, <span class="number">1</span>);</div><div class="line">                    <span class="keyword">if</span> (attachments1 != <span class="keyword">null</span> &amp;&amp; !attachments1.isEmpty()) &#123;</div><div class="line">                        <span class="keyword">for</span> (Attachment attachment : attachments1) &#123;</div><div class="line">                            <span class="keyword">if</span> (attachment != <span class="keyword">null</span> &amp;&amp; receiveFile.DCNCode != <span class="keyword">null</span>) &#123;</div><div class="line">                                List&lt;Attachment&gt; attachments = dcncodes_attachments.containsKey(receiveFile.DCNCode) ? dcncodes_attachments.get(receiveFile.DCNCode) : <span class="keyword">new</span> ArrayList&lt;Attachment&gt;();</div><div class="line">                                attachments.add(attachment);</div><div class="line">                                dcncodes_attachments.put(receiveFile.DCNCode, attachments);</div><div class="line">                            &#125;</div><div class="line">                        &#125;</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (dcncodes_attachments.isEmpty()) &#123;</div><div class="line">            response.setStatus(HttpStatus.NO_CONTENT.value());</div><div class="line">            <span class="keyword">return</span> <span class="string">"没有要下载的内容"</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        result = attachmentService.downloadAttachmentsByReceiveFiles(dcncodes_attachments, receiveFiles);</div><div class="line">        <span class="keyword">if</span> (result == <span class="keyword">null</span>) &#123;</div><div class="line">            response.setStatus(HttpStatus.NO_CONTENT.value());</div><div class="line">            <span class="keyword">return</span> <span class="string">"下载失败"</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            String fileDisplay = result.getAbsolutePath();</div><div class="line">            fileDisplay = fileDisplay.substring(fileDisplay.lastIndexOf(<span class="string">"/"</span>) + <span class="number">1</span>);</div><div class="line">            fileDisplay = URLEncoder.encode(fileDisplay,<span class="string">"UTF-8"</span>);</div><div class="line">            <span class="comment">// get your file as InputStream</span></div><div class="line">            InputStream is = <span class="keyword">new</span> FileInputStream(result);</div><div class="line">            response.setHeader(<span class="string">"Content-Disposition"</span>,<span class="string">"attachment;filename="</span> + fileDisplay);</div><div class="line">            response.setHeader(<span class="string">"Content-type"</span>, <span class="string">"application/octet-stream"</span>);</div><div class="line">            response.setHeader(<span class="string">"Content-Length"</span>, String.valueOf(result.length()));</div><div class="line">            response.setStatus(HttpStatus.OK.value());</div><div class="line">            <span class="comment">// copy it to response's OutputStream</span></div><div class="line">            org.apache.commons.io.IOUtils.copy(is, response.getOutputStream());</div><div class="line">            response.flushBuffer();</div><div class="line">            <span class="keyword">return</span> <span class="string">"下载成功"</span>;</div><div class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">        response.setStatus(HttpStatus.NO_CONTENT.value());</div><div class="line">        <span class="keyword">return</span> <span class="string">"下载异常"</span>;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h1 id="还是开心点儿吧"><a href="#还是开心点儿吧" class="headerlink" title="还是开心点儿吧"></a>还是开心点儿吧</h1><p>&nbsp;其实这几天过得挺充实的。嗯，就这样。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/07/22/文件下载（兼容IE8）/">文件下载（兼容IE8）</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Li Jingjing 的个人博客">Li Jingjing</a></p>
+        <p><span>发布时间:</span>2016年07月22日 - 22时23分</p>
+        <p><span>最后更新:</span>2016年07月22日 - 22时55分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/07/22/文件下载（兼容IE8）/" title="文件下载（兼容IE8）">http://lijingjing.top/2016/07/22/文件下载（兼容IE8）/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://lijingjing.top/2016/07/22/文件下载（兼容IE8）/　　作者: Li Jingjing" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2016/09/21/失焦防止alert两次/">
+                    失焦防止alert两次
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/07/14/IE8跨域访问/">
+                    IE8跨域访问
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#我的愿望"><span class="toc-number">1.</span> <span class="toc-text">我的愿望</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如果世上没有IE8"><span class="toc-number">2.</span> <span class="toc-text">如果世上没有IE8</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#也是走过弯路的"><span class="toc-number">3.</span> <span class="toc-text">也是走过弯路的</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#就算是IE8，也没什么了不起"><span class="toc-number">4.</span> <span class="toc-text">就算是IE8，也没什么了不起</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring也很坑啊"><span class="toc-number">5.</span> <span class="toc-text">Spring也很坑啊</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#还是开心点儿吧"><span class="toc-number">6.</span> <span class="toc-text">还是开心点儿吧</span></a></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+    <div class="share">
+    <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+    <a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
+    <a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+    </div>
+    <script>
+        window._bd_share_config={
+            "common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+</div>
+
+
+
+    
+      <div class="duoshuo" id="comments">
+  <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="2016/07/22/文件下载（兼容IE8）/" data-title="文件下载（兼容IE8）" data-url="http://lijingjing.top/2016/07/22/文件下载（兼容IE8）/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"lijingjing"};
+    	(function() {
+    		var ds = document.createElement('script');
+    		ds.type = 'text/javascript';ds.async = true;
+    		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    		ds.charset = 'UTF-8';
+    		(document.getElementsByTagName('head')[0]
+    		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+    	})();
+    	</script>
+    <!-- 多说公共JS代码 end -->
+
+</div>
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2016/09/21/失焦防止alert两次/" title="上一篇: 失焦防止alert两次">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/07/14/IE8跨域访问/" title="下一篇: IE8跨域访问">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/09/21/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/21/Angular-Directive/">Angular Directive</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/21/失焦防止alert两次/">失焦防止alert两次</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/22/文件下载（兼容IE8）/">文件下载（兼容IE8）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/14/IE8跨域访问/">IE8跨域访问</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/17/JS继承/">JS继承</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/21/JS创建对象/">JS创建对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/19/回调函数将结果顺序存放/">回调函数将结果顺序存放</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/12/hexo发布文章/">hexo发布文章</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/25/H5上传图片/">H5上传图片</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/23/position与overflow/">position与overflow</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/23/Hello-World-again/">Hello World again</a></li></ul>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2016 Li Jingjing
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的静态博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减双栏 Hexo 博客主题">Yelee</a> by MOxFIVE
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >本站到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

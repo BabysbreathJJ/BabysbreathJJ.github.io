@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>H5上传图片 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="H5上传图片">
+<meta property="og:type" content="article">
+<meta property="og:title" content="H5上传图片">
+<meta property="og:url" content="http://lijingjing.top/2016/02/25/H5上传图片/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="H5上传图片">
+<meta property="og:updated_time" content="2016-04-13T06:16:23.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="H5上传图片">
+<meta name="twitter:description" content="H5上传图片">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+  
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/avatar.png" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/">Li Jingjing</a></h1>
+        </hgroup>
+
+        
+                
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="mailto:lijingjing1008@gmail.com" title="Email"></a></li>
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/BabysbreathJJ/" title="GitHub"></a></li>
+                            
+                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/H5/" style="font-size: 10px;">H5</a> <a href="/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/tags/IE8/" style="font-size: 20px;">IE8</a> <a href="/tags/alert/" style="font-size: 10px;">alert</a> <a href="/tags/onblur/" style="font-size: 10px;">onblur</a> <a href="/tags/overflow/" style="font-size: 10px;">overflow</a> <a href="/tags/position/" style="font-size: 10px;">position</a> <a href="/tags/回调/" style="font-size: 10px;">回调</a> <a href="/tags/拍照上传/" style="font-size: 10px;">拍照上传</a> <a href="/tags/递归/" style="font-size: 10px;">递归</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/面向对象/" style="font-size: 20px;">面向对象</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://gaocegege.com/Blog">高策</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://yusiyuan.top/">虞思源</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">赤子之心不曾改变</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Li Jingjing</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/avatar.png" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Li Jingjing</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="mailto:lijingjing1008@gmail.com" title="Email"></a></li>
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/BabysbreathJJ/" title="GitHub"></a></li>
+                            
+                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-H5上传图片" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/02/25/H5上传图片/" class="article-date">
+      <time datetime="2016-02-25T14:54:59.000Z" itemprop="datePublished">2016-02-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      H5上传图片
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/前端/">前端</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/H5/">H5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/拍照上传/">拍照上传</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="我的碎碎念"><a href="#我的碎碎念" class="headerlink" title="我的碎碎念"></a>我的碎碎念</h1><p> 其实H5读取文件什么的还是很方便的吧。<br> 问题一：我觉着利用H5来读取图片文件没什么问题，网上的代码一搜一大把，但是最神烦的是手机拍照后上传图片，因为手机的摄像头方向不是你看到的正着的，它的角度有问题啊。。。你的手机是自己把照片的角度旋转后展现给你的，所以如果你直接拍照后，将刚拍的照片当做上传的图片，你存到后台的图片是侧着的，或者倒着的，看你拍照时候摄像头的方向吧。。。然后项目中还要图片剪裁，所以说先剪裁还是先旋转这个问题我纠结好久，最后发现还是先旋转后剪裁吧，因为用的别人的插件，先剪裁后旋转，没有成功。。<br> 问题二：然后，前几天做web应用的图片上传，因为后台上传图片的接口早写好了，是一个上传文件的统一接口，所以我不能直接传base64过去，后台不支持我的数据格式，后台接收的数据格式是<code>content-tyle=multipart/*</code>，这个是什么格式呢，google之后发现以FormData的形式传到后台是可以的。就是要传一个file过去，base64的话传过去的是String吧。</p>
+<h1 id="移动应用拍照上传图片"><a href="#移动应用拍照上传图片" class="headerlink" title="移动应用拍照上传图片"></a>移动应用拍照上传图片</h1><h2 id="库-工具"><a href="#库-工具" class="headerlink" title="库/工具"></a>库/工具</h2><ol>
+<li><a href="https://github.com/exif-js/exif-js" target="_blank" rel="external">exif.js</a>,读取图片元信息，获取照片本身的Orientation</li>
+<li><a href="https://github.com/stomita/ios-imagefile-megapixel" target="_blank" rel="external">megapix-image.js</a>，来进行图片最终的旋转，按照orientation来写入图片数据</li>
+<li><a href="https://github.com/scottcheng/cropit" target="_blank" rel="external">cropit.js</a>，图片剪裁的插件</li>
+</ol>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><h3 id="HTML代码"><a href="#HTML代码" class="headerlink" title="HTML代码"></a>HTML代码</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"display-ib per60 tc"</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"head-logo"</span></span></div><div class="line">                           <span class="attr">class</span>=<span class="string">"bg-gray displayImg tc display-ib pos-r img-circle w-80 ht80 l-ht80 border border-purple vertical-a-m cursor-p overflow-h"</span>&gt;上传头像<span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">id</span>=<span class="string">"head-logo"</span> <span class="attr">class</span>=<span class="string">"top-200 pos-a"</span> <span class="attr">accept</span>=<span class="string">"image/*"</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">id</span>=<span class="string">"imgUrl"</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">"cvs"</span> <span class="attr">style</span>=<span class="string">"display: none"</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></div><div class="line"></div><div class="line">                   <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"image-editor"</span>&gt;</span></div><div class="line">                       <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"cropit-image-preview"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">                       <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"image-size-label"</span>&gt;</span></div><div class="line">                           滑动调整图片大小</div><div class="line">                       <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">                       <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"range"</span> <span class="attr">class</span>=<span class="string">"cropit-image-zoom-input"</span></span></div><div class="line">                              <span class="attr">style</span>=<span class="string">"width: 80%;margin: 10px auto;text-align: center"</span>&gt;</div><div class="line">                       <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"btn-sm btn-default btn-warning export mr25"</span>&gt;</span><span class="tag">&lt;<span class="name">span</span></span></div><div class="line">                               <span class="attr">class</span>=<span class="string">"glyphicon glyphicon-scissors mr10"</span>&gt;<span class="tag">&lt;/<span class="name">span</span>&gt;</span>裁剪<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">                       <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"btn-sm btn-black mt10 cancelImage"</span>&gt;</span><span class="tag">&lt;<span class="name">span</span></span></div><div class="line">                               <span class="attr">class</span>=<span class="string">"glyphicon glyphicon-remove mr10"</span>&gt;<span class="tag">&lt;/<span class="name">span</span>&gt;</span>取消<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">                   <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line">                    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"font-red ml10 display-n"</span>&gt;</span>这里是错误信息<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">                <span class="tag">&lt;/<span class="name">span</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>因为在使用megapix-image.js的时候需要使用canvas来获取旋转后的图片，之后传到后台，所以在Html文件中，放了一个隐藏的<code>&lt;canvas&gt;</code>。</p>
+<h2 id="JS代码"><a href="#JS代码" class="headerlink" title="JS代码"></a>JS代码</h2><h3 id="为-lt-input-type-39-file-39-gt-添加监听器。"><a href="#为-lt-input-type-39-file-39-gt-添加监听器。" class="headerlink" title="为&lt;input type=&#39;file&#39;/&gt;添加监听器。"></a>为<code>&lt;input type=&#39;file&#39;/&gt;</code>添加监听器。</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">displayImg</span>(<span class="params">result</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> file = <span class="built_in">document</span>.getElementById(<span class="string">'head-logo'</span>);</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> FileReader === <span class="string">'undefined'</span>) &#123;</div><div class="line">        result.innerHTML = <span class="string">"抱歉，你的浏览器不支持 FileReader"</span>;</div><div class="line">        input.setAttribute(<span class="string">'disabled'</span>, <span class="string">'disabled'</span>);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        file.addEventListener(<span class="string">'change'</span>, readFile, <span class="literal">false</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="读取文件"><a href="#读取文件" class="headerlink" title="读取文件"></a>读取文件</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">readFile</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> file = <span class="keyword">this</span>.files[<span class="number">0</span>];</div><div class="line">    $(<span class="string">'.image-editor'</span>).show();</div><div class="line">    <span class="keyword">if</span> (file) &#123;</div><div class="line">        <span class="comment">//验证图片文件类型</span></div><div class="line">        <span class="keyword">if</span> (file.type &amp;&amp; !<span class="regexp">/image/i</span>.test(file.type)) &#123;</div><div class="line">            alert(<span class="string">"文件必须为图片！"</span>);</div><div class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">var</span> reader = <span class="keyword">new</span> FileReader();</div><div class="line">        reader.readAsDataURL(file);</div><div class="line">        reader.onload = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</div><div class="line"></div><div class="line">            render(file, <span class="keyword">this</span>.result);<span class="comment">//旋转图片逻辑</span></div><div class="line">            <span class="comment">//readAsDataURL后执行onload，进入图片压缩逻辑</span></div><div class="line">            <span class="comment">//e.target.result得到的就是图片文件的base64 string</span></div><div class="line">            $(<span class="string">'.export'</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">              <span class="comment">//imageData现在拿到的是旋转过的图片信息</span></div><div class="line">                <span class="keyword">var</span> imageData = $(<span class="string">'.image-editor'</span>).cropit(<span class="string">'export'</span>);</div><div class="line">                <span class="keyword">var</span> img = $(<span class="string">'&lt;img  id="imgsrc" width="80" height="80"&gt;'</span>);</div><div class="line">                img.attr(<span class="string">"src"</span>, imageData);</div><div class="line">                $(<span class="string">".displayImg"</span>).html(img);</div><div class="line">                $(<span class="string">"#imgUrl"</span>).val(imageData.split(<span class="string">","</span>)[<span class="number">1</span>]);</div><div class="line"></div><div class="line">                $(<span class="string">".image-editor"</span>).hide();</div><div class="line">            &#125;);</div><div class="line">            <span class="keyword">var</span> result = <span class="keyword">this</span>.result;</div><div class="line">            <span class="keyword">var</span> img = <span class="keyword">new</span> Image();</div><div class="line">            img.src = result;</div><div class="line">            img.width = <span class="number">80</span>;</div><div class="line">            img.height = <span class="number">80</span>;</div><div class="line">            $(<span class="string">".displayImg"</span>).html(img);</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="利用Exif-js和megapix-image-js进行图片信息获取，和根据图片orientation来进行图片旋转。"><a href="#利用Exif-js和megapix-image-js进行图片信息获取，和根据图片orientation来进行图片旋转。" class="headerlink" title="利用Exif.js和megapix-image.js进行图片信息获取，和根据图片orientation来进行图片旋转。"></a>利用Exif.js和megapix-image.js进行图片信息获取，和根据图片orientation来进行图片旋转。</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//定义照片的最大高度</span></div><div class="line"><span class="keyword">var</span> MAX_HEIGHT = <span class="number">480</span>;</div><div class="line"><span class="keyword">var</span> render = <span class="function"><span class="keyword">function</span> (<span class="params">file, src</span>) </span>&#123;</div><div class="line">    EXIF.getData(file, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="comment">//获取照片本身的Orientation</span></div><div class="line">        <span class="keyword">var</span> orientation = EXIF.getTag(<span class="keyword">this</span>, <span class="string">"Orientation"</span>);</div><div class="line">        <span class="keyword">var</span> image = <span class="keyword">new</span> Image();</div><div class="line">        image.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="comment">//image.src = src;</span></div><div class="line">            <span class="keyword">var</span> cvs = <span class="built_in">document</span>.getElementById(<span class="string">"cvs"</span>);</div><div class="line">            <span class="keyword">var</span> w = image.width;</div><div class="line">            <span class="keyword">var</span> h = image.height;</div><div class="line">            <span class="comment">//计算压缩后的图片长和宽</span></div><div class="line">            <span class="keyword">if</span> (h &gt; MAX_HEIGHT) &#123;</div><div class="line">                w *= MAX_HEIGHT / h;</div><div class="line">                h = MAX_HEIGHT;</div><div class="line">            &#125;</div><div class="line">            <span class="comment">//使用MegaPixImage封装照片数据</span></div><div class="line">            <span class="keyword">var</span> mpImg = <span class="keyword">new</span> MegaPixImage(image);</div><div class="line">            <span class="comment">//按照Orientation来写入图片数据，回调函数是上传图片到服务器</span></div><div class="line">            mpImg.render(cvs, &#123;maxWidth: w, maxHeight: h, orientation: orientation&#125;, sendImg);</div><div class="line">        &#125;;</div><div class="line">        image.src = src;</div><div class="line">    &#125;);</div><div class="line">&#125;;</div><div class="line"><span class="keyword">var</span> sendImg = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> cvs = <span class="built_in">document</span>.getElementById(<span class="string">"cvs"</span>);</div><div class="line">    <span class="comment">//调用Canvas的toDataURL接口，得到的是照片文件的base64编码string</span></div><div class="line">    <span class="keyword">var</span> data = cvs.toDataURL(<span class="string">"image/jpeg"</span>);</div><div class="line">    <span class="comment">//base64 string过短显然就不是正常的图片数据了，过滤。</span></div><div class="line">    <span class="keyword">if</span> (data.length &lt; <span class="number">48</span>) &#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"data error."</span>);</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    $(<span class="string">'.image-editor'</span>).cropit(<span class="string">'imageSrc'</span>, data);<span class="comment">//裁剪的是旋转过的图片</span></div><div class="line"></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h3 id="上传图片到服务器"><a href="#上传图片到服务器" class="headerlink" title="上传图片到服务器"></a>上传图片到服务器</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> uploadImg = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="keyword">var</span> uploadUrl = <span class="string">"服务器地址"</span>;</div><div class="line">            <span class="keyword">var</span> uploadData = &#123;</div><div class="line">                <span class="string">'phoneId'</span>: phone,</div><div class="line">                <span class="string">'imageValue'</span>: $(<span class="string">"#imgUrl"</span>).val()</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> ($(<span class="string">"#imgUrl"</span>).val() == <span class="string">""</span>) &#123;</div><div class="line">                alert(<span class="string">"保存成功"</span>);</div><div class="line">                <span class="built_in">window</span>.location.href = <span class="string">"usercenter.html"</span>;</div><div class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">else</span> &#123;</div><div class="line">                $.ajax(&#123;</div><div class="line">                    url: uploadUrl,</div><div class="line">                    type: <span class="string">"POST"</span>,</div><div class="line">                    data: <span class="built_in">JSON</span>.stringify(uploadData),</div><div class="line">                    contentType: <span class="string">'application/json'</span>,</div><div class="line">                    success: <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</div><div class="line">                        <span class="keyword">if</span> (data.success) &#123;</div><div class="line">                            alert(<span class="string">"保存成功"</span>);</div><div class="line">                            <span class="built_in">window</span>.location.href = <span class="string">"usercenter.html"</span>;</div><div class="line">                        &#125;</div><div class="line">                    &#125;</div><div class="line">                &#125;)</div><div class="line">            &#125;</div><div class="line">        &#125;();</div></pre></td></tr></table></figure>
+<h1 id="Web应用上传图片"><a href="#Web应用上传图片" class="headerlink" title="Web应用上传图片"></a>Web应用上传图片</h1><h2 id="后台接收数据格式为：multipart"><a href="#后台接收数据格式为：multipart" class="headerlink" title="后台接收数据格式为：multipart/*"></a>后台接收数据格式为：multipart/*</h2><h2 id="HTML代码-1"><a href="#HTML代码-1" class="headerlink" title="HTML代码"></a>HTML代码</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"avatar-teacher"</span> <span class="attr">ng-controller</span>=<span class="string">"StudentAvatarCtrl"</span> <span class="attr">class</span>=<span class="string">"pos-r"</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">name</span>=<span class="string">"file"</span> <span class="attr">id</span>=<span class="string">"avatar-teacher"</span> <span class="attr">class</span>=<span class="string">"pos-a top-200"</span>/&gt;</span>                     </div><div class="line">      <span class="tag">&lt;<span class="name">img</span> <span class="attr">ng-click</span>=<span class="string">"readAvatar()"</span> <span class="attr">ng-show</span>=<span class="string">"currentUser.photo==null"</span> <span class="attr">class</span>=<span class="string">"avatar"</span> <span class="attr">ng-src</span>=<span class="string">"&#123;&#123;avatarSource&#125;&#125;"</span>/&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">img</span> <span class="attr">ng-click</span>=<span class="string">"readAvatar()"</span> <span class="attr">ng-show</span>=<span class="string">"currentUser.photo!=null"</span> <span class="attr">class</span>=<span class="string">"avatar"</span></span></div><div class="line">                                     <span class="attr">src</span>=<span class="string">"/VPFile&#123;&#123;currentUser.photo&#125;&#125;"</span>/&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">label</span>&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="添加监听器"><a href="#添加监听器" class="headerlink" title="添加监听器"></a>添加监听器</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">$scope.readAvatar = <span class="function"><span class="keyword">function</span> (<span class="params">result</span>) </span>&#123;</div><div class="line"></div><div class="line">                <span class="keyword">var</span> file = <span class="built_in">document</span>.getElementById(<span class="string">'avatar-teacher'</span>);</div><div class="line">                <span class="keyword">if</span> (<span class="keyword">typeof</span> FileReader === <span class="string">'undefined'</span>) &#123;</div><div class="line">                    result.innerHTML = <span class="string">"抱歉，你的浏览器不支持 FileReader"</span>;</div><div class="line">                    input.setAttribute(<span class="string">'disabled'</span>, <span class="string">'disabled'</span>);</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    file.addEventListener(<span class="string">'change'</span>, readFile, <span class="literal">false</span>);</div><div class="line">                &#125;</div><div class="line">            &#125;;</div></pre></td></tr></table></figure>
+<h2 id="读取文件并上传"><a href="#读取文件并上传" class="headerlink" title="读取文件并上传"></a>读取文件并上传</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">readFile</span>(<span class="params"></span>) </span>&#123;</div><div class="line">                <span class="keyword">var</span> file = <span class="keyword">this</span>.files[<span class="number">0</span>];</div><div class="line">                <span class="keyword">var</span> fd = <span class="keyword">new</span> FormData();</div><div class="line">                fd.append( <span class="string">"file"</span>, <span class="keyword">this</span>.files[<span class="number">0</span>]);</div><div class="line"></div><div class="line">                <span class="keyword">var</span> reqUpload = &#123;</div><div class="line">                    method: <span class="string">'POST'</span>,</div><div class="line">                    url: <span class="string">'服务器地址'</span>,</div><div class="line">                    <span class="comment">//transformRequest: angular.identity,</span></div><div class="line">                    headers: &#123;</div><div class="line">                        <span class="string">'Access-Token'</span>: localStorage[<span class="string">'accessToken'</span>],</div><div class="line">                        <span class="string">'Content-Type'</span>: <span class="literal">undefined</span></div><div class="line">                    &#125;,</div><div class="line">                    data: fd</div><div class="line"></div><div class="line">                &#125;;</div><div class="line"></div><div class="line">                $http(reqUpload).success(<span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</div><div class="line">                    <span class="comment">//do something you want to do</span></div><div class="line"></div><div class="line">                &#125;);</div><div class="line"></div><div class="line">                <span class="keyword">var</span> reader = <span class="keyword">new</span> FileReader();</div><div class="line">                reader.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">                    <span class="comment">// 通过 reader.result 来访问生成的 DataURL</span></div><div class="line">                    <span class="keyword">var</span> url = reader.result;</div><div class="line">                    $scope.avatarSource = url;</div><div class="line">                    $scope.$apply();<span class="comment">//让页面显示最新上传的图片</span></div><div class="line">                &#125;;</div><div class="line">                reader.readAsDataURL(file);</div><div class="line">            &#125;</div></pre></td></tr></table></figure>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ol>
+<li>有空去好好学学canvas吧,满有用的。。。</li>
+<li>学完canvas估计H5上传图片的问题会有更深入的了解，而且图片剪裁应该也不是问题了。</li>
+<li>还是要好好学习啊，不要总任性。</li>
+</ol>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/02/25/H5上传图片/">H5上传图片</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Li Jingjing 的个人博客">Li Jingjing</a></p>
+        <p><span>发布时间:</span>2016年02月25日 - 22时54分</p>
+        <p><span>最后更新:</span>2016年04月13日 - 14时16分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/02/25/H5上传图片/" title="H5上传图片">http://lijingjing.top/2016/02/25/H5上传图片/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://lijingjing.top/2016/02/25/H5上传图片/　　作者: Li Jingjing" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2016/04/12/hexo发布文章/">
+                    hexo发布文章
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/02/23/position与overflow/">
+                    position与overflow
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#我的碎碎念"><span class="toc-number">1.</span> <span class="toc-text">我的碎碎念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#移动应用拍照上传图片"><span class="toc-number">2.</span> <span class="toc-text">移动应用拍照上传图片</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#库-工具"><span class="toc-number">2.1.</span> <span class="toc-text">库/工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现"><span class="toc-number">2.2.</span> <span class="toc-text">实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML代码"><span class="toc-number">2.2.1.</span> <span class="toc-text">HTML代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JS代码"><span class="toc-number">2.3.</span> <span class="toc-text">JS代码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#为-lt-input-type-39-file-39-gt-添加监听器。"><span class="toc-number">2.3.1.</span> <span class="toc-text">为<input type='file'/>添加监听器。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#读取文件"><span class="toc-number">2.3.2.</span> <span class="toc-text">读取文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#利用Exif-js和megapix-image-js进行图片信息获取，和根据图片orientation来进行图片旋转。"><span class="toc-number">2.3.3.</span> <span class="toc-text">利用Exif.js和megapix-image.js进行图片信息获取，和根据图片orientation来进行图片旋转。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#上传图片到服务器"><span class="toc-number">2.3.4.</span> <span class="toc-text">上传图片到服务器</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Web应用上传图片"><span class="toc-number">3.</span> <span class="toc-text">Web应用上传图片</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#后台接收数据格式为：multipart"><span class="toc-number">3.1.</span> <span class="toc-text">后台接收数据格式为：multipart/*</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTML代码-1"><span class="toc-number">3.2.</span> <span class="toc-text">HTML代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加监听器"><span class="toc-number">3.3.</span> <span class="toc-text">添加监听器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#读取文件并上传"><span class="toc-number">3.4.</span> <span class="toc-text">读取文件并上传</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+    <div class="share">
+    <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+    <a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
+    <a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+    </div>
+    <script>
+        window._bd_share_config={
+            "common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+</div>
+
+
+
+    
+      <div class="duoshuo" id="comments">
+  <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="2016/02/25/H5上传图片/" data-title="H5上传图片" data-url="http://lijingjing.top/2016/02/25/H5上传图片/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"lijingjing"};
+    	(function() {
+    		var ds = document.createElement('script');
+    		ds.type = 'text/javascript';ds.async = true;
+    		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    		ds.charset = 'UTF-8';
+    		(document.getElementsByTagName('head')[0]
+    		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+    	})();
+    	</script>
+    <!-- 多说公共JS代码 end -->
+
+</div>
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2016/04/12/hexo发布文章/" title="上一篇: hexo发布文章">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/02/23/position与overflow/" title="下一篇: position与overflow">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/09/21/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/21/Angular-Directive/">Angular Directive</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/21/失焦防止alert两次/">失焦防止alert两次</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/22/文件下载（兼容IE8）/">文件下载（兼容IE8）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/14/IE8跨域访问/">IE8跨域访问</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/17/JS继承/">JS继承</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/21/JS创建对象/">JS创建对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/19/回调函数将结果顺序存放/">回调函数将结果顺序存放</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/12/hexo发布文章/">hexo发布文章</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/25/H5上传图片/">H5上传图片</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/23/position与overflow/">position与overflow</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/23/Hello-World-again/">Hello World again</a></li></ul>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2016 Li Jingjing
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的静态博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减双栏 Hexo 博客主题">Yelee</a> by MOxFIVE
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >本站到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
