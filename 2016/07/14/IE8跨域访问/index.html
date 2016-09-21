@@ -1,528 +1,246 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  
-  <title>IE8跨域访问 | Jessica Lee</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="IE8跨域访问">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      IE8跨域访问 | Jessica Lee 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="阿菁菁菁菁菁">
+    
+    
+
+    <meta name="description" content="IE8跨域访问">
 <meta property="og:type" content="article">
-<meta property="og:title" content="IE8跨域访问">
+<meta property="og:title" content="IE8跨域访问 | Jessica Lee">
 <meta property="og:url" content="http://lijingjing.top/2016/07/14/IE8跨域访问/index.html">
 <meta property="og:site_name" content="Jessica Lee">
 <meta property="og:description" content="IE8跨域访问">
 <meta property="og:updated_time" content="2016-07-14T11:32:13.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="IE8跨域访问">
+<meta name="twitter:title" content="IE8跨域访问 | Jessica Lee">
 <meta name="twitter:description" content="IE8跨域访问">
-  
-    <link rel="alternative" href="/atom.xml" title="Jessica Lee" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
-  
-  
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  
-  
-      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  
-  <script>
-      var yiliaConfig = {
-          fancybox: true,
-          animate: true,
-          isHome: false,
-          isPost: true,
-          isArchive: false,
-          isTag: false,
-          isCategory: false,
-          open_in_new: false
-      }
-  </script>
-  
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
 </head>
 <body>
-  <div id="container">
-    <div class="left-col">
-    <div class="overlay"></div>
-<div class="intrude-less">
-    <header id="header" class="inner">
-        <a href="/" class="profilepic">
-            
-            <img lazy-src="/img/avatar.png" class="js-avatar">
-            
-        </a>
 
-        <hgroup>
-          <h1 class="header-author"><a href="/">阿菁菁菁菁菁</a></h1>
-        </hgroup>
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
 
-        
-        <p class="header-subtitle">Change takes time.</p>
-        
-                
+    
 
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
 
         
-            <div id="switch-btn" class="switch-btn">
-                <div class="icon">
-                    <div class="icon-ctn">
-                        <div class="icon-wrap icon-house" data-idx="0">
-                            <div class="birdhouse"></div>
-                            <div class="birdhouse_holes"></div>
-                        </div>
-                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
-                            <div class="ribbon"></div>
-                        </div>
-                        
-                        <div class="icon-wrap icon-link hide" data-idx="2">
-                            <div class="loopback_l"></div>
-                            <div class="loopback_r"></div>
-                        </div>
-                        
-                        
-                        <div class="icon-wrap icon-me hide" data-idx="3">
-                            <div class="user"></div>
-                            <div class="shoulder"></div>
-                        </div>
-                        
-                    </div>
-                    
-                </div>
-                <div class="tips-box hide">
-                    <div class="tips-arrow"></div>
-                    <ul class="tips-inner">
-                        <li>菜单</li>
-                        <li>标签</li>
-                        
-                        <li>友情链接</li>
-                        
-                        
-                        <li>关于我</li>
-                        
-                    </ul>
-                </div>
-            </div>
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Jessica Lee</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+        <p class="panel-cover__description">
+          Change takes time.
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
         
 
-        <div id="switch-area" class="switch-area">
-            <div class="switch-wrap">
-                <section class="switch-part switch-part1">
-                    <nav class="header-menu">
-                        <ul>
-                        
-                            <li><a href="/">主页</a></li>
-                        
-                            <li><a href="/archives/">所有文章</a></li>
-                        
-                            <li><a href="/tags/">标签云</a></li>
-                        
-                            <li><a href="/about/">关于我</a></li>
-                        
-                        </ul>
-                    </nav>
-                    <nav class="header-nav">
-                        <ul class="social">
-                            
-                                <li id="Email"><a class="Email" target="_blank" href="mailto:lijingjing1008@gmail.com" title="Email"></a></li>
-                            
-                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/BabysbreathJJ/" title="GitHub"></a></li>
-                            
-                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
-                            
-                        </ul>
-                    </nav>
-                </section>
-                
-                
-                <section class="switch-part switch-part2">
-                    <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/H5/" style="font-size: 10px;">H5</a> <a href="/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/tags/IE8/" style="font-size: 15px;">IE8</a> <a href="/tags/alert/" style="font-size: 10px;">alert</a> <a href="/tags/onblur/" style="font-size: 10px;">onblur</a> <a href="/tags/overflow/" style="font-size: 10px;">overflow</a> <a href="/tags/position/" style="font-size: 10px;">position</a> <a href="/tags/回调/" style="font-size: 10px;">回调</a> <a href="/tags/拍照上传/" style="font-size: 10px;">拍照上传</a> <a href="/tags/递归/" style="font-size: 10px;">递归</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/面向对象/" style="font-size: 15px;">面向对象</a>
-                    </div>
-                </section>
-                
-                
-                
-                <section class="switch-part switch-part3">
-                    <div id="js-friends">
-                    
-                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
-                    
-                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
-                    
-                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
-                    
-                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://gaocegege.com/Blog">高策</a>
-                    
-                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://yusiyuan.top/">虞思源</a>
-                    
-                    </div>
-                </section>
-                
+        <div class="navigation-wrapper">
 
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
                 
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
                 
-                <section class="switch-part switch-part4">
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
                 
-                    <div id="js-aboutme">Change takes time.</div>
-                </section>
-                
-            </div>
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
         </div>
-    </header>                
-</div>
-    </div>
-    <div class="mid-col">
-      <nav id="mobile-nav">
-      <div class="overlay">
-          <div class="slider-trigger"></div>
-          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">阿菁菁菁菁菁</a></h1>
+
       </div>
-    <div class="intrude-less">
-        <header id="header" class="inner">
-            <a href="/" class="profilepic">
-                
-                    <img lazy-src="/img/avatar.png" class="js-avatar">
-                
-            </a>
-            <hgroup>
-              <h1 class="header-author"><a href="/" title="回到主页">阿菁菁菁菁菁</a></h1>
-            </hgroup>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
             
-            <p class="header-subtitle">Change takes time.</p>
-            
-            <nav class="header-menu">
-                <ul>
-                
-                    <li><a href="/">主页</a></li>
-                
-                    <li><a href="/archives/">所有文章</a></li>
-                
-                    <li><a href="/tags/">标签云</a></li>
-                
-                    <li><a href="/about/">关于我</a></li>
-                
-                <div class="clearfix"></div>
-                </ul>
-            </nav>
-            <nav class="header-nav">
-                        <ul class="social">
-                            
-                                <li id="Email"><a class="Email" target="_blank" href="mailto:lijingjing1008@gmail.com" title="Email"></a></li>
-                            
-                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/BabysbreathJJ/" title="GitHub"></a></li>
-                            
-                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
-                            
-                        </ul>
-            </nav>
-        </header>                
-    </div>
-</nav>
-      <div class="body-wrap"><article id="post-IE8跨域访问" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/07/14/IE8跨域访问/" class="article-date">
-      <time datetime="2016-07-14T10:50:04.000Z" itemprop="datePublished">2016-07-14</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      IE8跨域访问
-    </h1>
-  
 
-      </header>
-      
-      <div class="article-info article-info-post">
-        
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/前端/">前端</a>
-    </div>
+<article class="post-container post-container--single">
 
-
-        
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IE8/">IE8</a></li></ul>
-    </div>
-
-        <div class="clearfix"></div>
-      </div>
-      
+  <header class="post-header">
     
-    <div class="article-entry" itemprop="articleBody">
-      
+    <h1 class="post-title">IE8跨域访问</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2016-07-14" class="post-meta__date date">2016-07-14</time> 
+
+      <span class="post-meta__tags tags">
+
           
-        <h1 id="我的碎碎念"><a href="#我的碎碎念" class="headerlink" title="我的碎碎念"></a>我的碎碎念</h1><p>&emsp;现在在做外高桥的一个项目。对方一定要在IE8下浏览。其实每次碰到这种需求，我都好想去给他们装系统啊，一定要用IE的话，IE10+好不好！但是，现实就是这么残酷，答案永远是不能！不行！不可以！那好吧，只能来解决IE8下的各种问题了。<br>&emsp;原来IE8是不能用Ajax进行跨域访问的，微软自己实现了XDomainRequest来解决IE8和IE9下的跨域访问问题。<strong>但是请求一定是同步请求。</strong><br>&emsp;其实还有一种解决跨域的方法，github上有开源实现，叫做<a href="https://github.com/MoonScript/jQuery-ajaxTransport-XDomainRequest" target="_blank" rel="external">JQuery-ajaxTransport-XDomainRequest</a>,只支持GET和POST,只支持HTTP和HTTPS，<strong>请求一定是异步的。</strong><br>&emsp;由于业务要求，我一定要同步请求，因为有了项目，才能去获取工程号等巴拉巴拉，总之，异步不行，正好XDR的方法只支持同步，所以自己写GET和POST方法，IE下的跨域问题就解决啦~</p>
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/前端/">前端</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/IE8/">IE8</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h1 id="我的碎碎念"><a href="#我的碎碎念" class="headerlink" title="我的碎碎念"></a>我的碎碎念</h1><p>&emsp;现在在做外高桥的一个项目。对方一定要在IE8下浏览。其实每次碰到这种需求，我都好想去给他们装系统啊，一定要用IE的话，IE10+好不好！但是，现实就是这么残酷，答案永远是不能！不行！不可以！那好吧，只能来解决IE8下的各种问题了。<br>&emsp;原来IE8是不能用Ajax进行跨域访问的，微软自己实现了XDomainRequest来解决IE8和IE9下的跨域访问问题。<strong>但是请求一定是同步请求。</strong><br>&emsp;其实还有一种解决跨域的方法，github上有开源实现，叫做<a href="https://github.com/MoonScript/jQuery-ajaxTransport-XDomainRequest" target="_blank" rel="external">JQuery-ajaxTransport-XDomainRequest</a>,只支持GET和POST,只支持HTTP和HTTPS，<strong>请求一定是异步的。</strong><br>&emsp;由于业务要求，我一定要同步请求，因为有了项目，才能去获取工程号等巴拉巴拉，总之，异步不行，正好XDR的方法只支持同步，所以自己写GET和POST方法，IE下的跨域问题就解决啦~</p>
 <h1 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h1><h2 id="GET方法"><a href="#GET方法" class="headerlink" title="GET方法"></a>GET方法</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">crossDomainGetAjax</span>(<span class="params">url, successCallback</span>) </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">// IE8 &amp; 9 Cross domain JSON GET request</span></div><div class="line">    <span class="keyword">if</span> (<span class="string">'XDomainRequest'</span> <span class="keyword">in</span> <span class="built_in">window</span> &amp;&amp; <span class="built_in">window</span>.XDomainRequest !== <span class="literal">null</span>) &#123;</div><div class="line"></div><div class="line">        <span class="keyword">var</span> xdr = <span class="keyword">new</span> XDomainRequest(); <span class="comment">// Use Microsoft XDR</span></div><div class="line">        xdr.open(<span class="string">'get'</span>, url);</div><div class="line">        xdr.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="keyword">var</span> dom = <span class="keyword">new</span> ActiveXObject(<span class="string">'Microsoft.XMLDOM'</span>),</div><div class="line">                <span class="built_in">JSON</span> = $.parseJSON(xdr.responseText);</div><div class="line"></div><div class="line">            dom.async = <span class="literal">false</span>;</div><div class="line"></div><div class="line">            <span class="keyword">if</span> (<span class="built_in">JSON</span> == <span class="literal">null</span> || <span class="keyword">typeof</span> (<span class="built_in">JSON</span>) == <span class="string">'undefined'</span>) &#123;</div><div class="line">                <span class="built_in">JSON</span> = $.parseJSON(data.firstChild.textContent);</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            successCallback(<span class="built_in">JSON</span>); <span class="comment">// internal function</span></div><div class="line">        &#125;;</div><div class="line"></div><div class="line">        xdr.onerror = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">            _result = <span class="literal">false</span>;</div><div class="line">        &#125;;</div><div class="line"></div><div class="line">        xdr.send();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// IE7 and lower can't do cross domain</span></div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (navigator.userAgent.indexOf(<span class="string">'MSIE'</span>) != <span class="number">-1</span> &amp;&amp;</div><div class="line">        <span class="built_in">parseInt</span>(navigator.userAgent.match(<span class="regexp">/MSIE ([\d.]+)/</span>)[<span class="number">1</span>], <span class="number">10</span>) &lt; <span class="number">8</span>) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// Do normal jQuery AJAX for everything else</span></div><div class="line">    <span class="keyword">else</span> &#123;</div><div class="line">        $.ajax(&#123;</div><div class="line">            url: url,</div><div class="line">            cache: <span class="literal">false</span>,</div><div class="line">            dataType: <span class="string">'json'</span>,</div><div class="line">            type: <span class="string">'GET'</span>,</div><div class="line">            <span class="keyword">async</span>: <span class="literal">false</span>, <span class="comment">// must be set to false</span></div><div class="line">            success: <span class="function"><span class="keyword">function</span> (<span class="params">data, success</span>) </span>&#123;</div><div class="line">                successCallback(data);</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="POST方法"><a href="#POST方法" class="headerlink" title="POST方法"></a>POST方法</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">crossDomainPostAjax</span>(<span class="params">url, data, successCallback</span>) </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">// IE8 &amp; 9 Cross domain JSON POST request</span></div><div class="line">    <span class="keyword">if</span> (<span class="string">'XDomainRequest'</span> <span class="keyword">in</span> <span class="built_in">window</span> &amp;&amp; <span class="built_in">window</span>.XDomainRequest !== <span class="literal">null</span>) &#123;</div><div class="line"></div><div class="line">        <span class="keyword">var</span> xdr = <span class="keyword">new</span> XDomainRequest(); <span class="comment">// Use Microsoft XDR</span></div><div class="line">        xdr.open(<span class="string">'POST'</span>, url);</div><div class="line">        xdr.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="keyword">var</span> dom = <span class="keyword">new</span> ActiveXObject(<span class="string">'Microsoft.XMLDOM'</span>),</div><div class="line">                <span class="built_in">JSON</span> = $.parseJSON(xdr.responseText);</div><div class="line"></div><div class="line">            dom.async = <span class="literal">false</span>;</div><div class="line"></div><div class="line">            <span class="keyword">if</span> (<span class="built_in">JSON</span> == <span class="literal">null</span> || <span class="keyword">typeof</span> (<span class="built_in">JSON</span>) == <span class="string">'undefined'</span>) &#123;</div><div class="line">                <span class="built_in">JSON</span> = $.parseJSON(data.firstChild.textContent);</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            successCallback(<span class="built_in">JSON</span>); <span class="comment">// internal function</span></div><div class="line">        &#125;;</div><div class="line"></div><div class="line">        xdr.onerror = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">            _result = <span class="literal">false</span>;</div><div class="line">        &#125;;</div><div class="line"></div><div class="line">        xdr.send(<span class="built_in">JSON</span>.stringify(data));</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// IE7 and lower can't do cross domain</span></div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (navigator.userAgent.indexOf(<span class="string">'MSIE'</span>) != <span class="number">-1</span> &amp;&amp;</div><div class="line">        <span class="built_in">parseInt</span>(navigator.userAgent.match(<span class="regexp">/MSIE ([\d.]+)/</span>)[<span class="number">1</span>], <span class="number">10</span>) &lt; <span class="number">8</span>) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// Do normal jQuery AJAX for everything else</span></div><div class="line">    <span class="keyword">else</span> &#123;</div><div class="line">        $.ajax(&#123;</div><div class="line">            url: url,</div><div class="line">            cache: <span class="literal">false</span>,</div><div class="line">            dataType: <span class="string">'json'</span>,</div><div class="line">            contentType: <span class="string">'application/json'</span>,</div><div class="line">            type: <span class="string">'POST'</span>,</div><div class="line">            <span class="keyword">async</span>: <span class="literal">false</span>, <span class="comment">// must be set to false</span></div><div class="line">            data: <span class="built_in">JSON</span>.stringify(data),</div><div class="line">            success: <span class="function"><span class="keyword">function</span> (<span class="params">data, success</span>) </span>&#123;</div><div class="line">                successCallback(data);</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
-      
-    </div>
-    
-  </div>
+  </section>
+
   
-    
-    <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/07/14/IE8跨域访问/">IE8跨域访问</a></p>
-        <p><span>文章作者:</span><a href="/" title="访问 阿菁菁菁菁菁 的个人博客">阿菁菁菁菁菁</a></p>
-        <p><span>发布时间:</span>2016年07月14日 - 18时50分</p>
-        <p><span>最后更新:</span>2016年07月14日 - 19时32分</p>
-        <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/07/14/IE8跨域访问/" title="IE8跨域访问">http://lijingjing.top/2016/07/14/IE8跨域访问/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://lijingjing.top/2016/07/14/IE8跨域访问/　　作者: 阿菁菁菁菁菁" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
-            <script src="/js/clipboard.min.js"></script>
-            <script> var clipboard = new Clipboard('.copy-path'); </script>
-        </p>
-        <p>
-            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
-        </p>
-    </div>
-
-
-
-    <nav id="article-nav">
-        
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/07/22/文件下载（兼容IE8）/">
-                    文件下载（兼容IE8）
-                </a>
-            </div>
-        
-        
-            <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/05/17/JS继承/">
-                    JS继承
-                </a>
-            </div>
-        
-    </nav>
-
   
 </article>
 
-    <div id="toc" class="toc-article">
-    <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#我的碎碎念"><span class="toc-number">1.</span> <span class="toc-text">我的碎碎念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实现方法"><span class="toc-number">2.</span> <span class="toc-text">实现方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#GET方法"><span class="toc-number">2.1.</span> <span class="toc-text">GET方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#POST方法"><span class="toc-number">2.2.</span> <span class="toc-text">POST方法</span></a></li></ol></li></ol>
-</div>
-<style>
-    .left-col .switch-btn {
-        display: none;
-    }
-    .left-col .switch-area {
-        display: none;
-    }
-</style>
 
-<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+            <footer class="footer">
 
-<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
-<script>
-    var valueHide = "隐藏目录";
-    var valueShow = "显示目录";
-
-    if ($(".left-col").is(":hidden")) {
-        $("#tocButton").attr("value", valueShow);
-    }
-
-    $("#tocButton").click(function() {
-        if ($("#toc").is(":hidden")) {
-            $("#tocButton").attr("value", valueHide);
-            $("#toc").slideDown(320);
-            $(".switch-btn, .switch-area").fadeOut(300);
-        }
-        else {
-            $("#tocButton").attr("value", valueShow);
-            $("#toc").slideUp(350);
-            $(".switch-btn, .switch-area").fadeIn(500);
-        }
-    })
-
-    if ($(".toc").length < 1) {
-        $("#toc, #tocButton").hide();
-        $(".switch-btn, .switch-area").show();
-    }
-</script>
-
-
-
-
-    <div class="share">
-    <div class="bdsharebuttonbox">
-    <a href="#" class="bds_more" data-cmd="more"></a>
-    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
-    <a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
-    <a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
-    <a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
-    </div>
-    <script>
-        window._bd_share_config={
-            "common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
-    </script>
-</div>
-
-
-
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
     
-      <div class="duoshuo" id="comments">
-  <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/07/14/IE8跨域访问/" data-title="IE8跨域访问" data-url="http://lijingjing.top/2016/07/14/IE8跨域访问/"></div>
-    <!-- 多说评论框 end -->
-    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-    <script type="text/javascript">
-    var duoshuoQuery = {short_name:"lijingjing"};
-    	(function() {
-    		var ds = document.createElement('script');
-    		ds.type = 'text/javascript';ds.async = true;
-    		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    		ds.charset = 'UTF-8';
-    		(document.getElementsByTagName('head')[0]
-    		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-    	})();
-    	</script>
-    <!-- 多说公共JS代码 end -->
-
-</div>
-
-    
-
-
-
-
-    <div class="scroll" id="post-nav-button">
-        
-            <a href="/2016/07/22/文件下载（兼容IE8）/" title="上一篇: 文件下载（兼容IE8）">
-                <i class="fa fa-angle-left"></i>
-            </a>
-        
-
-        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
-
-        
-            <a href="/2016/05/17/JS继承/" title="下一篇: JS继承">
-                <i class="fa fa-angle-right"></i>
-            </a>
-        
-    </div>
-
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/09/21/Angular-Directive/">Angular Directive</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/21/失焦防止alert两次/">失焦防止alert两次</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/22/文件下载（兼容IE8）/">文件下载（兼容IE8）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/14/IE8跨域访问/">IE8跨域访问</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/17/JS继承/">JS继承</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/21/JS创建对象/">JS创建对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/19/回调函数将结果顺序存放/">回调函数将结果顺序存放</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/12/hexo发布文章/">hexo发布文章</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/25/H5上传图片/">H5上传图片</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/23/position与overflow/">position与overflow</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/23/Hello-World-again/">Hello World again</a></li></ul>
-    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
-    <script>
-        $(".post-list").addClass("toc-article");
-        $(".post-list-item a").attr("target","_blank");
-        $("#post-nav-button > a:nth-child(2)").click(function() {
-            $(".fa-bars, .fa-times").toggle();
-            $(".post-list").toggle(300);
-            if ($(".toc").length > 0) {
-                $("#toc, #tocButton").toggle(200, function() {
-                    if ($(".switch-area").is(":visible")) {
-                        $("#toc, .switch-btn, .switch-area").toggle();
-                        $("#tocButton").attr("value", valueHide);
-                        }
-                    })
-            }
-            else {
-                $(".switch-btn, .switch-area").fadeToggle(300);
-            }
-        })
-    </script>
-
-
-
-
-    <script>
-        
-    </script>
-
-</div>
-      <footer id="footer">
-    <div class="outer">
-        <div id="footer-info">
-            <div class="footer-left">
-                &copy; 2016 阿菁菁菁菁菁
-            </div>
-            <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的静态博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减双栏 Hexo 博客主题">Yelee</a> by MOxFIVE
-            </div>
-        </div>
-        
-            <div class="visit">
-                
-                    <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" >本站到访数: 
-                            <span id="busuanzi_value_site_uv"></span>
-                        </span>
-                    </span>
-                
-                
-                    <span>, </span>
-                
-                
-                    <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit">本页阅读量: 
-                            <span id="busuanzi_value_page_pv"></span>
-                        </span>
-                    </span>
-                
-            </div>
-        
-    </div>
 </footer>
+        </div>
     </div>
-    
-<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
-<script src="/js/main.js"></script>
 
-    <script>
-        $(document).ready(function() {
-            var iPad = window.navigator.userAgent.indexOf('iPad');
-            if (iPad > -1 || $(".left-col").css("display") === "none") {
-                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
-                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
-                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
-            }
-            else {
-                var backgroundnum = 5;
-                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
-                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
-            }
-        })
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
     </script>
 
 
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
 
 
-<div class="scroll" id="scroll">
-    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
-</div>
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
 
-<script>
-    $(document).ready(function() {
-        if ($("#comments").length < 1) {
-            $("#scroll > a:nth-child(2)").hide();
-        };
-    })
-</script>
-
-
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-  </div>
 </body>
 </html>
