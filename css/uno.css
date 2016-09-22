@@ -1759,7 +1759,8 @@ pre {
 
 .resume-header{
   padding: 15px 0;
-  height: auto;
+  min-height: 140px;
+  overflow: auto;
 }
 
 .resume-left{
@@ -1785,11 +1786,15 @@ pre {
   color: #003333;
 }
 
-.my-infos .my-company{
+.my-infos .my-position{
   font-size: 1.2em;
   color: #999999;
+}
+
+.pd-10{
   padding-top: 10px;
 }
+
 
 .my-avatar{
   vertical-align: middle;
