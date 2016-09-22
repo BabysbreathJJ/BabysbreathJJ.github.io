@@ -1710,4 +1710,7 @@ pre {
 .homepage-footer{
   position: absolute;
   bottom: 30px;
+  color: #FFF;
+  text-align: center;
+  margin: 0 auto;
 }
