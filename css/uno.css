@@ -1755,6 +1755,7 @@ pre {
 
 .resume-color{
   color: #3B8853;
+  vertical-align: middle;
 }
 
 .resume-header{
@@ -1788,6 +1789,10 @@ pre {
 
 .my-infos .my-position{
   font-size: 1.2em;
+  color: #999999;
+}
+
+.gray-color{
   color: #999999;
 }
 
