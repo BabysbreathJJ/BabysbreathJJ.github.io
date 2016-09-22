@@ -1141,14 +1141,14 @@ hr {
   margin-right: .5em; }
 
 .post-meta__tags {
+  margin-left: .4em;
  }
 
-.post-meta__tags::before {
+.blog-meta__tags::before {
       float: left;
       color: #999;
-      content: "\f02b";
+      content: "&#f02b";
       font: 16px FontAwesome;
-      margin-left: 1em;
       margin-right: 5px;
       margin-top: 6px;
   }
