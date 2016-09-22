@@ -1147,11 +1147,15 @@ hr {
 .blog-meta__tags::before {
       float: left;
       color: #999;
-      content: "&#f02b";
+      content: "\f02b";
       font: 16px FontAwesome;
       margin-right: 5px;
       margin-top: 6px;
   }
+
+.blog-tags{
+  color: #458B74;
+}
 
 .post-meta__author {
   margin-left: 1.5em; }
