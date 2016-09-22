@@ -1740,7 +1740,7 @@ pre {
   background: #EEEEEE;
   font: 12px "Times New Roman", Times, sans-serif;
   line-height: 1.4;
-  margin: 40px 0;
+  padding: 40px 0;
 }
 
 .resume{
@@ -1759,6 +1759,7 @@ pre {
 
 .resume-header{
   padding: 15px 0;
+  height: auto;
 }
 
 .resume-left{
@@ -1771,6 +1772,7 @@ pre {
 
 .my-infos, .my-avatar, .my-contact{
   width: 33.3%;
+  float: left;
 }
 
 .my-infos .my-name{
@@ -1786,6 +1788,7 @@ pre {
 .my-infos .my-company{
   font-size: 1.2em;
   color: #999999;
+  padding-top: 10px;
 }
 
 .my-avatar{
