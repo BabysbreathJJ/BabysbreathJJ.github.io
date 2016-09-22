@@ -1800,6 +1800,10 @@ pre {
   padding-top: 10px;
 }
 
+.pd-5{
+  padding-top: 5px;
+}
+
 
 .my-avatar{
   vertical-align: middle;
@@ -1809,6 +1813,6 @@ pre {
 
 .my-contact{
   color: #999999;
-  font-size: 0.8em;
+  font-size: 1.2em;
   text-align: right;
 }
