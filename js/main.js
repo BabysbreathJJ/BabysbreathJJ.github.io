@@ -7,7 +7,7 @@ $(document).ready(function() {
     $('.content-wrapper').addClass('animated slideInLeft');
   });
 
-  if (window.location.hash && window.location.hash == "#blog") {
+  if (window.location.hash && window.location.hash == "blog") {
     $('.panel-cover').addClass('panel-cover--collapsed');
   }
 
