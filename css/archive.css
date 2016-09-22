@@ -22,13 +22,3 @@
 .archive-meta .archive-list-count::after {
     content: ")";
 }
-
-.article-tag::before {
-    float: left;
-    color: #999;
-    content: "\f02b";
-    font: 16px FontAwesome;
-    margin-left: 1em;
-    margin-right: 5px;
-    margin-top: 6px;
-}

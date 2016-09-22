@@ -1141,7 +1141,17 @@ hr {
   margin-right: .5em; }
 
 .post-meta__tags {
-  margin-left: .4em; }
+ }
+
+.post-meta__tags::before {
+      float: left;
+      color: #999;
+      content: "\f02b";
+      font: 16px FontAwesome;
+      margin-left: 1em;
+      margin-right: 5px;
+      margin-top: 6px;
+  }
 
 .post-meta__author {
   margin-left: 1.5em; }
@@ -1677,7 +1687,7 @@ table {
   border-collapse: collapse;
   width: 100%;
   margin: 0 0 10px;
-  border-spacing: 0; 
+  border-spacing: 0;
   border: 1px solid #aaa;
 }
 
@@ -1699,5 +1709,5 @@ th, td {
   border: none;
 }
 pre {
-  font-family: 
+  font-family:
 }
