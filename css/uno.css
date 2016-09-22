@@ -1709,8 +1709,16 @@ pre {
 
 .homepage-footer{
   position: absolute;
-  bottom: 30px;
+  bottom: 25px;
   color: #FFF;
   text-align: center;
   margin: 0 auto;
+  width: 100%;
+}
+
+.panel-description{
+  margin: 0 0 5px 0;
+  font-size: 1.8em;
+  letter-spacing: 4px;
+  color: #FFF
 }
