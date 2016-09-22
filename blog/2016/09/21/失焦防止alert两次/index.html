@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      失焦防止alert两次 | 阿菁菁菁菁菁
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="阿菁菁菁菁菁">
+    
+    
+
+    <meta name="description" content="防止失焦后页面alert两次">
+<meta property="og:type" content="article">
+<meta property="og:title" content="失焦防止alert两次 | 阿菁菁菁菁菁">
+<meta property="og:url" content="http://lijingjing.top/blog/2016/09/21/失焦防止alert两次/index.html">
+<meta property="og:site_name" content="阿菁菁菁菁菁">
+<meta property="og:description" content="防止失焦后页面alert两次">
+<meta property="og:updated_time" content="2016-09-21T03:40:05.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="失焦防止alert两次 | 阿菁菁菁菁菁">
+<meta name="twitter:description" content="防止失焦后页面alert两次">
+
+    
+    
+      <link rel="icon" type="image/x-icon" href="/images/avatar.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+      <header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+        <a href="/" title="link to homepage for 阿菁菁菁菁菁"><img src="/images/avatar.png" width="100" alt="阿菁菁菁菁菁 logo" class="panel-cover__logo logo" /></a>
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">阿菁菁菁菁菁</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+        <p class="panel-cover__description">
+          Change takes time.
+        </h3>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+
+        <div class="navigation-wrapper">
+
+
+        <nav class="cover-navigation cover-navigation--primary">
+          <ul class="navigation">
+            
+              
+              <li class="navigation__item"><a href="/blog" title="" class="blog-button">文章</a></li>
+            
+              
+              <li class="navigation__item"><a href="/about" title="" class="">关于我</a></li>
+            
+              
+              <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+            
+
+          </ul>
+        </nav>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    
+
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">失焦防止alert两次</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2016-09-21" class="post-meta__date date">2016-09-21</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/前端/">前端</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/alert/">alert</a>, <a class="tags-link" href="/tags/onblur/">onblur</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>&emsp;其实感觉是个很简单的功能，就是input失焦后，给用户一个提醒，比如：一旦填写不能修改此类。<br>&emsp;然后第一直觉就是写个失焦函数，alert就好了嘛。<br>&emsp;但是，它alert没完没了了，一次不够，竟然alert了两次。我也是无语。<br>&emsp;感觉逻辑上根本讲不通。明明我只写了一个alert，也只是失焦了一次，为什么会出现两个alert。</p>
+<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>&emsp;后来我才发现，原来onblur失焦，不仅在当前元素上触发，也在window对象上触发。所以要判断当前是谁失焦，是window还是你指定的元素。</p>
+<h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> isTargetWindow = <span class="literal">false</span>;</div><div class="line">  $(<span class="built_in">window</span>).blur(<span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</div><div class="line">      <span class="built_in">console</span>.log(e.target);</div><div class="line">      isTargetWindow = <span class="literal">true</span>;</div><div class="line">  &#125;);</div><div class="line">  $(<span class="built_in">window</span>).focus(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      isTargetWindow = <span class="literal">false</span>;</div><div class="line">  &#125;);</div><div class="line">  </div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">alertInfo</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  		<span class="keyword">if</span>(!isTargetWindow)</div><div class="line">  		&#123;</div><div class="line">  			alert(<span class="string">"提示信息！"</span>);</div><div class="line">  		&#125;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<p>#总结<br>&emsp;其实涉及的应该是JS里的事件冒泡，但我还是不明白，项目里为什么onblur在input元素上，window也会触发input里的onblur函数。</p>
+<p>&emsp;最最最最最奇葩的是，这个bug我现在复现不了了。。。 复现不了bug我也是很生气。。</p>
+
+  </section>
+
+  
+  
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">  &copy; 2016 阿菁菁菁菁菁 | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+
+</footer>
+
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
