@@ -1706,3 +1706,8 @@ th, td {
 pre {
   font-family:
 }
+
+.homepage-footer{
+  position: absolute;
+  bottom: 30px;
+}
