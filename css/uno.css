@@ -1719,7 +1719,8 @@ pre {
 
 .panel-description{
   margin: 0 0 5px 0;
-  font-size: 1.6em;
+  font-size: 1.5em;
   letter-spacing: 4px;
-  color: #FFF
+  color: #FFF;
+  opacity: .8;
 }
