@@ -1144,15 +1144,6 @@ hr {
   margin-left: .4em;
  }
 
-.blog-meta__tags::before {
-      float: left;
-      color: #999;
-      content: "\f02b";
-      font: 16px FontAwesome;
-      margin-right: 5px;
-      margin-top: 6px;
-  }
-
 .blog-tags{
   color: #458B74;
 }
