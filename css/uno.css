@@ -1820,12 +1820,12 @@ pre {
 
 .resume-divider{
   border-top: 2px solid #cccccc;
-  /*width: 96%;*/
+  margin-top: 15px;
 }
 
 .resume-title{
-  margin-top: -25px;
-  margin-left: 30px;
+  margin-top: -15px;
+  margin-left: 70px;
   background-color: #ffffff;
   color: 006666;
   width: 140px;
