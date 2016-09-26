@@ -1846,6 +1846,14 @@ pre {
   line-height: 20px;
 }
 
+.resume-half{
+  width: 50%;
+  float: left;
+}
+
+.border-middle{
+  border-right: 2px solid #003333;
+}
 .resume-timeline{
   width: 240px;
   border: 0px solid #ccc;
@@ -1857,9 +1865,16 @@ pre {
   position: relative;
 }
 
-.timeline-content{
+.timeline-content-left{
   width: 70%;
   border-right: 1px solid #cccccc;
+  height: 100%;
+  float: left;
+}
+
+.timeline-content-right{
+  width: 70%;
+  border-left: 1px solid #cccccc;
   height: 100%;
   float: left;
 }
@@ -1869,7 +1884,7 @@ pre {
   float: left;
 }
 
-.timeline-pointer-border{
+.timeline-pointer-border-left{
   position: absolute;
   top: 40%;
   width: 0;
@@ -1881,7 +1896,7 @@ pre {
   overflow: hidden;
   right: -30px;
 }
-.timeline-pointer{
+.timeline-pointer-left{
   position: absolute;
   top: 39%;
   width: 0;
@@ -1892,4 +1907,28 @@ pre {
   border-color: transparent transparent transparent #ffffff ;
   overflow: hidden;
   right: -29px;
+}
+.timeline-pointer-border-right{
+  position: absolute;
+  top: 40%;
+  width: 0;
+  height: 0;
+  font-size: 0;
+  border-width: 15px;
+  border-style: solid;
+  border-color: transparent #cccccc transparent transparent;
+  overflow: hidden;
+  left: -30px;
+}
+.timeline-pointer-right{
+  position: absolute;
+  top: 39%;
+  width: 0;
+  height: 0;
+  font-size: 0;
+  border-width: 15px;
+  border-style: solid;
+  border-color: transparent #cccccc transparent transparent;
+  overflow: hidden;
+  left: -29px;
 }
