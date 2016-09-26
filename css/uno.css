@@ -1861,6 +1861,12 @@ pre {
   width: 70%;
   border-right: 2px solid #cccccc;
   height: 100%;
+  float: left;
+}
+
+.timeline-date{
+  width: 25%;
+  float: left;
 }
 
 .timeline-pointer{
@@ -1871,8 +1877,8 @@ pre {
   font-size: 0;
   border-width: 15px;
   border-style: solid;
-  border-color: #f3961c transparent transparent;
-  _border-color: #f3961c white white;
+  border-color: transparent transparent #f3961c ;
+  _border-color: white white #f3961c;
   overflow: hidden;
   left: 60px;
   right: -30px;
