@@ -1855,7 +1855,7 @@ pre {
   border-right: 2px solid #003333;
 }
 .resume-timeline{
-  width: 240px;
+  /*width: 240px;*/
   border: 0px solid #ccc;
   border-radius: 10px;
   box-shadow: 0px 0px 1px #aaa;
@@ -1865,6 +1865,20 @@ pre {
   position: relative;
 }
 
+.mg-r20{
+  margin-right: 20px;
+}
+
+.mg-l20{
+  margin-left: 20px;
+}
+
+.pd-r{
+  padding-right: 20px;
+}
+.pd-l{
+  padding-left: 20px;
+}
 .timeline-content-left{
   width: 70%;
   border-right: 1px solid #cccccc;
@@ -1928,7 +1942,7 @@ pre {
   font-size: 0;
   border-width: 15px;
   border-style: solid;
-  border-color: transparent #cccccc transparent transparent;
+  border-color: transparent #ffffff transparent transparent;
   overflow: hidden;
   left: -29px;
 }
