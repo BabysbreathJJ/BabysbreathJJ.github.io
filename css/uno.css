@@ -1847,7 +1847,7 @@ pre {
 }
 
 .resume-half{
-  width: 50%;
+  width: 46%;
   float: left;
 }
 
@@ -1880,7 +1880,7 @@ pre {
   padding-left: 20px;
 }
 
-.clearfix{
+.timeline:after{
   clear: both;
 }
 .timeline-content-left{
