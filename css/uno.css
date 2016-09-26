@@ -1873,11 +1873,15 @@ pre {
   margin-left: 20px;
 }
 
-.pd-r{
+.pd-r20{
   padding-right: 20px;
 }
-.pd-l{
+.pd-l20{
   padding-left: 20px;
+}
+
+.clearfix{
+  clear: both;
 }
 .timeline-content-left{
   width: 70%;
