@@ -1869,9 +1869,21 @@ pre {
   float: left;
 }
 
+.timeline-pointer-border{
+  position: absolute;
+  top: 40%;
+  width: 0;
+  height: 0;
+  font-size: 0;
+  border-width: 15px;
+  border-style: solid;
+  border-color: transparent transparent transparent #cccccc ;
+  overflow: hidden;
+  right: -30px;
+}
 .timeline-pointer{
   position: absolute;
-  top: 50%;
+  top: 40%;
   width: 0;
   height: 0;
   font-size: 0;
@@ -1879,6 +1891,5 @@ pre {
   border-style: solid;
   border-color: transparent transparent transparent #ffffff ;
   overflow: hidden;
-  bottom: 50%;
   right: -30px;
 }
