@@ -1845,3 +1845,16 @@ pre {
 .resume-item{
   line-height: 20px;
 }
+
+.resume-timeline{
+  width: 380px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 2px 2px 4px #aaa;
+  -webkit-box-shadow: 2px 2px 4px #aaa
+}
+
+.timeline-content{
+  width: 70%;
+  border-right: 10px solid #cccccc;
+}
