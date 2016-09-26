@@ -1760,6 +1760,7 @@ pre {
 
 .resume-header{
   padding: 15px 0;
+  padding-bottom: 0;
   min-height: 140px;
   overflow: auto;
 }
@@ -1818,5 +1819,6 @@ pre {
 }
 
 .resume-divider{
-  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  border-top: 1px solid #cccccc;
+  width: 96%;
 }
