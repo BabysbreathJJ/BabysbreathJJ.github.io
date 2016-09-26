@@ -1767,6 +1767,7 @@ pre {
 
 .resume-left{
   width: 30%;
+  float: left;
 }
 
 .resume-right{
@@ -1831,4 +1832,12 @@ pre {
   width: 200px;
   letter-spacing: 2px;
   text-align: center;
+}
+
+.company-name{
+  color: #3B8853;
+}
+
+.position{
+  font-weight: bolder;
 }
