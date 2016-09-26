@@ -1841,3 +1841,7 @@ pre {
 .position{
   font-weight: bolder;
 }
+
+.resume-item{
+  line-height: 20px;
+}
