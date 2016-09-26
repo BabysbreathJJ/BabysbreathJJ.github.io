@@ -1877,9 +1877,8 @@ pre {
   font-size: 0;
   border-width: 15px;
   border-style: solid;
-  border-color: transparent transparent #f3961c ;
-  _border-color: white white #f3961c;
+  border-color: transparent transparent transparent #ffffff ;
   overflow: hidden;
-  left: 60px;
+  bottom: 50%;
   right: -30px;
 }
