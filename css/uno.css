@@ -358,6 +358,10 @@ body {
 .icon-key:before {
   content: "\f160"; }
 
+.icon-keyboard:before {
+    content: "\e955";
+  }
+
 .icon-laptop:before {
   content: "\f161"; }
 
@@ -1761,7 +1765,6 @@ pre {
 .resume-header{
   padding: 15px 0;
   padding-bottom: 0;
-  min-height: 140px;
   overflow: auto;
 }
 
@@ -1821,12 +1824,14 @@ pre {
 
 .resume-divider{
   border-top: 2px solid #cccccc;
-  margin-top: 15px;
+  margin-bottom: : 30px;
+  width: 96%;
 }
 
 .resume-title{
   color: #006666;
   letter-spacing: 2px;
+  padding-left: 10px;
 }
 
 .company-name{
