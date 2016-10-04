@@ -1825,13 +1825,8 @@ pre {
 }
 
 .resume-title{
-  margin-top: -17px;
-  margin-left: 70px;
-  background-color: #ffffff;
   color: #006666;
-  width: 200px;
   letter-spacing: 2px;
-  text-align: center;
 }
 
 .company-name{
@@ -1996,5 +1991,14 @@ pre {
 
 .item-title{
   float: left;
+  font-size: 30px;
+}
+
+.display-bl{
+  display: block;
+  float: left;
+}
+
+.font-30{
   font-size: 30px;
 }
