@@ -359,9 +359,7 @@ body {
   content: "\f160"; }
 
 .icon-keyboard:before {
-    content: "\e955";
-  }
-
+    content: "\e955";}
 .icon-laptop:before {
   content: "\f161"; }
 
@@ -1824,7 +1822,7 @@ pre {
 
 .resume-divider{
   border-top: 2px solid #cccccc;
-  margin-bottom: : 30px;
+  margin-bottom : 30px;
   width: 96%;
 }
 
