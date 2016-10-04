@@ -2061,8 +2061,7 @@ pre {
   text-align: center;
   line-height: 2em;
   border-radius: 1em;
-  background: #ffffff;
-  border-color: #000000;
+  background: dodgerblue;
   margin: 0 1em;
   display: inline-block;
   color: white;
@@ -2076,9 +2075,10 @@ li::before{
   left: -4em;
   width: 4em;
   height: .2em;
-  background: #003333;
+  background: dodgerblue;
   z-index: -1;
 }
+
 
 
 li:first-child::before {
