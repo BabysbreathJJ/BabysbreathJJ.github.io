@@ -2055,33 +2055,25 @@ pre {
  }
 
 
- ul li {
-   border-radius: 50%;
+ .line {
+ 	border-top: 1px solid #30353b;
+ 	padding-top:5px;
+ 	padding-bottom: 5px;
+ 	margin: 40px auto 0;
+ 	width: 80%;
+ 	position: relative;
+ }
 
-   width: 36px;
-   height: 36px;
-   padding: 8px;
+ .line:before, .line:after {
+ 	content: "";
+ 	width: 10px;
+ 	height: 10px;
+ 	background: #30353b;
+ 	border-radius: 5px;
+ 	position: absolute;
+ 	top: -6px;
+ }
 
-   background: #fff;
-   border: 2px solid #666;
-   color: #666;
-   text-align: center;
-
-}
-
-ul li::before{
-  content: '';
-  position: absolute;
-  top: .9em;
-  left: -4em;
-  width: 4em;
-  height: .2em;
-  background: #003333;
-  z-index: -1;
-}
-
-
-
-ul li:first-child::before {
-  display: none;
-}
+ .line:after {
+ 	right: 0;
+ }
