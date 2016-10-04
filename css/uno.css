@@ -1993,3 +1993,8 @@ pre {
 .mg-t60{
   margin-top: 60px;
 }
+
+.item-title{
+  float: left;
+  font-size: 30px;
+}
