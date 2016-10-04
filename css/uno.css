@@ -1834,13 +1834,13 @@ pre {
 
 .education-divider:before{
   content:'';
-  width: 10px;
-  height: 10px;
-  background: #ffffff;
-  -moz-border-radius: 50px;
- -webkit-border-radius: 50px;
-  border-radius: 50px;
-  border: 3px solid #000000;
+  display: inline-block;
+   width: 15px;
+   height: 15px;
+   -moz-border-radius: 15px;
+   -webkit-border-radius: 15px;
+   border-radius: 15px;
+
 }
 
 .education-divider:after{
@@ -2053,3 +2053,34 @@ pre {
    border-radius: 50px;
    border: 3px solid #000000;
  }
+
+
+ li {
+  width: 2em;
+  height: 2em;
+  text-align: center;
+  line-height: 2em;
+  border-radius: 1em;
+  background: #ffffff;
+  border-color: #000000;
+  margin: 0 1em;
+  display: inline-block;
+  color: white;
+  position: relative;
+}
+
+li::before{
+  content: '';
+  position: absolute;
+  top: .9em;
+  left: -4em;
+  width: 4em;
+  height: .2em;
+  background: #003333;
+  z-index: -1;
+}
+
+
+li:first-child::before {
+  display: none;
+}
