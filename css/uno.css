@@ -2055,32 +2055,33 @@ pre {
  }
 
 
- li {
-  width: 2em;
-  height: 2em;
-  text-align: center;
-  line-height: 2em;
-  border-radius: 1em;
-  background: dodgerblue;
-  margin: 0 1em;
-  display: inline-block;
-  color: white;
-  position: relative;
+ ul li {
+   border-radius: 50%;
+
+   width: 36px;
+   height: 36px;
+   padding: 8px;
+
+   background: #fff;
+   border: 2px solid #666;
+   color: #666;
+   text-align: center;
+
 }
 
-li::before{
+ul li::before{
   content: '';
   position: absolute;
   top: .9em;
   left: -4em;
   width: 4em;
   height: .2em;
-  background: dodgerblue;
+  background: #003333;
   z-index: -1;
 }
 
 
 
-li:first-child::before {
+ul li:first-child::before {
   display: none;
 }
