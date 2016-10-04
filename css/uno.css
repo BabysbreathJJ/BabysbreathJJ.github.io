@@ -1954,3 +1954,22 @@ pre {
   overflow: hidden;
   left: -29px;
 }
+
+.project-name{
+  font-size: 18px;
+}
+
+.my-job{
+  color: #999999;
+  font-size:14px;
+}
+
+.date{
+  color:#cccccc;
+  font-size:16px;
+}
+
+.year{
+  color: #006666;
+  font-size:25px;
+}
