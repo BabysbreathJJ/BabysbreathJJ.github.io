@@ -1991,7 +1991,7 @@ pre {
 
 .item-title{
   float: left;
-  font-size: 30px;
+  font-size: 25px;
 }
 
 .display-bl{
@@ -1999,6 +1999,6 @@ pre {
   float: left;
 }
 
-.font-30{
-  font-size: 30px;
+.font-25{
+  font-size: 25px;
 }
