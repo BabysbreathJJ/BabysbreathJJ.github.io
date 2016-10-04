@@ -1861,7 +1861,6 @@ pre {
   box-shadow: 0px 0px 1px #aaa;
   -webkit-box-shadow: 0px 0px 1px #aaa;
   height: 90px;
-  overflow-y: auto;
   padding: 5px;
   position: relative;
 }
@@ -1892,16 +1891,22 @@ pre {
   display:block;
   clear: both;
 }
+.project-divider{
+  height: 80%;
+  vertical-align: middle;
+  color: #cccccc;
+}
+
 .timeline-content-left{
-  width: 70%;
-  border-right: 1px solid #cccccc;
+  width: 60%;
+  /*border-right: 1px solid #cccccc;*/
   height: 100%;
   float: left;
   padding: 5px;
 }
 
 .timeline-content-right{
-  width: 70%;
+  width: 60%;
   border-left: 1px solid #cccccc;
   height: 100%;
   float: left;
