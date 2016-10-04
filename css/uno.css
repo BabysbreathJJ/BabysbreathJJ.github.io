@@ -1991,7 +1991,6 @@ pre {
 }
 
 .item-title{
-  float: left;
   font-size: 25px;
 }
 
@@ -2002,4 +2001,8 @@ pre {
 
 .font-25{
   font-size: 25px;
+}
+
+.float-left{
+  float: left;
 }
