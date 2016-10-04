@@ -1897,6 +1897,7 @@ pre {
   border-right: 1px solid #cccccc;
   height: 100%;
   float: left;
+  padding: 5px;
 }
 
 .timeline-content-right{
@@ -1904,6 +1905,7 @@ pre {
   border-left: 1px solid #cccccc;
   height: 100%;
   float: left;
+  padding: 5px;
 }
 
 .timeline-date{
@@ -1983,4 +1985,8 @@ pre {
 
 .mg-t40{
   margin-top: 40px;
+}
+
+.mg-t60{
+  margin-top: 60px;
 }
