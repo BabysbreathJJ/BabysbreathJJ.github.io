@@ -1880,6 +1880,7 @@ pre {
   padding-left: 20px;
 }
 
+
 .timeline:after{
   content:".";
   height:0;
@@ -2005,4 +2006,8 @@ pre {
 
 .float-left{
   float: left;
+}
+
+.clearfix{
+  clear: both;
 }
