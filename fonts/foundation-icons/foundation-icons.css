@@ -112,7 +112,6 @@
 .fi-info:before,
 .fi-italic:before,
 .fi-key:before,
-.fi-keyboard:before,
 .fi-laptop:before,
 .fi-layout:before,
 .fi-lightbulb:before,
@@ -407,7 +406,6 @@
 .fi-info:before { content: "\f15e"; }
 .fi-italic:before { content: "\f15f"; }
 .fi-key:before { content: "\f160"; }
-.fi-keyboard:before { content: "\e955"; }
 .fi-laptop:before { content: "\f161"; }
 .fi-layout:before { content: "\f162"; }
 .fi-lightbulb:before { content: "\f163"; }
