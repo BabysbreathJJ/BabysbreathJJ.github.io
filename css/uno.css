@@ -1826,11 +1826,14 @@ pre {
 
 .education-divider{
   border-top: 3px solid #003333;
-  margin : 5px 0;
+  margin : 10px auto;
   width: 60%;
+
+
 }
 
 .education-divider:before{
+  content:'';
   width: 10px;
   height: 10px;
   background: #ffffff;
@@ -1841,6 +1844,7 @@ pre {
 }
 
 .education-divider:after{
+  content:'';
   width: 10px;
   height: 10px;
   background: #ffffff;
