@@ -1820,9 +1820,37 @@ pre {
 
 .resume-divider{
   border-top: 2px solid #cccccc;
-  margin-bottom : 30px;
+  margin-bottom : 20px;
   width: 96%;
 }
+
+.education-divider{
+  border-top: 3px solid #003333;
+  margin : 5px 0;
+  width: 60%;
+}
+
+.education-divider:before{
+  width: 10px;
+  height: 10px;
+  background: #ffffff;
+  -moz-border-radius: 50px;
+ -webkit-border-radius: 50px;
+  border-radius: 50px;
+  border: 3px solid #000000;
+}
+
+.education-divider:after{
+  width: 10px;
+  height: 10px;
+  background: #ffffff;
+  -moz-border-radius: 50px;
+ -webkit-border-radius: 50px;
+  border-radius: 50px;
+  border: 3px solid #000000;
+}
+
+
 
 .resume-title{
   color: #006666;
@@ -2011,3 +2039,13 @@ pre {
 .clearfix{
   clear: both;
 }
+
+.circle {
+   width: 10px;
+   height: 10px;
+   background: #ffffff;
+   -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+   border-radius: 50px;
+   border: 3px solid #000000;
+ }
