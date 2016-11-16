@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lijingjing.top/"/>
-  <updated>2016-09-21T06:41:19.000Z</updated>
+  <updated>2016-11-16T06:55:15.000Z</updated>
   <id>http://lijingjing.top/</id>
   
   <author>
@@ -14,6 +14,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>HTML5触摸界面设计与开发</title>
+    <link href="http://lijingjing.top/blog/2016/11/16/HTML5%E8%A7%A6%E6%91%B8%E7%95%8C%E9%9D%A2%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%BC%80%E5%8F%91/"/>
+    <id>http://lijingjing.top/blog/2016/11/16/HTML5触摸界面设计与开发/</id>
+    <published>2016-11-16T06:11:39.000Z</published>
+    <updated>2016-11-16T06:55:15.000Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;第二章-创建一个简单的内容型网站&quot;&gt;&lt;a href=&quot;#第二章-创建一个简单的内容型网站&quot; class=&quot;headerlink&quot; title=&quot;第二章 创建一个简单的内容型网站&quot;&gt;&lt;/a&gt;第二章 创建一个简单的内容型网站&lt;/h1&gt;&lt;h2 id=&quot;CSS选择器&quot;&gt;&lt;a href=&quot;#CSS选择器&quot; class=&quot;headerlink&quot; title=&quot;CSS选择器&quot;&gt;&lt;/a&gt;CSS选择器&lt;/h2&gt;&lt;p&gt; CSS选择器要避免使用后代选择器，因为浏览器解析CSS是从右向左的，即如果它看到一个如”nav ul li a”的规则时，它首先必须获得所有匹配a的元素列表，然后检查看它是不是li的后代，再按相同规则继续检查。后代建渣器虽然看起来很方便，但是它的开销是最大的。&lt;/p&gt;
+&lt;h2 id=&quot;em和px&quot;&gt;&lt;a href=&quot;#em和px&quot; class=&quot;headerlink&quot; title=&quot;em和px&quot;&gt;&lt;/a&gt;em和px&lt;/h2&gt;&lt;p&gt; 一个单位的em总是代表当前的字体大小，em主要用于排版，而不是布局，px才是用来对网页进行布局的最简单的单位。&lt;/p&gt;
+&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;meta&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;name&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;viewport&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;content&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;width=device-width&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;  viewport就是一个虚拟的窗口，viewport的边缘代替浏览器的边缘，成为了窗口的边缘。&lt;br&gt;  | 属性 | 描述 |   | :————- | :————- |   | width       | 设置viewport的宽度，默认值为980，允许的取值范围是200~10000 |   | height      | 设置viewport的高度。默认值是通过宽度和设备宽高比计算出来的，允许的取值范围是223~10000 |   | initial-scale | 设置viewport的出事比例。默认值是通过计算使得整个页面在可见区域内。范围由minimum-scale和maximum-scale属性决定 |   | maximum-scale | 设置viewport的最大比例。默认值是5.0。允许的取值范围为0~10.0 |   | user-scaleable | 决定用户是否可以缩放视图。还可以防止文本开始输入时的滚动 |&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      《HTML5触摸界面设计与开发》读书笔记
+    
+    </summary>
+    
+      <category term="读书笔记" scheme="http://lijingjing.top/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="alert" scheme="http://lijingjing.top/tags/alert/"/>
+    
+      <category term="学习" scheme="http://lijingjing.top/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>Angular Directive</title>
