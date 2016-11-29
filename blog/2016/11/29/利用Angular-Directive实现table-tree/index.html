@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      阿菁菁菁菁菁 | 阿菁菁菁菁菁
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="阿菁菁菁菁菁">
+    
+    
+
+    <meta name="description" content="背景 依然是Cadillac的项目中碰到的，媒设老师只要给设计稿，感觉所有的代码都要自己敲，没有省事的方法了。设计图如下：  想了一想，项目前端主要使用的是AngularJS，所以自己应该写指令来实现这种表现形式。
+实现思路 实现思路是，考虑全部展开的形式，通过点击事件来判断，哪些可以显示，哪些是要隐藏的。并且利用Angular里的ng-repeat-start和ng-repeat-end来控制r">
+<meta property="og:type" content="article">
+<meta property="og:title" content="阿菁菁菁菁菁 | 阿菁菁菁菁菁">
+<meta property="og:url" content="http://lijingjing.top/blog/2016/11/29/利用Angular-Directive实现table-tree/index.html">
+<meta property="og:site_name" content="阿菁菁菁菁菁">
+<meta property="og:description" content="背景 依然是Cadillac的项目中碰到的，媒设老师只要给设计稿，感觉所有的代码都要自己敲，没有省事的方法了。设计图如下：  想了一想，项目前端主要使用的是AngularJS，所以自己应该写指令来实现这种表现形式。
+实现思路 实现思路是，考虑全部展开的形式，通过点击事件来判断，哪些可以显示，哪些是要隐藏的。并且利用Angular里的ng-repeat-start和ng-repeat-end来控制r">
+<meta property="og:image" content="http://lijingjing.top/images/Cadillac_statistic.png">
+<meta property="og:image" content="http://lijingjing.top/images/Cadillac_statistic1.jpeg">
+<meta property="og:image" content="http://lijingjing.top/images/Cadillac_statistic2.jpeg">
+<meta property="og:image" content="http://lijingjing.top/images/Cadillac_statistic3.jpeg">
+<meta property="og:updated_time" content="2016-11-29T09:21:35.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="阿菁菁菁菁菁 | 阿菁菁菁菁菁">
+<meta name="twitter:description" content="背景 依然是Cadillac的项目中碰到的，媒设老师只要给设计稿，感觉所有的代码都要自己敲，没有省事的方法了。设计图如下：  想了一想，项目前端主要使用的是AngularJS，所以自己应该写指令来实现这种表现形式。
+实现思路 实现思路是，考虑全部展开的形式，通过点击事件来判断，哪些可以显示，哪些是要隐藏的。并且利用Angular里的ng-repeat-start和ng-repeat-end来控制r">
+<meta name="twitter:image" content="http://lijingjing.top/images/Cadillac_statistic.png">
+
+    
+    
+      <link rel="icon" type="image/x-icon" href="/images/avatar.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+  
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+      <header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+        <a href="/" title="link to homepage for 阿菁菁菁菁菁"><img src="/images/avatar.png" width="100" alt="阿菁菁菁菁菁 logo" class="panel-cover__logo logo" /></a>
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">阿菁菁菁菁菁</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+        <h2 class="panel-cover__description panel-description-small">
+          Change takes time.
+        </h2>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+
+        <div class="navigation-wrapper">
+
+
+        <nav class="cover-navigation cover-navigation--primary">
+          <ul class="navigation">
+            
+              
+              <li class="navigation__item"><a href="/blog" title="" class="blog-button">文章</a></li>
+            
+              
+              <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+            
+              
+              <li class="navigation__item"><a href="/about" title="" class="">关于我</a></li>
+            
+
+          </ul>
+        </nav>
+
+      <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/BabysbreathJJ" title="阿菁 on GitHub">
+          <i class='icon icon-social-github'></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+      <li class="navigation__item">
+        <a href="mailto:lijingjing1008@gmail.com" title="阿菁‘s e-mail">
+          <i class='icon icon-mail'></i>
+          <span class="label">Mail</span>
+        </a>
+      </li>
+      <li class="navigation__item">
+        <a href="http://weibo.com/2797656002/profile" title="阿菁 on Weibo">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+      </li>
+    
+
+    <!-- China social icon -->
+    <!--
+
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-douban'></i>
+          <span class="label">Douban</span>
+        </a>
+      </li>
+
+
+
+    -->
+
+
+
+  </ul>
+</nav>
+
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+      <div class="content-wrapper">
+          <div class="content-wrapper__inner entry">
+              
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+
+    <h1 class="post-title">利用Angular Directive实现table tree</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2016-11-29" class="post-meta__date date">2016-11-29</time>
+
+      <span class="post-meta__tags tags">
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/AngularJS/">AngularJS</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/Directive/">Directive</a>
+            </font>
+          
+        </span>
+     </div>
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p> 依然是Cadillac的项目中碰到的，媒设老师只要给设计稿，感觉所有的代码都要自己敲，没有省事的方法了。设计图如下： <img src="/images/Cadillac_statistic.png" alt="Cadillac_statistic"><br> 想了一想，项目前端主要使用的是AngularJS，所以自己应该写指令来实现这种表现形式。</p>
+<h1 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h1><p> 实现思路是，考虑全部展开的形式，通过点击事件来判断，哪些<tr>可以显示，哪些</tr><tr>是要隐藏的。并且利用Angular里的ng-repeat-start和ng-repeat-end来控制repeat的dom节点。由此，可以得到item下面是areas,areas中的每个area又有sales。第一栏table的分配宽度为30%，通过</tr><tr>里第一个<td>的文字位置，来模拟树形结构的展开形式，大区的第一栏字体靠左，MAC字体居中，经销商字体居右。</td></tr></p>
+<h2 id="html文件"><a href="#html文件" class="headerlink" title="html文件"></a>html文件</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">sale-table</span> <span class="attr">class</span>=<span class="string">"sale-table"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">items</span> <span class="attr">ng-repeat-start</span>=<span class="string">"item in items"</span> <span class="attr">item</span>=<span class="string">"item"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">items</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">areas</span> <span class="attr">ng-repeat-start</span>=<span class="string">"area in areas"</span> <span class="attr">item-id</span>=<span class="string">"item.area"</span> <span class="attr">area</span>=<span class="string">"area"</span> <span class="attr">ng-show</span>=<span class="string">"item.area == showArea"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">areas</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">sales</span> <span class="attr">ng-repeat</span>=<span class="string">"sale in sales"</span> <span class="attr">area-id</span>=<span class="string">"area.area"</span> <span class="attr">sale</span>=<span class="string">"sale"</span></span></div><div class="line">           <span class="attr">ng-show</span>=<span class="string">"(area.area == showSale)&amp;&amp;(item.area == showArea)"</span>&gt;</div><div class="line">    <span class="tag">&lt;/<span class="name">sales</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-repeat-end</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-repeat-end</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">sale-table</span>&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="JS文件"><a href="#JS文件" class="headerlink" title="JS文件"></a>JS文件</h2><h3 id="sale-table"><a href="#sale-table" class="headerlink" title="sale-table"></a>sale-table</h3><p> sale-table是table tree的最外层，规定了表格的表头,展开和收起的控制逻辑也在这个指令里。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/** @ngInject */</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">saleTableFunc</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">        restrict: <span class="string">'EA'</span>,</div><div class="line">        replace: <span class="literal">true</span>,</div><div class="line">        transclude: <span class="literal">true</span>,</div><div class="line">        template: <span class="string">'&lt;table class="data table table-bordered statistic-table" style="text-align: center;"&gt;'</span> +</div><div class="line">        <span class="string">'&lt;tr class="table-header"&gt;'</span> +</div><div class="line">        <span class="string">'&lt;th class="data-th" width="30%"&gt;大区&lt;/th&gt;'</span> +</div><div class="line">        <span class="string">'&lt;th class="data-th" width="10%"&gt;全部车系&lt;/th&gt;'</span> +</div><div class="line">        <span class="string">'&lt;th class="data-th" width="10%"&gt;SRX&lt;/th&gt;'</span> +</div><div class="line">        <span class="string">'&lt;th class="data-th" width="10%"&gt;XTS&lt;/th&gt;'</span> +</div><div class="line">        <span class="string">'&lt;th class="data-th" width="10%"&gt;ATS-L&lt;/th&gt;'</span> +</div><div class="line">        <span class="string">'&lt;th class="data-th" width="10%"&gt;CT6&lt;/th&gt;'</span> +</div><div class="line">        <span class="string">'&lt;th class="data-th" width="10%"&gt;XT5&lt;/th&gt;'</span> +</div><div class="line">        <span class="string">'&lt;th class="data-th" width="10%"&gt;CTS&lt;/th&gt; &lt;/tr&gt;'</span> +</div><div class="line">        <span class="string">'&lt;tbody ng-transclude&gt;&lt;/tbody&gt;&lt;/table&gt;'</span>,</div><div class="line">        controller: <span class="function"><span class="keyword">function</span> (<span class="params">$scope</span>) </span>&#123;</div><div class="line">          <span class="comment">//第二层，MAC展开收起控制逻辑</span></div><div class="line">            $scope.$on(<span class="string">'getArea'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">d, data</span>) </span>&#123;</div><div class="line">              <span class="comment">//拿到当前区域下的MAC信息</span></div><div class="line">                $scope.areas = data.areas;</div><div class="line">              <span class="comment">//如果当前点击id为之前存储的id，则由展开变为收起形式</span></div><div class="line">                <span class="keyword">if</span> ($scope.showArea == data.itemId) &#123;</div><div class="line">                    $scope.showArea = <span class="number">-1</span>;</div><div class="line">                    $scope.showSale = <span class="number">-1</span>;</div><div class="line">                &#125;</div><div class="line">                <span class="comment">//否则，将当前点击的id存储，但是之前所有的经销商项都收起</span></div><div class="line">                <span class="keyword">else</span></div><div class="line">                &#123;</div><div class="line">                    $scope.showArea = data.itemId;</div><div class="line">                    $scope.showSale = <span class="number">-1</span>;</div><div class="line">                &#125;</div><div class="line">            &#125;);</div><div class="line"></div><div class="line">          <span class="comment">//第三层，经销商展开和收起控制逻辑</span></div><div class="line">            $scope.$on(<span class="string">'getSale'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">d, data</span>) </span>&#123;</div><div class="line">                $scope.sales = data.sales;</div><div class="line">                <span class="built_in">console</span>.log(data.areaId);</div><div class="line">                <span class="keyword">if</span> ($scope.showSale == data.areaId)</div><div class="line">                    $scope.showSale = <span class="number">-1</span>;</div><div class="line">                <span class="keyword">else</span></div><div class="line">                    $scope.showSale = data.areaId;</div><div class="line">            &#125;);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="items"><a href="#items" class="headerlink" title="items"></a>items</h3><p> saleItemFunc是items的指令函数。其中showMiddleArea函数来获取当前大区的id，并通过这个id难道所有的MAC区信息，通过变量showArea和当前点击的item的id做比较，来判断MAC信息节点的展开和收起，在areas指令里，通过ng-show条件判断来控制当前的MAC信息是否显示。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">areas</span>  <span class="attr">ng-show</span>=<span class="string">"item.area == showArea"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">areas</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/** @ngInject */</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">saleItemFunc</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">        restrict: <span class="string">'EA'</span>,</div><div class="line">        replace: <span class="literal">true</span>,</div><div class="line">        transclude: <span class="literal">true</span>,</div><div class="line">        <span class="built_in">require</span>: <span class="string">'^?saleTable'</span>,</div><div class="line">        scope: &#123;</div><div class="line">            item: <span class="string">'=item'</span></div><div class="line">        &#125;,</div><div class="line">        template: <span class="string">'&lt;tr&gt;'</span> +</div><div class="line">        <span class="string">'&lt;td class="data-td left-text"&gt;'</span> +</div><div class="line">        <span class="string">'&lt;div class="all-area" ng-click="showMiddleArea()"&gt;'</span> +</div><div class="line">        <span class="string">'&#123;&#123;item.area&#125;&#125;'</span> +</div><div class="line">        <span class="string">'&lt;span class="ion-chevron-down"&gt;&lt;/span&gt;'</span> +</div><div class="line">        <span class="string">'&lt;/div&gt; &lt;/td&gt;'</span> +</div><div class="line">        <span class="string">'&lt;td class="data-td red-color"&gt;'</span> +</div><div class="line">        <span class="string">'&#123;&#123;item.lines&#125;&#125;&lt;/td&gt;'</span> +</div><div class="line">        <span class="string">'&lt;td class="data-td"&gt;'</span> +</div><div class="line">        <span class="string">'&#123;&#123;item.srx&#125;&#125;&lt;/td&gt;'</span> +</div><div class="line">        <span class="string">'&lt;td class="data-td"&gt;'</span> +</div><div class="line">        <span class="string">'&#123;&#123;item.xts&#125;&#125;&lt;/td&gt;'</span> +</div><div class="line">        <span class="string">'&lt;td class="data-td"&gt;'</span> +</div><div class="line">        <span class="string">'&#123;&#123;item.ats&#125;&#125;&lt;/td&gt;'</span> +</div><div class="line">        <span class="string">'&lt;td class="data-td"&gt;'</span> +</div><div class="line">        <span class="string">'&#123;&#123;item.ct6&#125;&#125;&lt;/td&gt;'</span> +</div><div class="line">        <span class="string">'&lt;td class="data-td"&gt;'</span> +</div><div class="line">        <span class="string">'&#123;&#123;item.xt5&#125;&#125;&lt;/td&gt;'</span> +</div><div class="line">        <span class="string">'&lt;td class="data-td"&gt;'</span> +</div><div class="line">        <span class="string">'&#123;&#123;item.cts&#125;&#125; &lt;/td&gt; &lt;/tr&gt;'</span>,</div><div class="line">        link: <span class="function"><span class="keyword">function</span> (<span class="params">scope, element, attrs, saleTableController</span>) </span>&#123;</div><div class="line">          <span class="comment">//实际情况应该和后台交互，拿到当前大区下的所有MAC信息</span></div><div class="line">            scope.showMiddleArea = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">                scope.areas = [&#123;</div><div class="line">                    area: <span class="string">'MAC1'</span>,</div><div class="line">                    lines: <span class="number">2744</span>,</div><div class="line">                    srx: <span class="number">800</span>,</div><div class="line">                    xts: <span class="number">345</span>,</div><div class="line">                    ats: <span class="number">975</span>,</div><div class="line">                    ct6: <span class="number">800</span>,</div><div class="line">                    xt5: <span class="number">345</span>,</div><div class="line">                    cts: <span class="number">975</span></div><div class="line">                &#125;, &#123;</div><div class="line">                    area: <span class="string">'MAC2'</span>,</div><div class="line">                    lines: <span class="number">5856</span>,</div><div class="line">                    srx: <span class="number">265</span>,</div><div class="line">                    xts: <span class="number">235</span>,</div><div class="line">                    ats: <span class="number">324</span>,</div><div class="line">                    ct6: <span class="number">265</span>,</div><div class="line">                    xt5: <span class="number">235</span>,</div><div class="line">                    cts: <span class="number">324</span></div><div class="line">                &#125;, &#123;</div><div class="line">                    area: <span class="string">'MAC3'</span>,</div><div class="line">                    lines: <span class="number">2344</span>,</div><div class="line">                    srx: <span class="number">334</span>,</div><div class="line">                    xts: <span class="number">235</span>,</div><div class="line">                    ats: <span class="number">53</span>,</div><div class="line">                    ct6: <span class="number">234</span>,</div><div class="line">                    xt5: <span class="number">32</span>,</div><div class="line">                    cts: <span class="number">123</span></div><div class="line">                &#125;, &#123;</div><div class="line">                    area: <span class="string">'MAC4'</span>,</div><div class="line">                    lines: <span class="number">7356</span>,</div><div class="line">                    srx: <span class="number">324</span>,</div><div class="line">                    xts: <span class="number">221</span>,</div><div class="line">                    ats: <span class="number">553</span>,</div><div class="line">                    ct6: <span class="number">321</span>,</div><div class="line">                    xt5: <span class="number">451</span>,</div><div class="line">                    cts: <span class="number">763</span></div><div class="line">                &#125;, &#123;</div><div class="line">                    area: <span class="string">'MAC5'</span>,</div><div class="line">                    lines: <span class="number">5356</span>,</div><div class="line">                    srx: <span class="number">224</span>,</div><div class="line">                    xts: <span class="number">323</span>,</div><div class="line">                    ats: <span class="number">518</span>,</div><div class="line">                    ct6: <span class="number">341</span>,</div><div class="line">                    xt5: <span class="number">171</span>,</div><div class="line">                    cts: <span class="number">623</span></div><div class="line">                &#125;];</div><div class="line">                scope.data = &#123;itemId: scope.item.area, areas: scope.areas&#125;;</div><div class="line">                scope.$emit(<span class="string">'getArea'</span>, scope.data);</div><div class="line"></div><div class="line">            &#125;;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="areas"><a href="#areas" class="headerlink" title="areas"></a>areas</h3><p> areas为MAC信息的指令。其主要思想和上层大区指令的思想一样。并且通过当前的MAC的id的点击存储的id进行比较，以及当前展开的MAC信息是否为点击的MAC的id,两个条件同时来控制当前经销商信息是否展开。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">sales</span>  <span class="attr">ng-show</span>=<span class="string">"(area.area == showSale)&amp;&amp;(item.area == showArea)"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">sales</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/** @ngInject */</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">areasFunc</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">        restrict: <span class="string">'EA'</span>,</div><div class="line">        replace: <span class="literal">true</span>,</div><div class="line">        transclude: <span class="literal">true</span>,</div><div class="line">        <span class="built_in">require</span>: <span class="string">'^?saleTable'</span>,</div><div class="line">        scope: &#123;</div><div class="line">            itemId: <span class="string">'=itemId'</span>,</div><div class="line">            area: <span class="string">'=area'</span></div><div class="line">        &#125;,</div><div class="line">        template: <span class="string">'&lt;tr&gt;&lt;td class="data-td middle-text"&gt;'</span> +</div><div class="line">        <span class="string">'&lt;div class="all-area" ng-click="showLastArea()"&gt;'</span> +</div><div class="line">        <span class="string">'&#123;&#123;area.area&#125;&#125;'</span> +</div><div class="line">        <span class="string">'&lt;span class="ion-chevron-down"&gt;&lt;/span&gt;'</span> +</div><div class="line">        <span class="string">'&lt;/div&gt; &lt;/td&gt;'</span> +</div><div class="line">        <span class="string">'&lt;td class="data-td red-color"&gt;'</span> +</div><div class="line">        <span class="string">'&#123;&#123;area.lines&#125;&#125;&lt;/td&gt;'</span> +</div><div class="line">        <span class="string">'&lt;td class="data-td"&gt;'</span> +</div><div class="line">        <span class="string">'&#123;&#123;area.srx&#125;&#125;&lt;/td&gt;'</span> +</div><div class="line">        <span class="string">'&lt;td class="data-td"&gt;'</span> +</div><div class="line">        <span class="string">'&#123;&#123;area.xts&#125;&#125;&lt;/td&gt;'</span> +</div><div class="line">        <span class="string">'&lt;td class="data-td"&gt;'</span> +</div><div class="line">        <span class="string">'&#123;&#123;area.ats&#125;&#125;&lt;/td&gt;'</span> +</div><div class="line">        <span class="string">'&lt;td class="data-td"&gt;'</span> +</div><div class="line">        <span class="string">'&#123;&#123;area.ct6&#125;&#125;&lt;/td&gt;'</span> +</div><div class="line">        <span class="string">'&lt;td class="data-td"&gt;'</span> +</div><div class="line">        <span class="string">'&#123;&#123;area.xt5&#125;&#125;&lt;/td&gt;'</span> +</div><div class="line">        <span class="string">'&lt;td class="data-td"&gt;'</span> +</div><div class="line">        <span class="string">'&#123;&#123;area.cts&#125;&#125; &lt;/td&gt;&lt;/tr&gt;'</span>,</div><div class="line">        link: <span class="function"><span class="keyword">function</span> (<span class="params">scope, element, attrs, saleTableController</span>) </span>&#123;</div><div class="line">          <span class="comment">//实际项目中应与后台交互拿到相关的经销商信息</span></div><div class="line">            scope.showLastArea = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">                scope.sales = [&#123;</div><div class="line">                    area: <span class="string">'经销商一'</span>,</div><div class="line">                    lines: <span class="number">2744</span>,</div><div class="line">                    srx: <span class="number">800</span>,</div><div class="line">                    xts: <span class="number">345</span>,</div><div class="line">                    ats: <span class="number">975</span>,</div><div class="line">                    ct6: <span class="number">800</span>,</div><div class="line">                    xt5: <span class="number">345</span>,</div><div class="line">                    cts: <span class="number">975</span></div><div class="line">                &#125;, &#123;</div><div class="line">                    area: <span class="string">'经销商二'</span>,</div><div class="line">                    lines: <span class="number">5856</span>,</div><div class="line">                    srx: <span class="number">265</span>,</div><div class="line">                    xts: <span class="number">235</span>,</div><div class="line">                    ats: <span class="number">324</span>,</div><div class="line">                    ct6: <span class="number">265</span>,</div><div class="line">                    xt5: <span class="number">235</span>,</div><div class="line">                    cts: <span class="number">324</span></div><div class="line">                &#125;, &#123;</div><div class="line">                    area: <span class="string">'经销商三'</span>,</div><div class="line">                    lines: <span class="number">2344</span>,</div><div class="line">                    srx: <span class="number">334</span>,</div><div class="line">                    xts: <span class="number">235</span>,</div><div class="line">                    ats: <span class="number">53</span>,</div><div class="line">                    ct6: <span class="number">234</span>,</div><div class="line">                    xt5: <span class="number">32</span>,</div><div class="line">                    cts: <span class="number">123</span></div><div class="line">                &#125;, &#123;</div><div class="line">                    area: <span class="string">'经销商四'</span>,</div><div class="line">                    lines: <span class="number">7356</span>,</div><div class="line">                    srx: <span class="number">324</span>,</div><div class="line">                    xts: <span class="number">221</span>,</div><div class="line">                    ats: <span class="number">553</span>,</div><div class="line">                    ct6: <span class="number">321</span>,</div><div class="line">                    xt5: <span class="number">451</span>,</div><div class="line">                    cts: <span class="number">763</span></div><div class="line">                &#125;, &#123;</div><div class="line">                    area: <span class="string">'经销商五'</span>,</div><div class="line">                    lines: <span class="number">5356</span>,</div><div class="line">                    srx: <span class="number">224</span>,</div><div class="line">                    xts: <span class="number">323</span>,</div><div class="line">                    ats: <span class="number">518</span>,</div><div class="line">                    ct6: <span class="number">341</span>,</div><div class="line">                    xt5: <span class="number">171</span>,</div><div class="line">                    cts: <span class="number">623</span></div><div class="line">                &#125;];</div><div class="line">                scope.data = &#123;areaId: scope.area.area, sales: scope.sales&#125;;</div><div class="line">                scope.$emit(<span class="string">'getSale'</span>, scope.data);</div><div class="line"></div><div class="line">            &#125;;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="sales"><a href="#sales" class="headerlink" title="sales"></a>sales</h3><p> 关于经销商的指令，思想同上。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/** @ngInject */</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">salesFunc</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">        restrict: <span class="string">'EA'</span>,</div><div class="line">        replace: <span class="literal">true</span>,</div><div class="line">        transclude: <span class="literal">true</span>,</div><div class="line">        <span class="built_in">require</span>: <span class="string">'^?saleTable'</span>,</div><div class="line">        scope: &#123;</div><div class="line">            areaId: <span class="string">'=areaId'</span>,</div><div class="line">            sale: <span class="string">'=sale'</span></div><div class="line">        &#125;,</div><div class="line">        template: <span class="string">'&lt;tr class="gray-bg"&gt;&lt;td class="data-td right-text"&gt;'</span> +</div><div class="line">        <span class="string">'&lt;div class="all-area"&gt;'</span> +</div><div class="line">        <span class="string">'&#123;&#123;sale.area&#125;&#125;'</span> +</div><div class="line">        <span class="string">'&lt;/div&gt; &lt;/td&gt;'</span> +</div><div class="line">        <span class="string">'&lt;td class="data-td red-color"&gt;'</span> +</div><div class="line">        <span class="string">'&#123;&#123;sale.lines&#125;&#125;&lt;/td&gt;'</span> +</div><div class="line">        <span class="string">'&lt;td class="data-td"&gt;'</span> +</div><div class="line">        <span class="string">'&#123;&#123;sale.srx&#125;&#125;&lt;/td&gt;'</span> +</div><div class="line">        <span class="string">'&lt;td class="data-td"&gt;'</span> +</div><div class="line">        <span class="string">'&#123;&#123;sale.xts&#125;&#125;&lt;/td&gt;'</span> +</div><div class="line">        <span class="string">'&lt;td class="data-td"&gt;'</span> +</div><div class="line">        <span class="string">'&#123;&#123;sale.ats&#125;&#125;&lt;/td&gt;'</span> +</div><div class="line">        <span class="string">'&lt;td class="data-td"&gt;'</span> +</div><div class="line">        <span class="string">'&#123;&#123;sale.ct6&#125;&#125;&lt;/td&gt;'</span> +</div><div class="line">        <span class="string">'&lt;td class="data-td"&gt;'</span> +</div><div class="line">        <span class="string">'&#123;&#123;sale.xt5&#125;&#125;&lt;/td&gt;'</span> +</div><div class="line">        <span class="string">'&lt;td class="data-td"&gt;'</span> +</div><div class="line">        <span class="string">'&#123;&#123;sale.cts&#125;&#125; &lt;/td&gt;&lt;/tr&gt;'</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="实现效果"><a href="#实现效果" class="headerlink" title="实现效果"></a>实现效果</h1><p><img src="/images/Cadillac_statistic1.jpeg" alt="Cadillac_statistic"><br><img src="/images/Cadillac_statistic2.jpeg" alt="Cadillac_statistic"><br><img src="/images/Cadillac_statistic3.jpeg" alt="Cadillac_statistic"> </p>
+
+  </section>
+
+  
+  
+
+<section class="post-comments">
+
+    <div class="ds-thread" data-thread-key="blog/2016/11/29/利用Angular-Directive实现table-tree/"></div>
+
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"lijingjing"};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+    </script> 
+
+</section>
+
+
+</article>
+
+              <footer class="footer">
+
+    <span class="footer__copyright">  &copy; 2016 阿菁菁菁菁菁 | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+
+</footer>
+
+          </div>
+      </div>
+
+    
+
+
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
