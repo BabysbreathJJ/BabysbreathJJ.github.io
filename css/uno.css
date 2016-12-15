@@ -1745,7 +1745,8 @@ pre {
 
 .resume{
   margin: 0 auto;
-  max-width: 600px;
+  /*max-width: 600px;*/
+  width:600px;
   padding: 30px 40px;
   background: #fff;
   border: 1px solid #ccc;
