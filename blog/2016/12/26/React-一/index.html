@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      阿菁菁菁菁菁 | 阿菁菁菁菁菁
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="阿菁菁菁菁菁">
+    
+    
+
+    <meta name="description" content="简介React发源自Facebook的PHP框架XHP的一个分支。XHP作为一个PHP框架，旨在有请求进来时渲染整个页面。React的产生就是为了把这种重新渲染整个页面的PHP式工作流带到客户端应用中来。React本质上是一个”状态机“，可以帮助开发者管理复杂的随着时间而变化的状态，以一个精简的模型实现了这一点。React只关心两件事：
+
+更新DOM
+响应事件
+
+React不处理Ajax、路由和数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="阿菁菁菁菁菁 | 阿菁菁菁菁菁">
+<meta property="og:url" content="http://lijingjing.top/blog/2016/12/26/React-一/index.html">
+<meta property="og:site_name" content="阿菁菁菁菁菁">
+<meta property="og:description" content="简介React发源自Facebook的PHP框架XHP的一个分支。XHP作为一个PHP框架，旨在有请求进来时渲染整个页面。React的产生就是为了把这种重新渲染整个页面的PHP式工作流带到客户端应用中来。React本质上是一个”状态机“，可以帮助开发者管理复杂的随着时间而变化的状态，以一个精简的模型实现了这一点。React只关心两件事：
+
+更新DOM
+响应事件
+
+React不处理Ajax、路由和数">
+<meta property="og:updated_time" content="2016-12-27T05:49:33.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="阿菁菁菁菁菁 | 阿菁菁菁菁菁">
+<meta name="twitter:description" content="简介React发源自Facebook的PHP框架XHP的一个分支。XHP作为一个PHP框架，旨在有请求进来时渲染整个页面。React的产生就是为了把这种重新渲染整个页面的PHP式工作流带到客户端应用中来。React本质上是一个”状态机“，可以帮助开发者管理复杂的随着时间而变化的状态，以一个精简的模型实现了这一点。React只关心两件事：
+
+更新DOM
+响应事件
+
+React不处理Ajax、路由和数">
+
+    
+    
+      <link rel="icon" type="image/x-icon" href="/images/avatar.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+
+</head>
+<body>
+
+    
+      <header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+        <a href="/" title="link to homepage for 阿菁菁菁菁菁"><img src="/images/avatar.png" width="100" alt="阿菁菁菁菁菁 logo" class="panel-cover__logo logo" /></a>
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">阿菁菁菁菁菁</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+        <h2 class="panel-cover__description panel-description-small">
+          Change takes time.
+        </h2>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+
+        <div class="navigation-wrapper">
+
+
+        <nav class="cover-navigation cover-navigation--primary">
+          <ul class="navigation">
+            
+              
+              <li class="navigation__item"><a href="/blog" title="" class="blog-button">文章</a></li>
+            
+              
+              <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+            
+              
+              <li class="navigation__item"><a href="/about" title="" class="">关于我</a></li>
+            
+
+          </ul>
+        </nav>
+
+      <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/BabysbreathJJ" title="阿菁 on GitHub">
+          <i class='icon icon-social-github'></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+      <li class="navigation__item">
+        <a href="mailto:lijingjing1008@gmail.com" title="阿菁‘s e-mail">
+          <i class='icon icon-mail'></i>
+          <span class="label">Mail</span>
+        </a>
+      </li>
+      <li class="navigation__item">
+        <a href="http://weibo.com/2797656002/profile" title="阿菁 on Weibo">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+      </li>
+    
+
+    <!-- China social icon -->
+    <!--
+
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-douban'></i>
+          <span class="label">Douban</span>
+        </a>
+      </li>
+
+
+
+    -->
+
+
+
+  </ul>
+</nav>
+
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+      <span class="mobile btn-mobile-menu">
+          <i class="icon icon-list btn-mobile-menu__icon"></i>
+          <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+      </span>
+      <div class="content-wrapper">
+          <div class="content-wrapper__inner entry">
+              
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+
+    <h1 class="post-title">React (一)</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2016-12-26" class="post-meta__date date">2016-12-26</time>
+
+      <span class="post-meta__tags tags">
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/读书笔记/">读书笔记</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/React/">React</a>
+            </font>
+          
+        </span>
+     </div>
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>React发源自Facebook的PHP框架XHP的一个分支。XHP作为一个PHP框架，旨在有请求进来时渲染整个页面。React的产生就是为了把这种重新渲染整个页面的PHP式工作流带到客户端应用中来。<br>React本质上是一个”状态机“，可以帮助开发者管理复杂的随着时间而变化的状态，以一个精简的模型实现了这一点。React只关心两件事：</p>
+<ol>
+<li>更新DOM</li>
+<li>响应事件</li>
+</ol>
+<p>React不处理Ajax、路由和数据存储，也不规定数据组织的方式。它不是一个Model-View-Controller框架。如果非要问它是什么，它就是MVC中的”V“.</p>
+<p>在每次状态改变时，使用JS重新渲染整个页面会异常慢，这应该归咎于读取和更新DOM的性能问题。React运用一个<em>虚拟的DOM</em>实现了一个非常强大的渲染系统，在React中<em>对DOM只更新不读取</em>。</p>
+<p>React以渲染函数为基础。这些函数读入当前的状态，将其转换为目标页面上的一个虚拟表现，只要React被告知状态有变化，它就会重新运行这些函数，计算出页面的一个新的虚拟表现，接着自动地把结果转换成必要的DOM更新来反映新的表现。</p>
+<p>虽然看上去比通常的按需更新每一个元素的JS方案要慢，但是React使用了非常高效的算法，计算出虚拟页面当前版本和新版本间的差异，基于这些差异对DOM进行必要的最少更新。</p>
+<p><em>React赢在最小化重绘，并避免了不必要的DOM操作。</em></p>
+<p>React的<em>虚拟表示差异算法</em>，不但能够把这些问题的影响降到最低（通过在单个周期内进行最小的更新），还能简化应用的维护成本。当用户输入或者有其他更新导致状态改变时，我们只要简单地通知React状态改变了，它就能自动化地处理剩下的事情。</p>
+<p>React在整个应用中只使用单个事件处理器，并且会把所有的事件委托到这个处理器上。这一点也提升了React的性能，因为如果有很多事件处理器也会导致性能问题。</p>
+<h1 id="JSX"><a href="#JSX" class="headerlink" title="JSX"></a>JSX</h1><p>JSX（JavaScript XML），一种在React组件内部构建标签的类XML语法。使用JSX可以提高组件的可读性。JSX最后只是被简单地转化成对应的JS函数，但是JSX更令其他开发人员熟悉、语义化和直观。</p>
+<p>JSX特征：</p>
+<ol>
+<li>JSX是一种句法变换——每一个JSX节点都对应着一个JS函数。</li>
+<li>JSX既不提供也不需要运行时库。</li>
+<li>JSX并没有改变或添加JS的语义——它只是简单的函数调用而已。</li>
+</ol>
+<p><em>JSX和HTML的不同</em><br>(1) <em>属性</em>，在HTML中用内联的方式给每个节点设置属性，eg:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"some-id"</span> <span class="attr">class</span>=<span class="string">"some-class-name"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>JSX以同样的方式实现了属性的设置，同时还提供了将属性设置为动态JS变量的便利。要设置动态的属性，你需要把原本用引号括起来的文本替换成花括号包裹的JS变量。<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var surveyQuestionId = this.props.id;</div><div class="line">var classes = 'some-class-name';</div><div class="line">...</div><div class="line">&lt;div id = &#123;surveyQuestionId&#125;  className=&#123;classes&#125;&gt;...&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;div id=&#123;this.getSurveyId()&#125;&gt;...&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>React每渲染一个组件时，我们制定的变量和函数会被求值，而最终生成的DOM结构会反映出这个新的状态。</p>
+<p>(2) <em>条件判断</em>，在React中，可以利用JS实现循环和条件判断。<br>在组件中添加条件判断很困难，因为if/else逻辑很难用HTML标签来表达。直接往JSX中加入if语句会渲染出无效的JS。<br>解决方法：<br><em>使用三目运算符；</em><br>虽然对于文本来说三目运算符可以正常运行，但是如果想在其他情况下很好地应用React Component，三目运算符就可能显得笨重又麻烦。对于这些情况最好是使用以下方法。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">render:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&#123;</span></span></span></div><div class="line">		<span class="attr">this.state.isComplete</span> ? '<span class="attr">is-complete</span>' <span class="attr">:</span> ''</div><div class="line">	&#125;&gt;...<span class="tag">&lt;/<span class="name">div</span>&gt;</span>;</div><div class="line">&#125;</div><div class="line">...</div></pre></td></tr></table></figure>
+<p><em>设置一个变量并在属性中引用它；</em></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">getIsComplete:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> <span class="keyword">this</span>.state.isComplete ? <span class="string">'is-complete'</span> : <span class="string">''</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">render:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> isComplete = <span class="keyword">this</span>.getIsComplete();</div><div class="line">	<span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&#123;isComplete&#125;</span>&gt;</span>...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></div><div class="line">&#125;</div><div class="line">...</div></pre></td></tr></table></figure>
+<p><em>将逻辑转化到函数中；</em></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">getIsComplete:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> <span class="keyword">this</span>.state.isComplete ? <span class="string">'is-complete'</span> : <span class="string">''</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">render:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&#123;</span> <span class="attr">this.getIsComplete</span>()&#125;&gt;</span>...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></div><div class="line">&#125;</div><div class="line">...</div></pre></td></tr></table></figure>
+<p><em>使用&amp;&amp;运算符；</em><br>由于对于null或者false值React不会输出任何内容，因此可以使用一个后面跟随了期望字符串的布尔值来实现条件判断。如果这个布尔值为true，那么后续的字符串就会被使用。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">render:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&#123;this.state.isComplete</span> &amp;&amp; '<span class="attr">isComplete</span>'&#125;&gt;</span>...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></div><div class="line">&#125;</div><div class="line">...</div></pre></td></tr></table></figure>
+<p>(3) 非DOM属性<br>下面的属性只在JSX中存在</p>
+<ul>
+<li>key<br>key是一个可选的唯一标识符，在程序运行的过程中，一个组件可能会在组件树中调整位置，比如当用户在进行搜索操作时，或者当一个列表中的物品被增加、删除时。当这些情况发生时，组件可能并不需要被销毁并重新创建。<br>通过给组件设置一个独一无二的键，并确保它在一个渲染周期中保持一致，使得React能够更智能地决定应该重新重用一个组件，还是销毁并重新创建一个组件，进而提升渲染性能。当两个已经存在于DOM中的组件交换位置时，React能够匹配对应的键并进行相应的移动，且不需要完全重新渲染DOM。</li>
+<li>ref<br>ref允许父组件在render方法之外保持对子组件的一个引用。在JSX中，可以通过在属性中设置期望的引用名来定义一个引用。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">render:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">ref</span>=<span class="string">"myInput"</span> <span class="attr">...</span>/&gt;</span>...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></div><div class="line">&#125;</div><div class="line">...</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>然后就可以再组件中的任何地方使用<code>this.refs.myInput</code>获取这个引用，通过引用获取到的对象被称为支持实例。它并不是真的DOM，而是React在需要时用来创建DOM的一个描述对象。可以使用<code>this.refs.myInput.getDOMNode()</code>访问真实的DOM节点。</p>
+<ul>
+<li>dangerouslySetInnerHTML<br>有时候需要将HTML内容设置为字符串，尤其是使用了通过字符串操作DOM的第三方库时。为了提升React的互操作性，这个属性允许你使用HTML字符串。然而如果你能避免使用它的话，就还是不要使用。要让这个属性发挥作用，你需要把字符串设置到一个主键为_html的对象里，像这样：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">render:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line"><span class="keyword">var</span> htmlString = &#123;</div><div class="line">	_html: <span class="string">"&lt;span&gt;html&lt;/span&gt;"</span></div><div class="line">&#125;;</div><div class="line">	<span class="keyword">return</span> &lt;div dangerouslySetInnerHTML=&#123;htmlString&#125;&gt;&lt;div&gt;</div><div class="line">&#125;</div><div class="line">...</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>(4) 事件<br>在JSX中，捕获一个事件就像给组件的方法设置一个属性一样简单。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">handleClick: <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;...&#125;,</div><div class="line">render:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> &lt;div onClick=&#123;this.handleClick&#125;&gt;...&lt;div&gt;</div><div class="line">&#125;</div><div class="line">...</div></pre></td></tr></table></figure></p>
+<p>React自动绑定了组件所有方法的作用域，因此不需要手动绑定。</p>
+<p>(5) 注释<br>JSX本质上就是JS，可以再标签内添加原生的JS注释。注释用以下两种形式添加：</p>
+<ul>
+<li><p>当做一个元素的子节点</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">	&#123;/* a comment about this input with multiple lines*/&#125;</div><div class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">name</span>=<span class="string">"email"</span> <span class="attr">placeholder</span>=<span class="string">"Email Address"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>内联在元素的属性中</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">input</span></span></div><div class="line">	/* <span class="attr">a</span> <span class="attr">comment</span> <span class="attr">about</span> <span class="attr">this</span> <span class="attr">input</span> <span class="attr">with</span> <span class="attr">multiple</span> <span class="attr">lines</span>*/</div><div class="line">	<span class="attr">name</span>=<span class="string">"email"</span> <span class="attr">placeholder</span>=<span class="string">"Email Address"</span> /&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">input</span></span></div><div class="line">	<span class="attr">name</span>=<span class="string">"email"</span> // <span class="attr">a</span> <span class="attr">single-line</span> <span class="attr">comment</span></div><div class="line">	<span class="attr">placeholder</span>=<span class="string">"Email Address"</span> /&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>(6) 特殊属性<br>由于JSX会转换为原生的JS函数，因此有一些关键词我们是不能使用的——如for和class。<br>要给表单里的标签添加for属性需要使用htmlFor.<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">htmlFor</span>=<span class="string">'for-text'</span> <span class="attr">...</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&#123;classes&#125;</span> <span class="attr">...</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>(7) 样式<br>React把所有的内联样式都规范化为了驼峰形式，与JS中DOM的style属性一致。添加一个自定义的样式属性，只需简单把驼峰形式的属性名以及期望的CSS值拼装为对象即可。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> style = &#123;</div><div class="line">	borderColor: <span class="string">"#999"</span>,</div><div class="line">	borderThickness: <span class="string">"1px"</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line">React.renderComponent(<span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&#123;style&#125;</span>&gt;</span>...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>,node);</div></pre></td></tr></table></figure></p>
+
+  </section>
+
+  
+  
+
+<section class="post-comments">
+
+    <div class="ds-thread" data-thread-key="blog/2016/12/26/React-一/"></div>
+
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"lijingjing"};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+    </script> 
+
+</section>
+
+
+</article>
+
+              <footer class="footer">
+
+    <span class="footer__copyright">  &copy; 2016 阿菁菁菁菁菁 | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+
+</footer>
+
+          </div>
+      </div>
+
+    
+
+
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
