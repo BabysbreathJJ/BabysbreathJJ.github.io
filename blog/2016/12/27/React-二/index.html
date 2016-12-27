@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      阿菁菁菁菁菁 | 阿菁菁菁菁菁
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="阿菁菁菁菁菁">
+    
+    
+
+    <meta name="description" content="组件的生命周期一个组件就是一个状态机：对于特定的输入，它总会返回一致的输出。
+React为每个组件提供了生命周期钩子函数去响应不同的时刻——创建时、存在期及销毁时。这些时刻出现的顺序——从实例化开始，到活动期，直到最后被销毁。
+生命周期方法React的组件拥有简洁的生命周期API，它仅仅提供你所需要的方法，而不会去追求全面。
+实例化一个实例初次被创建时所调用的生命周期方法与其他各个后续实例被创建时">
+<meta property="og:type" content="article">
+<meta property="og:title" content="阿菁菁菁菁菁 | 阿菁菁菁菁菁">
+<meta property="og:url" content="http://lijingjing.top/blog/2016/12/27/React-二/index.html">
+<meta property="og:site_name" content="阿菁菁菁菁菁">
+<meta property="og:description" content="组件的生命周期一个组件就是一个状态机：对于特定的输入，它总会返回一致的输出。
+React为每个组件提供了生命周期钩子函数去响应不同的时刻——创建时、存在期及销毁时。这些时刻出现的顺序——从实例化开始，到活动期，直到最后被销毁。
+生命周期方法React的组件拥有简洁的生命周期API，它仅仅提供你所需要的方法，而不会去追求全面。
+实例化一个实例初次被创建时所调用的生命周期方法与其他各个后续实例被创建时">
+<meta property="og:updated_time" content="2016-12-27T09:53:26.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="阿菁菁菁菁菁 | 阿菁菁菁菁菁">
+<meta name="twitter:description" content="组件的生命周期一个组件就是一个状态机：对于特定的输入，它总会返回一致的输出。
+React为每个组件提供了生命周期钩子函数去响应不同的时刻——创建时、存在期及销毁时。这些时刻出现的顺序——从实例化开始，到活动期，直到最后被销毁。
+生命周期方法React的组件拥有简洁的生命周期API，它仅仅提供你所需要的方法，而不会去追求全面。
+实例化一个实例初次被创建时所调用的生命周期方法与其他各个后续实例被创建时">
+
+    
+    
+      <link rel="icon" type="image/x-icon" href="/images/avatar.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+
+</head>
+<body>
+
+    
+      <header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+        <a href="/" title="link to homepage for 阿菁菁菁菁菁"><img src="/images/avatar.png" width="100" alt="阿菁菁菁菁菁 logo" class="panel-cover__logo logo" /></a>
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">阿菁菁菁菁菁</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+        <h2 class="panel-cover__description panel-description-small">
+          Change takes time.
+        </h2>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+
+        <div class="navigation-wrapper">
+
+
+        <nav class="cover-navigation cover-navigation--primary">
+          <ul class="navigation">
+            
+              
+              <li class="navigation__item"><a href="/blog" title="" class="blog-button">文章</a></li>
+            
+              
+              <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+            
+              
+              <li class="navigation__item"><a href="/about" title="" class="">关于我</a></li>
+            
+
+          </ul>
+        </nav>
+
+      <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/BabysbreathJJ" title="阿菁 on GitHub">
+          <i class='icon icon-social-github'></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+      <li class="navigation__item">
+        <a href="mailto:lijingjing1008@gmail.com" title="阿菁‘s e-mail">
+          <i class='icon icon-mail'></i>
+          <span class="label">Mail</span>
+        </a>
+      </li>
+      <li class="navigation__item">
+        <a href="http://weibo.com/2797656002/profile" title="阿菁 on Weibo">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+      </li>
+    
+
+    <!-- China social icon -->
+    <!--
+
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-douban'></i>
+          <span class="label">Douban</span>
+        </a>
+      </li>
+
+
+
+    -->
+
+
+
+  </ul>
+</nav>
+
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+      <span class="mobile btn-mobile-menu">
+          <i class="icon icon-list btn-mobile-menu__icon"></i>
+          <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+      </span>
+      <div class="content-wrapper">
+          <div class="content-wrapper__inner entry">
+              
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+
+    <h1 class="post-title">React(二)</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2016-12-27" class="post-meta__date date">2016-12-27</time>
+
+      <span class="post-meta__tags tags">
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/读书笔记/">读书笔记</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/React/">React</a>
+            </font>
+          
+        </span>
+     </div>
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h1 id="组件的生命周期"><a href="#组件的生命周期" class="headerlink" title="组件的生命周期"></a>组件的生命周期</h1><p>一个组件就是一个状态机：对于特定的输入，它总会返回一致的输出。</p>
+<p>React为每个组件提供了生命周期钩子函数去响应不同的时刻——创建时、存在期及销毁时。这些时刻出现的顺序——从实例化开始，到活动期，直到最后被销毁。</p>
+<h2 id="生命周期方法"><a href="#生命周期方法" class="headerlink" title="生命周期方法"></a>生命周期方法</h2><p>React的组件拥有简洁的生命周期API，它仅仅提供你所需要的方法，而不会去追求全面。</p>
+<h3 id="实例化"><a href="#实例化" class="headerlink" title="实例化"></a>实例化</h3><p>一个实例初次被创建时所调用的生命周期方法与其他各个后续实例被创建时所调用的方法略有不同。当你首次使用一个组件类时，你会看到西面这些方法依次被调用：</p>
+<ul>
+<li>getDefaultProps</li>
+</ul>
+<p>对于组件类来说，这个方法只会被调用一次。对于那些没有被父辈组件指定props属性的新建实例来说，这个方法返回的对象可用于为实例设置默认的props值。<br><em>任何复杂的值，比如对象和数组，都会在所有的实例中共享，而不是拷贝或者克隆。</em></p>
+<ul>
+<li>getInitialState</li>
+</ul>
+<p>对于组件的每个实例来说，这个方法的调用次数有且只有一次。在这里你将有机会初始化每个实例的state。与getDefaultProps方法不同的是，每次实例创建时该方法都会被调用一次。在这个方法里，可以访问到this.props.</p>
+<ul>
+<li>componentWillMount</li>
+</ul>
+<p>该方法会在完成首次渲染之前被调用。这也是在render方法调用前可以修改组件state的最后一次机会。</p>
+<ul>
+<li>render</li>
+</ul>
+<p>在这里会创建一个虚拟DOM，用来表示组件的输出。对于一个组件来说，render是唯一一个必需的方法，并且有特定的规则。render方法需要满足以下几点：<br>（1）只能通过this.props和this.state访问数据<br>（2）可以返回null/false或者任何React组件<br>（3）只能出现一个顶级组件（不能返回一组元素）<br>（4）必须纯净，意味着不能改变组件的状态或者修改DOM的输出</p>
+<p><em>render方法返回的结果不是真正的DOM，而是一个虚拟的表现，React随后会把它和真实的DOM（内存中的DOM表现，而非浏览器中的）作对比，来判断是否有必要做出修改。</em></p>
+<ul>
+<li>componentDidMount</li>
+</ul>
+<p>在render方法成功调用并且真实的DOM已经被渲染之后，可以在componentDidMount内部通过this.getDOMNode()方法访问到它。</p>
+<p>比如：当你需要测量渲染出DOM元素的高度，或者使用计时器来操作它，亦或运行一个自定义的jQuery插件时，可以将这些操作挂载到这个方法上。<br>eg:假设需要在一个通过React渲染出的表单元素上使用jQuery UI的Autocomplete插件，则可以这样使用它：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//需要自动补全的字符串列表</span></div><div class="line"><span class="keyword">var</span> datasource = [...];</div><div class="line"></div><div class="line"><span class="keyword">var</span> MyComponent = React.createClass(&#123;</div><div class="line">	render : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">...</span> /&gt;</span>;</span></div><div class="line">	&#125;,</div><div class="line">	componentDidMount: function()&#123;</div><div class="line">		$(this.getDOMDNode()).autocomplete(&#123;</div><div class="line">			source : datasource</div><div class="line">	&#125;);</div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>==当React运行在服务端时，componentDidMount方法不会被调用。==</p>
+<p><em>对于该组件类的所有后续应用，将会看到下面的方法依次被调用。getDefaultProps方法不在列表中</em></p>
+<ul>
+<li>getInitialState</li>
+<li>componentWillMount</li>
+<li>render</li>
+<li>componentDidMount</li>
+</ul>
+<h3 id="存在期"><a href="#存在期" class="headerlink" title="存在期"></a>存在期</h3><p>此时，组件已经渲染好并且用户可以与它进行交互。通常是通过一次鼠标店家，手指点按或者是键盘事件来出发一个事件处理器。随着用户改变了组件或者整个应用的state，便会有新的state流入组件树，并且我们将会获得操控它的机会。</p>
+<p>随着应用状态的改变，以及组件逐渐受到影响，你将会看到下面的方法依次被调用：</p>
+<ul>
+<li>componentWillReceiveProps</li>
+</ul>
+<p>在任意时刻，组件的props都可以通过父辈组件来更改。出现这种情况时，componentWillReceiveProps方法会被调用，也将获得更改props对象及更新state的机会。</p>
+<ul>
+<li>shouldComponentUpdate</li>
+</ul>
+<p>通过调用shouldComponentUpdate方法在组件渲染时进行精确优化可以使react更快。<br><em>在首次渲染期间或者调用了forceUpdate之后，这个方法不会被调用</em></p>
+<ul>
+<li>componentWillUpdate</li>
+</ul>
+<p>和componentWillMount方法类似，组件会在接收到新的props或者state进行渲染之前，调用该方法。</p>
+<p><em>不可以在该方法中更新state或者props，而应该借助componentWillReceiveProps方法在运行时更新state</em></p>
+<ul>
+<li>render</li>
+<li>componentDidUpdate</li>
+</ul>
+<p>和componentDidMount方法相似，该方法给了我们更新已经渲染好的DOM的机会。</p>
+<h3 id="销毁-amp-清理期"><a href="#销毁-amp-清理期" class="headerlink" title="销毁&amp;清理期"></a>销毁&amp;清理期</h3><p>最后，当该组件被使用完成后，componentWillUnmount方法将会被调用，目的是给这个实例提供清理自身的机会。</p>
+<p>每当React使用完一个组件，这个组件就必须从DOM中卸载随后被销毁。此时，仅有的一个钩子函数会做出响应，完成所有的清理和销毁工作，这很必要。</p>
+<p>componentWillUnmount,该方法会在组件被移除之前被调用，让你有机会做些清理工作。在componentDidMount方法中添加的所有任务都需要在该方法中撤销，比如创建的定时器或者添加的事件监听器。</p>
+<h1 id="数据流"><a href="#数据流" class="headerlink" title="数据流"></a>数据流</h1><p>在React中，数据的流向是单向的——从父节点传递到子节点，因而组件是简单且易于把握的，它们只需要从父节点获取props渲染即可。如果顶层组件的某个prop改变了，React会递归的向下遍历整棵组件树，重新渲染所有使用这个属性的组件。</p>
+<p>组件内部还具有自己的状态，这些状态只能在组件内修改。React组件本身很简单，可以把它们看成一个函数，它接受props和state作为参数，返回一个虚拟的DOM表现。</p>
+<h2 id="Props"><a href="#Props" class="headerlink" title="Props"></a>Props</h2><p>props就是properties的缩写，可以使用它把任意类型的数据传递给组件。</p>
+<p>可以在挂载组件时设置它的props:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> survey = [&#123;title:<span class="string">'SuperHeroes'</span>&#125;];</div><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">ListSurveys</span> <span class="attr">survey</span>=<span class="string">&#123;surveys&#125;/</span>&gt;</span></span></div></pre></td></tr></table></figure></p>
+<p>或者调用组件实例的setProps方法（很少需要这么做）来设置其props:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> survey = [&#123;title:<span class="string">'SuperHeroes'</span>&#125;];</div><div class="line"><span class="keyword">var</span> listSurveys = React.render(</div><div class="line">	<span class="xml"><span class="tag">&lt;<span class="name">ListSurveys</span>/&gt;</span></span></div><div class="line">	<span class="built_in">document</span>.querySelector(<span class="string">'body'</span>);</div><div class="line">);</div><div class="line">listSurveys.setProps(&#123; surveys: surveys&#125;);</div></pre></td></tr></table></figure></p>
+<p><em>只能在子组件或者在组件树外(上例)调用setProps。千万别调用this.setProps或者直接修改this.props，如果需要，使用state。</em></p>
+<p>可以通过this.props访问props,但绝不能通过这种范式修改它。一个组件绝对不可以自己修改自己的props。</p>
+<p>在JSX中<br>(1)可以把props设置为字符串：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;a href=<span class="string">'/surveys/add'</span>&gt;Add survey&lt;<span class="regexp">/a&gt;</span></div></pre></td></tr></table></figure></p>
+<p>(2)可以使用{}语法设置注入JS传递任意类型的变量<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;a href=&#123;<span class="string">'/surveys/‘+ survey.id&#125;&gt;&#123;survey.title&#125;&lt;/a&gt;</span></div></pre></td></tr></table></figure></p>
+<p>(3)可以把props设置成一个对象：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> ListSurveys = React.createClass(&#123;</div><div class="line">	render: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="keyword">var</span> props = &#123;</div><div class="line">			one : <span class="string">'foo'</span>,</div><div class="line">			two : <span class="string">'bar'</span></div><div class="line">		&#125;;</div><div class="line">		<span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">SurveyTable</span> &#123;<span class="attr">...props</span>&#125;/&gt;</span>;</span></div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>(4) 可以用来添加事件处理器<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> SaveButton = React.createClass(&#123;</div><div class="line">	render: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="keyword">return</span> (</div><div class="line">		<span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">className</span>=<span class="string">'button save'</span> <span class="attr">onClick</span>=<span class="string">&#123;this.handleClick&#125;</span>&gt;</span>Save<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></div><div class="line">		);</div><div class="line">	&#125;,</div><div class="line">	handleClick: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="comment">// ...</span></div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<h2 id="PropTypes"><a href="#PropTypes" class="headerlink" title="PropTypes"></a>PropTypes</h2><p>通过在组件中定义一个配置对象，提供一种验证props的方式。组件初始化时，如果传递的属性和propTypes不匹配，则会打印一个consoel.warn日志。<br>如果是可选的配置，则可以去掉.isRequired。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> SurveyTableRow = React.createClass(&#123;</div><div class="line">	propTypes:&#123;</div><div class="line">		survey: React.propTypes.shape(&#123;</div><div class="line">			id: React.PropTypes.number.isRequired</div><div class="line">		&#125;).isRequired,</div><div class="line">		onClick: React.propTypes.ufnc</div><div class="line">	&#125;,</div><div class="line">	<span class="comment">// ...</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<h2 id="getDefaultProps"><a href="#getDefaultProps" class="headerlink" title="getDefaultProps"></a>getDefaultProps</h2><p>可以为组件添加getDefaultProps函数来设置属性的默认值。不过，这应该只针对那些非必须属性。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> SurveyTable = React.createClass(&#123;</div><div class="line">	getDefaultProps: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="keyword">return</span> &#123;</div><div class="line">			surveys:[]</div><div class="line">		&#125;;</div><div class="line">	&#125;,</div><div class="line">	<span class="comment">// ...</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p><em>getDeafultProps并不是在组件实例化时被调用的。而是在React.createClass调用时就被调用了，返回值会被缓存起来。也就是说，不能在getDefaultProps中使用任何特定的<em>实例数据</em>。</em></p>
+<h2 id="State"><a href="#State" class="headerlink" title="State"></a>State</h2><p>每一个React组件都可以拥有自己的state，state与props的区别在于前者只存在于组件的内部。</p>
+<p>state可以用来确定一个元素的视图状态。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> CountryDropdown = React.createClass(&#123;</div><div class="line">	getInitialState: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="keyword">return</span> &#123;</div><div class="line">			showOptions: <span class="literal">false</span></div><div class="line">		&#125;; 	</div><div class="line">	&#125;,</div><div class="line">	</div><div class="line">	render: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="keyword">var</span> options;</div><div class="line">		</div><div class="line">		<span class="keyword">if</span>(<span class="keyword">this</span>.state.showOptions)&#123;</div><div class="line">			options = (</div><div class="line">				<span class="xml"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">className</span>=<span class="string">'options'</span>&gt;</span></span></div><div class="line">					<span class="tag">&lt;<span class="name">li</span>&gt;</span>China<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">				<span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">			);</div><div class="line">		&#125;</div><div class="line">		</div><div class="line">		<span class="keyword">return</span> (</div><div class="line">			<span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span> = <span class="string">"dropDown"</span> <span class="attr">onClick</span>=<span class="string">&#123;this.handleClick&#125;</span>&gt;</span></span></div><div class="line">				<span class="tag">&lt;<span class="name">label</span>&gt;</span> Choose a country <span class="tag">&lt;/<span class="name">label</span>&gt;</span>.&#123;options&#125;</div><div class="line">			<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">		);</div><div class="line">	&#125;,</div><div class="line">	handleClick: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="keyword">this</span>.setState(&#123;</div><div class="line">			showOptions: <span class="literal">true</span></div><div class="line">		&#125;);</div><div class="line">	&#125;</div><div class="line">	<span class="comment">// ...</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>上例中，state被用来记录是否在下拉框中显示可选项。</p>
+<p>state可以通过setState来修改，也可以使用上面出现的getInitialState方法提供一组默认值。只要setState被调用，render就会被调用。<em>如果render函数的返回值有变化，虚拟DOM就会更新，真实的DOM也会被更新，最终用户就会在浏览器中看到变化。</em>  </p>
+<p>不能直接修改this.state，永远要使用this.setState方法修改。</p>
+<h2 id="state和props"><a href="#state和props" class="headerlink" title="state和props"></a>state和props</h2><p>不要在state中保存计算出的值，而应该只保存最简单的数据，即那些组件正常工作时的必要数据。比如：下拉选框是否显示的布尔值。</p>
+<p>不要尝试把props复制到state中，要尽可能把props当作数据源。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
+<li>使用props在整个组件树中传递数据和配置</li>
+<li>避免在组件内部修改this.props或调用this.setProps，请把props当作制度的</li>
+<li>使用props来做时间处理器，与子组件通信</li>
+<li>使用state存储简单的视图状态，比如下拉框是否可见这样的状态</li>
+<li>使用this.setState来设置状态，而不要使用this.state直接修改状态</li>
+</ul>
+
+  </section>
+
+  
+  
+
+<section class="post-comments">
+
+    <div class="ds-thread" data-thread-key="blog/2016/12/27/React-二/"></div>
+
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"lijingjing"};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+    </script> 
+
+</section>
+
+
+</article>
+
+              <footer class="footer">
+
+    <span class="footer__copyright">  &copy; 2016 阿菁菁菁菁菁 | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+
+</footer>
+
+          </div>
+      </div>
+
+    
+
+
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
