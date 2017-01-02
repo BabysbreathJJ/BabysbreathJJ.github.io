@@ -7,7 +7,7 @@
     
 
     <title>
-      阿菁菁菁菁菁
+      阿菁菁菁菁菁 | 阿菁菁菁菁菁
     </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -16,16 +16,18 @@
     
     
 
-    <meta name="description" content="Change takes time.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="阿菁菁菁菁菁">
-<meta property="og:url" content="http://lijingjing.top/archive/index.html">
+    <meta name="description" content="JS闭包总结">
+<meta property="og:type" content="article">
+<meta property="og:title" content="阿菁菁菁菁菁 | 阿菁菁菁菁菁">
+<meta property="og:url" content="http://lijingjing.top/blog/2017/01/02/JS闭包/index.html">
 <meta property="og:site_name" content="阿菁菁菁菁菁">
-<meta property="og:description" content="Change takes time.">
-<meta property="og:updated_time" content="2016-09-21T14:15:46.000Z">
+<meta property="og:description" content="JS闭包总结">
+<meta property="og:image" content="http://lijingjing.top/images/execution context.jpeg">
+<meta property="og:updated_time" content="2017-01-02T14:49:17.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="阿菁菁菁菁菁">
-<meta name="twitter:description" content="Change takes time.">
+<meta name="twitter:title" content="阿菁菁菁菁菁 | 阿菁菁菁菁菁">
+<meta name="twitter:description" content="JS闭包总结">
+<meta name="twitter:image" content="http://lijingjing.top/images/execution context.jpeg">
 
     
     
@@ -216,147 +218,71 @@ classes that you can use:
 <article class="post-container post-container--single">
 
   <header class="post-header">
+
+    <h1 class="post-title">JS闭包</h1>
+
     
-    <h1 class="post-title">归档</h1>
 
-    <section id="post-content" class="article-content post">
-        
-    </section>
+    <div class="post-meta">
+      <time datetime="2017-01-02" class="post-meta__date date">2017-01-02</time>
 
+      <span class="post-meta__tags tags">
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/javascript/">javascript</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/闭包/">闭包</a>
+            </font>
+          
+        </span>
+     </div>
+    
 
   </header>
 
+  <section id="post-content" class="article-content post">
+    <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>闭包是指有权访问另一个函数作用域中的变量的函数。一般创建方式是在一个函数内部创建另一个函数。</p>
+<p>JS代码块支持函数作用域，即定义在函数中的参数和变量在函数外部是不可见的，而在一个函数内部任何位置定义的变量，在该函数内部任何地方都可见（函数内部变量声明提升）。</p>
+<h2 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h2><h3 id="一般函数"><a href="#一般函数" class="headerlink" title="一般函数"></a>一般函数</h3><p>当某个函数被调用时，会创建一个执行环境（execution context）及相应的作用域链。然后使用arguments和其他命名参数的值来初始化函数的活动对象(activation object)。但在作用域链中，外部函数的活动对象始终处于第二位，外部函数的外部函数的活动对象处于第三位…依次类推，直至到作为作用域链终点的全局执行环境。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">compare</span>(<span class="params">v1,v2</span>)</span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">if</span>(v1&lt;v2)&#123;</div><div class="line">		<span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">	&#125;<span class="keyword">else</span> <span class="keyword">if</span>(v1&gt;v2)&#123;</div><div class="line">		<span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">	&#125;<span class="keyword">else</span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> result = compare(<span class="number">5</span>,<span class="number">10</span>);</div></pre></td></tr></table></figure>
+<p>以上代码先定义compare()函数，然后又在全局作用域中调用它。当第一次调用compare()时，会创建一个包含this、arguments、v1和v2的活动对象。全局执行环境的变量对象(包含this、result和compare)在compare()执行环境的作用域链中则处于第二位。具体如下图所示：</p>
+<p><img src="/images/execution context.jpeg" alt="execution context"></p>
+<p>后台的每个执行环境都有一个表示变量的对象，即变量对象。全局环境的变量对象始终存在，而像compare()函数这样的局部环境的变量函数，则只在函数执行的过程中存在。</p>
+<p>在创建compare()函数时，会创建一个预先包含全局变量对象的作用域链，这个作用域链被保存在内部[[scope]]属性中。当调用compar()函数时，会为函数创建一个执行环境，然后通过赋值函数的[[scope]]属性中的对象构建起执行环境的作用域链。此后，又有一个活动对象（在此作为变量对象）被创建并被推入执行环境作用域链的顶端。对于上例，compare()函数的执行环境，包括本地活动对象和全局变量对象。<strong>作用域链本质上是一个指向变量对象的指针列表，它只引用但不实际包含变量对象。</strong></p>
+<p>无论什么时候在函数中访问一个变量时，就会从作用域链中搜索具有相应名字的变量。一般，当函数执行完毕后，局部活动对象就会被销毁，内存中只保存全局作用域（全局执行环境的变量对象）。</p>
+<h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3>
+  </section>
+
+  
+  
+
+<section class="post-comments">
+
+    <div class="ds-thread" data-thread-key="blog/2017/01/02/JS闭包/"></div>
+
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"lijingjing"};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+    </script> 
+
+</section>
+
+
 </article>
 
-<div class="archive-meta">
-
-
-    <h3>分类</h3>
-
-    <div class="categorieslist">
-        
-          
-            <span><a href="/categories/AngularJS/" title="AngularJS">AngularJS<sup>2</sup></a></span>
-          
-        
-          
-            <span><a href="/categories/Hexo/" title="Hexo">Hexo<sup>2</sup></a></span>
-          
-        
-          
-            <span><a href="/categories/javascript/" title="javascript">javascript<sup>3</sup></a></span>
-          
-        
-          
-            <span><a href="/categories/学习笔记/javascript/" title="javascript">javascript<sup>2</sup></a></span>
-          
-        
-          
-            <span><a href="/categories/前端/" title="前端">前端<sup>4</sup></a></span>
-          
-        
-          
-            <span><a href="/categories/学习笔记/" title="学习笔记">学习笔记<sup>2</sup></a></span>
-          
-        
-          
-            <span><a href="/categories/移动应用/" title="移动应用">移动应用<sup>1</sup></a></span>
-          
-        
-          
-            <span><a href="/categories/读书笔记/" title="读书笔记">读书笔记<sup>3</sup></a></span>
-          
-        
-          
-            <span><a href="/categories/随笔/" title="随笔">随笔<sup>1</sup></a></span>
-          
-        
-     </div>
-
-
-
-    <h3>标签</h3>
-    <div class="tagslist">
-        
-            
-                <span><a href="/tags/闭包/" title="闭包">闭包<sup>2</sup></a></span>
-            
-        
-            
-                <span><a href="/tags/Directive/" title="Directive">Directive<sup>2</sup></a></span>
-            
-        
-            
-                <span><a href="/tags/Hexo/" title="Hexo">Hexo<sup>2</sup></a></span>
-            
-        
-            
-                <span><a href="/tags/IE8/" title="IE8">IE8<sup>2</sup></a></span>
-            
-        
-            
-                <span><a href="/tags/面向对象/" title="面向对象">面向对象<sup>2</sup></a></span>
-            
-        
-            
-                <span><a href="/tags/React/" title="React">React<sup>2</sup></a></span>
-            
-        
-            
-                <span><a href="/tags/H5/" title="H5">H5<sup>1</sup></a></span>
-            
-        
-            
-                <span><a href="/tags/let-const/" title="let const">let const<sup>1</sup></a></span>
-            
-        
-            
-                <span><a href="/tags/拍照上传/" title="拍照上传">拍照上传<sup>1</sup></a></span>
-            
-        
-            
-                <span><a href="/tags/学习/" title="学习">学习<sup>1</sup></a></span>
-            
-        
-            
-                <span><a href="/tags/position/" title="position">position<sup>1</sup></a></span>
-            
-        
-            
-                <span><a href="/tags/overflow/" title="overflow">overflow<sup>1</sup></a></span>
-            
-        
-            
-                <span><a href="/tags/年终总结/" title="年终总结">年终总结<sup>1</sup></a></span>
-            
-        
-            
-                <span><a href="/tags/回调/" title="回调">回调<sup>1</sup></a></span>
-            
-        
-            
-                <span><a href="/tags/递归/" title="递归">递归<sup>1</sup></a></span>
-            
-        
-            
-                <span><a href="/tags/onblur/" title="onblur">onblur<sup>1</sup></a></span>
-            
-        
-            
-                <span><a href="/tags/alert/" title="alert">alert<sup>1</sup></a></span>
-            
-        
-    </div>
-
-
-
-    <h3>归档</h3>
-    <div class="archiveslist">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/2017/01/">一月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/2016/12/">十二月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/2016/11/">十一月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/2016/09/">九月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/2016/07/">七月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/2016/05/">五月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/2016/04/">四月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/2016/02/">二月 2016</a><span class="archive-list-count">3</span></li></ul>
-    </div>
-
-
-</div>
               <footer class="footer">
 
     <span class="footer__copyright">  &copy; 2017 阿菁菁菁菁菁 | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
@@ -389,6 +315,18 @@ classes that you can use:
 
 
     
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
     
     
     <!--kill ie6 -->

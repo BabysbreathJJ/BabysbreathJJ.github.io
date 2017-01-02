@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lijingjing.top/"/>
-  <updated>2017-01-02T13:56:43.000Z</updated>
+  <updated>2017-01-02T14:49:17.000Z</updated>
   <id>http://lijingjing.top/</id>
   
   <author>
@@ -14,6 +14,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JS闭包</title>
+    <link href="http://lijingjing.top/blog/2017/01/02/JS%E9%97%AD%E5%8C%85/"/>
+    <id>http://lijingjing.top/blog/2017/01/02/JS闭包/</id>
+    <published>2017-01-02T13:59:04.000Z</published>
+    <updated>2017-01-02T14:49:17.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;概念&quot;&gt;&lt;a href=&quot;#概念&quot; class=&quot;headerlink&quot; title=&quot;概念&quot;&gt;&lt;/a&gt;概念&lt;/h2&gt;&lt;p&gt;闭包是指有权访问另一个函数作用域中的变量的函数。一般创建方式是在一个函数内部创建另一个函数。&lt;/p&gt;
+&lt;p&gt;JS代码块支持函数作用域，即定义在函数中的参数和变量在函数外部是不可见的，而在一个函数内部任何位置定义的变量，在该函数内部任何地方都可见（函数内部变量声明提升）。&lt;/p&gt;
+&lt;h2 id=&quot;作用域链&quot;&gt;&lt;a href=&quot;#作用域链&quot; class=&quot;headerlink&quot; title=&quot;作用域链&quot;&gt;&lt;/a&gt;作用域链&lt;/h2&gt;&lt;h3 id=&quot;一般函数&quot;&gt;&lt;a href=&quot;#一般函数&quot; class=&quot;headerlink&quot; title=&quot;一般函数&quot;&gt;&lt;/a&gt;一般函数&lt;/h3&gt;&lt;p&gt;当某个函数被调用时，会创建一个执行环境（execution context）及相应的作用域链。然后使用arguments和其他命名参数的值来初始化函数的活动对象(activation object)。但在作用域链中，外部函数的活动对象始终处于第二位，外部函数的外部函数的活动对象处于第三位…依次类推，直至到作为作用域链终点的全局执行环境。&lt;/p&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;compare&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;v1,v2&lt;/span&gt;)&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(v1&amp;lt;v2)&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;-1&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&amp;#125;&lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(v1&amp;gt;v2)&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&amp;#125;&lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; result = compare(&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;);&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;以上代码先定义compare()函数，然后又在全局作用域中调用它。当第一次调用compare()时，会创建一个包含this、arguments、v1和v2的活动对象。全局执行环境的变量对象(包含this、result和compare)在compare()执行环境的作用域链中则处于第二位。具体如下图所示：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/execution context.jpeg&quot; alt=&quot;execution context&quot;&gt;&lt;/p&gt;
+&lt;p&gt;后台的每个执行环境都有一个表示变量的对象，即变量对象。全局环境的变量对象始终存在，而像compare()函数这样的局部环境的变量函数，则只在函数执行的过程中存在。&lt;/p&gt;
+&lt;p&gt;在创建compare()函数时，会创建一个预先包含全局变量对象的作用域链，这个作用域链被保存在内部[[scope]]属性中。当调用compar()函数时，会为函数创建一个执行环境，然后通过赋值函数的[[scope]]属性中的对象构建起执行环境的作用域链。此后，又有一个活动对象（在此作为变量对象）被创建并被推入执行环境作用域链的顶端。对于上例，compare()函数的执行环境，包括本地活动对象和全局变量对象。&lt;strong&gt;作用域链本质上是一个指向变量对象的指针列表，它只引用但不实际包含变量对象。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;无论什么时候在函数中访问一个变量时，就会从作用域链中搜索具有相应名字的变量。一般，当函数执行完毕后，局部活动对象就会被销毁，内存中只保存全局作用域（全局执行环境的变量对象）。&lt;/p&gt;
+&lt;h3 id=&quot;闭包&quot;&gt;&lt;a href=&quot;#闭包&quot; class=&quot;headerlink&quot; title=&quot;闭包&quot;&gt;&lt;/a&gt;闭包&lt;/h3&gt;</content>
+    
+    <summary type="html">
+    
+      JS闭包总结
+    
+    </summary>
+    
+      <category term="javascript" scheme="http://lijingjing.top/categories/javascript/"/>
+    
+    
+      <category term="闭包" scheme="http://lijingjing.top/tags/%E9%97%AD%E5%8C%85/"/>
+    
+  </entry>
   
   <entry>
     <title>再见，2016。你好，2017</title>
@@ -755,11 +786,11 @@
       <category term="javascript" scheme="http://lijingjing.top/categories/javascript/"/>
     
     
+      <category term="闭包" scheme="http://lijingjing.top/tags/%E9%97%AD%E5%8C%85/"/>
+    
       <category term="回调" scheme="http://lijingjing.top/tags/%E5%9B%9E%E8%B0%83/"/>
     
       <category term="递归" scheme="http://lijingjing.top/tags/%E9%80%92%E5%BD%92/"/>
-    
-      <category term="闭包" scheme="http://lijingjing.top/tags/%E9%97%AD%E5%8C%85/"/>
     
   </entry>
   
