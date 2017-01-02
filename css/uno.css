@@ -1309,9 +1309,24 @@ hr {
   text-shadow: none;
   color: #458B74;
   -webkit-font-smoothing: antialiased; }
+
   .btn:hover, .navigation__item a:hover {
     color: #458B74;
     border-color: #458B74; }
+
+  .btn, .friend__item a {
+      padding: 10px 20px;
+      font-size: .9em;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-shadow: none;
+      color: #458B74;
+      -webkit-font-smoothing: antialiased; }
+
+.btn:hover, .navigation__item a:hover {
+    color: #458B74;
+    border-color: #458B74; }
+
 
 .btn-secondary {
   border-color: #5ba4e5;
