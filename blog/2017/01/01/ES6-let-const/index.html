@@ -16,16 +16,16 @@
     
     
 
-    <meta name="description" content="Change takes time.">
+    <meta name="description" content="ES6关键字let和const">
 <meta property="og:type" content="article">
 <meta property="og:title" content="阿菁菁菁菁菁 | 阿菁菁菁菁菁">
 <meta property="og:url" content="http://lijingjing.top/blog/2017/01/01/ES6-let-const/index.html">
 <meta property="og:site_name" content="阿菁菁菁菁菁">
-<meta property="og:description" content="Change takes time.">
-<meta property="og:updated_time" content="2017-01-02T05:21:52.000Z">
+<meta property="og:description" content="ES6关键字let和const">
+<meta property="og:updated_time" content="2017-01-02T11:18:19.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="阿菁菁菁菁菁 | 阿菁菁菁菁菁">
-<meta name="twitter:description" content="Change takes time.">
+<meta name="twitter:description" content="ES6关键字let和const">
 
     
     
@@ -220,7 +220,7 @@ classes that you can use:
           
              &#8226; 标签:
             <font class="tags">
-              <a class="tags-link" href="/tags/let-const/">let const =></a>
+              <a class="tags-link" href="/tags/let-const/">let const</a>
             </font>
           
         </span>
@@ -230,7 +230,27 @@ classes that you can use:
   </header>
 
   <section id="post-content" class="article-content post">
-    
+    <h1 id="let"><a href="#let" class="headerlink" title="let"></a>let</h1><h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><p>JS的变量作用域是函数域而不是块级作用域，这意味着在块语句中定义的变量，实际上是在包含函数中而非语句中创建的。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">outputNumbers</span>(<span class="params">count</span>)</span>&#123;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;count; i++)&#123;</div><div class="line">		alert(i);</div><div class="line">	&#125;</div><div class="line">	alert(i);</div><div class="line">&#125;</div><div class="line"><span class="comment">//outputNumbers(3);</span></div><div class="line"><span class="comment">//alert(0);</span></div><div class="line"><span class="comment">//alert(1);</span></div><div class="line"><span class="comment">//alert(2);</span></div><div class="line"><span class="comment">//alert(3);</span></div></pre></td></tr></table></figure></p>
+<p>函数中定义了for循环，在Java、C++等语言中，变量i只会在for循环的语句块中有定义，循环一旦结束，变量i就会被销毁。但在JS中，变量i是定义在函数outputNumbers中的活动对象，因此从它定义开始，就可以在函数内部随处访问它。即使像下面错误的重新声明一个变量，也不会修改它的值。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">outputNumbers</span>(<span class="params">count</span>)</span>&#123;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;count; i++)&#123;</div><div class="line">		alert(i);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">var</span> i;</div><div class="line">	alert(i);</div><div class="line">&#125;</div><div class="line"><span class="comment">//outputNumbers(3);</span></div><div class="line"><span class="comment">//alert(0);</span></div><div class="line"><span class="comment">//alert(1);</span></div><div class="line"><span class="comment">//alert(2);</span></div><div class="line"><span class="comment">//alert(3);</span></div></pre></td></tr></table></figure></p>
+<p>JS中函数声明会被提升。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">outputNumbers(<span class="number">3</span>);</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">outputNumbers</span>(<span class="params">count</span>)</span>&#123;</div><div class="line">	alert(i);</div><div class="line">	<span class="comment">//变量i被提升，alert出undefined。</span></div><div class="line">	<span class="comment">//如果变量	没有提升，则会抛出i is not defined的异常。</span></div><div class="line">	</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;count; i++)&#123;</div><div class="line">		alert(i);</div><div class="line">	&#125;		</div><div class="line">&#125;</div><div class="line"><span class="comment">//alert: undefined;</span></div><div class="line"><span class="comment">//alert: 0;</span></div><div class="line"><span class="comment">//alert: 1;</span></div><div class="line"><span class="comment">//alert: 2;</span></div></pre></td></tr></table></figure></p>
+<h2 id="JS模仿块级作用域"><a href="#JS模仿块级作用域" class="headerlink" title="JS模仿块级作用域"></a>JS模仿块级作用域</h2><p>JS从来不会告诉你是否多次声明了一个变量，遇到多次声明的情况，只会对后续的声明视而不见（不过，它会执行后续生命中的变量初始化）。<br>匿名函数可以模仿块级作用域。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//将函数声明，加上圆括号变成函数表达式</span></div><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="comment">//这里是块级作用域</span></div><div class="line">&#125;)();</div></pre></td></tr></table></figure></p>
+<p>以上代码定义并立即调用了一个匿名函数。将函数声明包含在一对圆括号中，表示它实际上是一个函数表达式。</p>
+<p>无论在什么地方，只要临时需要一些变量，就可以使用私有作用域：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">outputNumbers</span>(<span class="params">count</span>)</span>&#123;</div><div class="line">	(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;count; i++)&#123;</div><div class="line">			alert(i);</div><div class="line">		&#125;	</div><div class="line">	&#125;)();</div><div class="line">	</div><div class="line">	alert(i);<span class="comment">//i is not defined</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>在for循环外部插入了一个私有作用域，在匿名函数中定义的任何变量，都会在执行结束时被销毁，因此，变量i只能在循环中使用，使用后立即被销毁，而在私有作用域中能够访问变量count，是因为这个匿名函数是一个闭包，它能够访问包含作用域中的所有变量。</p>
+<h2 id="为什么要有块级作用域"><a href="#为什么要有块级作用域" class="headerlink" title="为什么要有块级作用域"></a>为什么要有块级作用域</h2><p>一般来说，我们都应该尽量向去全局作用域添加变量和函数。在一个由很多开发人员共同参与的大型应用程序中，过多的全局变量和函数很容易导致命名冲突。而通过创建私有作用域，每个开发人员既可以使用自己的变量，又不必担心搞乱全局作用域。</p>
+<h2 id="let特性"><a href="#let特性" class="headerlink" title="let特性"></a>let特性</h2><ol>
+<li>let声明的变量拥有块级作用域。</li>
+<li>let声明的全局变量不是全局对象的属性。即不能通过window.变量名的方式访问这些变量。它们只存在于一个不可见的块的作用域中，这个块理论上是web页面中运行的所有JS代码的外层块。</li>
+<li>形如for(let x …)的循环在每次迭代时都会为x创建新的绑定,即每个循环是不同的变量绑定，占用不同的内存，不会发生循坏最后引用的是同一个内存的变量。这种情况适用于for-of/for-in/以及传统分号分割的循环。</li>
+<li>let声明的变量不会被提升。在声明之前使用变量会报错。</li>
+<li>var声明的变量可以重复声明，但是let重复声明会报错。</li>
+</ol>
+<h1 id="const"><a href="#const" class="headerlink" title="const"></a>const</h1><h2 id="const特性"><a href="#const特性" class="headerlink" title="const特性"></a>const特性</h2><p>const和其他语言中常量定义一样，即声明的变量要在声明时赋值，不可以随意修改。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> a ;<span class="comment">//会报SyntaxError,必须赋值</span></div></pre></td></tr></table></figure></p>
+<p>对于原始类型来说，由于内存中存的就是具体的值，被赋值之后是不可以修改的；但是对于变量，由于存的是地址，地址不可变，但是地址所指的空间里的内容可以改变的。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> a = <span class="string">"test"</span>;</div><div class="line">a = <span class="string">"update"</span>;<span class="comment">//会报SyntaxError</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> name = &#123;lastname: <span class="string">'li'</span>&#125;;</div><div class="line">name.lastname = <span class="string">"Lee"</span>;</div><div class="line"><span class="built_in">console</span>.log(name.lastname);<span class="comment">//输出为 Lee</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> name = &#123;lastname: <span class="string">'li'</span>&#125;;</div><div class="line">name = &#123;<span class="string">'firstname'</span>: <span class="string">'JJ'</span>&#125;;<span class="comment">//SyntaxError: redeclaration of const name</span></div></pre></td></tr></table></figure>
+<p>const的作用域同样是块级作用域。</p>
+
   </section>
 
   
