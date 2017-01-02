@@ -1314,7 +1314,7 @@ hr {
     color: #458B74;
     border-color: #458B74; }
 
-  .btn, .friend__item a {
+   .friend__item a {
       padding: 10px 20px;
       font-size: .9em;
       font-weight: bold;
@@ -1323,9 +1323,9 @@ hr {
       color: #458B74;
       -webkit-font-smoothing: antialiased; }
 
-.btn:hover, .navigation__item a:hover {
+.friend__item a:hover {
     color: #458B74;
-    border-color: #458B74; }
+  }
 
 
 .btn-secondary {
@@ -1381,7 +1381,7 @@ nav {
   margin: 0;
   list-style-type: none; }
 
-.navigation__item {
+.navigation__item , .friend__item{
   display: inline-block;
   margin: 3px 3px;
   line-height: 1em; }
