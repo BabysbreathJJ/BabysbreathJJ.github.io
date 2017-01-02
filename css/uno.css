@@ -1372,11 +1372,13 @@ hr {
 
 nav {
   display: inline-block;
-  position: relative; }
+  position: relative;
+  width: 100%;
+}
 
 .navigation {
   display: inline-block;
-  float: left;
+  /*float: left;*/
   position: relative;
   margin: 0;
   list-style-type: none; }
