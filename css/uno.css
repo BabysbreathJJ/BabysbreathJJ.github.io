@@ -1721,7 +1721,7 @@ th, td {
   border: none;
 }
 pre {
-  white-space: pre-line;
+  white-space: pre-wrap;
   word-break: keep-all;
 }
 

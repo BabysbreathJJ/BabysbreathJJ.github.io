@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lijingjing.top/"/>
-  <updated>2017-01-20T14:50:47.000Z</updated>
+  <updated>2017-01-20T15:07:58.000Z</updated>
   <id>http://lijingjing.top/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://lijingjing.top/blog/2017/01/19/LeetCode-%E4%B8%80/"/>
     <id>http://lijingjing.top/blog/2017/01/19/LeetCode-一/</id>
     <published>2017-01-19T12:36:11.000Z</published>
-    <updated>2017-01-20T14:50:47.000Z</updated>
+    <updated>2017-01-20T15:07:58.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="Hamming-Distance"><a href="#Hamming-Distance" class="headerlink" title="Hamming Distance"></a>Hamming Distance</h3><h4 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h4><p>The Hamming distance between two integers is the number of positions at which the corresponding bits are different. Given two integers x and y, calculate the Hamming distance.<br>Note: 0 ≤ x, y &lt; 2^31.</p>
 <pre><code>Input: x = 1, y = 4
@@ -66,10 +66,15 @@ The maximum number of consecutive 1s is 3.
 <li>~否运算，求解时会连最高位符号位一起求解。</li>
 <li>负数由补码表示，即正数取反（连同符号位）后加1，得到对应的补码。否运算操作结束后得到补码，减1再取反得到相应的十进制值，然后符号位不变。</li>
 </ol>
-<pre><code>`3: 00000000000000000000000000000011
-  ~3: 11111111111111111111111111111100(第一位为1，表示负数，此为补码形式)
-</code></pre><p>  转化为十进制，减1：<br>  11111111111111111111111111111011<br>  取反：<br>  00000000000000000000000000000100<br>  即为： -4<br>    简单记忆为： 一个数与自身取反值相加，值为-1.`</p>
-]]></content>
+<pre><code>3: 00000000000000000000000000000011
+~3: 11111111111111111111111111111100(第一位为1，表示负数，此为补码形式)
+转化为十进制，减1：            
+11111111111111111111111111111011
+取反：
+00000000000000000000000000000100
+即为： -4
+简单记忆为： 一个数与自身取反值相加，值为-1.
+</code></pre>]]></content>
     
     <summary type="html">
     

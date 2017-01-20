@@ -22,7 +22,7 @@
 <meta property="og:url" content="http://lijingjing.top/blog/2017/01/19/LeetCode-一/index.html">
 <meta property="og:site_name" content="阿菁菁菁菁菁">
 <meta property="og:description" content="Hamming Distance &amp;   Number Complement &amp;  Max Consecutive One">
-<meta property="og:updated_time" content="2017-01-20T14:50:47.000Z">
+<meta property="og:updated_time" content="2017-01-20T15:07:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="阿菁菁菁菁菁 | 阿菁菁菁菁菁">
 <meta name="twitter:description" content="Hamming Distance &amp;   Number Complement &amp;  Max Consecutive One">
@@ -291,10 +291,15 @@ The maximum number of consecutive 1s is 3.
 <li>~否运算，求解时会连最高位符号位一起求解。</li>
 <li>负数由补码表示，即正数取反（连同符号位）后加1，得到对应的补码。否运算操作结束后得到补码，减1再取反得到相应的十进制值，然后符号位不变。</li>
 </ol>
-<pre><code>`3: 00000000000000000000000000000011
-  ~3: 11111111111111111111111111111100(第一位为1，表示负数，此为补码形式)
-</code></pre><p>  转化为十进制，减1：<br>  11111111111111111111111111111011<br>  取反：<br>  00000000000000000000000000000100<br>  即为： -4<br>    简单记忆为： 一个数与自身取反值相加，值为-1.`</p>
-
+<pre><code>3: 00000000000000000000000000000011
+~3: 11111111111111111111111111111100(第一位为1，表示负数，此为补码形式)
+转化为十进制，减1：            
+11111111111111111111111111111011
+取反：
+00000000000000000000000000000100
+即为： -4
+简单记忆为： 一个数与自身取反值相加，值为-1.
+</code></pre>
   </section>
 
   
