@@ -1721,7 +1721,8 @@ th, td {
   border: none;
 }
 pre {
-  font-family:
+  white-space: pre-line;
+  word-break: keep-all;
 }
 
 .homepage-footer{
