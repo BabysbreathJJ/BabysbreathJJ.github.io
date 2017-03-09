@@ -71,7 +71,7 @@
   padding-right: 1.5em;
 }
 .article-content .highlight .line {
-  height: 20px;
+  min-height: 20px;
 }
 .article-content .gist {
   margin: 0.5em 0;
