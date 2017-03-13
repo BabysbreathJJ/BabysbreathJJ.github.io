@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lijingjing.top/"/>
-  <updated>2017-03-11T07:59:45.000Z</updated>
+  <updated>2017-03-13T08:19:56.000Z</updated>
   <id>http://lijingjing.top/</id>
   
   <author>
@@ -14,6 +14,48 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JS异步编程</title>
+    <link href="http://lijingjing.top/blog/2017/03/13/JS%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/"/>
+    <id>http://lijingjing.top/blog/2017/03/13/JS异步编程/</id>
+    <published>2017-03-13T07:23:57.000Z</published>
+    <updated>2017-03-13T08:19:56.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>很多时候写代码，只是知道怎么写，并不知道为什么这么写，所以只能搬砖，并不能造轮子。现在处于疯狂扫盲状态，感觉每天都在发现新大陆，也越来越感受到自己知识的匮乏以及基础的不牢固。</p>
+<h2 id="同步和异步"><a href="#同步和异步" class="headerlink" title="同步和异步"></a>同步和异步</h2><p>同步和异步的区别在于API或函数被调用后是否等它执行结束再调用之后的代码，也就是后面的代码是否要等前面的API或函数返回结果才能执行。</p>
+<p>同步情况下，后面的代码必须要等前面的代码执行结束并返回结果才能执行。</p>
+<p>异步情况下，后面的代码无需等待前面异步函数的执行结果，异步函数会在新的线程中去执行，执行结束后，结果会放在一个回调函数中进行处理，回调函数的作用是获取函数执行的结果，并进行之后的处理。异步函数的执行并不影响当前线程向下执行，所以后面的代码可以立即执行无需等待。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//一般异步函数的写法</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">asyncFun</span>(<span class="params">callback</span>)</span>&#123;</div><div class="line">	<span class="comment">// code can put here</span></div><div class="line">	<span class="comment">//asyncFunction是异步函数或异步API，执行会去开辟新的线程</span></div><div class="line">	asyncFunction(callback)&#123;</div><div class="line">		<span class="comment">// 异步函数要执行的代码</span></div><div class="line">		<span class="comment">// ...</span></div><div class="line">		<span class="keyword">var</span> result = 代码执行结果;</div><div class="line">		callback(result);</div><div class="line">	&#125;</div><div class="line">	<span class="comment">//code can put here</span></div><div class="line">	<span class="comment">//这里的函数不会等待asyncFunction的执行结果，result is undefined</span></div><div class="line">	<span class="keyword">return</span> result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>上面的return语句中的result并不是异步函数的执行结果，首先从异步的概念来说，return语句会立即执行，并不会等待上面异步函数asyncFunction的执行结果；其次，函数中变量的作用域是函数作用域，asyncFucntion中的变量并不会被外面的函数访问到。</p>
+<p>如果说，我把callback中要执行的代码放到asyncFunction中，并将其结果返回呢？ 那就变成同步啦。<br>下面的代码其实又变成同步函数了，外部声明的result会一直等待asyncFunction的执行结果给自己赋值，所以一般JS异步编程返回的都是回调函数，并不能直接返回结果。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//同步函数</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">asyncFun</span>(<span class="params">callback</span>)</span>&#123;</div><div class="line">	<span class="comment">// code can put here</span></div><div class="line">	<span class="comment">//asyncFunction是异步函数或异步API，执行会去开辟新的线程</span></div><div class="line">	<span class="keyword">var</span> result = asyncFunction(callback)&#123;</div><div class="line">		<span class="comment">// 异步函数要执行的代码</span></div><div class="line">		  ...</div><div class="line">		var result = 异步函数代码执行结果;</div><div class="line">		<span class="comment">//原来callback中的代码</span></div><div class="line">		  ...</div><div class="line">		var finalRes = 原来回调函数执行结果;</div><div class="line">		<span class="keyword">return</span> finalRes;</div><div class="line">	&#125;</div><div class="line">	<span class="comment">//code can put here</span></div><div class="line">	<span class="comment">//这里的函数不会等待asyncFunction的执行结果，result is undefined</span></div><div class="line">	<span class="keyword">return</span> result;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>或者你说在asyncFunction中返回最终处理结果finalRes不行吗，不赋值给外部变量。可以是可以，但是这样异步函数本身会变得非常臃肿，把数据处理逻辑等放到异步函数中去执行并不是好的设计，因为可能会有对数据不同的处理方式，这个时候怎么办，总不能写很多个异步函数，前面逻辑一样，只是后面处理逻辑有差别，这样对于代码复用来说太差了。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//同步函数</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">asyncFun</span>(<span class="params">callback</span>)</span>&#123;</div><div class="line">	<span class="comment">// code can put here</span></div><div class="line">	<span class="comment">//asyncFunction是异步函数或异步API，执行会去开辟新的线程</span></div><div class="line">	asyncFunction(callback)&#123;</div><div class="line">		<span class="comment">// 异步函数要执行的代码</span></div><div class="line">		<span class="comment">// ...</span></div><div class="line">		<span class="keyword">var</span> result = 代码执行结果;</div><div class="line">		<span class="comment">//原来callback中的代码</span></div><div class="line">		  ...</div><div class="line">		var finalRes = 原来回调函数执行结果;</div><div class="line">		<span class="keyword">return</span> finalRes;</div><div class="line">	&#125;</div><div class="line">	<span class="comment">//code can put here</span></div><div class="line">	<span class="comment">//这里的函数不会等待asyncFunction的执行结果，result is undefined</span></div><div class="line">	<span class="keyword">return</span> result;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="回调"><a href="#回调" class="headerlink" title="回调"></a>回调</h3><p>现在我才明白，我之前对回调的理解一直不正确，回调本身和同步异步没有任何关系，只是一般会通过回调对异步函数传参，用回调函数来处理异步函数的返回结果而已，同步编程的形式下，照样可以使用回调。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//同步函数</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">syncFun</span>(<span class="params">callback</span>)</span>&#123;</div><div class="line">	<span class="comment">// code can put here</span></div><div class="line">	 ...</div><div class="line">	var result = 代码执行结果；</div><div class="line">	<span class="keyword">var</span> res = callback(result);</div><div class="line">		</div><div class="line">	<span class="keyword">return</span> res;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>上面的代码是同步代码，但是也使用了回调函数，在一个函数中，将另一个函数作为参数，并在此函数中对其调用，这种函数调用形式成为回调。<br>所以，回调和异步同步并没有什么必然的因果关系。不能说使用了回调就是异步编程，除非你传入回调函数的函数本身是一个异步函数。但是异步函数会使用回调函数来对自己的执行结果进行相关的处理。</p>
+<h2 id="阻塞与非阻塞"><a href="#阻塞与非阻塞" class="headerlink" title="阻塞与非阻塞"></a>阻塞与非阻塞</h2><p>阻塞和非阻塞是针对计算机资源的，如果一段代码的执行长时间占用CPU，导致其他代码无法运行，那么对于其他代码来说此时的状态就是阻塞的，独占CPU一定要返回自己的执行结果而导致其他代码不能运行就会造成阻塞发生。</p>
+<p>阻塞和非阻塞与同步和非同步没有什么关系，异步执行代码也会造成阻塞的发生，如果跑在异步线程上的代码是阻塞的，那么这段代码的执行仍会独占CPU，从而导致所有线程上的代码都不能执行，所以异步并不能消除阻塞。</p>
+<p>Node.js里面的I/O是一种异步非阻塞的机制，但是对于真正阻塞的代码执行起来，也只能通过多进程或多开几个服务器来解决。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>同步就是阻塞，异步就是非阻塞，这种说法是不对的。同步异步是相对于后续代码的执行时间来讲，是立即执行后续代码还是等前一段代码返回执行结果后才执行；而阻塞和非阻塞是针对是否独占CPU导致所有代码都无法执行来定义，阻塞会导致所有线程上的代码都无法继续运行，都要进行等待。</p>
+<p>以上是读过下面博客/回答之后自己的理解，可能理解还不是很正确，如果发现哪里表述不对，欢迎批评指正。<br>下面附参考内容链接：</p>
+<ol>
+<li><a href="http://www.cnblogs.com/chrischjh/p/4648395.html" target="_blank" rel="external">JavaScript异步编程</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2012/12/asynchronous＿javascript.html" target="_blank" rel="external">JavaScript四种异步编程方法</a></li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;很多时候写代码，只是知道怎么写，并不知道为什么这么写，所以只能搬砖，并不能造轮子。现在处于疯狂扫盲状态，感觉每天都在发现新大陆，也越来越感受到自己知识的匮乏以及基础的不牢固。&lt;/p&gt;
+&lt;h2 id=&quot;同步和异步&quot;&gt;&lt;a href=&quot;#同步和异步&quot; class=&quot;header
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="http://lijingjing.top/categories/JavaScript/"/>
+    
+    
+      <category term="异步编程" scheme="http://lijingjing.top/tags/%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>BOM</title>
@@ -1117,29 +1159,6 @@ The maximum number of consecutive 1s is 3.
       <category term="position" scheme="http://lijingjing.top/tags/position/"/>
     
       <category term="overflow" scheme="http://lijingjing.top/tags/overflow/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World again</title>
-    <link href="http://lijingjing.top/blog/2016/02/23/Hello-World-again/"/>
-    <id>http://lijingjing.top/blog/2016/02/23/Hello-World-again/</id>
-    <published>2016-02-23T01:23:21.000Z</published>
-    <updated>2016-02-23T02:57:11.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Hexo-Blog-搭建"><a href="#Hexo-Blog-搭建" class="headerlink" title="Hexo Blog 搭建"></a>Hexo Blog 搭建</h1><p> 从上学期就想着搭建自己的博客，但是由于太懒，一直拖。本来想着寒假的时候搭建起来，果然又再次高估了自己假期的学习能力。直到开学后，发现同组大神的博客搭建好了，所以就在昨晚花了三四个小时进行了搭建，因为之前就知道Hexo，网上也有一堆教程，所以搭建过程还算顺利，除了忘记在.yml文件中配置自己的github账号信息，github page一直出问题，搞了一个多小时，在解决过程中，还发现因为用的别人的模板，所以项目中存在两个.git文件，删掉了主题中的.git。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      终于搭建起来了博客。
-    
-    </summary>
-    
-      <category term="Hexo" scheme="http://lijingjing.top/categories/Hexo/"/>
-    
-    
-      <category term="Hexo" scheme="http://lijingjing.top/tags/Hexo/"/>
     
   </entry>
   

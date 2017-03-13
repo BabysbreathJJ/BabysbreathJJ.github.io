@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      阿菁菁菁菁菁 | 阿菁菁菁菁菁
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="阿菁菁菁菁菁">
+    
+    
+
+    <meta name="description" content="很多时候写代码，只是知道怎么写，并不知道为什么这么写，所以只能搬砖，并不能造轮子。现在处于疯狂扫盲状态，感觉每天都在发现新大陆，也越来越感受到自己知识的匮乏以及基础的不牢固。
+同步和异步同步和异步的区别在于API或函数被调用后是否等它执行结束再调用之后的代码，也就是后面的代码是否要等前面的API或函数返回结果才能执行。
+同步情况下，后面的代码必须要等前面的代码执行结束并返回结果才能执行。
+异步情况">
+<meta property="og:type" content="article">
+<meta property="og:title" content="阿菁菁菁菁菁 | 阿菁菁菁菁菁">
+<meta property="og:url" content="http://lijingjing.top/blog/2017/03/13/JS异步编程/index.html">
+<meta property="og:site_name" content="阿菁菁菁菁菁">
+<meta property="og:description" content="很多时候写代码，只是知道怎么写，并不知道为什么这么写，所以只能搬砖，并不能造轮子。现在处于疯狂扫盲状态，感觉每天都在发现新大陆，也越来越感受到自己知识的匮乏以及基础的不牢固。
+同步和异步同步和异步的区别在于API或函数被调用后是否等它执行结束再调用之后的代码，也就是后面的代码是否要等前面的API或函数返回结果才能执行。
+同步情况下，后面的代码必须要等前面的代码执行结束并返回结果才能执行。
+异步情况">
+<meta property="og:updated_time" content="2017-03-13T08:19:56.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="阿菁菁菁菁菁 | 阿菁菁菁菁菁">
+<meta name="twitter:description" content="很多时候写代码，只是知道怎么写，并不知道为什么这么写，所以只能搬砖，并不能造轮子。现在处于疯狂扫盲状态，感觉每天都在发现新大陆，也越来越感受到自己知识的匮乏以及基础的不牢固。
+同步和异步同步和异步的区别在于API或函数被调用后是否等它执行结束再调用之后的代码，也就是后面的代码是否要等前面的API或函数返回结果才能执行。
+同步情况下，后面的代码必须要等前面的代码执行结束并返回结果才能执行。
+异步情况">
+
+    
+    
+      <link rel="icon" type="image/x-icon" href="/images/avatar.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+
+</head>
+<body>
+
+    
+      <header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+        <a href="/" title="link to homepage for 阿菁菁菁菁菁"><img src="/images/avatar.png" width="100" alt="阿菁菁菁菁菁 logo" class="panel-cover__logo logo" /></a>
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">阿菁菁菁菁菁</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+        <h2 class="panel-cover__description panel-description-small">
+          Change takes time.
+        </h2>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+
+        <div class="navigation-wrapper">
+
+
+        <nav class="cover-navigation cover-navigation--primary">
+          <ul class="navigation">
+            
+              
+              <li class="navigation__item"><a href="/blog" title="" class="blog-button">文章</a></li>
+            
+              
+              <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+            
+              
+              <li class="navigation__item"><a href="/about" title="" class="">关于我</a></li>
+            
+
+          </ul>
+        </nav>
+
+      <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/BabysbreathJJ" title="阿菁 on GitHub">
+          <i class='icon icon-social-github'></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+      <li class="navigation__item">
+        <a href="mailto:lijingjing1008@gmail.com" title="阿菁‘s e-mail">
+          <i class='icon icon-mail'></i>
+          <span class="label">Mail</span>
+        </a>
+      </li>
+      <li class="navigation__item">
+        <a href="http://weibo.com/2797656002/profile" title="阿菁 on Weibo">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+      </li>
+    
+
+    <!-- China social icon -->
+    <!--
+
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-douban'></i>
+          <span class="label">Douban</span>
+        </a>
+      </li>
+
+
+
+    -->
+
+
+
+  </ul>
+</nav>
+
+
+
+
+      <nav class="cover-navigation cover-navigation--primary">
+        <h2 class="panel-cover__description panel-description-small">
+        友情链接
+        </h2>
+        <ul class="navigation">
+          
+            <li class="friend__item"><a target="_blank" href="http://gaocegege.com/Blog" title="" class="">高策</a></li>
+          
+            <li class="friend__item"><a target="_blank" href="http://lizheming.top/" title="" class="">黎哲明</a></li>
+          
+            <li class="friend__item"><a target="_blank" href="http://peipeili.cn/" title="" class="">李佩佩</a></li>
+          
+
+        </ul>
+      </nav>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+      <span class="mobile btn-mobile-menu">
+          <i class="icon icon-list btn-mobile-menu__icon"></i>
+          <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+      </span>
+      <div class="content-wrapper">
+          <div class="content-wrapper__inner entry">
+              
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+
+    <h1 class="post-title">JS异步编程</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2017-03-13" class="post-meta__date date">2017-03-13</time>
+
+      <span class="post-meta__tags tags">
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/JavaScript/">JavaScript</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/异步编程/">异步编程</a>
+            </font>
+          
+        </span>
+     </div>
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <p>很多时候写代码，只是知道怎么写，并不知道为什么这么写，所以只能搬砖，并不能造轮子。现在处于疯狂扫盲状态，感觉每天都在发现新大陆，也越来越感受到自己知识的匮乏以及基础的不牢固。</p>
+<h2 id="同步和异步"><a href="#同步和异步" class="headerlink" title="同步和异步"></a>同步和异步</h2><p>同步和异步的区别在于API或函数被调用后是否等它执行结束再调用之后的代码，也就是后面的代码是否要等前面的API或函数返回结果才能执行。</p>
+<p>同步情况下，后面的代码必须要等前面的代码执行结束并返回结果才能执行。</p>
+<p>异步情况下，后面的代码无需等待前面异步函数的执行结果，异步函数会在新的线程中去执行，执行结束后，结果会放在一个回调函数中进行处理，回调函数的作用是获取函数执行的结果，并进行之后的处理。异步函数的执行并不影响当前线程向下执行，所以后面的代码可以立即执行无需等待。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//一般异步函数的写法</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">asyncFun</span>(<span class="params">callback</span>)</span>&#123;</div><div class="line">	<span class="comment">// code can put here</span></div><div class="line">	<span class="comment">//asyncFunction是异步函数或异步API，执行会去开辟新的线程</span></div><div class="line">	asyncFunction(callback)&#123;</div><div class="line">		<span class="comment">// 异步函数要执行的代码</span></div><div class="line">		<span class="comment">// ...</span></div><div class="line">		<span class="keyword">var</span> result = 代码执行结果;</div><div class="line">		callback(result);</div><div class="line">	&#125;</div><div class="line">	<span class="comment">//code can put here</span></div><div class="line">	<span class="comment">//这里的函数不会等待asyncFunction的执行结果，result is undefined</span></div><div class="line">	<span class="keyword">return</span> result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>上面的return语句中的result并不是异步函数的执行结果，首先从异步的概念来说，return语句会立即执行，并不会等待上面异步函数asyncFunction的执行结果；其次，函数中变量的作用域是函数作用域，asyncFucntion中的变量并不会被外面的函数访问到。</p>
+<p>如果说，我把callback中要执行的代码放到asyncFunction中，并将其结果返回呢？ 那就变成同步啦。<br>下面的代码其实又变成同步函数了，外部声明的result会一直等待asyncFunction的执行结果给自己赋值，所以一般JS异步编程返回的都是回调函数，并不能直接返回结果。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//同步函数</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">asyncFun</span>(<span class="params">callback</span>)</span>&#123;</div><div class="line">	<span class="comment">// code can put here</span></div><div class="line">	<span class="comment">//asyncFunction是异步函数或异步API，执行会去开辟新的线程</span></div><div class="line">	<span class="keyword">var</span> result = asyncFunction(callback)&#123;</div><div class="line">		<span class="comment">// 异步函数要执行的代码</span></div><div class="line">		  ...</div><div class="line">		var result = 异步函数代码执行结果;</div><div class="line">		<span class="comment">//原来callback中的代码</span></div><div class="line">		  ...</div><div class="line">		var finalRes = 原来回调函数执行结果;</div><div class="line">		<span class="keyword">return</span> finalRes;</div><div class="line">	&#125;</div><div class="line">	<span class="comment">//code can put here</span></div><div class="line">	<span class="comment">//这里的函数不会等待asyncFunction的执行结果，result is undefined</span></div><div class="line">	<span class="keyword">return</span> result;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>或者你说在asyncFunction中返回最终处理结果finalRes不行吗，不赋值给外部变量。可以是可以，但是这样异步函数本身会变得非常臃肿，把数据处理逻辑等放到异步函数中去执行并不是好的设计，因为可能会有对数据不同的处理方式，这个时候怎么办，总不能写很多个异步函数，前面逻辑一样，只是后面处理逻辑有差别，这样对于代码复用来说太差了。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//同步函数</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">asyncFun</span>(<span class="params">callback</span>)</span>&#123;</div><div class="line">	<span class="comment">// code can put here</span></div><div class="line">	<span class="comment">//asyncFunction是异步函数或异步API，执行会去开辟新的线程</span></div><div class="line">	asyncFunction(callback)&#123;</div><div class="line">		<span class="comment">// 异步函数要执行的代码</span></div><div class="line">		<span class="comment">// ...</span></div><div class="line">		<span class="keyword">var</span> result = 代码执行结果;</div><div class="line">		<span class="comment">//原来callback中的代码</span></div><div class="line">		  ...</div><div class="line">		var finalRes = 原来回调函数执行结果;</div><div class="line">		<span class="keyword">return</span> finalRes;</div><div class="line">	&#125;</div><div class="line">	<span class="comment">//code can put here</span></div><div class="line">	<span class="comment">//这里的函数不会等待asyncFunction的执行结果，result is undefined</span></div><div class="line">	<span class="keyword">return</span> result;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="回调"><a href="#回调" class="headerlink" title="回调"></a>回调</h3><p>现在我才明白，我之前对回调的理解一直不正确，回调本身和同步异步没有任何关系，只是一般会通过回调对异步函数传参，用回调函数来处理异步函数的返回结果而已，同步编程的形式下，照样可以使用回调。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//同步函数</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">syncFun</span>(<span class="params">callback</span>)</span>&#123;</div><div class="line">	<span class="comment">// code can put here</span></div><div class="line">	 ...</div><div class="line">	var result = 代码执行结果；</div><div class="line">	<span class="keyword">var</span> res = callback(result);</div><div class="line">		</div><div class="line">	<span class="keyword">return</span> res;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>上面的代码是同步代码，但是也使用了回调函数，在一个函数中，将另一个函数作为参数，并在此函数中对其调用，这种函数调用形式成为回调。<br>所以，回调和异步同步并没有什么必然的因果关系。不能说使用了回调就是异步编程，除非你传入回调函数的函数本身是一个异步函数。但是异步函数会使用回调函数来对自己的执行结果进行相关的处理。</p>
+<h2 id="阻塞与非阻塞"><a href="#阻塞与非阻塞" class="headerlink" title="阻塞与非阻塞"></a>阻塞与非阻塞</h2><p>阻塞和非阻塞是针对计算机资源的，如果一段代码的执行长时间占用CPU，导致其他代码无法运行，那么对于其他代码来说此时的状态就是阻塞的，独占CPU一定要返回自己的执行结果而导致其他代码不能运行就会造成阻塞发生。</p>
+<p>阻塞和非阻塞与同步和非同步没有什么关系，异步执行代码也会造成阻塞的发生，如果跑在异步线程上的代码是阻塞的，那么这段代码的执行仍会独占CPU，从而导致所有线程上的代码都不能执行，所以异步并不能消除阻塞。</p>
+<p>Node.js里面的I/O是一种异步非阻塞的机制，但是对于真正阻塞的代码执行起来，也只能通过多进程或多开几个服务器来解决。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>同步就是阻塞，异步就是非阻塞，这种说法是不对的。同步异步是相对于后续代码的执行时间来讲，是立即执行后续代码还是等前一段代码返回执行结果后才执行；而阻塞和非阻塞是针对是否独占CPU导致所有代码都无法执行来定义，阻塞会导致所有线程上的代码都无法继续运行，都要进行等待。</p>
+<p>以上是读过下面博客/回答之后自己的理解，可能理解还不是很正确，如果发现哪里表述不对，欢迎批评指正。<br>下面附参考内容链接：</p>
+<ol>
+<li><a href="http://www.cnblogs.com/chrischjh/p/4648395.html" target="_blank" rel="external">JavaScript异步编程</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2012/12/asynchronous＿javascript.html" target="_blank" rel="external">JavaScript四种异步编程方法</a></li>
+</ol>
+
+  </section>
+
+  
+  
+
+<section class="post-comments">
+
+    <div class="ds-thread" data-thread-key="blog/2017/03/13/JS异步编程/"></div>
+
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"lijingjing"};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+    </script> 
+
+</section>
+
+
+</article>
+
+              <footer class="footer">
+
+    <span class="footer__copyright">  &copy; 2017 阿菁菁菁菁菁 | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+
+</footer>
+
+          </div>
+      </div>
+
+    
+
+
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
