@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lijingjing.top/"/>
-  <updated>2017-03-13T09:12:55.000Z</updated>
+  <updated>2017-03-13T09:37:33.000Z</updated>
   <id>http://lijingjing.top/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://lijingjing.top/blog/2017/03/13/JS%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/"/>
     <id>http://lijingjing.top/blog/2017/03/13/JS异步编程/</id>
     <published>2017-03-13T07:23:57.000Z</published>
-    <updated>2017-03-13T09:12:55.000Z</updated>
+    <updated>2017-03-13T09:37:33.000Z</updated>
     
     <content type="html"><![CDATA[<p>很多时候写代码，只是知道怎么写，并不知道为什么这么写，所以只能搬砖，并不能造轮子。现在处于疯狂扫盲状态，感觉每天都在发现新大陆，也越来越感受到自己知识的匮乏以及基础的不牢固。</p>
 <h2 id="同步和异步"><a href="#同步和异步" class="headerlink" title="同步和异步"></a>同步和异步</h2><p>同步和异步的区别在于API或函数被调用后是否等它执行结束再调用之后的代码，也就是后面的代码是否要等前面的API或函数返回结果才能执行。</p>
@@ -32,9 +32,9 @@
 <p>或者你说在asyncFunction中返回最终处理结果finalRes不行吗，不赋值给外部变量。可以是可以，但是这样异步函数本身会变得非常臃肿，把数据处理逻辑等放到异步函数中去执行并不是好的设计，因为可能会有对数据不同的处理方式，这个时候怎么办，总不能写很多个异步函数，前面逻辑一样，只是后面处理逻辑有差别，这样对于代码复用来说太差了。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//同步函数</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">asyncFun</span>(<span class="params">callback</span>)</span>&#123;</div><div class="line">	<span class="comment">// code can put here</span></div><div class="line">	<span class="comment">//asyncFunction是异步函数或异步API，执行会去开辟新的线程</span></div><div class="line">	asyncFunction(callback)&#123;</div><div class="line">		<span class="comment">// 异步函数要执行的代码</span></div><div class="line">		<span class="comment">// ...</span></div><div class="line">		<span class="keyword">var</span> result = 代码执行结果;</div><div class="line">		<span class="comment">//原来callback中的代码</span></div><div class="line">		  ...</div><div class="line">		var finalRes = 原来回调函数执行结果;</div><div class="line">		<span class="keyword">return</span> finalRes;</div><div class="line">	&#125;</div><div class="line">	<span class="comment">//code can put here</span></div><div class="line">	<span class="comment">//这里的函数不会等待asyncFunction的执行结果，result is undefined</span></div><div class="line">	<span class="keyword">return</span> result;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h3 id="回调"><a href="#回调" class="headerlink" title="回调"></a>回调</h3><p>现在我才明白，我之前对回调的理解一直不正确，回调本身和同步异步没有任何关系，只是一般会通过回调对异步函数传参，用回调函数来处理异步函数的返回结果而已，同步编程的形式下，照样可以使用回调。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//同步函数</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">syncFun</span>(<span class="params">callback</span>)</span>&#123;</div><div class="line">	<span class="comment">// code can put here</span></div><div class="line">	 ...</div><div class="line">	var result = 代码执行结果；</div><div class="line">	<span class="keyword">var</span> res = callback(result);</div><div class="line">		</div><div class="line">	<span class="keyword">return</span> res;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>上面的代码是同步代码，但是也使用了回调函数，在一个函数中，将另一个函数作为参数，并在此函数中对其调用，这种函数调用形式成为回调。<br>所以，回调和异步同步并没有什么必然的因果关系。不能说使用了回调就是异步编程，除非你传入回调函数的函数本身是一个异步函数。但是异步函数会使用回调函数来对自己的执行结果进行相关的处理。</p>
-<h2 id="阻塞与非阻塞"><a href="#阻塞与非阻塞" class="headerlink" title="阻塞与非阻塞"></a>阻塞与非阻塞</h2><p>阻塞和非阻塞是针对计算机资源的，如果一段代码的执行长时间占用CPU，导致其他代码无法运行，那么对于其他代码来说此时的状态就是阻塞的，独占CPU一定要返回自己的执行结果而导致其他代码不能运行就会造成阻塞发生。</p>
+<h2 id="阻塞与非阻塞"><a href="#阻塞与非阻塞" class="headerlink" title="阻塞与非阻塞"></a>阻塞与非阻塞</h2><p>阻塞和非阻塞是针对计算机资源的，单线程下，如果一段代码的执行长时间占用CPU，导致其他代码无法运行，那么对于其他代码来说此时的状态就是阻塞的，独占CPU一定要返回自己的执行结果而导致其他代码不能运行就会造成阻塞发生。</p>
 <p>阻塞和非阻塞与同步和非同步没有什么关系，异步执行代码也会造成阻塞的发生，如果跑在异步线程上的代码是阻塞的，那么这段代码的执行仍会独占CPU，从而导致所有线程上的代码都不能执行，所以异步并不能消除阻塞。</p>
-<p>Node.js里面的I/O是一种异步非阻塞的机制，其实实质是node底层开辟了新的线程去处理这些I/O，等结果返回后再通过回调函数回到Node的主线程中，Node本身只是单线程的，所有返回的结果也要在队列中等待顺序执行。所以对于CPU密集型的操作，Node无法很好的进行处理，因为会阻塞主线程，导致队列中的任务一直等待主线程。所以对于CPU密集型操作，将其分为可重要执行的小块，通过process.nextTick将它分散开，让所有任务都有执行的机会。<br>其中node在执行任务的时候，会一次性把队列中的所有任务都拿出来，依次执行，如果全部顺利完成，则删除刚才取出的所有任务，等待下一次执行；如果中途出错，则删除已经完成的任务和出错的任务，等待下次执行；如果第一个就出错，则throw error.</p>
+<p>Node.js里面的I/O是一种异步非阻塞的机制，其实实质是node底层开辟了新的线程去处理这些I/O，等结果返回后再通过回调函数回到Node的主线程中，Node本身只是单线程的，所有返回的结果也要在队列中等待顺序执行。Node利用事件轮询机制，来判断当前是否有任务需要处理。所以对于CPU密集型的操作，Node无法很好的进行处理，因为会阻塞主线程，导致队列中的任务一直等待主线程。所以对于CPU密集型操作，将其分为可重要执行的小块，通过process.nextTick将它分散开，让所有任务都有执行的机会。<br>其中node在执行任务的时候，会一次性把队列中的所有任务都拿出来，依次执行，如果全部顺利完成，则删除刚才取出的所有任务，等待下一次执行；如果中途出错，则删除已经完成的任务和出错的任务，等待下次执行；如果第一个就出错，则throw error.</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>同步就是阻塞，异步就是非阻塞，这种说法是不对的。同步异步是相对于后续代码的执行时间来讲，是立即执行后续代码还是等前一段代码返回执行结果后才执行；而阻塞和非阻塞是针对是否独占CPU导致所有代码都无法执行来定义，阻塞会导致所有线程上的代码都无法继续运行，都要进行等待。</p>
 <p>以上是读过下面博客/回答之后自己的理解，可能理解还不是很正确，如果发现哪里表述不对，欢迎批评指正。<br>下面附参考内容链接：</p>
 <ol>
