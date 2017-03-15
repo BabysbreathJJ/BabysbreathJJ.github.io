@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="阿菁菁菁菁菁">
 <meta property="og:description" content="transclude是一个可选的参数，如果设置了，其值必须为true,默认值为false。使用嵌入会很好地扩充我们的工具集，特别是在创建可以共享的代码片段时。嵌入通常用来创建可复用的组件。典型的例子是模态对话框或导航栏。嵌入使我们可以将一个模板或另一个指令全部嵌入到另一个指令中，这样可以将任意内容和作用域传递给此指令。指令的内部可以访问外部指令的作用域，并且模板也可以访问外部的作用域对象。为了将外">
 <meta property="og:image" content="http://lijingjing.top/images/directive-transclude.png">
-<meta property="og:updated_time" content="2017-03-15T11:33:33.000Z">
+<meta property="og:updated_time" content="2017-03-15T11:36:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="阿菁菁菁菁菁 | 阿菁菁菁菁菁">
 <meta name="twitter:description" content="transclude是一个可选的参数，如果设置了，其值必须为true,默认值为false。使用嵌入会很好地扩充我们的工具集，特别是在创建可以共享的代码片段时。嵌入通常用来创建可复用的组件。典型的例子是模态对话框或导航栏。嵌入使我们可以将一个模板或另一个指令全部嵌入到另一个指令中，这样可以将任意内容和作用域传递给此指令。指令的内部可以访问外部指令的作用域，并且模板也可以访问外部的作用域对象。为了将外">
@@ -250,7 +250,7 @@ classes that you can use:
 
   <section id="post-content" class="article-content post">
     <p>transclude是一个可选的参数，如果设置了，其值必须为true,默认值为false。<br>使用嵌入会很好地扩充我们的工具集，特别是在创建可以共享的代码片段时。<br>嵌入通常用来创建可复用的组件。典型的例子是模态对话框或导航栏。<br>嵌入使我们可以将一个模板或另一个指令全部嵌入到另一个指令中，这样可以将任意内容和作用域传递给此指令。指令的内部可以访问外部指令的作用域，并且模板也可以访问外部的作用域对象。<br>为了将外部作用域传递过去，外部指令的scope参数的值必须通过{}或true来设置，创建自己的作用域。如果没有设置scope参数，那么指令内部的作用域将作为传入模板的作用域。</p>
-<p><strong>当创建一个可以包含任意内容的指令时，才使用transclude:true</strong></p>
+<p><strong>当创建一个可以包含任意内容的指令时，才使用transclude:true</strong><br><strong>如果指令使用了transclude参数，那么在控制器中就无法正常监听数据模型的变化了，最佳实践建议在链接函数中使用$watch服务</strong></p>
 <p>嵌入允许使用指令的人方便地提供自己的HTML模板，其中可以包含独特的状态和行为，并对指令的各方面进行自定义。</p>
 <h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>创建一个可以复用的侧边栏（为了保持CSS样式的一致，同时希望在复用的时候尽量少写HTML代码）</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">sideboxtitle</span>=<span class="string">"Links"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span>First link<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span>Second link<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
