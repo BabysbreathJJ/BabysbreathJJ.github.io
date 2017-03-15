@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      阿菁菁菁菁菁 | 阿菁菁菁菁菁
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="阿菁菁菁菁菁">
+    
+    
+
+    <meta name="description" content="transclude是一个可选的参数，如果设置了，其值必须为true,默认值为false。使用嵌入会很好地扩充我们的工具集，特别是在创建可以共享的代码片段时。嵌入通常用来创建可复用的组件。典型的例子是模态对话框或导航栏。嵌入使我们可以将一个模板或另一个指令全部嵌入到另一个指令中，这样可以将任意内容和作用域传递给此指令。指令的内部可以访问外部指令的作用域，并且模板也可以访问外部的作用域对象。为了将外">
+<meta property="og:type" content="article">
+<meta property="og:title" content="阿菁菁菁菁菁 | 阿菁菁菁菁菁">
+<meta property="og:url" content="http://lijingjing.top/blog/2017/03/15/AngularJS-Directive-transclude/index.html">
+<meta property="og:site_name" content="阿菁菁菁菁菁">
+<meta property="og:description" content="transclude是一个可选的参数，如果设置了，其值必须为true,默认值为false。使用嵌入会很好地扩充我们的工具集，特别是在创建可以共享的代码片段时。嵌入通常用来创建可复用的组件。典型的例子是模态对话框或导航栏。嵌入使我们可以将一个模板或另一个指令全部嵌入到另一个指令中，这样可以将任意内容和作用域传递给此指令。指令的内部可以访问外部指令的作用域，并且模板也可以访问外部的作用域对象。为了将外">
+<meta property="og:image" content="http://lijingjing.top/images/directive-transclude.png">
+<meta property="og:updated_time" content="2017-03-15T11:30:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="阿菁菁菁菁菁 | 阿菁菁菁菁菁">
+<meta name="twitter:description" content="transclude是一个可选的参数，如果设置了，其值必须为true,默认值为false。使用嵌入会很好地扩充我们的工具集，特别是在创建可以共享的代码片段时。嵌入通常用来创建可复用的组件。典型的例子是模态对话框或导航栏。嵌入使我们可以将一个模板或另一个指令全部嵌入到另一个指令中，这样可以将任意内容和作用域传递给此指令。指令的内部可以访问外部指令的作用域，并且模板也可以访问外部的作用域对象。为了将外">
+<meta name="twitter:image" content="http://lijingjing.top/images/directive-transclude.png">
+
+    
+    
+      <link rel="icon" type="image/x-icon" href="/images/avatar.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+
+</head>
+<body>
+
+    
+      <header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+        <a href="/" title="link to homepage for 阿菁菁菁菁菁"><img src="/images/avatar.png" width="100" alt="阿菁菁菁菁菁 logo" class="panel-cover__logo logo" /></a>
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">阿菁菁菁菁菁</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+        <h2 class="panel-cover__description panel-description-small">
+          Change takes time.
+        </h2>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+
+        <div class="navigation-wrapper">
+
+
+        <nav class="cover-navigation cover-navigation--primary">
+          <ul class="navigation">
+            
+              
+              <li class="navigation__item"><a href="/blog" title="" class="blog-button">文章</a></li>
+            
+              
+              <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+            
+              
+              <li class="navigation__item"><a href="/about" title="" class="">关于我</a></li>
+            
+
+          </ul>
+        </nav>
+
+      <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/BabysbreathJJ" title="阿菁 on GitHub">
+          <i class='icon icon-social-github'></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+      <li class="navigation__item">
+        <a href="mailto:lijingjing1008@gmail.com" title="阿菁‘s e-mail">
+          <i class='icon icon-mail'></i>
+          <span class="label">Mail</span>
+        </a>
+      </li>
+      <li class="navigation__item">
+        <a href="http://weibo.com/2797656002/profile" title="阿菁 on Weibo">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+      </li>
+    
+
+    <!-- China social icon -->
+    <!--
+
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-douban'></i>
+          <span class="label">Douban</span>
+        </a>
+      </li>
+
+
+
+    -->
+
+
+
+  </ul>
+</nav>
+
+
+
+
+      <nav class="cover-navigation cover-navigation--primary">
+        <h2 class="panel-cover__description panel-description-small">
+        友情链接
+        </h2>
+        <ul class="navigation">
+          
+            <li class="friend__item"><a target="_blank" href="http://gaocegege.com/Blog" title="" class="">高策</a></li>
+          
+            <li class="friend__item"><a target="_blank" href="http://lizheming.top/" title="" class="">黎哲明</a></li>
+          
+            <li class="friend__item"><a target="_blank" href="http://peipeili.cn/" title="" class="">李佩佩</a></li>
+          
+
+        </ul>
+      </nav>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+      <span class="mobile btn-mobile-menu">
+          <i class="icon icon-list btn-mobile-menu__icon"></i>
+          <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+      </span>
+      <div class="content-wrapper">
+          <div class="content-wrapper__inner entry">
+              
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+
+    <h1 class="post-title">AngularJS Directive transclude</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2017-03-15" class="post-meta__date date">2017-03-15</time>
+
+      <span class="post-meta__tags tags">
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/AngularJS/">AngularJS</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/directive/">directive</a>
+            </font>
+          
+        </span>
+     </div>
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <p>transclude是一个可选的参数，如果设置了，其值必须为true,默认值为false。<br>使用嵌入会很好地扩充我们的工具集，特别是在创建可以共享的代码片段时。<br>嵌入通常用来创建可复用的组件。典型的例子是模态对话框或导航栏。<br>嵌入使我们可以将一个模板或另一个指令全部嵌入到另一个指令中，这样可以将任意内容和作用域传递给此指令。指令的内部可以访问外部指令的作用域，并且模板也可以访问外部的作用域对象。<br>为了将外部作用域传递过去，外部指令的scope参数的值必须通过{}或true来设置，创建自己的作用域。如果没有设置scope参数，那么指令内部的作用域将作为传入模板的作用域。</p>
+<p><strong>当创建一个可以包含任意内容的指令时，才使用transclude:true</strong></p>
+<p>嵌入允许使用指令的人方便地提供自己的HTML模板，其中可以包含独特的状态和行为，并对指令的各方面进行自定义。</p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>创建一个可以复用的侧边栏（为了保持CSS样式的一致，同时希望在复用的时候尽量少写HTML代码）</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">sideboxtitle</span>=<span class="string">"Links"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span>First link<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span>Second link<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>为上面的侧边栏创建一个简单的指令，并将transclude参数的值设为true。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">angular.module(<span class="string">'myApp'</span>,[])</div><div class="line">.directive(<span class="string">'sidebox'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> &#123;</div><div class="line">		<span class="attr">restrict</span>: <span class="string">"EA"</span>,</div><div class="line">		<span class="attr">scope</span>: &#123;</div><div class="line">			<span class="attr">title</span>: <span class="string">'@'</span></div><div class="line">		&#125;,</div><div class="line">		<span class="attr">transclude</span>: <span class="literal">true</span>,</div><div class="line">		<span class="attr">template</span>: <span class="string">'&lt;div class="sidebox"&gt;\</span></div><div class="line">							&lt;div class="content"&gt;\</div><div class="line">								&lt;h2 class="header"&gt;&#123;&#123;title&#125;&#125;&lt;/h2&gt;\</div><div class="line">								&lt;span class="content" ng-transclude&gt;\</div><div class="line">								&lt;/span&gt;\</div><div class="line">						   &lt;/div&gt;\</div><div class="line">						&lt;/div&gt;'</div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>上述代码告诉AngularJS编译器，将指令从DOM元素中包含获取的内容放到它发现ng-transclude指令的地方。借助transclude属性，可以将指令进行复用，而不必重写样式和布局部分的代码。如下所示：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">sidebox</span> <span class="attr">title</span>=<span class="string">"Links"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span>First link<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span>Second link<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">sidebox</span> <span class="attr">title</span>=<span class="string">"TagCloud"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"tagcloud"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">""</span>&gt;</span>Graphics<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">""</span>&gt;</span>AngularJS<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">""</span>&gt;</span>D3<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>输出结果；<br><img src="/images/directive-transclude.png" alt="directive-transclude.png"></p>
+
+  </section>
+
+  
+  
+
+<section class="post-comments">
+
+    <div class="ds-thread" data-thread-key="blog/2017/03/15/AngularJS-Directive-transclude/"></div>
+
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"lijingjing"};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+    </script> 
+
+</section>
+
+
+</article>
+
+              <footer class="footer">
+
+    <span class="footer__copyright">  &copy; 2017 阿菁菁菁菁菁 | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+
+</footer>
+
+          </div>
+      </div>
+
+    
+
+
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
