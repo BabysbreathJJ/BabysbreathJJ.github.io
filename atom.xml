@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lijingjing.top/"/>
-  <updated>2017-03-16T13:33:45.000Z</updated>
+  <updated>2017-03-16T13:34:34.000Z</updated>
   <id>http://lijingjing.top/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>AngularJS directive Compiler</title>
+    <title>AngularJS Compiler</title>
     <link href="http://lijingjing.top/blog/2017/03/15/AngularJS-directive%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/"/>
     <id>http://lijingjing.top/blog/2017/03/15/AngularJS-directive生命周期/</id>
     <published>2017-03-15T12:44:27.000Z</published>
-    <updated>2017-03-16T13:33:45.000Z</updated>
+    <updated>2017-03-16T13:34:34.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="AngularJS-Compiler"><a href="#AngularJS-Compiler" class="headerlink" title="AngularJS Compiler"></a>AngularJS Compiler</h1><p>在AngularJS应用启动之前，它们以HTML文本的形式保存在文本编辑器中。应用启动后进行编译和链接，作用域会和对应的HTML进行绑定，应用可以对用户在HTML中进行的操作进行实时响应。</p>
 <p>上述过程主要包括两个阶段：</p>
