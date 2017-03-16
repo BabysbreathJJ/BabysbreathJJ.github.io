@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lijingjing.top/"/>
-  <updated>2017-03-16T13:32:43.000Z</updated>
+  <updated>2017-03-16T13:33:45.000Z</updated>
   <id>http://lijingjing.top/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://lijingjing.top/blog/2017/03/15/AngularJS-directive%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/"/>
     <id>http://lijingjing.top/blog/2017/03/15/AngularJS-directive生命周期/</id>
     <published>2017-03-15T12:44:27.000Z</published>
-    <updated>2017-03-16T13:32:43.000Z</updated>
+    <updated>2017-03-16T13:33:45.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="AngularJS-Compiler"><a href="#AngularJS-Compiler" class="headerlink" title="AngularJS Compiler"></a>AngularJS Compiler</h1><p>在AngularJS应用启动之前，它们以HTML文本的形式保存在文本编辑器中。应用启动后进行编译和链接，作用域会和对应的HTML进行绑定，应用可以对用户在HTML中进行的操作进行实时响应。</p>
 <p>上述过程主要包括两个阶段：</p>
@@ -60,7 +60,10 @@
 <p>为了提高效率，ng-repeat 只有在有新元素添加或删除旧元素的时候，才会创建或删除DOM元素，其余时候，并不会对DOM结构做出改变，对象属性值的改变并不会为其重新创建DOM，而只是改变相应DOM中属性的值。原有arr中对象排列顺序的变化会使DOM reorder，也不会删除DOM重新创建DOM节点。这样就提高了页面的渲染速度。</p>
 <p>当有新的对象创建时，会根据template的内容clone新的DOM元素，将其加入到DOM树相应的位置，调用link function将相应的scope绑定到clone出的元素上。</p>
 <p>在stackoverflow上看到一个提问者画的图，虽然没有人回复他，但是我感觉他的思路还挺清晰的,链接为<a href="http://stackoverflow.com/questions/28744328/how-does-ngrepeat-work" target="_blank" rel="external">how-does-ngRepeat-work</a><br>如下图： <img src="/images/ng-repeat.png" alt="ng-repeat"></p>
-<p>具体理解可以参考下面的链接：<br> <a href="https://www.bennadel.com/blog/2443-rendering-dom-elements-with-ngrepeat-in-angularjs.htm" target="_blank" rel="external">Rendering DOM Elements With ngRepeat In AngularJS</a><br> <a href="http://jsbin.com/tigejaw/edit?html,css,js,console,output" target="_blank" rel="external">在线Demo</a><br> <a href="http://liamkaufman.com/blog/2013/05/13/understanding-angularjs-directives-part1-ng-repeat-and-compile/" target="_blank" rel="external">ng-repeat and compile</a></p>
+<p>具体理解可以参考下面的链接：</p>
+<p> <a href="https://www.bennadel.com/blog/2443-rendering-dom-elements-with-ngrepeat-in-angularjs.htm" target="_blank" rel="external">Rendering DOM Elements With ngRepeat In AngularJS</a> </p>
+<p> <a href="http://jsbin.com/tigejaw/edit?html,css,js,console,output" target="_blank" rel="external">在线Demo</a> </p>
+<p> <a href="http://liamkaufman.com/blog/2013/05/13/understanding-angularjs-directives-part1-ng-repeat-and-compile/" target="_blank" rel="external">ng-repeat and compile</a></p>
 ]]></content>
     
     <summary type="html">
