@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lijingjing.top/"/>
-  <updated>2017-03-16T12:54:30.000Z</updated>
+  <updated>2017-03-16T13:25:05.000Z</updated>
   <id>http://lijingjing.top/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://lijingjing.top/blog/2017/03/15/AngularJS-directive%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/"/>
     <id>http://lijingjing.top/blog/2017/03/15/AngularJS-directive生命周期/</id>
     <published>2017-03-15T12:44:27.000Z</published>
-    <updated>2017-03-16T12:54:30.000Z</updated>
+    <updated>2017-03-16T13:25:05.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="AngularJS-Compiler"><a href="#AngularJS-Compiler" class="headerlink" title="AngularJS Compiler"></a>AngularJS Compiler</h2><p>在AngularJS应用启动之前，它们以HTML文本的形式保存在文本编辑器中。应用启动后进行编译和链接，作用域会和对应的HTML进行绑定，应用可以对用户在HTML中进行的操作进行实时响应。</p>
 <p>上述过程主要包括两个阶段：</p>
@@ -47,13 +47,17 @@
 <p>很少有指令值包含一个compile函数，因为大多数指令更关心如何在指定的DOM元素实例上进行操作，而不是改变它的整个结构。指令往往会包含link function,因为link function允许指令在指定的克隆template的DOM实例元素上注册事件监听器，从scope中为DOM绑定数据。</p>
 <p>以ng-repeat为例说明：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Hello &#123;&#123;user&#125;&#125;, you have these actions:</div><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span></div><div class="line">	<span class="tag">&lt;<span class="name">li</span> <span class="attr">ng-repeat</span>=<span class="string">"action in user.actions"</span>&gt;</span></div><div class="line">		&#123;&#123;action.description&#125;&#125;</div><div class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure></p>
 <p>当上面的代码被编译时，编译器首先访问每一个node并寻找对应的directives。</p>
-<p>匹配interpolation directive，ng-repeat匹配ngRepeat directive。</p>
-<p>之后为user.actions中的每个action clone一个新的<code>&lt;li&gt;</code>元素。<br>为了支持之后可以有新的元素添加到user.actions中，要保存一个干净的&lt;li&gt;拷贝，目的是为了之后可以进行模板的clone并将其添加到DOM中。新的actions被插入后，模板元素<code>&lt;li&gt;</code>被clone并插入到ul中。但是仅仅clone<code>&lt;li&gt;</code>是不够的，还要编译<code>&lt;li&gt;</code>，这样像这样的指令才会在正确的scope下执行。</p>
-<p>一种简单的解决方法就是将<code>&lt;li&gt;</code>元素的拷贝插入DOM后并编译它，但是如果编译我们clone的每个<code>&lt;li&gt;</code>元素会造成大量的重复工作。尤其是我们每次都不得不遍历<code>&lt;li&gt;</code>并找到它对应的directives，这样会使整个编译过程非常慢，结果就是当有新的节点插入时，整个应用的响应就会变得很差。</p>
+<p><code></code>匹配interpolation directive，ng-repeat匹配ngRepeat directive。</p>
+<p>之后为user.actions中的每个action clone一个新的<code>&lt;li&gt;</code>元素。</p>
+<p>为了支持之后可以有新的元素添加到user.actions中，要保存一个干净的&lt;li&gt;拷贝，目的是为了之后可以进行模板的clone并将其添加到DOM中。新的actions被插入后，模板元素<code>&lt;li&gt;</code>被clone并插入到ul中。但是仅仅clone<code>&lt;li&gt;</code>是不够的，还要编译<code>&lt;li&gt;</code>，这样像<code></code>这样的指令才会在正确的scope下执行。</p>
+<p>一种简单的解决方法就是将<code>&lt;li&gt;</code>元素的拷贝插入DOM后并编译它，但是编译我们clone的每个<code>&lt;li&gt;</code>元素会造成大量的重复工作。尤其是我们每次都不得不遍历<code>&lt;li&gt;</code>并找到它对应的directives，这样会使整个编译过程非常慢，结果就是当有新的节点插入时，整个应用的响应就会变得很差。</p>
 <p>将编译过程分为两个阶段可以解决上面的问题，在compile阶段，所有的指令都会被识别，并且按照指令的priority进行排序，在Link阶段，将所有对应的scope实例和对应的<code>&lt;li&gt;</code>元素实例进行链接。Link阶段会为DOM元素设定监听器，同时在Scope上设置$watch函数来保持View和Model中数据的一致性。</p>
-<p>ngRepeat在编译的时候不会分开编译每个<code>&lt;li&gt;</code>元素，<code>&lt;li&gt;</code>元素编译返回的结果是一个链接函数，在链接函数中包含所有克隆出的<code>&lt;li&gt;</code>元素，同时链接函数已经准备好和指定的克隆<code>&lt;li&gt;</code>元素进行attach。</p>
+<p>ngRepeat在编译的时候不会分开编译每个<code>&lt;li&gt;</code>元素，<code>&lt;li&gt;</code>元素编译返回的结果是一个链接函数，在链接函数中会对所有克隆出的<code>&lt;li&gt;</code>元素进行处理，链接函数会将相应的scope和指定的克隆<code>&lt;li&gt;</code>元素进行attach。</p>
 <p>运行时，ngRepeat会watch表达式，当有items被添加时，会创建新的clone <code>&lt;li&gt;</code>元素，并为新的克隆元素创建新的scope，调用链接函数将新的scope与新clone的元素进行绑定。</p>
-<p>为了提高效率，ng-repeat 只有在有新元素添加或删除旧元素的时候，才会创建或删除DOM元素，其余时候，并不会对DOM结构做出改变，这样就提高了页面的渲染速度。当有新的对象创建时，会根据template的内容clone新的DOM元素，调用link function将scope绑定到clone出的元素上，将其加入到DOM树相应的位置。具体理解可以点击下面的链接：<br><a href="https://www.bennadel.com/blog/2443-rendering-dom-elements-with-ngrepeat-in-angularjs.htm" target="_blank" rel="external">Rendering DOM Elements With ngRepeat In AngularJS</a><br><a href="http://jsbin.com/tigejaw/edit?html,css,js,console,output" target="_blank" rel="external">在线Demo</a><br><a href="http://liamkaufman.com/blog/2013/05/13/understanding-angularjs-directives-part1-ng-repeat-and-compile/" target="_blank" rel="external">ng-repeat and compile</a></p>
+<p>为了提高效率，ng-repeat 只有在有新元素添加或删除旧元素的时候，才会创建或删除DOM元素，其余时候，并不会对DOM结构做出改变，对象属性值的改变并不会为其重新创建DOM，而只是改变相应DOM中属性的值。原有arr中对象排列顺序的变化会使DOM reorder，也不会删除DOM重新创建DOM节点。这样就提高了页面的渲染速度。</p>
+<p>当有新的对象创建时，会根据template的内容clone新的DOM元素，将其加入到DOM树相应的位置，调用link function将相应的scope绑定到clone出的元素上。</p>
+<p>在stackoverflow上看到一个提问者画的图，虽然没有人回复他，但是我感觉他的思路还挺清晰的,链接为<br>如下图：<br><a href="/images/ng-repeat.png">ng-repeat</a></p>
+<p><a href="https://www.bennadel.com/blog/2443-rendering-dom-elements-with-ngrepeat-in-angularjs.htm" target="_blank" rel="external">Rendering DOM Elements With ngRepeat In AngularJS</a><br><a href="http://jsbin.com/tigejaw/edit?html,css,js,console,output" target="_blank" rel="external">在线Demo</a><br><a href="http://liamkaufman.com/blog/2013/05/13/understanding-angularjs-directives-part1-ng-repeat-and-compile/" target="_blank" rel="external">ng-repeat and compile</a></p>
 ]]></content>
     
     <summary type="html">
