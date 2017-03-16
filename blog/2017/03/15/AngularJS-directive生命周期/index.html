@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      阿菁菁菁菁菁 | 阿菁菁菁菁菁
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="阿菁菁菁菁菁">
+    
+    
+
+    <meta name="description" content="AngularJS Compiler在AngularJS应用启动之前，它们以HTML文本的形式保存在文本编辑器中。应用启动后进行编译和链接，作用域会和对应的HTML进行绑定，应用可以对用户在HTML中进行的操作进行实时响应。
+上述过程主要包括两个阶段：
+编译阶段在编译阶段，AngularJS会遍历整个HTML文档并根据JS中的指令定义来处理页面上声明的指令。
+每个指令的模板中都可能含有另外一个指令">
+<meta property="og:type" content="article">
+<meta property="og:title" content="阿菁菁菁菁菁 | 阿菁菁菁菁菁">
+<meta property="og:url" content="http://lijingjing.top/blog/2017/03/15/AngularJS-directive生命周期/index.html">
+<meta property="og:site_name" content="阿菁菁菁菁菁">
+<meta property="og:description" content="AngularJS Compiler在AngularJS应用启动之前，它们以HTML文本的形式保存在文本编辑器中。应用启动后进行编译和链接，作用域会和对应的HTML进行绑定，应用可以对用户在HTML中进行的操作进行实时响应。
+上述过程主要包括两个阶段：
+编译阶段在编译阶段，AngularJS会遍历整个HTML文档并根据JS中的指令定义来处理页面上声明的指令。
+每个指令的模板中都可能含有另外一个指令">
+<meta property="og:updated_time" content="2017-03-16T12:54:30.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="阿菁菁菁菁菁 | 阿菁菁菁菁菁">
+<meta name="twitter:description" content="AngularJS Compiler在AngularJS应用启动之前，它们以HTML文本的形式保存在文本编辑器中。应用启动后进行编译和链接，作用域会和对应的HTML进行绑定，应用可以对用户在HTML中进行的操作进行实时响应。
+上述过程主要包括两个阶段：
+编译阶段在编译阶段，AngularJS会遍历整个HTML文档并根据JS中的指令定义来处理页面上声明的指令。
+每个指令的模板中都可能含有另外一个指令">
+
+    
+    
+      <link rel="icon" type="image/x-icon" href="/images/avatar.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+
+</head>
+<body>
+
+    
+      <header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+        <a href="/" title="link to homepage for 阿菁菁菁菁菁"><img src="/images/avatar.png" width="100" alt="阿菁菁菁菁菁 logo" class="panel-cover__logo logo" /></a>
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">阿菁菁菁菁菁</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+        <h2 class="panel-cover__description panel-description-small">
+          Change takes time.
+        </h2>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+
+        <div class="navigation-wrapper">
+
+
+        <nav class="cover-navigation cover-navigation--primary">
+          <ul class="navigation">
+            
+              
+              <li class="navigation__item"><a href="/blog" title="" class="blog-button">文章</a></li>
+            
+              
+              <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+            
+              
+              <li class="navigation__item"><a href="/about" title="" class="">关于我</a></li>
+            
+
+          </ul>
+        </nav>
+
+      <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/BabysbreathJJ" title="阿菁 on GitHub">
+          <i class='icon icon-social-github'></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+      <li class="navigation__item">
+        <a href="mailto:lijingjing1008@gmail.com" title="阿菁‘s e-mail">
+          <i class='icon icon-mail'></i>
+          <span class="label">Mail</span>
+        </a>
+      </li>
+      <li class="navigation__item">
+        <a href="http://weibo.com/2797656002/profile" title="阿菁 on Weibo">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+      </li>
+    
+
+    <!-- China social icon -->
+    <!--
+
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-douban'></i>
+          <span class="label">Douban</span>
+        </a>
+      </li>
+
+
+
+    -->
+
+
+
+  </ul>
+</nav>
+
+
+
+
+      <nav class="cover-navigation cover-navigation--primary">
+        <h2 class="panel-cover__description panel-description-small">
+        友情链接
+        </h2>
+        <ul class="navigation">
+          
+            <li class="friend__item"><a target="_blank" href="http://gaocegege.com/Blog" title="" class="">高策</a></li>
+          
+            <li class="friend__item"><a target="_blank" href="http://lizheming.top/" title="" class="">黎哲明</a></li>
+          
+            <li class="friend__item"><a target="_blank" href="http://peipeili.cn/" title="" class="">李佩佩</a></li>
+          
+
+        </ul>
+      </nav>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+      <span class="mobile btn-mobile-menu">
+          <i class="icon icon-list btn-mobile-menu__icon"></i>
+          <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+      </span>
+      <div class="content-wrapper">
+          <div class="content-wrapper__inner entry">
+              
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+
+    <h1 class="post-title">AngularJS directive Compiler</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2017-03-15" class="post-meta__date date">2017-03-15</time>
+
+      <span class="post-meta__tags tags">
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/AngularJS/">AngularJS</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/directive/">directive</a>
+            </font>
+          
+        </span>
+     </div>
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h2 id="AngularJS-Compiler"><a href="#AngularJS-Compiler" class="headerlink" title="AngularJS Compiler"></a>AngularJS Compiler</h2><p>在AngularJS应用启动之前，它们以HTML文本的形式保存在文本编辑器中。应用启动后进行编译和链接，作用域会和对应的HTML进行绑定，应用可以对用户在HTML中进行的操作进行实时响应。</p>
+<p>上述过程主要包括两个阶段：</p>
+<h3 id="编译阶段"><a href="#编译阶段" class="headerlink" title="编译阶段"></a>编译阶段</h3><p>在编译阶段，AngularJS会遍历整个HTML文档并根据JS中的指令定义来处理页面上声明的指令。</p>
+<p>每个指令的模板中都可能含有另外一个指令，另外一个指令也可能会有自己的模板。当AngularJS调用HTML文档根部的指令时，会遍历其中所有的模板，模板中也可能包含带有模板的指令，最终会有一个<strong>模板树</strong>。</p>
+<p>虽然模板中可以包含其他指令，其他指令中也会有模板，模板树可能又大又深，但是一个元素如果有多个指令修饰，只有处于最高优先级指令的模板会被解析并添加到模板树中。所以，要将包含模板的指令和添加行为的指令分离开来，如果一个元素已经有一个含有模板的指令了，永远不要对其用另一个指令进行修饰。对于不包含模板的指令进行优先级排序，每个指令的编译函数都有一次机会来调整DOM并且最后都会返回一个链接函数，这些返回的链接函数组成一个”combined”链接函数。之后将”combinded”link functin和scope进行链接，链接过程中会分别调用单独指令对应的链接函数，为元素注册监听器和对相应的scope属性设置$watch函数。</p>
+<p>利用Angular提供的$compile服务，以下举例说明Angular内部编译的实现：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> $compile = ...; <span class="comment">// injected into your code</span></div><div class="line"><span class="keyword">var</span> scope = ...;</div><div class="line">	 </div><div class="line"><span class="keyword">var</span> html = <span class="string">'&lt;div ng-bind="exp"&gt;&lt;/div&gt;'</span>;</div><div class="line">	 </div><div class="line"><span class="comment">// Step 1: parse HTML into DOM element</span></div><div class="line"><span class="keyword">var</span> template = angular.element(html);</div><div class="line">	 </div><div class="line"><span class="comment">// Step 2: compile the template</span></div><div class="line"><span class="keyword">var</span> linkFn = $compile(template);</div><div class="line">	 </div><div class="line"><span class="comment">// Step 3: link the compiled template with the scope.</span></div><div class="line">linkFn(scope);</div></pre></td></tr></table></figure></p>
+<p>一旦对一个元素中的指令和其中的子模板进行遍历或编译，编译后的模板会返回一个叫做<strong>模板函数</strong>的函数。我们有机会在指令的模板函数被返回前，对编译后的DOM树进行修改。因为这个时间点DOM树还没有进行数据绑定，所以对DOM树的操作的性能开销会很小。内置指令ng-repeat和ng-transclude就是在这个时候对DOM进行操作的。<strong>所以对DOM的操作要放在指令的compile属性中。</strong></p>
+<h4 id="compile"><a href="#compile" class="headerlink" title="compile"></a>compile</h4><p>compile选项可以返回一个对象或函数。compile和link相比，link的使用频率会更高。</p>
+<p>如果设置了compile函数，说明我们希望指令和实时数据进行绑定之前，即实时数据被放到DOM中之前，进行DOM操作。在这个函数中进行诸如添加和删除节点等DOM操作是安全的。</p>
+<p><strong>compile和link函数是互斥的。</strong>如果同时设置了这两项，那么会把compile所返回的函数当做链接函数，而link本身被忽略。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//...</span></div><div class="line">compile: <span class="function"><span class="keyword">function</span>(<span class="params">tEle, tAttrs, transcludeFn</span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> tplEl = angular.element(<span class="string">'&lt;div&gt;'</span>+</div><div class="line">		<span class="string">'&lt;h2&gt;&lt;/h2&gt;'</span>+</div><div class="line">		<span class="string">'&lt;/div&gt;'</span></div><div class="line">	);</div><div class="line">	<span class="keyword">var</span> h2 = tplEl.find(<span class="string">'h2'</span>);</div><div class="line">	h2.attr(<span class="string">'type'</span>,tAttrs.type);</div><div class="line">	h2.attr(<span class="string">'ng-model'</span>,tAttrs.ngModel);</div><div class="line">	h2.val(<span class="string">"hello"</span>);</div><div class="line">	tEle.replaceWith(tplEl);</div><div class="line">	<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">scope, ele, attrs</span>)</span>&#123;</div><div class="line">	<span class="comment">//链接函数</span></div><div class="line">	&#125;	</div><div class="line">&#125;</div><div class="line"><span class="comment">//...</span></div></pre></td></tr></table></figure>
+<p>一个指令的表现一旦编译完成，马上就可以通过编译函数对其进行访问，编译函数的签名包含访问指令声明所在元素（tElement）及该元素其他属性（tAttrs），编译函数返回前面提到的模板函数，其中含有完整的解析树。</p>
+<p>在编译函数内部，不要进行DOM事件监听器的注册，这个操作应该在链接函数中完成。</p>
+<p>编译过程就是遍历DOM，并收集所有diretives的过程，返回的结果是一个链接函数（linking function）。</p>
+<p><strong>编译函数负责对模板DOM进行转换。</strong>链接函数则负责将作用域和DOM进行链接。</p>
+<h3 id="链接阶段"><a href="#链接阶段" class="headerlink" title="链接阶段"></a>链接阶段</h3><p>以ng-repeat为例，它会遍历指定的数组或对象，在数据绑定之前构建出对应的DOM结构。ng-repeat只需将集合中的每个元素clone出来，将编译后的DOM传递给指令的下一个阶段——链接阶段。</p>
+<p>一个指令一旦被编译完成，马上就可以通过编译函数对其进行访问，编译函数含有访问指令声明所在元素及该元素其他属性的方法。这个函数返回前面提到的模板函数，其中含有完整的解析树。由于每个指令都可以有自己的模板和编译函数，每个模板返回的也是自己的模板函数。链条顶部的指令会将内部子指令的模板合并在一起成为一个模板函数并返回，在树的内部，只能通过模板函数访问其所在的分支。</p>
+<p>链接函数会在模板编译并同作用域进行链接时被调用，因此它负责设置事件监听器，监视数据变化和实时的操作DOM。链接函数对绑定了实时数据的DOM具有控制能力。  </p>
+<h4 id="link"><a href="#link" class="headerlink" title="link"></a>link</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">link: <span class="function"><span class="keyword">function</span>(<span class="params">scope, element, attrs</span>)</span>&#123;</div><div class="line">	<span class="comment">//...</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果指令中有require选项，函数签名会有第四个参数，代表控制器或者所依赖的指令的控制器。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//require 'SomeController'</span></div><div class="line">link: <span class="function"><span class="keyword">function</span>(<span class="params">scope, element, attrs, SomeController</span>)</span>&#123;</div><div class="line">	<span class="comment">//...</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>链接函数完成DOM和作用域的绑定，并设置事件监听器等。</strong></p>
+<h3 id="Compile和Link区别"><a href="#Compile和Link区别" class="headerlink" title="Compile和Link区别"></a>Compile和Link区别</h3><p>将整个编译过程分为compile和link两个阶段，是因为有时候会提升性能。compile规定之后实例的共同特性，不包括对数据的操作部分，主要针对DOM转换方面；link函数会将template的实例与数据进行绑定，并操作template实例。</p>
+<p>很少有指令值包含一个compile函数，因为大多数指令更关心如何在指定的DOM元素实例上进行操作，而不是改变它的整个结构。指令往往会包含link function,因为link function允许指令在指定的克隆template的DOM实例元素上注册事件监听器，从scope中为DOM绑定数据。</p>
+<p>以ng-repeat为例说明：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Hello &#123;&#123;user&#125;&#125;, you have these actions:</div><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span></div><div class="line">	<span class="tag">&lt;<span class="name">li</span> <span class="attr">ng-repeat</span>=<span class="string">"action in user.actions"</span>&gt;</span></div><div class="line">		&#123;&#123;action.description&#125;&#125;</div><div class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>当上面的代码被编译时，编译器首先访问每一个node并寻找对应的directives。</p>
+<p>匹配interpolation directive，ng-repeat匹配ngRepeat directive。</p>
+<p>之后为user.actions中的每个action clone一个新的<code>&lt;li&gt;</code>元素。<br>为了支持之后可以有新的元素添加到user.actions中，要保存一个干净的&lt;li&gt;拷贝，目的是为了之后可以进行模板的clone并将其添加到DOM中。新的actions被插入后，模板元素<code>&lt;li&gt;</code>被clone并插入到ul中。但是仅仅clone<code>&lt;li&gt;</code>是不够的，还要编译<code>&lt;li&gt;</code>，这样像这样的指令才会在正确的scope下执行。</p>
+<p>一种简单的解决方法就是将<code>&lt;li&gt;</code>元素的拷贝插入DOM后并编译它，但是如果编译我们clone的每个<code>&lt;li&gt;</code>元素会造成大量的重复工作。尤其是我们每次都不得不遍历<code>&lt;li&gt;</code>并找到它对应的directives，这样会使整个编译过程非常慢，结果就是当有新的节点插入时，整个应用的响应就会变得很差。</p>
+<p>将编译过程分为两个阶段可以解决上面的问题，在compile阶段，所有的指令都会被识别，并且按照指令的priority进行排序，在Link阶段，将所有对应的scope实例和对应的<code>&lt;li&gt;</code>元素实例进行链接。Link阶段会为DOM元素设定监听器，同时在Scope上设置$watch函数来保持View和Model中数据的一致性。</p>
+<p>ngRepeat在编译的时候不会分开编译每个<code>&lt;li&gt;</code>元素，<code>&lt;li&gt;</code>元素编译返回的结果是一个链接函数，在链接函数中包含所有克隆出的<code>&lt;li&gt;</code>元素，同时链接函数已经准备好和指定的克隆<code>&lt;li&gt;</code>元素进行attach。</p>
+<p>运行时，ngRepeat会watch表达式，当有items被添加时，会创建新的clone <code>&lt;li&gt;</code>元素，并为新的克隆元素创建新的scope，调用链接函数将新的scope与新clone的元素进行绑定。</p>
+<p>为了提高效率，ng-repeat 只有在有新元素添加或删除旧元素的时候，才会创建或删除DOM元素，其余时候，并不会对DOM结构做出改变，这样就提高了页面的渲染速度。当有新的对象创建时，会根据template的内容clone新的DOM元素，调用link function将scope绑定到clone出的元素上，将其加入到DOM树相应的位置。具体理解可以点击下面的链接：<br><a href="https://www.bennadel.com/blog/2443-rendering-dom-elements-with-ngrepeat-in-angularjs.htm" target="_blank" rel="external">Rendering DOM Elements With ngRepeat In AngularJS</a><br><a href="http://jsbin.com/tigejaw/edit?html,css,js,console,output" target="_blank" rel="external">在线Demo</a><br><a href="http://liamkaufman.com/blog/2013/05/13/understanding-angularjs-directives-part1-ng-repeat-and-compile/" target="_blank" rel="external">ng-repeat and compile</a></p>
+
+  </section>
+
+  
+  
+
+<section class="post-comments">
+
+    <div class="ds-thread" data-thread-key="blog/2017/03/15/AngularJS-directive生命周期/"></div>
+
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"lijingjing"};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+    </script> 
+
+</section>
+
+
+</article>
+
+              <footer class="footer">
+
+    <span class="footer__copyright">  &copy; 2017 阿菁菁菁菁菁 | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+
+</footer>
+
+          </div>
+      </div>
+
+    
+
+
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
