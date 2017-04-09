@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      阿菁菁菁菁菁 | 阿菁菁菁菁菁
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="阿菁菁菁菁菁">
+    
+    
+
+    <meta name="description" content="服务提供了一种能在应用的整个生命周期内保持数据的方法，它能够在控制器之间进行通信，并且能保证数据的一致性。
+服务是一个单例对象，在每个应用中只会被实例化一次（被$injector实例化），并且是延迟加载的（需要时才会被创建）。实例化后，injector会一直缓存创建好的实例对象的引用以便之后的使用。服务提供了把与特定功能相关联的方法集中在一起的接口。
+在Angular中创建自己的服务很容易，只需要">
+<meta property="og:type" content="article">
+<meta property="og:title" content="阿菁菁菁菁菁 | 阿菁菁菁菁菁">
+<meta property="og:url" content="http://lijingjing.top/blog/2017/04/08/Angular服务/index.html">
+<meta property="og:site_name" content="阿菁菁菁菁菁">
+<meta property="og:description" content="服务提供了一种能在应用的整个生命周期内保持数据的方法，它能够在控制器之间进行通信，并且能保证数据的一致性。
+服务是一个单例对象，在每个应用中只会被实例化一次（被$injector实例化），并且是延迟加载的（需要时才会被创建）。实例化后，injector会一直缓存创建好的实例对象的引用以便之后的使用。服务提供了把与特定功能相关联的方法集中在一起的接口。
+在Angular中创建自己的服务很容易，只需要">
+<meta property="og:updated_time" content="2017-04-09T12:49:05.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="阿菁菁菁菁菁 | 阿菁菁菁菁菁">
+<meta name="twitter:description" content="服务提供了一种能在应用的整个生命周期内保持数据的方法，它能够在控制器之间进行通信，并且能保证数据的一致性。
+服务是一个单例对象，在每个应用中只会被实例化一次（被$injector实例化），并且是延迟加载的（需要时才会被创建）。实例化后，injector会一直缓存创建好的实例对象的引用以便之后的使用。服务提供了把与特定功能相关联的方法集中在一起的接口。
+在Angular中创建自己的服务很容易，只需要">
+
+    
+    
+      <link rel="icon" type="image/x-icon" href="/images/avatar.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+
+</head>
+<body>
+
+    
+      <header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+        <a href="/" title="link to homepage for 阿菁菁菁菁菁"><img src="/images/avatar.png" width="100" alt="阿菁菁菁菁菁 logo" class="panel-cover__logo logo" /></a>
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">阿菁菁菁菁菁</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+        <h2 class="panel-cover__description panel-description-small">
+          Change takes time.
+        </h2>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+
+        <div class="navigation-wrapper">
+
+
+        <nav class="cover-navigation cover-navigation--primary">
+          <ul class="navigation">
+            
+              
+              <li class="navigation__item"><a href="/blog" title="" class="blog-button">文章</a></li>
+            
+              
+              <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+            
+              
+              <li class="navigation__item"><a href="/about" title="" class="">关于我</a></li>
+            
+
+          </ul>
+        </nav>
+
+      <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/BabysbreathJJ" title="阿菁 on GitHub">
+          <i class='icon icon-social-github'></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+      <li class="navigation__item">
+        <a href="mailto:lijingjing1008@gmail.com" title="阿菁‘s e-mail">
+          <i class='icon icon-mail'></i>
+          <span class="label">Mail</span>
+        </a>
+      </li>
+      <li class="navigation__item">
+        <a href="http://weibo.com/2797656002/profile" title="阿菁 on Weibo">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+      </li>
+    
+
+    <!-- China social icon -->
+    <!--
+
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-douban'></i>
+          <span class="label">Douban</span>
+        </a>
+      </li>
+
+
+
+    -->
+
+
+
+  </ul>
+</nav>
+
+
+
+
+      <nav class="cover-navigation cover-navigation--primary">
+        <h2 class="panel-cover__description panel-description-small">
+        友情链接
+        </h2>
+        <ul class="navigation">
+          
+            <li class="friend__item"><a target="_blank" href="http://gaocegege.com/Blog" title="" class="">高策</a></li>
+          
+            <li class="friend__item"><a target="_blank" href="http://lizheming.top/" title="" class="">黎哲明</a></li>
+          
+            <li class="friend__item"><a target="_blank" href="http://peipeili.cn/" title="" class="">李佩佩</a></li>
+          
+
+        </ul>
+      </nav>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+      <span class="mobile btn-mobile-menu">
+          <i class="icon icon-list btn-mobile-menu__icon"></i>
+          <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+      </span>
+      <div class="content-wrapper">
+          <div class="content-wrapper__inner entry">
+              
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+
+    <h1 class="post-title">Angular服务</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2017-04-08" class="post-meta__date date">2017-04-08</time>
+
+      <span class="post-meta__tags tags">
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/AngularJS/">AngularJS</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/Service/">Service</a>
+            </font>
+          
+        </span>
+     </div>
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <p>服务提供了一种能在应用的整个生命周期内保持数据的方法，它能够在控制器之间进行通信，并且能保证数据的一致性。</p>
+<p>服务是一个<strong>单例对象</strong>，在每个应用中只会被实例化一次（被$injector实例化），并且是延迟加载的（需要时才会被创建）。实例化后，injector会一直缓存创建好的实例对象的引用以便之后的使用。服务提供了把与特定功能相关联的方法集中在一起的接口。</p>
+<p>在Angular中创建自己的服务很容易，只需要注册这个服务即可。服务被注册后，AngularJS编译器就可以引用它，并且在运行时把它当作依赖加载进来。服务名称的注册表使得在测试中伪造和剔除相互隔离的应用依赖变得非常容易。</p>
+<p>可以在控制器、指令、过滤器或另外一个服务中通过依赖声明的方式来使用服务。Angular会像平时一样在运行期自动处理实例化和依赖加载的相关事宜。<br>将服务的名字当作参数传递给控制器函数，可以将服务注入到控制器中。当服务成为了某个控制器的依赖，就可以在控制器中调用任何定义在这个服务对象上的方法。eg:在所有页面之间共享用户名等数据，可以创建一个service在每个controller里注册这个service，添加对其的依赖，就可以获取之前设置过的用户名等数据。</p>
+<h3 id="创建服务"><a href="#创建服务" class="headerlink" title="创建服务"></a>创建服务</h3><p>在Angular中，factory()是用来注册服务最常规的方式，公有5种方法用来创建服务：</p>
+<ol>
+<li>factory()</li>
+<li>service()</li>
+<li>constant()</li>
+<li>value()</li>
+<li>provider()<h4 id="factory"><a href="#factory" class="headerlink" title="factory()"></a>factory()</h4>factory()方法是创建和配置服务最快捷的方式，其接收两个参数：</li>
+</ol>
+<p><strong>name(String)</strong>:需要注册的服务名；<br><strong>getFn(Function)</strong>:这个函数会在AngularJS创建服务实例时被调用。可以返回简单类型、函数，甚至对象等任意类型的数据。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">angular.module(<span class="string">"myApp"</span>)</div><div class="line">.factory(<span class="string">'myService'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> &#123;</div><div class="line">		<span class="string">'username'</span> : <span class="string">'auser'</span></div><div class="line">	&#125;;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>因为服务是单例对象，getFn在应用的生命周期内只会被调用一次。<br>同其他AngularJS的服务一样，在定义服务时，getFn可以接受一个包含可被注入对象的数组或函数。</p>
+<h4 id="service"><a href="#service" class="headerlink" title="service()"></a>service()</h4><p>使用service()可以注册一个<strong>支持构造函数</strong>的服务，它允许我们为服务对象注册一个构造函数。<br>service()接受两个参数：<br><strong>name(String)</strong>:要注册的服务名称<br><strong>constructor(Function)</strong>:构造函数，我们调用它来实例化服务对象</p>
+<p>service()函数会在创建实例时通过new关键字来实例化服务对象。遵循constructor injection的设计模式。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Person = <span class="function"><span class="keyword">function</span>(<span class="params">$http</span>) </span>&#123;</div><div class="line">	<span class="keyword">this</span>.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">		<span class="keyword">return</span> $http (&#123;<span class="attr">method</span>: <span class="string">'GET'</span>, <span class="attr">url</span>: <span class="string">'/api/user'</span>&#125;);</div><div class="line">	&#125;</div><div class="line">&#125;;</div><div class="line">angular.service(<span class="string">'personService'</span>, Person);</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">UnicornLauncher</span>(<span class="params">apiToken</span>) </span>&#123;</div><div class="line"></div><div class="line">  <span class="keyword">this</span>.launchedCount = <span class="number">0</span>;</div><div class="line">  <span class="keyword">this</span>.launch = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// Make a request to the remote API and include the apiToken</span></div><div class="line">    ...</div><div class="line">    this.launchedCount++;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">//使用factory()</span></div><div class="line">myApp.factory(<span class="string">'unicornLauncher'</span>, [<span class="string">"apiToken"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">apiToken</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> UnicornLauncher(apiToken);</div><div class="line">&#125;]);</div><div class="line"><span class="comment">//使用service()是最合适的，创建实例时会自动通过new操作符来实例化对象</span></div><div class="line">myApp.service(<span class="string">'unicornLauncher'</span>, [<span class="string">"apiToken"</span>, UnicornLauncher]);<span class="comment">//需要的参数可以通过依赖来添加</span></div></pre></td></tr></table></figure>
+<h4 id="provider"><a href="#provider" class="headerlink" title="provider()"></a>provider()</h4><p>所有服务工厂都是由<code>$provide</code>服务创建的，<code>$provide</code>服务负责在运行时初始化这些提供者。</p>
+<p>提供者是一个具有<code>$get()</code>方法的对象，<code>$injector</code>通过调用<code>$get</code>方法创建服务实例。<code>$provide</code>提供了数个不同的API用于创建服务，每个方法都有各自的特殊用途。</p>
+<p>所有创建服务的方法都构建在provider方法智商。provide()方法负责在<code>$providerCache</code>中注册服务。</p>
+<p>从技术上来说，当我们假定传入的函数就是$get()时，factory()函数就是用provider()方法注册服务的简略形式。</p>
+<p>下面两种方法的作用完全一样，并且会创建同一个服务。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">angular.module(<span class="string">'myApp'</span>)</div><div class="line">.factory(<span class="string">'myService'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> &#123;</div><div class="line">		<span class="string">'username'</span> : <span class="string">'auser'</span></div><div class="line">	&#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line">.provider(<span class="string">'myService'</span>, &#123;</div><div class="line">	<span class="attr">$get</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="keyword">return</span> &#123;</div><div class="line">			<span class="string">'username'</span> : <span class="string">'auser'</span></div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>是否可以一直使用.factory()方法来替代.provider()？<br>答案取决于你是否需要用AngularJS的.config()函数来对.provider()方法返回的服务进行额外的扩展配置。同其他创建服务的方法不同，config()方法可以被注入特殊的参数。</p>
+<p>比如，我们希望在应用启动前配置githubService的URL：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">angular.module(<span class="string">'myApp'</span>, [])</div><div class="line">.provider(<span class="string">'githubService'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">$http</span>) </span>&#123;</div><div class="line"><span class="comment">//默认的，私有状态</span></div><div class="line">	<span class="keyword">var</span> githubUrl = <span class="string">'http://github.com'</span></div><div class="line">	</div><div class="line">	setGithubUrl: <span class="function"><span class="keyword">function</span>(<span class="params">url</span>) </span>&#123;</div><div class="line">	<span class="comment">//通过.config改变默认属性</span></div><div class="line">		<span class="keyword">if</span>(url) &#123;</div><div class="line">			githubUrl = url;</div><div class="line">		&#125;</div><div class="line">	&#125;,</div><div class="line">	<span class="attr">method</span>: JSONP,<span class="comment">//如果需要可以重写</span></div><div class="line">	</div><div class="line">	$get: <span class="function"><span class="keyword">function</span>(<span class="params">$http</span>) </span>&#123;</div><div class="line">		self = <span class="keyword">this</span>;</div><div class="line">		<span class="keyword">return</span> $http(&#123;</div><div class="line">			<span class="attr">method</span>: self.method,</div><div class="line">			<span class="attr">url</span>: githubUrl + <span class="string">'/events'</span></div><div class="line">		&#125;);</div><div class="line">	&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>在上面的例子中，provider()方法在文本githubService后添加Provider生成了一个新的提供者，githubServiceProvider可以被注入到config()函数中。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">angular.module(<span class="string">'myApp'</span>,[])</div><div class="line">.config(<span class="function"><span class="keyword">function</span>(<span class="params">githubServiceProvider</span>)</span>&#123;</div><div class="line">	githubServiceProvider.setGithubUrl(<span class="string">"git@github.com"</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p><strong>如果希望在config()函数中可以对服务进行配置，必须用provider()来定义服务。</strong></p>
+<p>通过使用.provider()方法，可以在多个应用使用同一个服务时获得更强的扩展性，特别是在不同应用或开源社区之间共享服务时。</p>
+<p>provider()方法为服务注册提供者。可以接受两个参数：<br><strong>name(String)</strong>:name参数在providerCache中是注册的名字。nameProvider会成为服务的提供者，同时name也是服务实例的名字。eg: 如果定义了一个githubService,那么它的提供者就是githubServiceProvider。<br><strong>aProvider</strong>:如果aProvider是<strong>函数</strong>，那么它会通过依赖注入被调用，并且负责通过<code>$get</code>方法返回一个对象；如果aProvider是<strong>数组</strong>，会被当作一个带有行内依赖注入声明的函数来处理。数组的最后一个元素应该是函数，可以返回一个带有<code>$get</code>方法的对象；如果aProvider是<strong>对象</strong>，它应该带有<code>$get</code>方法。<br>provider()函数返回一个已经注册的提供者实例。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">angular.module(<span class="string">'myApp'</span>,[])</div><div class="line">.provider(<span class="string">'userService'</span>,&#123;</div><div class="line">	<span class="attr">favoriteColor</span>: <span class="literal">null</span>,</div><div class="line">	<span class="attr">setFavoriteColor</span> : <span class="function"><span class="keyword">function</span>(<span class="params">newColor</span>) </span>&#123;</div><div class="line">		<span class="keyword">this</span>.favoriteColor = newColor;</div><div class="line">	&#125;,</div><div class="line">	<span class="attr">$get</span>: <span class="function"><span class="keyword">function</span>(<span class="params">$http</span>) </span>&#123;</div><div class="line">		<span class="keyword">return</span> &#123;</div><div class="line">			<span class="string">'name'</span> : <span class="string">'Ari'</span>,</div><div class="line">			<span class="attr">getFavoriteColor</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">				<span class="keyword">return</span> <span class="keyword">this</span>.favoriteColor || <span class="string">'unknown'</span>;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>直接使用provider()API是最原始的创建服务的方法，用provider()方法必须返回一个定义有<code>$get()</code>函数的对象，否则会导致错误。</p>
+<p>可以通过注入器来实例化服务(由于AngularJS会处理服务的实例化，我们不用自己手动实例化)。</p>
+<h4 id="constant"><a href="#constant" class="headerlink" title="constant()"></a>constant()</h4><p>可以将一个已经存在的变量值注册为服务，并将其注入到应用的其他部分中。在AngularJS生命周期的配置阶段和运行阶段均可以被访问。其余服务要在运行阶段才可以被访问，即在配置阶段config()是不可以访问其他服务。</p>
+<p>constant()接受两个参数。<br><strong>name(String)</strong>:需要注册的常量的名字<br><strong>value(constant)</strong>:需要注册的常量的值（值或者对象）<br>constant()方法返回一个注册后的服务实例。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">angular.module(<span class="string">'myApp'</span>)</div><div class="line">.constant(<span class="string">'apiKey'</span>,<span class="string">'123123123'</span>);</div></pre></td></tr></table></figure>
+<p>这个常量服务可以像其他服务一样被注入到配置函数中。</p>
+<p><strong>常量不能被装饰器拦截。</strong></p>
+<h4 id="value"><a href="#value" class="headerlink" title="value()"></a>value()</h4><p>如果服务的<code>$get</code>方法返回的是一个常量，那就没必要定义一个包含复杂功能的完成服务，可以通过value()函数方便地注册服务。</p>
+<p>value()接受两个参数：<br><strong>name(String)</strong>:需要注册的服务名<br><strong>value(value)</strong>:这个值将作为注入的实例返回<br>value()方法返回以name参数的值为名的注册后的服务实例。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">angular.module(<span class="string">'myApp'</span>,[])</div><div class="line">.value(<span class="string">'apiKey'</span>,<span class="string">'123123123'</span>);</div></pre></td></tr></table></figure>
+<h5 id="何时使用value-和constant"><a href="#何时使用value-和constant" class="headerlink" title="何时使用value()和constant()"></a>何时使用value()和constant()</h5><p>value()和constant()的最主要区别是：常量可以注入到配置函数中，而值不行。<br>通常情况下，可以通过value()来注册服务对象或函数，用constant()来配置数据。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">angular.module(<span class="string">'myApp'</span>,[])</div><div class="line">.constant(<span class="string">'apiKey'</span>,<span class="string">'123123123'</span>)</div><div class="line">.config(<span class="function"><span class="keyword">function</span>(<span class="params">apiKey</span>)</span>&#123;</div><div class="line">	<span class="comment">//可拿到apiKey的值</span></div><div class="line">&#125;)</div><div class="line"></div><div class="line">.value(<span class="string">'FBid'</span>,<span class="string">'231231'</span>)</div><div class="line">.config(<span class="function"><span class="keyword">function</span>(<span class="params">FBid</span>)</span>&#123;</div><div class="line">	<span class="comment">//抛出一个错误，未知的provider:FBid</span></div><div class="line">	<span class="comment">//因为在config函数内部无法访问这个值</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h3 id="decorator"><a href="#decorator" class="headerlink" title="decorator()"></a>decorator()</h3><p><code>$provider</code>服务提供了在服务实例创建时对其进行拦截的功能，可以对服务进行扩展，或者用其他的内容完全替代它。</p>
+<p>装饰器的功能非常强大，不仅可以应用在我们自己的服务上，也可以对AngularJS的核心服务进行拦截、中断甚至替换功能的操作。事实上，AngularJS中很多功能的测试就是借助<code>$provider.decorator()</code>建立的。</p>
+<p>对服务进行装饰的场景很多，比如对服务进行扩展，将外部数据缓存进localStorage的功能，或者对服务进行封装以便在开发中进行调试和跟踪等。</p>
+<p>例如，我们想给之前定义的gitHubService服务加入日志功能，可以借助decorator()函数方便地实现这个功能，而不需要对原始的服务进行修改。<br>decorator()函数可以接受两个参数：<br><strong>name(String)</strong>: 将要拦截的服务名称<br><strong>decoratorFn(Function)</strong>:在服务实例化时调用该函数，这个函数由injector.invoke调用，可以将服务注入这个函数中。</p>
+<p>$delegate是可以进行装饰的最原始的服务，为了装饰其他服务，需要将其注入进装饰器。</p>
+<p>下面的代码展示了如何给githubService添加装饰器，从而为每个请求都加上一个时间戳：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> githubDecorator = <span class="function"><span class="keyword">function</span>(<span class="params">$delegate, $log</span>) </span>&#123;</div><div class="line">	<span class="keyword">var</span> events = <span class="function"><span class="keyword">function</span>(<span class="params">path</span>) </span>&#123;</div><div class="line">		<span class="keyword">var</span> startedAt = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">		<span class="keyword">var</span> events = $delegate.events(path);</div><div class="line">		<span class="comment">//事件是一个promise</span></div><div class="line">		events.finally(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">			$log.info(<span class="string">"Fetching events took"</span> + (<span class="keyword">new</span> <span class="built_in">Date</span>() - startedAt) + <span class="string">"ms"</span>);</div><div class="line">		&#125;);</div><div class="line">		</div><div class="line">		<span class="keyword">return</span> events;</div><div class="line">	&#125;;</div><div class="line">	<span class="keyword">return</span> &#123;</div><div class="line">		<span class="attr">events</span>: events</div><div class="line">	&#125;;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">angular.module(<span class="string">'myApp'</span>)</div><div class="line">.config(<span class="function"><span class="keyword">function</span>(<span class="params">$provide</span>) </span>&#123;</div><div class="line">	$provider.decorator(<span class="string">'githubService'</span>, githubDecorator);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+
+  </section>
+
+  
+  
+
+<section class="post-comments">
+
+    <div class="ds-thread" data-thread-key="blog/2017/04/08/Angular服务/"></div>
+
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"lijingjing"};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+    </script> 
+
+</section>
+
+
+</article>
+
+              <footer class="footer">
+
+    <span class="footer__copyright">  &copy; 2017 阿菁菁菁菁菁 | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+
+</footer>
+
+          </div>
+      </div>
+
+    
+
+
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>

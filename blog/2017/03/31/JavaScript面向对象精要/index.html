@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      阿菁菁菁菁菁 | 阿菁菁菁菁菁
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="阿菁菁菁菁菁">
+    
+    
+
+    <meta name="description" content="原始类型和引用类型原始类型保存为简单数据值。引用类型则保存为对象，其本质是指向内存位置的引用。
+其他语言用栈储存原始类型，用堆储存引用类型，JS则不同，它使用一个变量对象追踪变量的生存期，原始值被直接保存在变量对象内，而引用值则作为一个指针保存在变量对象内，该指针指向实际对象在内存中的存储位置。
+原始类型原始类型代表照原样保存的一些简单数据。JS一共有五种原始类型：
+
+
+
+类型
+
+
+
+
+boole">
+<meta property="og:type" content="article">
+<meta property="og:title" content="阿菁菁菁菁菁 | 阿菁菁菁菁菁">
+<meta property="og:url" content="http://lijingjing.top/blog/2017/03/31/JavaScript面向对象精要/index.html">
+<meta property="og:site_name" content="阿菁菁菁菁菁">
+<meta property="og:description" content="原始类型和引用类型原始类型保存为简单数据值。引用类型则保存为对象，其本质是指向内存位置的引用。
+其他语言用栈储存原始类型，用堆储存引用类型，JS则不同，它使用一个变量对象追踪变量的生存期，原始值被直接保存在变量对象内，而引用值则作为一个指针保存在变量对象内，该指针指向实际对象在内存中的存储位置。
+原始类型原始类型代表照原样保存的一些简单数据。JS一共有五种原始类型：
+
+
+
+类型
+
+
+
+
+boole">
+<meta property="og:updated_time" content="2017-03-31T13:40:36.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="阿菁菁菁菁菁 | 阿菁菁菁菁菁">
+<meta name="twitter:description" content="原始类型和引用类型原始类型保存为简单数据值。引用类型则保存为对象，其本质是指向内存位置的引用。
+其他语言用栈储存原始类型，用堆储存引用类型，JS则不同，它使用一个变量对象追踪变量的生存期，原始值被直接保存在变量对象内，而引用值则作为一个指针保存在变量对象内，该指针指向实际对象在内存中的存储位置。
+原始类型原始类型代表照原样保存的一些简单数据。JS一共有五种原始类型：
+
+
+
+类型
+
+
+
+
+boole">
+
+    
+    
+      <link rel="icon" type="image/x-icon" href="/images/avatar.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+
+</head>
+<body>
+
+    
+      <header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+        <a href="/" title="link to homepage for 阿菁菁菁菁菁"><img src="/images/avatar.png" width="100" alt="阿菁菁菁菁菁 logo" class="panel-cover__logo logo" /></a>
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">阿菁菁菁菁菁</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+        <h2 class="panel-cover__description panel-description-small">
+          Change takes time.
+        </h2>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+
+        <div class="navigation-wrapper">
+
+
+        <nav class="cover-navigation cover-navigation--primary">
+          <ul class="navigation">
+            
+              
+              <li class="navigation__item"><a href="/blog" title="" class="blog-button">文章</a></li>
+            
+              
+              <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+            
+              
+              <li class="navigation__item"><a href="/about" title="" class="">关于我</a></li>
+            
+
+          </ul>
+        </nav>
+
+      <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/BabysbreathJJ" title="阿菁 on GitHub">
+          <i class='icon icon-social-github'></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+      <li class="navigation__item">
+        <a href="mailto:lijingjing1008@gmail.com" title="阿菁‘s e-mail">
+          <i class='icon icon-mail'></i>
+          <span class="label">Mail</span>
+        </a>
+      </li>
+      <li class="navigation__item">
+        <a href="http://weibo.com/2797656002/profile" title="阿菁 on Weibo">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+      </li>
+    
+
+    <!-- China social icon -->
+    <!--
+
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-douban'></i>
+          <span class="label">Douban</span>
+        </a>
+      </li>
+
+
+
+    -->
+
+
+
+  </ul>
+</nav>
+
+
+
+
+      <nav class="cover-navigation cover-navigation--primary">
+        <h2 class="panel-cover__description panel-description-small">
+        友情链接
+        </h2>
+        <ul class="navigation">
+          
+            <li class="friend__item"><a target="_blank" href="http://gaocegege.com/Blog" title="" class="">高策</a></li>
+          
+            <li class="friend__item"><a target="_blank" href="http://lizheming.top/" title="" class="">黎哲明</a></li>
+          
+            <li class="friend__item"><a target="_blank" href="http://peipeili.cn/" title="" class="">李佩佩</a></li>
+          
+
+        </ul>
+      </nav>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+      <span class="mobile btn-mobile-menu">
+          <i class="icon icon-list btn-mobile-menu__icon"></i>
+          <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+      </span>
+      <div class="content-wrapper">
+          <div class="content-wrapper__inner entry">
+              
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+
+    <h1 class="post-title">JavaScript面向对象精要</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2017-03-31" class="post-meta__date date">2017-03-31</time>
+
+      <span class="post-meta__tags tags">
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/JavaScript-Object-oriented/">JavaScript Object-oriented</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/JavaScript/">JavaScript</a>
+            </font>
+          
+        </span>
+     </div>
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h3 id="原始类型和引用类型"><a href="#原始类型和引用类型" class="headerlink" title="原始类型和引用类型"></a>原始类型和引用类型</h3><p>原始类型保存为简单数据值。引用类型则保存为对象，其本质是指向内存位置的引用。</p>
+<p>其他语言用栈储存原始类型，用堆储存引用类型，JS则不同，它使用一个变量对象追踪变量的生存期，原始值被直接保存在变量对象内，而引用值则作为一个指针保存在变量对象内，该指针指向实际对象在内存中的存储位置。</p>
+<h4 id="原始类型"><a href="#原始类型" class="headerlink" title="原始类型"></a>原始类型</h4><p>原始类型代表照原样保存的一些简单数据。JS一共有五种原始类型：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>boolean</td>
+<td>布尔，值为true或false</td>
+</tr>
+<tr>
+<td>number</td>
+<td>数字，值为任何整型或浮点数值</td>
+</tr>
+<tr>
+<td>string</td>
+<td>字符串，值为由单引号或双引号括出的单个字符或连续字符（JS不区分字符类型）</td>
+</tr>
+<tr>
+<td>null</td>
+<td>空类型，该原始类型仅有一个值： null</td>
+</tr>
+<tr>
+<td>undefined</td>
+<td>未定义，该原始类型仅有一个值： undefined（undefined会被赋给一个还没有初始化的变量）</td>
+</tr>
+</tbody>
+</table>
+<p>每个含有原始值的变量使用自己的存储空间，一个变量的改变不会影响到其他变量。</p>
+<p>鉴别原始类型的最佳方法是使用typeof操作符，返回一个说明数据类型的<strong>字符串</strong>。<br><code>typeof(null)</code>返回’object’。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(<span class="number">4</span>)); <span class="comment">// number</span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(<span class="string">"aaa"</span>));<span class="comment">// string</span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(<span class="literal">true</span>)); <span class="comment">// boolean</span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(<span class="literal">undefined</span>)); <span class="comment">// undefined</span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(<span class="literal">null</span>)); <span class="comment">// object</span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(<span class="keyword">typeof</span>(<span class="number">4</span>))); <span class="comment">// string</span></div></pre></td></tr></table></figure>
+<p>判断一个值是不是空类型的最佳方法是直接和null比较，<code>console.log(value === null); //true or false</code><br><strong><code>console.log(undefined == null); //true</code></strong><br>尽管原始类型拥有方法，但它们不是对象。</p>
+<h4 id="引用类型"><a href="#引用类型" class="headerlink" title="引用类型"></a>引用类型</h4><p>引用值是引用类型的实例。对象是属性的无序列表。属性包含键（始终是字符串）和值。如果一个属性的值是函数，它就成为方法。JS中的函数其实是引引用值，除了函数可以运行外，一个包含数组的属性和一个包含函数的属性没有什么区别。<br>在使用对象前，你必须先创建它们。</p>
+<h5 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h5><p>使用new操作符和构造函数。 构造函数就是通过new操作符来创建对象的函数——任何函数都可以是构造函数。 </p>
+<p>JS的构造函数用首字母大写来跟非构造函数进行区分。</p>
+<p>引用类型不在变量中直接保存对象，而是包含一个指向内存中实际对象所在位置的指针（引用），这是对象和原始值之间的一个基本差别，原始值是直接保存在变量中的。</p>
+<p>当你将一个对象赋值给变量时，实际是赋值给这个变量一个指针，这意味着，将一个变量赋值给另一个变量时，两个变量各获得了一份指针的拷贝，指向内存中的同一个对象。</p>
+<h5 id="对象引用接触"><a href="#对象引用接触" class="headerlink" title="对象引用接触"></a>对象引用接触</h5><p>JS有垃圾收集功能，因此当你使用引用类型时无需担心内存分配。但最好在不适用对象时将其引用解除。将对象变量置为null，让垃圾收集器对那块内存进行释放。</p>
+<h5 id="添加和删除属性"><a href="#添加和删除属性" class="headerlink" title="添加和删除属性"></a>添加和删除属性</h5><p>JS可以随时添加和删除属性。</p>
+<h4 id="内建类型实例化"><a href="#内建类型实例化" class="headerlink" title="内建类型实例化"></a>内建类型实例化</h4><table>
+<thead>
+<tr>
+<th>内建类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Array</td>
+<td>数组类型，以数字为索引的一组值的有序列表</td>
+</tr>
+<tr>
+<td>Date</td>
+<td>日期和时间类型</td>
+</tr>
+<tr>
+<td>Error</td>
+<td>运行期错误类型（还有一些更特别的错误的子类型）</td>
+</tr>
+<tr>
+<td>Function</td>
+<td>函数类型</td>
+</tr>
+<tr>
+<td>Object</td>
+<td>通用对象类型</td>
+</tr>
+<tr>
+<td>RegExp</td>
+<td>正则表达式类型</td>
+</tr>
+</tbody>
+</table>
+<h5 id="字面形式"><a href="#字面形式" class="headerlink" title="字面形式"></a>字面形式</h5><p>内建引用类型有字面形式。字面形式允许你在不需要使用new操作符和构造函数显示创建对象的情况下生成引用值。（JS引擎背后做的工作和使用new操作符来创建对象是一样的 ）</p>
+<h4 id="访问属性"><a href="#访问属性" class="headerlink" title="访问属性"></a>访问属性</h4><p>两种方式，<code>object.attr</code>和<code>object[attr]</code></p>
+<h4 id="鉴别引用类型"><a href="#鉴别引用类型" class="headerlink" title="鉴别引用类型"></a>鉴别引用类型</h4><p>函数可以直接用typeof来识别，如果是函数，会直接返回<code>function</code><br>对其他引用类型的鉴别，使用typeof来鉴别会返回object,可以使用instanceof来判断实例与对象之间的关系，也可以鉴别继承关系。</p>
+<p><strong>鉴别数组最好的方法是使用Array.isArray(object);</strong></p>
+<h4 id="原始封装类型"><a href="#原始封装类型" class="headerlink" title="原始封装类型"></a>原始封装类型</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> name = <span class="string">"Nicholas"</span>;</div><div class="line"><span class="keyword">var</span> firstChar = name.charAt(<span class="number">0</span>);</div><div class="line"><span class="built_in">console</span>.log(firstChar);</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//背后发生的事情如下</span></div><div class="line"><span class="keyword">var</span> name = <span class="string">"Nicholas"</span>;</div><div class="line"><span class="keyword">var</span> temp = <span class="keyword">new</span> <span class="built_in">String</span>(name);</div><div class="line"><span class="keyword">var</span> firstChar = temp.charAt(<span class="number">0</span>);<span class="comment">//字符串对象的存在仅用于该语句，并在随后被销毁（一种被称为自动打包的过程）</span></div><div class="line">temp = <span class="literal">null</span>;</div><div class="line"><span class="built_in">console</span>.log(firstChar);</div><div class="line"></div><div class="line"><span class="keyword">var</span> name = <span class="string">"Nicholas"</span>;</div><div class="line">name.last = <span class="string">"Zakas"</span>;</div><div class="line"><span class="built_in">console</span>.log(name.last);<span class="comment">// undefined, 原始封装类型的属性会消失，是因为被添加的属性的对象立刻就被销毁了</span></div><div class="line"></div><div class="line"><span class="comment">//JS引擎实际发生的事情</span></div><div class="line"><span class="keyword">var</span> name = <span class="string">"Nicholas"</span>;</div><div class="line"><span class="keyword">var</span> temp = <span class="keyword">new</span> <span class="built_in">String</span>(name);</div><div class="line">temp.last = =<span class="string">"Zakas"</span>;<span class="comment">//实际是在一个理科就被销毁的临时对象上而不是字符串上添加了新的属性</span></div><div class="line">temp = <span class="literal">null</span>;  </div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(name <span class="keyword">instanceof</span> <span class="built_in">String</span>);<span class="comment">//false</span></div></pre></td></tr></table></figure>
+<p>手动创建的原始封装类型在某些时候会让人误解，在大多数情况下只会导致错误。除非有特殊情况，一般应该避免使用原始封装类型。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> found = <span class="keyword">new</span> <span class="built_in">Boolean</span>(<span class="literal">false</span>);<span class="comment">//布尔表达式中的所有对象都会被转换为true</span></div><div class="line"><span class="keyword">if</span>(found) &#123;<span class="comment">//只是在判断对象是否存在</span></div><div class="line">	<span class="built_in">console</span>.log(<span class="string">"Found"</span>);<span class="comment">//会被执行</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">if</span>(found.valueOf()) &#123;<span class="comment">//false</span></div><div class="line">	<span class="built_in">console</span>.log(<span class="string">"Found"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p></p>
+
+  </section>
+
+  
+  
+
+<section class="post-comments">
+
+    <div class="ds-thread" data-thread-key="blog/2017/03/31/JavaScript面向对象精要/"></div>
+
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"lijingjing"};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+    </script> 
+
+</section>
+
+
+</article>
+
+              <footer class="footer">
+
+    <span class="footer__copyright">  &copy; 2017 阿菁菁菁菁菁 | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+
+</footer>
+
+          </div>
+      </div>
+
+    
+
+
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
