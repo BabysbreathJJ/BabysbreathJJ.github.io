@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lijingjing.top/"/>
-  <updated>2017-04-16T13:45:45.000Z</updated>
+  <updated>2017-04-16T13:47:33.000Z</updated>
   <id>http://lijingjing.top/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://lijingjing.top/blog/2017/04/16/%E5%93%8D%E5%BA%94%E5%BC%8FWeb%E8%AE%BE%E8%AE%A1%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
     <id>http://lijingjing.top/blog/2017/04/16/响应式Web设计性能优化/</id>
     <published>2017-04-16T05:54:13.000Z</published>
-    <updated>2017-04-16T13:45:45.000Z</updated>
+    <updated>2017-04-16T13:47:33.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="响应式设计现状"><a href="#响应式设计现状" class="headerlink" title="响应式设计现状"></a>响应式设计现状</h3><h4 id="反模式"><a href="#反模式" class="headerlink" title="反模式"></a>反模式</h4><h5 id="为所有设备加载同样的内容"><a href="#为所有设备加载同样的内容" class="headerlink" title="为所有设备加载同样的内容"></a>为所有设备加载同样的内容</h5><p>为手机和桌面渲染加载完全一样的资源，加载同样的CSS文件，通过媒体查询给不同的分辨率设备提供不同的体验，加载同样的图片，通过缩放来解决不同分辨率下的显示需要。</p>
 <p>会在HTTP拥堵时造成性能急剧下降，且考虑更大分辨率的显示设备如苹果饿Retina显示屏以及超高清电视时，这种解决方案不能很好地扩展显示。</p>
@@ -77,7 +77,7 @@
 <ul>
 <li>UI层将这个请求传递给网络层，网络层随后建立连接，然后下载初始页面。当含有HTML块的数据包到达，就被传递给渲染引擎。渲染引擎将HTML组装成原始文本，然后对文本中的字符开始进行词法分析或解析。这些字符会与一个规则集相比较，我们在HTML文档中指定的文档类型定义（DTD），然后转换成基于规则集的符号。DTD规定了一系列标签，这些标签组成了我们将要使用的语言版本。这些标签就是由一些被分割成有意义片段的字符组成。</li>
 <li>渲染引擎拿到这些符号后，将它们转换成文档对象类型（DOM）元素，DOM是页面元素的内存表现形式，也是JS用于访问页面元素的API。DOM元素被布局成一棵渲染树，渲染引擎会迭代该树。首次迭代中，渲染引擎会布局好DOM元素的位置，下一次迭代就将这些元素绘制到屏幕上。</li>
-<li>如果渲染层在解析和符号化过程中发现了<script>标签，就会暂停下来然后评估接下来要进行的处理。如果<script>标签指向一个外部的JS文件，解析过程暂停，随后网络层接入，下载JS文件，然后初始化JS引擎解析，执行该文件。如果<script>标签包含的是内嵌的JS，渲染引擎暂停，JS引擎被初始化，内嵌的JS会被解析与执行。执行完成后，之前暂停的渲染过程会恢复运行。</li>
+<li>如果渲染层在解析和符号化过程中发现了<code>&lt;script&gt;</code>标签，就会暂停下来然后评估接下来要进行的处理。如果<code>&lt;script&gt;</code>标签指向一个外部的JS文件，解析过程暂停，随后网络层接入，下载JS文件，然后初始化JS引擎解析，执行该文件。如果<code>&lt;script&gt;</code>标签包含的是内嵌的JS，渲染引擎暂停，JS引擎被初始化，内嵌的JS会被解析与执行。执行完成后，之前暂停的渲染过程会恢复运行。</li>
 </ul>
 <h5 id="性能指标"><a href="#性能指标" class="headerlink" title="性能指标"></a>性能指标</h5><ul>
 <li>HTTP请求数<br>当浏览器获取HTML页面时会创建一个HTTP请求，还会创建更多的HTTP请求来获取页面中链接的每个资源。根据网络延迟情况，每个HTTP请求都会使总的页面加载时间增加20~200毫秒（如果考虑可以并行加载资源的浏览器，这个数字会有所不同）。如果只是少量的资源，这些额外的加载时间可以忽略不计，但如果是100个或更多的HTTP请求，将会显著增大总体的Web性能的延迟。</li>
@@ -164,16 +164,16 @@
 <p>浏览器使用的设备像素比的值，可以使用window.devicePixelRatio属性来获取。</p>
 <p>使用srcset的缺点：<br>必须指定可能需要的所有不同的图片，这会额外增加发送的字节数，从而增加额外的负载。但是可以把像素比的映射关系放到服务端来完成来针对这个问题进行优化。</p>
 <p>使用srcset的优点：<br>除了可以让你指定设备的特定使用的多个图像，而无需加载多余的图像之外，还有就是现代的浏览器已经开始支持这个属性了。</p>
-<h5 id="picture属性"><a href="#picture属性" class="headerlink" title="picture属性"></a>picture属性</h5><p>处理响应式图片的另外一个可选性技术是使用<picture>元素。<picture>元素是HTML5中新增的一个元素。从概念上讲，它是一个容器元素，包含了多种不同的源标签，基于不同的视口宽度像素密度指定不同的图片，它也可以容纳一个img标签进行优雅降级。</p>
+<h5 id="picture属性"><a href="#picture属性" class="headerlink" title="picture属性"></a>picture属性</h5><p>处理响应式图片的另外一个可选性技术是使用<picture>元素。<picture>元素是HTML5中新增的一个元素。从概念上讲，它是一个容器元素，包含了多种不同的源标签，基于不同的视口宽度像素密度指定不同的图片，它也可以容纳一个img标签进行优雅降级。</picture></picture></p>
 <p><source>属性支持media属性，使用它可以指明要关注的媒体类型和目标CSS属性。source元素还有src属性，使用这个属性来指明针对目标的媒体类型和CSS属性所随影要下载的图片。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">picture</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">source</span> <span class="attr">media</span> = <span class="string">"(min-width: 640px, min-device-pixel-ratio:2)"</span> <span class="attr">src</span>=<span class="string">"hi-res_small.jpg"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">source</span> <span class="attr">media</span> = <span class="string">"(min-width: 2048px, min-device-pixel-ratio:2)"</span> <span class="attr">src</span>=<span class="string">"hi-res_large.jpg"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"1x.png"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">picture</span>&gt;</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">&lt;!--&lt;picture&gt;同样可以支持srcset属性--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">picture</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">source</span> <span class="attr">srcset</span>=<span class="string">"big.jpg 1x, big-2x.jpg 2x, big-3x.jpg 3x"</span> <span class="attr">type</span>=<span class="string">"image/jpeg"</span> <span class="attr">media</span> = <span class="string">"(min-width: 40em)"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">source</span> <span class="attr">srcset</span>=<span class="string">"big.jpg 1x, big-2x.jpg 2x, big-3x.jpg 3x"</span> <span class="attr">type</span>=<span class="string">"image/jpeg"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"1x.png"</span> <span class="attr">alt</span>=<span class="string">"fancy pants"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">picture</span>&gt;</span></div></pre></td></tr></table></figure>
-<h5 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h5><p>不管是srcset属性还是<picture>元素，它们都是我们可能用到的解决方案。如果从性能的角度来比较两种方案，我们会发现，在理论上，它们只会下载最适合客户端设备特性的资源，但是<picture>元素很明显比使用了srcset属性的<img>标签更冗长。</p>
-<p>如果我们想对它们使用的字节数进行量化比较，以上述代码为例，使用srcset属性的<img>标签使用了95个字节，而<picture>元素使用了231个字节，srcset属性的方式比<picture>元素的方式节约了近60%的字节数。所以当页面中<img>标签很多时，这种差距是不能忽视的。</p>
+<h5 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h5><p>不管是srcset属性还是<picture>元素，它们都是我们可能用到的解决方案。如果从性能的角度来比较两种方案，我们会发现，在理论上，它们只会下载最适合客户端设备特性的资源，但是<picture>元素很明显比使用了srcset属性的<img>标签更冗长。</picture></picture></p>
+<p>如果我们想对它们使用的字节数进行量化比较，以上述代码为例，使用srcset属性的<img>标签使用了95个字节，而<picture>元素使用了231个字节，srcset属性的方式比<picture>元素的方式节约了近60%的字节数。所以当页面中<img>标签很多时，这种差距是不能忽视的。</picture></picture></p>
 <p>####延迟加载<br>如何在客户端使用某一个策略——在页面渲染时只加载适用于该设备的资源？<br>答案是使用延迟加载。</p>
 <p>使用延迟加载，它会在真正需要的时候才会去加载相关的内容。一个延迟加载的例子就是无限滚动：只有真正需要显示的内容才会被显示到“显著位置”（设备中展示在屏幕范围内的内容），当用户向下滑动后，更多的内容才会被下载并渲染显示到屏幕上。<br>因此，我们第一次需要加载HTML语义结构的股价，然后根据客户端的特性，延迟加载相应的CSS和JS。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">	<span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="keyword">var</span> client = determineClient();</div><div class="line">		<span class="keyword">var</span> section = [<span class="string">"head"</span>,<span class="string">"body"</span>,<span class="string">"client"</span>];</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">var</span> n = <span class="number">0</span>; n &lt; sections.length; n++) &#123;</div><div class="line">			loadSection(n,client);</div><div class="line">		&#125;</div><div class="line">		</div><div class="line">		<span class="function"><span class="keyword">function</span> <span class="title">loadSection</span>(<span class="params">n,client</span>) </span>&#123;</div><div class="line">			<span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</div><div class="line">			xhr.open(<span class="string">"get"</span>,client.sectionURLs[section],<span class="literal">true</span>);</div><div class="line">			xhr.send();</div><div class="line">			xhr.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">				<span class="built_in">document</span>.getElementById(xhr.section).innerHTML = xhr.responseText;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		</div><div class="line">		<span class="function"><span class="keyword">function</span> <span class="title">determineClient</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		 ...</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
 <p><strong>浏览器默认的延迟加载项</strong><br>浏览器将自动延迟加载CSS背景图。如果display属性被设置成none,那么背景图片只有当display属性设置成visible的时候才会被加载。这是页面中延迟加载默认图片的另外一种使用策略。</p>
-</script></li></ul>]]></content>
+]]></content>
     
     <summary type="html">
     
