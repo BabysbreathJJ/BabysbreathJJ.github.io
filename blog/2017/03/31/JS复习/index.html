@@ -16,19 +16,19 @@
     
     
 
-    <meta name="description" content="标签可以引入外部资源，也可以在页面中直接包含一段JS代码，包含内容默认是type=&amp;quot;text/javascript&amp;quot;。引入外部资源时，要使用src属性，引入的外部资源不一定是当前域中的JS文件。（所以一般要引入属于自己的域中的文件或是某个受信任的域的文件，否则某个域中的JS文件被恶意修改后，你会引入恶意JS代码）。
-延迟加载一般JS加载是解析执行完之后才去解析执行之后的内容，所">
+    <meta name="description" content="&amp;lt;script&amp;gt;&amp;lt;script&amp;gt;标签可以引入外部资源，也可以在页面中直接包含一段JS代码，包含内容默认是type=&amp;quot;text/javascript&amp;quot;。引入外部资源时，要使用src属性，引入的外部资源不一定是当前域中的JS文件。（所以一般要引入属于自己的域中的文件或是某个受信任的域的文件，否则某个域中的JS文件被恶意修改后，你会引入恶意JS代码）。
+延迟加">
 <meta property="og:type" content="article">
 <meta property="og:title" content="阿菁菁菁菁菁 | 阿菁菁菁菁菁">
 <meta property="og:url" content="http://lijingjing.top/blog/2017/03/31/JS复习/index.html">
 <meta property="og:site_name" content="阿菁菁菁菁菁">
-<meta property="og:description" content="标签可以引入外部资源，也可以在页面中直接包含一段JS代码，包含内容默认是type=&amp;quot;text/javascript&amp;quot;。引入外部资源时，要使用src属性，引入的外部资源不一定是当前域中的JS文件。（所以一般要引入属于自己的域中的文件或是某个受信任的域的文件，否则某个域中的JS文件被恶意修改后，你会引入恶意JS代码）。
-延迟加载一般JS加载是解析执行完之后才去解析执行之后的内容，所">
-<meta property="og:updated_time" content="2017-04-08T04:11:35.000Z">
+<meta property="og:description" content="&amp;lt;script&amp;gt;&amp;lt;script&amp;gt;标签可以引入外部资源，也可以在页面中直接包含一段JS代码，包含内容默认是type=&amp;quot;text/javascript&amp;quot;。引入外部资源时，要使用src属性，引入的外部资源不一定是当前域中的JS文件。（所以一般要引入属于自己的域中的文件或是某个受信任的域的文件，否则某个域中的JS文件被恶意修改后，你会引入恶意JS代码）。
+延迟加">
+<meta property="og:updated_time" content="2017-04-16T13:55:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="阿菁菁菁菁菁 | 阿菁菁菁菁菁">
-<meta name="twitter:description" content="标签可以引入外部资源，也可以在页面中直接包含一段JS代码，包含内容默认是type=&amp;quot;text/javascript&amp;quot;。引入外部资源时，要使用src属性，引入的外部资源不一定是当前域中的JS文件。（所以一般要引入属于自己的域中的文件或是某个受信任的域的文件，否则某个域中的JS文件被恶意修改后，你会引入恶意JS代码）。
-延迟加载一般JS加载是解析执行完之后才去解析执行之后的内容，所">
+<meta name="twitter:description" content="&amp;lt;script&amp;gt;&amp;lt;script&amp;gt;标签可以引入外部资源，也可以在页面中直接包含一段JS代码，包含内容默认是type=&amp;quot;text/javascript&amp;quot;。引入外部资源时，要使用src属性，引入的外部资源不一定是当前域中的JS文件。（所以一般要引入属于自己的域中的文件或是某个受信任的域的文件，否则某个域中的JS文件被恶意修改后，你会引入恶意JS代码）。
+延迟加">
 
     
     
@@ -250,10 +250,10 @@ classes that you can use:
   </header>
 
   <section id="post-content" class="article-content post">
-    <h2 id=""><a href="#" class="headerlink" title=""></a><script></h2><p><script>标签可以引入外部资源，也可以在页面中直接包含一段JS代码，包含内容默认是<code>type=&quot;text/javascript&quot;</code>。引入外部资源时，要使用<code>src</code>属性，引入的外部资源不一定是当前域中的JS文件。（所以一般要引入属于自己的域中的文件或是某个受信任的域的文件，否则某个域中的JS文件被恶意修改后，你会引入恶意JS代码）。</p>
-<h3 id="延迟加载"><a href="#延迟加载" class="headerlink" title="延迟加载"></a>延迟加载</h3><p>一般JS加载是解析执行完之后才去解析执行之后的内容，所以，如果你的JS文件很大，逻辑很复杂，会造成后面的内容无法解析，这也是为什么一般把JS文件放到<code>&lt;/body&gt;</code>前的原因。<br>可以在<code>&lt;script&gt;</code>标签内引入defer属性，这会让你引入的JS文件延迟加载，在遇到</html>之后才开始加载含有defer属性的<script>标签引入的外部资源。<br>虽然H5要求含有defer属性的<script>标签按照它们的属性执行，即第一个延迟脚本会先于第二个延迟脚本执行，而这两个脚本的执行会先于DOMContentLoaded事件。但实际上，<strong>延迟脚本并不一定会按照顺序执行，也不一定在DOMContentLoaded事件触发前执行，因此最好只包含一个延迟脚本（如果脚本之间有依赖关系的话吧。。）</strong>为了保持兼容性，把延迟脚本放在页面底部仍然是最佳选择。</p>
-<h3 id="异步加载"><a href="#异步加载" class="headerlink" title="异步加载"></a>异步加载</h3><p>异步加载是说JS加载不阻塞页面渲染，但是会立即被执行。但是异步加载不能保证JS脚本的执行顺序，也就是不保证按照<script>标签的顺序执行。所以在加载期间修改DOM的文件不建议使用asyn属性。<br>异步脚本一定会在页面的load事件前执行。但是不能保证与DOMContentLoaded事件之间的执行顺序。</p>
-<h3 id="XHTML"><a href="#XHTML" class="headerlink" title="XHTML"></a>XHTML</h3><p>XHTML(Extensible HyperText Markup Language)，可扩展超文本标记语言，是将HTML作为XML的应用而重新定义的一个标准。<br><a href="http://www.w3school.com.cn/xhtml/xhtml_html.asp">HTML与XHTML之间的差异</a></p>
+    <h2 id="lt-script-gt"><a href="#lt-script-gt" class="headerlink" title="&lt;script&gt;"></a><code>&lt;script&gt;</code></h2><p><code>&lt;script&gt;</code>标签可以引入外部资源，也可以在页面中直接包含一段JS代码，包含内容默认是<code>type=&quot;text/javascript&quot;</code>。引入外部资源时，要使用<code>src</code>属性，引入的外部资源不一定是当前域中的JS文件。（所以一般要引入属于自己的域中的文件或是某个受信任的域的文件，否则某个域中的JS文件被恶意修改后，你会引入恶意JS代码）。</p>
+<h3 id="延迟加载"><a href="#延迟加载" class="headerlink" title="延迟加载"></a>延迟加载</h3><p>一般JS加载是解析执行完之后才去解析执行之后的内容，所以，如果你的JS文件很大，逻辑很复杂，会造成后面的内容无法解析，这也是为什么一般把JS文件放到<code>&lt;/body&gt;</code>前的原因。<br>可以在<code>&lt;script&gt;</code>标签内引入defer属性，这会让你引入的JS文件延迟加载，在遇到之后才开始加载含有defer属性的<code>&lt;script&gt;</code>标签引入的外部资源。<br>虽然H5要求含有defer属性的<code>&lt;script&gt;</code>标签按照它们的属性执行，即第一个延迟脚本会先于第二个延迟脚本执行，而这两个脚本的执行会先于DOMContentLoaded事件。但实际上，<strong>延迟脚本并不一定会按照顺序执行，也不一定在DOMContentLoaded事件触发前执行，因此最好只包含一个延迟脚本（如果脚本之间有依赖关系的话吧。。）</strong>为了保持兼容性，把延迟脚本放在页面底部仍然是最佳选择。</p>
+<h3 id="异步加载"><a href="#异步加载" class="headerlink" title="异步加载"></a>异步加载</h3><p>异步加载是说JS加载不阻塞页面渲染，但是会立即被执行。但是异步加载不能保证JS脚本的执行顺序，也就是不保证按照<code>&lt;script&gt;</code>标签的顺序执行。所以在加载期间修改DOM的文件不建议使用asyn属性。<br>异步脚本一定会在页面的load事件前执行。但是不能保证与DOMContentLoaded事件之间的执行顺序。</p>
+<h3 id="XHTML"><a href="#XHTML" class="headerlink" title="XHTML"></a>XHTML</h3><p>XHTML(Extensible HyperText Markup Language)，可扩展超文本标记语言，是将HTML作为XML的应用而重新定义的一个标准。<br><a href="http://www.w3school.com.cn/xhtml/xhtml_html.asp" target="_blank" rel="external">HTML与XHTML之间的差异</a></p>
 <ol>
 <li>XHTML必须被正确地嵌套</li>
 <li>XHTML元素必须关闭</li>
@@ -333,7 +333,7 @@ classes that you can use:
 <li>toString()：返回对象的字符串表示；</li>
 <li>valueOf()：返回对象的字符串、数值或布尔值表示，通常与toString()方法的返回值相同。</li>
 </ol>
-<h3 id="操作符"><a href="#操作符" class="headerlink" title="操作符"></a>操作符</h3></script></h2>
+<h3 id="操作符"><a href="#操作符" class="headerlink" title="操作符"></a>操作符</h3>
   </section>
 
   
