@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      阿菁菁菁菁菁 | 阿菁菁菁菁菁
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="阿菁菁菁菁菁">
+    
+    
+
+    <meta name="description" content="一个搭建在Chrome JavaScript运行时上的平台，用于构建高速、可伸缩的网络程序。Node.js采用的事件驱动、非阻塞I/O模型，使它既轻便又高效，并成为构建运行在分布式设备上的数据密集型实时程序的完美选择。
+
+构建于JavaScript之上在服务器端编程，Node使用的是位Google Chrome提供动力的V8虚拟机，V8让Node在性能上得到了巨大的提升，因为它丢掉了中间环节，执">
+<meta property="og:type" content="article">
+<meta property="og:title" content="阿菁菁菁菁菁 | 阿菁菁菁菁菁">
+<meta property="og:url" content="http://lijingjing.top/blog/2017/05/09/《Node-js实战》读书笔记（一）/index.html">
+<meta property="og:site_name" content="阿菁菁菁菁菁">
+<meta property="og:description" content="一个搭建在Chrome JavaScript运行时上的平台，用于构建高速、可伸缩的网络程序。Node.js采用的事件驱动、非阻塞I/O模型，使它既轻便又高效，并成为构建运行在分布式设备上的数据密集型实时程序的完美选择。
+
+构建于JavaScript之上在服务器端编程，Node使用的是位Google Chrome提供动力的V8虚拟机，V8让Node在性能上得到了巨大的提升，因为它丢掉了中间环节，执">
+<meta property="og:updated_time" content="2017-05-09T13:52:36.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="阿菁菁菁菁菁 | 阿菁菁菁菁菁">
+<meta name="twitter:description" content="一个搭建在Chrome JavaScript运行时上的平台，用于构建高速、可伸缩的网络程序。Node.js采用的事件驱动、非阻塞I/O模型，使它既轻便又高效，并成为构建运行在分布式设备上的数据密集型实时程序的完美选择。
+
+构建于JavaScript之上在服务器端编程，Node使用的是位Google Chrome提供动力的V8虚拟机，V8让Node在性能上得到了巨大的提升，因为它丢掉了中间环节，执">
+
+    
+    
+      <link rel="icon" type="image/x-icon" href="/images/avatar.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+
+</head>
+<body>
+
+    
+      <header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+        <a href="/" title="link to homepage for 阿菁菁菁菁菁"><img src="/images/avatar.png" width="100" alt="阿菁菁菁菁菁 logo" class="panel-cover__logo logo" /></a>
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">阿菁菁菁菁菁</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+        <h2 class="panel-cover__description panel-description-small">
+          Change takes time.
+        </h2>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+
+        <div class="navigation-wrapper">
+
+
+        <nav class="cover-navigation cover-navigation--primary">
+          <ul class="navigation">
+            
+              
+              <li class="navigation__item"><a href="/blog" title="" class="blog-button">文章</a></li>
+            
+              
+              <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+            
+              
+              <li class="navigation__item"><a href="/about" title="" class="">关于我</a></li>
+            
+
+          </ul>
+        </nav>
+
+      <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/BabysbreathJJ" title="阿菁 on GitHub">
+          <i class='icon icon-social-github'></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+      <li class="navigation__item">
+        <a href="mailto:lijingjing1008@gmail.com" title="阿菁‘s e-mail">
+          <i class='icon icon-mail'></i>
+          <span class="label">Mail</span>
+        </a>
+      </li>
+      <li class="navigation__item">
+        <a href="http://weibo.com/2797656002/profile" title="阿菁 on Weibo">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+      </li>
+    
+
+    <!-- China social icon -->
+    <!--
+
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-douban'></i>
+          <span class="label">Douban</span>
+        </a>
+      </li>
+
+
+
+    -->
+
+
+
+  </ul>
+</nav>
+
+
+
+
+      <nav class="cover-navigation cover-navigation--primary">
+        <h2 class="panel-cover__description panel-description-small">
+        友情链接
+        </h2>
+        <ul class="navigation">
+          
+            <li class="friend__item"><a target="_blank" href="http://gaocegege.com/Blog" title="" class="">高策</a></li>
+          
+            <li class="friend__item"><a target="_blank" href="http://lizheming.top/" title="" class="">黎哲明</a></li>
+          
+            <li class="friend__item"><a target="_blank" href="http://peipeili.cn/" title="" class="">李佩佩</a></li>
+          
+
+        </ul>
+      </nav>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+      <span class="mobile btn-mobile-menu">
+          <i class="icon icon-list btn-mobile-menu__icon"></i>
+          <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+      </span>
+      <div class="content-wrapper">
+          <div class="content-wrapper__inner entry">
+              
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+
+    <h1 class="post-title">《Node.js实战》读书笔记（一）</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2017-05-09" class="post-meta__date date">2017-05-09</time>
+
+      <span class="post-meta__tags tags">
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/Web开发/">Web开发</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/Node/">Node</a>
+            </font>
+          
+        </span>
+     </div>
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <blockquote>
+<p>一个搭建在Chrome JavaScript运行时上的平台，用于构建高速、可伸缩的网络程序。Node.js采用的事件驱动、非阻塞I/O模型，使它既轻便又高效，并成为构建运行在分布式设备上的数据密集型实时程序的完美选择。</p>
+</blockquote>
+<h3 id="构建于JavaScript之上"><a href="#构建于JavaScript之上" class="headerlink" title="构建于JavaScript之上"></a>构建于JavaScript之上</h3><p>在服务器端编程，Node使用的是位Google Chrome提供动力的V8虚拟机，V8让Node在性能上得到了巨大的提升，因为它丢掉了中间环节，执行的不是字节码，用的也不是解释器，而是直接编译成了本地机器码。Node在服务器端使用JS的其他好处：</p>
+<ol>
+<li>减少开发客户端和服务端时所需的语言切换，代码还可以子啊客户端和服务端共享。</li>
+<li>JSON是目前非常流行的数据交换格式，并且还是JS原生的。</li>
+<li>有些NoSQL数据库用的就是JS语言，比如CouchDB和MongoDB。</li>
+<li>JS是一门编译目标语言，现在有很多可以编译成JS的语言。<a href="https://github.com/jashkenas/coffeescript/wiki/List-of-languages-that-compile-to-js" target="_blank" rel="external">点击查看具体列表</a></li>
+<li>Node用的是虚拟机（V8）会紧跟ECMAScript标准，即在Node中如果想用新的JS语言特性，不用等到所有浏览器都支持。</li>
+</ol>
+<h3 id="异步和事件触发：浏览器"><a href="#异步和事件触发：浏览器" class="headerlink" title="异步和事件触发：浏览器"></a>异步和事件触发：浏览器</h3><p>Node为服务端JS提供了一个事件驱动的、异步的平台。它把JS带到服务端中的方式跟浏览器把JS带到客户端的方式几乎一样，它们都是<strong>事件驱动（用事件轮询）和非阻塞的I/O处理（异步I/O）</strong>。</p>
+<p>事件轮询和异步I/O：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$.post(<span class="string">'/resource.json'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">	cnsole.log(data);</div><div class="line">&#125;);</div><div class="line"><span class="comment">//脚本继续执行，上面的I/O不会阻塞当前JS线程</span></div></pre></td></tr></table></figure></p>
+<p>浏览器是单线程的，当浏览器中有I/O操作时，该操作会留在事件轮询的外面执行（脚本执行的主程序之外），然后当这个I/O操作完成时，会发出一个“事件”，会有一个函数（通常称为“回调”）处理它。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> data = $.post(<span class="string">'/resource.json'</span>);<span class="comment">//在I/O完成之前程序会被阻塞</span></div><div class="line"><span class="built_in">console</span>.log(data);</div></pre></td></tr></table></figure>
+<h3 id="异步和事件触发：服务器"><a href="#异步和事件触发：服务器" class="headerlink" title="异步和事件触发：服务器"></a>异步和事件触发：服务器</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$result = mysql_query(<span class="string">'SELECT * FROM myTable'</span>);</div><div class="line">print_r($result);</div></pre></td></tr></table></figure>
+<p>这段代码做了些I/O操作，并且在所有数据回来之前，这个进程会被阻塞。同时，这个进程也有状态，或者说内存空间，并且在I/O完成之前基本上什么也不做。根据I/O操作的延迟情况，可能会有10ms到几分钟的时间。延迟也可能是以下意外情况引发：</p>
+<ol>
+<li>硬盘正在执行维护操作，读/写都暂停了。</li>
+<li>因为负载增加，数据库查询变得更慢了。</li>
+<li>由于某种资源，从一个域名下拉取资源非常迟缓。</li>
+</ol>
+<p>如果程序在I/O上阻塞了，当有更多请求过来时，服务器一般会用多线程的方式进行解决。一种常见的实现是给每个连接分配一个线程，并为那些连接设置一个线程池。可以把线程想象成一个计算工作区，处理器在这个工作区中完成指定的任务。线程通常都是出于进程之内的，并且会维护它自己的工作内存。每个线程会处理一到多个服务器连接。当需要大量的线程处理很多并发的服务器连接时，线程会消耗额外的操作系统资源，线程需要CPU和额外的RAM来做上下文切换。</p>
+<p>NGINX和Apache一样，是一个HTTP服务器，但它用的不是带有阻塞I/O的多线程方式，而是带有异步I/O的事件轮询。因为这些设计上的选择，NGNIX通常能处理更多的请求和客户端连接，它因此变成了响应能力更强的解决方案。<br>在Node中，I/O几乎总是在主事件轮询之外进行，使得服务器可以一直处于高效并且随时能够做出响应的状态，就像NGINX一样。这样进程就更加不会受I/O限制，因为I/O延迟不会拖垮服务器，或者像在阻塞方式下那样占用很多资源。因此一些服务器上曾经是重量级的操作，在Node服务器上仍然可以是轻量级的。</p>
+<h3 id="DIRT程序"><a href="#DIRT程序" class="headerlink" title="DIRT程序"></a>DIRT程序</h3><p>Node针对的应用程序为DIRT（data-intensive real-time），表示数据密集型实时程序。因为Node自身在I/O上比较轻便，善于将数据从一个管道混排或代理到另一个管道上，这能在处理大量请求时持有很多开发的连接，并且只占用一小部分内存，它的设计目标是保证响应能力，跟浏览器一样。</p>
+<p>现在有很多Web程序提供的信息几乎都是即时的，比如通过白板在线协作、对临近公交车的实时精确定位以及多人在线游戏。不管是用实时组件增强已有程序，还是打造全新的程序，Web都在朝响应型和协作型环境逐渐进发，而这种新型Web应用程序需要一个能够实时响应大量并发用户请求的平台来支撑它们。这正是Node所擅长的领域，并且不仅限于web程序，其他I/O负载比较重的程序也可以用到它。</p>
+<p><a href="https://www.browserling.com/" target="_blank" rel="external">Browserling</a>是一个用Node开发的DIRT程序。在这个网站上，可以在浏览器中使用各种浏览器。Browserling用了一个叫做StackVM的由Node驱动的项目，而StackVM管理了用QEMU模拟器创建的虚拟机，QEMU会模拟运行浏览器所需的CPU和外设。</p>
+<p>Browserling在VM中运行测试浏览器，将键盘和鼠标的输入数据从用户的浏览器中转到模拟出来的浏览器中，然后将模拟浏览器中要重新渲染的区域转出来，在用户浏览器的画布上重新画出来。</p>
+<h3 id="默认DIRT"><a href="#默认DIRT" class="headerlink" title="默认DIRT"></a>默认DIRT</h3><p>Node从创建开始就有一个事件驱动和异步模型。JS从来没有标准的I/O库，那是服务端语言的常见配置。对于JS而言，这是由“宿主”环境决定的。JS的宿主环境，大多数为浏览器，它是事件驱动和异步的。</p>
+<p>Node重新实现了宿主中那些常用的对象，尽量让浏览器和服务器保持一致。比如：计时器API（setTimeOut）和控制台API（console.log）</p>
+<p>Node还有一组用来处理多种网络和文件I/O的核心模块。其中包括用于HTTP、TLS、HTTPS、文件系统（POSIX）、数据报（UDP）和NET（TCP）的模块。这些核心模块很小、底层并且简单，只包含要给基于I/O的程序用的组成部分。第三方模块基于这些核心模块，针对常见的问题进行了更高层的抽象。</p>
+<p><strong>平台与框架</strong>：Node是JS程序的平台。Express是Node中流行的框架。</p>
+<h3 id="流数据"><a href="#流数据" class="headerlink" title="流数据"></a>流数据</h3><p>Node在数据流和数据流动上也很强大，可以把数据流看成特殊的数组，只不过数据中的数据分散在空间上，而数据流中的数据时分散在时间上的。通过将数据一块一块地传送，开发人员可以每收到一块数据就开始处理，而不用等所有数据都到全了再做处理。用数据流的方式处理resource.json如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> stream = fs.createReadStream(<span class="string">'./resource.json'</span>);</div><div class="line">stream.on(<span class="string">'data'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">chunk</span>)</span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(chunk);</div><div class="line">&#125;);</div><div class="line">stream.on(<span class="string">'end'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(<span class="string">'finished'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>只要有新的数据块准备好，就会激发data事件，当所有数据块都加载完后，会激发一个end事件。由于数据类型不同，数据块的大小可能会发生变化。有了对读取流的底层访问，程序就可以边读取边处理，这要比等着所有数据都缓存到内存中再处理效率高得多。</p>
+<p>Node也有可写数据流，可以往里面写数据块。当HTTP服务器上有请求过来时，对其进行响应的res对象就是可写数据流的一种。<br>可读和可写数据流可以连接起来形成管道，就像shell脚本中用的<code>|</code>（管道）操作符一样。这是一种高效的数据处理方式，只要有数据准备好就可以处理，不用等着读取完整个资源再把它写出去。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</div><div class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</div><div class="line">http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>) </span>&#123;</div><div class="line">	res.writeHead(<span class="number">200</span>,&#123;<span class="string">'Content-Type'</span>: <span class="string">'image/png'</span>&#125;);</div><div class="line">	fs.createReadStream(<span class="string">'./image.png'</span>).pipe(res);</div><div class="line">&#125;).listen(<span class="number">3000</span>);</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"Server running at http://localhost:3000/"</span>);</div></pre></td></tr></table></figure></p>
+<p>在上面代码中，数据从文件中读进来（<code>fs.createReadStream</code>），然后数据随着进来就被送到(<code>.pipe()</code>)客户端（res）。在数据流动时，时间轮询还能处理其他事件。</p>
+<p>Node在多个平台上均默认提供了DIRT方式，包括各种Windows和类UNIX系统。底层的I/O库（libuv）特意屏蔽了宿主操作系统的差异性，提供了统一的使用方式，如果需要的话，程序可以在多个设备上轻松移植和运行。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>Node是：</p>
+<ol>
+<li>构建在JavaScript上的。</li>
+<li>事件触发和异步的。</li>
+<li>专为数据密集型实时程序设计的。</li>
+</ol>
+
+  </section>
+
+  
+  
+
+<section class="post-comments">
+
+    <div class="ds-thread" data-thread-key="blog/2017/05/09/《Node-js实战》读书笔记（一）/"></div>
+
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"lijingjing"};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+    </script> 
+
+</section>
+
+
+</article>
+
+              <footer class="footer">
+
+    <span class="footer__copyright">  &copy; 2017 阿菁菁菁菁菁 | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+
+</footer>
+
+          </div>
+      </div>
+
+    
+
+
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lijingjing.top/"/>
-  <updated>2017-04-16T13:52:11.000Z</updated>
+  <updated>2017-05-09T13:52:36.000Z</updated>
   <id>http://lijingjing.top/</id>
   
   <author>
@@ -14,6 +14,213 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>《Node.js实战》读书笔记（一）</title>
+    <link href="http://lijingjing.top/blog/2017/05/09/%E3%80%8ANode-js%E5%AE%9E%E6%88%98%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/"/>
+    <id>http://lijingjing.top/blog/2017/05/09/《Node-js实战》读书笔记（一）/</id>
+    <published>2017-05-09T12:24:52.000Z</published>
+    <updated>2017-05-09T13:52:36.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>一个搭建在Chrome JavaScript运行时上的平台，用于构建高速、可伸缩的网络程序。Node.js采用的事件驱动、非阻塞I/O模型，使它既轻便又高效，并成为构建运行在分布式设备上的数据密集型实时程序的完美选择。</p>
+</blockquote>
+<h3 id="构建于JavaScript之上"><a href="#构建于JavaScript之上" class="headerlink" title="构建于JavaScript之上"></a>构建于JavaScript之上</h3><p>在服务器端编程，Node使用的是位Google Chrome提供动力的V8虚拟机，V8让Node在性能上得到了巨大的提升，因为它丢掉了中间环节，执行的不是字节码，用的也不是解释器，而是直接编译成了本地机器码。Node在服务器端使用JS的其他好处：</p>
+<ol>
+<li>减少开发客户端和服务端时所需的语言切换，代码还可以子啊客户端和服务端共享。</li>
+<li>JSON是目前非常流行的数据交换格式，并且还是JS原生的。</li>
+<li>有些NoSQL数据库用的就是JS语言，比如CouchDB和MongoDB。</li>
+<li>JS是一门编译目标语言，现在有很多可以编译成JS的语言。<a href="https://github.com/jashkenas/coffeescript/wiki/List-of-languages-that-compile-to-js" target="_blank" rel="external">点击查看具体列表</a></li>
+<li>Node用的是虚拟机（V8）会紧跟ECMAScript标准，即在Node中如果想用新的JS语言特性，不用等到所有浏览器都支持。</li>
+</ol>
+<h3 id="异步和事件触发：浏览器"><a href="#异步和事件触发：浏览器" class="headerlink" title="异步和事件触发：浏览器"></a>异步和事件触发：浏览器</h3><p>Node为服务端JS提供了一个事件驱动的、异步的平台。它把JS带到服务端中的方式跟浏览器把JS带到客户端的方式几乎一样，它们都是<strong>事件驱动（用事件轮询）和非阻塞的I/O处理（异步I/O）</strong>。</p>
+<p>事件轮询和异步I/O：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$.post(<span class="string">'/resource.json'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">	cnsole.log(data);</div><div class="line">&#125;);</div><div class="line"><span class="comment">//脚本继续执行，上面的I/O不会阻塞当前JS线程</span></div></pre></td></tr></table></figure></p>
+<p>浏览器是单线程的，当浏览器中有I/O操作时，该操作会留在事件轮询的外面执行（脚本执行的主程序之外），然后当这个I/O操作完成时，会发出一个“事件”，会有一个函数（通常称为“回调”）处理它。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> data = $.post(<span class="string">'/resource.json'</span>);<span class="comment">//在I/O完成之前程序会被阻塞</span></div><div class="line"><span class="built_in">console</span>.log(data);</div></pre></td></tr></table></figure>
+<h3 id="异步和事件触发：服务器"><a href="#异步和事件触发：服务器" class="headerlink" title="异步和事件触发：服务器"></a>异步和事件触发：服务器</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$result = mysql_query(<span class="string">'SELECT * FROM myTable'</span>);</div><div class="line">print_r($result);</div></pre></td></tr></table></figure>
+<p>这段代码做了些I/O操作，并且在所有数据回来之前，这个进程会被阻塞。同时，这个进程也有状态，或者说内存空间，并且在I/O完成之前基本上什么也不做。根据I/O操作的延迟情况，可能会有10ms到几分钟的时间。延迟也可能是以下意外情况引发：</p>
+<ol>
+<li>硬盘正在执行维护操作，读/写都暂停了。</li>
+<li>因为负载增加，数据库查询变得更慢了。</li>
+<li>由于某种资源，从一个域名下拉取资源非常迟缓。</li>
+</ol>
+<p>如果程序在I/O上阻塞了，当有更多请求过来时，服务器一般会用多线程的方式进行解决。一种常见的实现是给每个连接分配一个线程，并为那些连接设置一个线程池。可以把线程想象成一个计算工作区，处理器在这个工作区中完成指定的任务。线程通常都是出于进程之内的，并且会维护它自己的工作内存。每个线程会处理一到多个服务器连接。当需要大量的线程处理很多并发的服务器连接时，线程会消耗额外的操作系统资源，线程需要CPU和额外的RAM来做上下文切换。</p>
+<p>NGINX和Apache一样，是一个HTTP服务器，但它用的不是带有阻塞I/O的多线程方式，而是带有异步I/O的事件轮询。因为这些设计上的选择，NGNIX通常能处理更多的请求和客户端连接，它因此变成了响应能力更强的解决方案。<br>在Node中，I/O几乎总是在主事件轮询之外进行，使得服务器可以一直处于高效并且随时能够做出响应的状态，就像NGINX一样。这样进程就更加不会受I/O限制，因为I/O延迟不会拖垮服务器，或者像在阻塞方式下那样占用很多资源。因此一些服务器上曾经是重量级的操作，在Node服务器上仍然可以是轻量级的。</p>
+<h3 id="DIRT程序"><a href="#DIRT程序" class="headerlink" title="DIRT程序"></a>DIRT程序</h3><p>Node针对的应用程序为DIRT（data-intensive real-time），表示数据密集型实时程序。因为Node自身在I/O上比较轻便，善于将数据从一个管道混排或代理到另一个管道上，这能在处理大量请求时持有很多开发的连接，并且只占用一小部分内存，它的设计目标是保证响应能力，跟浏览器一样。</p>
+<p>现在有很多Web程序提供的信息几乎都是即时的，比如通过白板在线协作、对临近公交车的实时精确定位以及多人在线游戏。不管是用实时组件增强已有程序，还是打造全新的程序，Web都在朝响应型和协作型环境逐渐进发，而这种新型Web应用程序需要一个能够实时响应大量并发用户请求的平台来支撑它们。这正是Node所擅长的领域，并且不仅限于web程序，其他I/O负载比较重的程序也可以用到它。</p>
+<p><a href="https://www.browserling.com/" target="_blank" rel="external">Browserling</a>是一个用Node开发的DIRT程序。在这个网站上，可以在浏览器中使用各种浏览器。Browserling用了一个叫做StackVM的由Node驱动的项目，而StackVM管理了用QEMU模拟器创建的虚拟机，QEMU会模拟运行浏览器所需的CPU和外设。</p>
+<p>Browserling在VM中运行测试浏览器，将键盘和鼠标的输入数据从用户的浏览器中转到模拟出来的浏览器中，然后将模拟浏览器中要重新渲染的区域转出来，在用户浏览器的画布上重新画出来。</p>
+<h3 id="默认DIRT"><a href="#默认DIRT" class="headerlink" title="默认DIRT"></a>默认DIRT</h3><p>Node从创建开始就有一个事件驱动和异步模型。JS从来没有标准的I/O库，那是服务端语言的常见配置。对于JS而言，这是由“宿主”环境决定的。JS的宿主环境，大多数为浏览器，它是事件驱动和异步的。</p>
+<p>Node重新实现了宿主中那些常用的对象，尽量让浏览器和服务器保持一致。比如：计时器API（setTimeOut）和控制台API（console.log）</p>
+<p>Node还有一组用来处理多种网络和文件I/O的核心模块。其中包括用于HTTP、TLS、HTTPS、文件系统（POSIX）、数据报（UDP）和NET（TCP）的模块。这些核心模块很小、底层并且简单，只包含要给基于I/O的程序用的组成部分。第三方模块基于这些核心模块，针对常见的问题进行了更高层的抽象。</p>
+<p><strong>平台与框架</strong>：Node是JS程序的平台。Express是Node中流行的框架。</p>
+<h3 id="流数据"><a href="#流数据" class="headerlink" title="流数据"></a>流数据</h3><p>Node在数据流和数据流动上也很强大，可以把数据流看成特殊的数组，只不过数据中的数据分散在空间上，而数据流中的数据时分散在时间上的。通过将数据一块一块地传送，开发人员可以每收到一块数据就开始处理，而不用等所有数据都到全了再做处理。用数据流的方式处理resource.json如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> stream = fs.createReadStream(<span class="string">'./resource.json'</span>);</div><div class="line">stream.on(<span class="string">'data'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">chunk</span>)</span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(chunk);</div><div class="line">&#125;);</div><div class="line">stream.on(<span class="string">'end'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(<span class="string">'finished'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>只要有新的数据块准备好，就会激发data事件，当所有数据块都加载完后，会激发一个end事件。由于数据类型不同，数据块的大小可能会发生变化。有了对读取流的底层访问，程序就可以边读取边处理，这要比等着所有数据都缓存到内存中再处理效率高得多。</p>
+<p>Node也有可写数据流，可以往里面写数据块。当HTTP服务器上有请求过来时，对其进行响应的res对象就是可写数据流的一种。<br>可读和可写数据流可以连接起来形成管道，就像shell脚本中用的<code>|</code>（管道）操作符一样。这是一种高效的数据处理方式，只要有数据准备好就可以处理，不用等着读取完整个资源再把它写出去。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</div><div class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</div><div class="line">http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>) </span>&#123;</div><div class="line">	res.writeHead(<span class="number">200</span>,&#123;<span class="string">'Content-Type'</span>: <span class="string">'image/png'</span>&#125;);</div><div class="line">	fs.createReadStream(<span class="string">'./image.png'</span>).pipe(res);</div><div class="line">&#125;).listen(<span class="number">3000</span>);</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"Server running at http://localhost:3000/"</span>);</div></pre></td></tr></table></figure></p>
+<p>在上面代码中，数据从文件中读进来（<code>fs.createReadStream</code>），然后数据随着进来就被送到(<code>.pipe()</code>)客户端（res）。在数据流动时，时间轮询还能处理其他事件。</p>
+<p>Node在多个平台上均默认提供了DIRT方式，包括各种Windows和类UNIX系统。底层的I/O库（libuv）特意屏蔽了宿主操作系统的差异性，提供了统一的使用方式，如果需要的话，程序可以在多个设备上轻松移植和运行。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>Node是：</p>
+<ol>
+<li>构建在JavaScript上的。</li>
+<li>事件触发和异步的。</li>
+<li>专为数据密集型实时程序设计的。</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;一个搭建在Chrome JavaScript运行时上的平台，用于构建高速、可伸缩的网络程序。Node.js采用的事件驱动、非阻塞I/O模型，使它既轻便又高效，并成为构建运行在分布式设备上的数据密集型实时程序的完美选择。&lt;/p&gt;
+&lt;/blockquo
+    
+    </summary>
+    
+      <category term="Web开发" scheme="http://lijingjing.top/categories/Web%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="Node" scheme="http://lijingjing.top/tags/Node/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《HTML5实战》读书笔记（一）</title>
+    <link href="http://lijingjing.top/blog/2017/05/05/HTML5%E5%AE%9E%E6%88%98/"/>
+    <id>http://lijingjing.top/blog/2017/05/05/HTML5实战/</id>
+    <published>2017-05-05T06:29:33.000Z</published>
+    <updated>2017-05-09T12:24:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>HTML5的新语义元素，能够让搜索引擎或辅助技术（如屏幕阅读器）更好地理解页面。</p>
+<h4 id="HTML5引入的新表单特性"><a href="#HTML5引入的新表单特性" class="headerlink" title="HTML5引入的新表单特性"></a>HTML5引入的新表单特性</h4><p>HTML5引入的新表单输入类型：</p>
+<table>
+<thead>
+<tr>
+<th>输入类型</th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>color</td>
+<td>date</td>
+<td>datetime</td>
+<td>datetime-local</td>
+<td>email</td>
+</tr>
+<tr>
+<td>month</td>
+<td>number</td>
+<td>range</td>
+<td>search</td>
+<td>tel</td>
+</tr>
+<tr>
+<td>time</td>
+<td>url</td>
+<td>week</td>
+</tr>
+</tbody>
+</table>
+<p>HTML5引入的输入元素属性</p>
+<table>
+<thead>
+<tr>
+<th>输入元素类型</th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>autocomplete</td>
+<td>autofocus</td>
+<td>list</td>
+<td>max</td>
+<td>min</td>
+</tr>
+<tr>
+<td>multiple</td>
+<td>pattern</td>
+<td>required</td>
+<td>step</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>palceholder</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>不能单纯依靠客户端验证，无论是HTML5新增的浏览器原生验证，还是JS验证代码，它们都不可靠。由于可以很容易绕过客户端验证，服务端验证输入是不可或缺的。客户端验证主要应该用在改善用户体验上，并不能用作保障应用绝对安全的手段。</strong></p>
+<h4 id="进度条、度量器和可折叠内容"><a href="#进度条、度量器和可折叠内容" class="headerlink" title="进度条、度量器和可折叠内容"></a>进度条、度量器和可折叠内容</h4><p><code>&lt;progress&gt;</code>: 向用户呈现确定或不确定的进度条。确定的进度条有指定数值，进度条的进度由该值确定，所以很适用于显示文件上传进度（随着文件上传量，动态地改变进度条数值）。不确定进度条则没有明确的数值，进度条会完全充满，在不确定操作进度的情况下，应用这种进度条，用户可以知道应用正在加载。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">progress</span> <span class="attr">value</span>=<span class="string">"50"</span> <span class="attr">max</span>=<span class="string">"100"</span>&gt;</span><span class="tag">&lt;/<span class="name">progress</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">progress</span>&gt;</span><span class="tag">&lt;/<span class="name">progress</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><code>&lt;meter&gt;</code>：与<code>&lt;progress&gt;</code>相似。<code>&lt;progress&gt;</code>主要用于展示任务的完成度（百分比），而<code>&lt;meter&gt;</code>则能展示在已知的标量范围内的数据变化。也可以定义low,high和optimum这些范围的关键点参数。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">meter</span> <span class="attr">min</span>=<span class="string">"0"</span> <span class="attr">max</span>=<span class="string">"10"</span> <span class="attr">low</span>=<span class="string">"3"</span> <span class="attr">high</span>=<span class="string">"7"</span> <span class="attr">optimum</span>=<span class="string">"9"</span> <span class="attr">value</span>=<span class="string">"0"</span>&gt;</span><span class="tag">&lt;/<span class="name">meter</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>无需JS，使用<code>&lt;details&gt;</code>和<code>&lt;summary&gt;</code>创建可折叠内容。以前创建可折叠内容，需要利用JS切换内容部分的CSS属性，才能实现内容的隐藏和出现。H5利用<code>&lt;details&gt;</code>和<code>&lt;summary&gt;</code>元素可达到相同的效果。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">details</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">summary</span>&gt;</span>Section Heading<span class="tag">&lt;/<span class="name">summary</span>&gt;</span></div><div class="line">	This is an example of using &amp;lt; details &amp;gt; and &amp;lt; summary &amp;gt; to create collapsible content without using JS.</div><div class="line"><span class="tag">&lt;/<span class="name">details</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h4 id="附加的Web规范"><a href="#附加的Web规范" class="headerlink" title="附加的Web规范"></a>附加的Web规范</h4><p>H5不再是只包含那些描述文档结构的标记，还包含了更多的特性及其相关规范，用以确保Web应用的视觉效果和用户体验。</p>
+<p>微数据（Microdata），可以为文档添加额外语义，以后还可以取回并修改它们。<br>CSS3，改进后的样式表，可以为Web页面添加最新的样式及效果，而不必再依赖外部图像或JS技巧来实现。</p>
+<h5 id="微数据"><a href="#微数据" class="headerlink" title="微数据"></a>微数据</h5><p>利用H5的微数据，可以为Web页面添加语义信息；另一方面，搜索引擎和浏览器也可以通过微数据，向用户提供额外的功能。</p>
+<p>通过读取HTML文档中的微数据，google向用户提供了更为完善的搜索结果。Web页面若应用了微数据，Google就能为网站或应用提供相似的搜索结果列表。</p>
+<p>要想使用微数据，需要一个词汇表，它要定义出你所用到的语义。词汇表可以自定义，但是一般会使用已经发布的词汇表。eg:google发布的词汇表(www.data-vocabulary.org)。通过已经发布的词汇表，能够保证搜索引擎及其他应用能够始终如一地理解微数据。</p>
+<table>
+<thead>
+<tr>
+<th>方法（属性）</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>document.getItems([types])</td>
+<td>获取顶级微数据项的所有元素，也就是那些带有itemscope属性的元素，可以用types参数来过滤返回一个或多个itemtype属性值</td>
+</tr>
+<tr>
+<td>element.properties</td>
+<td>为一个指定的微数据项(element)获取所有的项属性（带有itemprop属性的元素）</td>
+</tr>
+<tr>
+<td>element.itemValue[=value]</td>
+<td>获取或设置项目属性的值</td>
+</tr>
+</tbody>
+</table>
+<h4 id="H5的DOM-API"><a href="#H5的DOM-API" class="headerlink" title="H5的DOM API"></a>H5的DOM API</h4><h5 id="Canvas"><a href="#Canvas" class="headerlink" title="Canvas"></a>Canvas</h5><p>Canvas API定义了一个2D内容，为在画布上进行绘制提供了一些方法。这些方法能够创建形状、定义路径、使用颜色与渐变、使用文本等等。另外，开发者还可以通过数据URL或Blob对象，将当前画布内容导出为PNG或JPG格式的图像。</p>
+<h5 id="音频与视频"><a href="#音频与视频" class="headerlink" title="音频与视频"></a>音频与视频</h5><p><code>&lt;video&gt;</code>和<code>&lt;audio&gt;</code>这两个元素都支持<code>&lt;track&gt;</code>元素，从而可以添加如字幕这样的附加文本。通过使用<code>&lt;source&gt;</code>元素，还可以提供多种文件格式，从而能够以多种系统和浏览器访问同一内容。H5还提供了一种可以控制音频及视频回放的API。利用该API所包含的各种方法，播放，暂停，快进，快退，调整音量等功能都可以实现。</p>
+<h5 id="拖放功能"><a href="#拖放功能" class="headerlink" title="拖放功能"></a>拖放功能</h5><p>H5中，使用某一个元素的draggable属性，即可使该元素（如图像，默认）具备可拖放功能。当用户拖动元素进入或离开其他元素时，甚至当用户放下元素时，你可以利用一系列的事件来监听这些改变。借助拖放API，可以设定与拖动操作的相关数据，当放下时再进行读取。H5还实现了文件的拖动。如Gmail中将文件添加到当前消息中。</p>
+<h5 id="跨文档通信、服务器端发送的事件以及WebSockets"><a href="#跨文档通信、服务器端发送的事件以及WebSockets" class="headerlink" title="跨文档通信、服务器端发送的事件以及WebSockets"></a>跨文档通信、服务器端发送的事件以及WebSockets</h5><h6 id="利用跨文档通信与通道通信实现客户端通信"><a href="#利用跨文档通信与通道通信实现客户端通信" class="headerlink" title="利用跨文档通信与通道通信实现客户端通信"></a>利用跨文档通信与通道通信实现客户端通信</h6><p>跨文档通信可以让各文档通过消息来进行沟通——一个文档发布消息，而另一个文档利用注册的事件处理器来侦听这些消息。</p>
+<p>跨文档通信比较安全，由于能够跨域运作，所以无需暴露每一个Web应用的DOM即能实现消息在各个应用间的传播。</p>
+<h6 id="利用服务器发送事件实现从服务器端到客户端的单向通信"><a href="#利用服务器发送事件实现从服务器端到客户端的单向通信" class="headerlink" title="利用服务器发送事件实现从服务器端到客户端的单向通信"></a>利用服务器发送事件实现从服务器端到客户端的单向通信</h6><p>对于两个客户端之间的通信来说，跨文档通信是很好的方式。但是，如果想让Web服务器发送的消息能被浏览器接收，则需要用到服务器端发送事件。</p>
+<p>利用EventSource接口，你的Web应用能够订阅一个服务器端事件流，它只接收服务器发送的更新消息。与过去使用的难以实现的AJAX长轮询方式相比，这是一个非常大的改进。</p>
+<p>非常适合聊天应用，利用AJAX发布新的聊天消息，然后通过事件流接收来自其他用户的聊天消息。</p>
+<h6 id="使用WebSocket实现服务器端与客户端的双向通信"><a href="#使用WebSocket实现服务器端与客户端的双向通信" class="headerlink" title="使用WebSocket实现服务器端与客户端的双向通信"></a>使用WebSocket实现服务器端与客户端的双向通信</h6><p>如果需要双向通信，H5还提供了WebSocket，这是客户端与服务器端之间的一种最基本的网络技术，没有与HTTP相关的开销。WebSocket很适合快速传送小规模数据。对于在线游戏和时间敏感性极高的财务系统来说，这种特性非常关键。</p>
+<h6 id="文档编辑"><a href="#文档编辑" class="headerlink" title="文档编辑"></a>文档编辑</h6><p>H5提供了两种新属性，可以实现在HTML页面内进行富文本编辑。一个是contenteditable属性，它可以在页面的任何一个HTML元素中设置，从而使该元素具备可编辑性；另一个是designMode，在HTML文档自身设置，使整个文档都编程可编辑状态。</p>
+<p>当元素或文档可编辑时，可以用HTML5的Editing DOM API的方法document.execCommand来操纵其内容。该方法能应用于当前选择或区块，可以实现粗体、斜体、插入链接等特性。</p>
+<h6 id="Web存储"><a href="#Web存储" class="headerlink" title="Web存储"></a>Web存储</h6><p>一直以来，Web应用都在用cookie将数据存储在客户端，它们能在一次会话或多个会话中维持。这就是Web认证技术的底层技术：在客户端存储cookie含有一些标识符，Web应用借此可以识别登录的用户。Cookie有很多问题，导致它们只能存储极少量的数据。</p>
+<p>第一个问题在于，大多数浏览器都将cookie限制在4096字节内，每个域最多只能存储20个cookie。限额一旦达到，浏览器就会将旧cookie删除，以便为新cookie腾出空间，这就意味着浏览器无法保存所有cookie。<br>另一个问题在于，当Web应用使用cookie时，每一个针对该会话的HTTP请求都会带有cookie，从而加重了每一个事务的负担。因为每个HTTP请求都将带有所有cookie发送出去，这就减慢了页面加载速度与应用作出的AJAX请求。</p>
+<p>因此Web Storage DOM API为Web应用提供了一个能够替代cookie的JS解决方案。这一API定义了以下两个接口。<br>sessionStorage —— 客户端数据存储，只能维持在当前会话范围内。<br>localStorage —— 客户端数据存储，能维持在多个会话范围内。</p>
+<p>该API公开的方法能把简单的键值对数据存储在客户端。使用这些接口的已存储数据项只能被同一域内的页面所访问。虽然该API能够存储兆（M）级数据，但复杂的数据结构并不适用于此，而通常是存储到数据库中。</p>
+<p></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;HTML5的新语义元素，能够让搜索引擎或辅助技术（如屏幕阅读器）更好地理解页面。&lt;/p&gt;
+&lt;h4 id=&quot;HTML5引入的新表单特性&quot;&gt;&lt;a href=&quot;#HTML5引入的新表单特性&quot; class=&quot;headerlink&quot; title=&quot;HTML5引入的新表单特性&quot;&gt;&lt;/a
+    
+    </summary>
+    
+      <category term="前端" scheme="http://lijingjing.top/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="HTML5" scheme="http://lijingjing.top/tags/HTML5/"/>
+    
+  </entry>
   
   <entry>
     <title>响应式Web设计性能优化</title>
@@ -1385,69 +1592,6 @@ The maximum number of consecutive 1s is 3.
     
     
       <category term="Directive" scheme="http://lijingjing.top/tags/Directive/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>失焦防止alert两次</title>
-    <link href="http://lijingjing.top/blog/2016/09/21/%E5%A4%B1%E7%84%A6%E9%98%B2%E6%AD%A2alert%E4%B8%A4%E6%AC%A1/"/>
-    <id>http://lijingjing.top/blog/2016/09/21/失焦防止alert两次/</id>
-    <published>2016-09-21T02:43:13.000Z</published>
-    <updated>2016-11-14T14:04:18.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p> 其实感觉是个很简单的功能，就是input失焦后，给用户一个提醒，比如：一旦填写不能修改此类。  然后第一直觉就是写个失焦函数，alert就好了嘛。  但是，它alert没完没了了，一次不够，竟然alert了两次。我也是无语。  感觉逻辑上根本讲不通。明明我只写了一个alert，也只是失焦了一次，为什么会出现两个alert。</p>
-<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p> 后来我才发现，原来onblur失焦，不仅在当前元素上触发，也在window对象上触发。所以要判断当前是谁失焦，是window还是你指定的元素。</p>
-<h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"> <span class="keyword">var</span> isTargetWindow = <span class="literal">false</span>;</div><div class="line">$(<span class="built_in">window</span>).blur(<span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(e.target);</div><div class="line">    isTargetWindow = <span class="literal">true</span>;</div><div class="line">&#125;);</div><div class="line">$(<span class="built_in">window</span>).focus(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    isTargetWindow = <span class="literal">false</span>;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">alertInfo</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">if</span>(!isTargetWindow)</div><div class="line">        &#123;</div><div class="line">            alert(<span class="string">"提示信息！"</span>);</div><div class="line">        &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p> 其实涉及的应该是JS里的事件冒泡，但我还是不明白，项目里为什么onblur在input元素上，window也会触发input里的onblur函数。</p>
-<p> 最最最最最奇葩的是，这个bug我现在复现不了了。。。 复现不了bug我也是很生气。。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      防止失焦后页面alert两次
-    
-    </summary>
-    
-      <category term="前端" scheme="http://lijingjing.top/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-      <category term="onblur" scheme="http://lijingjing.top/tags/onblur/"/>
-    
-      <category term="alert" scheme="http://lijingjing.top/tags/alert/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>文件下载（兼容IE8）</title>
-    <link href="http://lijingjing.top/blog/2016/07/22/%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD%EF%BC%88%E5%85%BC%E5%AE%B9IE8%EF%BC%89/"/>
-    <id>http://lijingjing.top/blog/2016/07/22/文件下载（兼容IE8）/</id>
-    <published>2016-07-22T14:23:09.000Z</published>
-    <updated>2016-07-22T14:55:25.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="我的愿望"><a href="#我的愿望" class="headerlink" title="我的愿望"></a>我的愿望</h1><p>&nbsp;我的愿望是，以后不要再遇到让我兼容IE8的项目了好吗！我真的是要分分钟爆炸啊，是的，我现在整个人就是一座活火山，随时随刻可以喷射火焰。从今天下午三点到现在，我一直在搞文件下载，虽然中间和aki一直在聊人生，聊理想，聊未来。聊着聊着感觉未来一片黑暗啊，人生真艰难，活着真不容易= =。。都没心情谈情怀了。<br>&nbsp;现在所有的工作的难点都在兼容性问题上，但是我真的不想去搞啊。意义在哪里。。。为何IE8还活在这个世上，宝宝不开心，宝宝生气了，宝宝真的不想搞IE8啊，我觉着迟早有一天我会被IE8搞死吧！好了，这篇文章的基调，就是吐槽。没办法，因为李菁菁在爆炸。</p>
-<h1 id="如果世上没有IE8"><a href="#如果世上没有IE8" class="headerlink" title="如果世上没有IE8"></a>如果世上没有IE8</h1><p>&nbsp;如果世上没有IE8，那世界将是美好人间吧。原谅我直接把项目中的代码贴上来了，因为已经很晚了，我现在不想去抽离函数了。我很懒，但是我有时候又很强迫症。。。So sad。下面的函数，对于IE&gt;9的版本来说，是OK的，其他浏览器也可以。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//附件下载</span></div><div class="line">   <span class="function"><span class="keyword">function</span> <span class="title">downloadAttachment</span>(<span class="params"></span>) </span>&#123;</div><div class="line"></div><div class="line">       <span class="keyword">var</span> rows = ReceivedFileGrid.getSelecteds();</div><div class="line">       <span class="keyword">if</span> (rows.length &gt; <span class="number">0</span>) &#123;</div><div class="line">           <span class="keyword">if</span> (confirm(<span class="string">"确定选中进行附件文件打包？"</span>)) &#123;</div><div class="line">               <span class="keyword">var</span> ids = [];</div><div class="line">               <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, l = rows.length; i &lt; l; i++) &#123;</div><div class="line">                   <span class="keyword">var</span> r = rows[i];</div><div class="line">                   ids.push(&#123;<span class="attr">id</span>: r.id&#125;);</div><div class="line">               &#125;</div><div class="line">           &#125;</div><div class="line"></div><div class="line">           <span class="keyword">var</span> json = <span class="built_in">JSON</span>.stringify(ids);</div><div class="line">           <span class="keyword">var</span> url = ip + <span class="string">'/multipleDownloadReceiveFiles'</span>;</div><div class="line">           <span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</div><div class="line">           xhr.open(<span class="string">'POST'</span>, url, <span class="literal">true</span>);</div><div class="line">           xhr.responseType = <span class="string">'arraybuffer'</span>;</div><div class="line">           xhr.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">               <span class="keyword">if</span> (<span class="keyword">this</span>.status === <span class="number">200</span>) &#123;</div><div class="line">                   <span class="keyword">var</span> filename = <span class="string">"附件下载.zip"</span>;</div><div class="line">                   <span class="keyword">var</span> disposition = xhr.getResponseHeader(<span class="string">'Content-Disposition'</span>);</div><div class="line">                   <span class="keyword">if</span> (disposition &amp;&amp; disposition.indexOf(<span class="string">'attachment'</span>) !== <span class="number">-1</span>) &#123;</div><div class="line">                       <span class="keyword">var</span> filenameRegex = <span class="regexp">/filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/</span>;</div><div class="line">                       <span class="keyword">var</span> matches = filenameRegex.exec(disposition);</div><div class="line">                       <span class="keyword">if</span> (matches != <span class="literal">null</span> &amp;&amp; matches[<span class="number">1</span>]) filename = matches[<span class="number">1</span>].replace(<span class="regexp">/['"]/g</span>, <span class="string">''</span>);</div><div class="line">                   &#125;</div><div class="line">                   <span class="keyword">var</span> type = xhr.getResponseHeader(<span class="string">'Content-Type'</span>);</div><div class="line"></div><div class="line">                   <span class="keyword">var</span> blob = <span class="keyword">new</span> Blob([<span class="keyword">this</span>.response], &#123;<span class="attr">type</span>: type&#125;);</div><div class="line">                   <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">window</span>.navigator.msSaveBlob !== <span class="string">'undefined'</span>) &#123;</div><div class="line">                       <span class="comment">// IE workaround for "HTML7007: One or more blob URLs were revoked by closing the blob for which they were created. These URLs will no longer resolve as the data backing the URL has been freed."</span></div><div class="line">                       <span class="built_in">window</span>.navigator.msSaveBlob(blob, filename);</div><div class="line">                   &#125; <span class="keyword">else</span> &#123;</div><div class="line">                       <span class="keyword">var</span> URL = <span class="built_in">window</span>.URL || <span class="built_in">window</span>.webkitURL;</div><div class="line">                       <span class="keyword">var</span> downloadUrl = URL.createObjectURL(blob);</div><div class="line"></div><div class="line">                       <span class="keyword">if</span> (filename) &#123;</div><div class="line">                           <span class="comment">// use HTML5 a[download] attribute to specify filename</span></div><div class="line">                           <span class="keyword">var</span> a = <span class="built_in">document</span>.createElement(<span class="string">"a"</span>);</div><div class="line">                           <span class="comment">// safari doesn't support this yet</span></div><div class="line">                           <span class="keyword">if</span> (<span class="keyword">typeof</span> a.download === <span class="string">'undefined'</span>) &#123;</div><div class="line">                               <span class="built_in">window</span>.location = downloadUrl;</div><div class="line">                           &#125; <span class="keyword">else</span> &#123;</div><div class="line">                               a.href = downloadUrl;</div><div class="line">                               a.download = filename;</div><div class="line">                               <span class="built_in">document</span>.body.appendChild(a);</div><div class="line">                               a.click();</div><div class="line">                           &#125;</div><div class="line">                       &#125; <span class="keyword">else</span> &#123;</div><div class="line">                           <span class="built_in">window</span>.location = downloadUrl;</div><div class="line">                       &#125;</div><div class="line"></div><div class="line">                       setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">                           URL.revokeObjectURL(downloadUrl);</div><div class="line">                       &#125;, <span class="number">100</span>); <span class="comment">// cleanup</span></div><div class="line">                   &#125;</div><div class="line">               &#125; <span class="keyword">else</span> &#123;</div><div class="line">                   alert(<span class="string">"您所选择的收文文件没有上传附件！！！"</span>);</div><div class="line">               &#125;</div><div class="line">           &#125;;</div><div class="line">           xhr.setRequestHeader(<span class="string">'Content-type'</span>, <span class="string">'application/json;charset=utf-8'</span>);</div><div class="line">           xhr.send(json);</div><div class="line"></div><div class="line">       &#125;</div><div class="line">       <span class="keyword">else</span> &#123;</div><div class="line">           alert(<span class="string">"请选中一条记录"</span>);</div><div class="line">           <span class="keyword">return</span>;</div><div class="line">       &#125;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
-<h1 id="也是走过弯路的"><a href="#也是走过弯路的" class="headerlink" title="也是走过弯路的"></a>也是走过弯路的</h1><p>&nbsp;由于脑子不清楚，我以为SaveAs可以拯救我。但是，妹子啊，这个是另存为啊好不好！脑子瓦特了吗。在纠结了半天为什么文件类型只能保存为txt和html后，终于反应过来了，被自己蠢哭了。 </p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">SaveContents</span>(<span class="params">data, filename</span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span> (<span class="built_in">document</span>.execCommand) &#123;</div><div class="line">            <span class="keyword">var</span> oWin = <span class="built_in">window</span>.open(<span class="string">"about:blank"</span>, <span class="string">"_blank"</span>);</div><div class="line">            <span class="comment">//To add a new line, you need to use &lt;br&gt;</span></div><div class="line">            oWin.document.open(<span class="string">"application/octet-stream"</span>, <span class="string">"replace"</span>);</div><div class="line">            oWin.document.charset = <span class="string">"utf-8"</span>;</div><div class="line">            oWin.document.write(data);</div><div class="line">            oWin.document.close();</div><div class="line"></div><div class="line">            <span class="comment">//Need to specify the filename that we are going to set here</span></div><div class="line">            <span class="keyword">var</span> success = oWin.document.execCommand(<span class="string">'SaveAs'</span>, <span class="literal">true</span>, filename);</div><div class="line">            oWin.close();</div><div class="line">            alert(success);</div><div class="line">            <span class="keyword">if</span> (!success) &#123;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<h1 id="就算是IE8，也没什么了不起"><a href="#就算是IE8，也没什么了不起" class="headerlink" title="就算是IE8，也没什么了不起"></a>就算是IE8，也没什么了不起</h1><p>&nbsp;首先，我们来看看，IE的版本吧。哎。 </p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//    IE8测试</span></div><div class="line">           <span class="keyword">var</span> Sys = &#123;&#125;;</div><div class="line">           <span class="keyword">var</span> ua = navigator.userAgent.toLowerCase();</div><div class="line">           <span class="keyword">if</span> (<span class="built_in">window</span>.ActiveXObject)</div><div class="line">               Sys.ie = ua.match(<span class="regexp">/msie ([\d.]+)/</span>)[<span class="number">1</span>];</div><div class="line"></div><div class="line">          <span class="keyword">if</span> (<span class="built_in">parseFloat</span>(Sys.ie) &lt;= <span class="number">9.0</span>) &#123;</div><div class="line">           ajax_download(url, ids, <span class="string">'ids'</span>);</div><div class="line">          &#125;</div></pre></td></tr></table></figure>
-<p>&nbsp;然后，利用iframe来解决下载保存问题。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// creates iframe and form in it with hidden field,</span></div><div class="line"><span class="comment">// then submit form with provided data</span></div><div class="line"><span class="comment">// url - form url</span></div><div class="line"><span class="comment">// data - data to form field</span></div><div class="line"><span class="comment">// input_name - form hidden input name</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">ajax_download</span>(<span class="params">url, data, input_name</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> $iframe,</div><div class="line">                iframe_doc,</div><div class="line">                iframe_html;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (($iframe = $(<span class="string">'#download_iframe'</span>)).length === <span class="number">0</span>) &#123;</div><div class="line">            $iframe = $(<span class="string">"&lt;iframe id='download_iframe'"</span> +</div><div class="line">                    <span class="string">" style='display: none' src='about:blank'&gt;&lt;/iframe&gt;"</span></div><div class="line">            ).appendTo(<span class="string">"body"</span>);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        iframe_doc = $iframe[<span class="number">0</span>].contentWindow || $iframe[<span class="number">0</span>].contentDocument;</div><div class="line">        <span class="keyword">if</span> (iframe_doc.document) &#123;</div><div class="line">            iframe_doc = iframe_doc.document;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        iframe_html = <span class="string">"&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;form id='myForm' method='POST' action='"</span> +</div><div class="line">                url + <span class="string">"'&gt;"</span> +</div><div class="line">                <span class="string">"&lt;input type=hidden name='"</span> + input_name + <span class="string">"' value='"</span> +</div><div class="line">                <span class="built_in">JSON</span>.stringify(data) + <span class="string">"'/&gt;&lt;/form&gt;"</span> +</div><div class="line">                <span class="string">"&lt;/body&gt;&lt;/html&gt;"</span>;</div><div class="line"></div><div class="line">        iframe_doc.open();</div><div class="line">        iframe_doc.write(iframe_html);</div><div class="line">        $(iframe_doc).find(<span class="string">'form'</span>).submit();</div><div class="line"></div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<h1 id="Spring也很坑啊"><a href="#Spring也很坑啊" class="headerlink" title="Spring也很坑啊"></a>Spring也很坑啊</h1><p>&nbsp;写好前台代码后，想测试下载功能，由于现在前台传过去的数据格式和之前不一样，原来<strong>content-type: application/json</strong>,现在由于是表单提交，所以<strong>content-type: application/x-www-form-urlencoded</strong>,没想到Spring对于content-type是application/x-www-form-urlencoded的表单数据处理，只能说不常见吧，我google了一晚上都没有取到前台传过去的表单数据，只能说我后台真的很渣。还好，我去烦佳薇了，在我的push下，我们终于把下载文件搞定了。作为组长真的很辛苦啊，幸好我不是组长，看着小明和佳薇都这么苦逼，我就庆幸自己不是组长。但是，每个项目前端的压力都在我身上，好害怕。前端的坑很多的。哎。人生啊人生。<br>&nbsp;其实佳薇后台的文件下载也可以写个blog的，但是我不是很清楚具体实现，之后可以学习一下，总结到这篇文章里。<br>&nbsp;下面是佳薇后台接口的实现。我也是很懒，只贴一下代码。<br>&nbsp;@ModelAttribute(“ids”)原来这样就可以拿到传过来的form表单中的值啊，好心酸。我还一直在纠结为什么MutiValueMap取不到，stackoverflow上的人都是在骗我吗，为什么我取不到，奇葩问题，可以之后找个Spring大神问一下。。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@RequestMapping</span>(value=<span class="string">"/multipleDownloadReceiveFiles"</span>, method = RequestMethod.POST, consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)</div><div class="line">    <span class="meta">@ResponseBody</span></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">multipleDownloadReceiveFiles</span><span class="params">(@ModelAttribute(<span class="string">"ids"</span>)</span> String receiveFileIdsStr,</span></div><div class="line">                                               HttpServletResponse response)&#123;</div><div class="line">        File result = <span class="keyword">null</span>;</div><div class="line">        ObjectMapper mapper = <span class="keyword">new</span> ObjectMapper();</div><div class="line">        List&lt;Map&lt;String, Integer&gt;&gt; receiveFileIds = <span class="keyword">new</span> ArrayList&lt;Map&lt;String, Integer&gt;&gt;();</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            receiveFileIds = mapper.readValue(receiveFileIdsStr, receiveFileIds.getClass());</div><div class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (receiveFileIds == <span class="keyword">null</span> || receiveFileIds.isEmpty()) &#123;</div><div class="line">            response.setStatus(HttpStatus.NO_CONTENT.value());</div><div class="line">            <span class="keyword">return</span> <span class="string">"没有要下载的内容"</span>;</div><div class="line">        &#125;</div><div class="line">        List&lt;ReceiveFile&gt; receiveFiles = <span class="keyword">new</span> ArrayList&lt;ReceiveFile&gt;();</div><div class="line">        Map&lt;String, List&lt;Attachment&gt;&gt; dcncodes_attachments = <span class="keyword">new</span> HashMap&lt;String, List&lt;Attachment&gt;&gt;();</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (Map&lt;String, Integer&gt; receiveFileId : receiveFileIds) &#123;</div><div class="line">            <span class="keyword">if</span> (receiveFileId != <span class="keyword">null</span> &amp;&amp; receiveFileId.containsKey(<span class="string">"id"</span>)) &#123;</div><div class="line">                ReceiveFile receiveFile = receiveFileDao.findOne(Long.valueOf((<span class="keyword">long</span>)receiveFileId.get(<span class="string">"id"</span>)));</div><div class="line">                <span class="keyword">if</span> (receiveFile != <span class="keyword">null</span>) &#123;</div><div class="line">                    receiveFiles.add(receiveFile);</div><div class="line">                    Project project = receiveFile.project;</div><div class="line">                    EngNoInfo engNoInfo = receiveFile.engNoInfo;</div><div class="line">                    List&lt;Attachment&gt; attachments1 = attachmentDao.findByFileIdAndTypeAndProjectAndEngNoInfoAndAlive(receiveFile.id, <span class="string">"R"</span>, project, engNoInfo, <span class="number">1</span>);</div><div class="line">                    <span class="keyword">if</span> (attachments1 != <span class="keyword">null</span> &amp;&amp; !attachments1.isEmpty()) &#123;</div><div class="line">                        <span class="keyword">for</span> (Attachment attachment : attachments1) &#123;</div><div class="line">                            <span class="keyword">if</span> (attachment != <span class="keyword">null</span> &amp;&amp; receiveFile.DCNCode != <span class="keyword">null</span>) &#123;</div><div class="line">                                List&lt;Attachment&gt; attachments = dcncodes_attachments.containsKey(receiveFile.DCNCode) ? dcncodes_attachments.get(receiveFile.DCNCode) : <span class="keyword">new</span> ArrayList&lt;Attachment&gt;();</div><div class="line">                                attachments.add(attachment);</div><div class="line">                                dcncodes_attachments.put(receiveFile.DCNCode, attachments);</div><div class="line">                            &#125;</div><div class="line">                        &#125;</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (dcncodes_attachments.isEmpty()) &#123;</div><div class="line">            response.setStatus(HttpStatus.NO_CONTENT.value());</div><div class="line">            <span class="keyword">return</span> <span class="string">"没有要下载的内容"</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        result = attachmentService.downloadAttachmentsByReceiveFiles(dcncodes_attachments, receiveFiles);</div><div class="line">        <span class="keyword">if</span> (result == <span class="keyword">null</span>) &#123;</div><div class="line">            response.setStatus(HttpStatus.NO_CONTENT.value());</div><div class="line">            <span class="keyword">return</span> <span class="string">"下载失败"</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            String fileDisplay = result.getAbsolutePath();</div><div class="line">            fileDisplay = fileDisplay.substring(fileDisplay.lastIndexOf(<span class="string">"/"</span>) + <span class="number">1</span>);</div><div class="line">            fileDisplay = URLEncoder.encode(fileDisplay,<span class="string">"UTF-8"</span>);</div><div class="line">            <span class="comment">// get your file as InputStream</span></div><div class="line">            InputStream is = <span class="keyword">new</span> FileInputStream(result);</div><div class="line">            response.setHeader(<span class="string">"Content-Disposition"</span>,<span class="string">"attachment;filename="</span> + fileDisplay);</div><div class="line">            response.setHeader(<span class="string">"Content-type"</span>, <span class="string">"application/octet-stream"</span>);</div><div class="line">            response.setHeader(<span class="string">"Content-Length"</span>, String.valueOf(result.length()));</div><div class="line">            response.setStatus(HttpStatus.OK.value());</div><div class="line">            <span class="comment">// copy it to response's OutputStream</span></div><div class="line">            org.apache.commons.io.IOUtils.copy(is, response.getOutputStream());</div><div class="line">            response.flushBuffer();</div><div class="line">            <span class="keyword">return</span> <span class="string">"下载成功"</span>;</div><div class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">        response.setStatus(HttpStatus.NO_CONTENT.value());</div><div class="line">        <span class="keyword">return</span> <span class="string">"下载异常"</span>;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<h1 id="还是开心点儿吧"><a href="#还是开心点儿吧" class="headerlink" title="还是开心点儿吧"></a>还是开心点儿吧</h1><p>&nbsp;其实这几天过得挺充实的。嗯，就这样。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      如何在IE8实现文件下载
-    
-    </summary>
-    
-      <category term="前端" scheme="http://lijingjing.top/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-      <category term="IE8" scheme="http://lijingjing.top/tags/IE8/"/>
     
   </entry>
   
